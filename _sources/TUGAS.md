@@ -110,5 +110,5 @@ Tahapan Deployment:
 - Pengujian: Mengecek sistem di lingkungan yang menyerupai kondisi asli.
 - Konfigurasi Produksi: Menyesuaikan server, database, dan infrastruktur agar sistem berjalan optimal.
 
-
-![Hasil Turnitin](image.png)
+# Hasil Turnitin
+![Turnitin](image.png)
