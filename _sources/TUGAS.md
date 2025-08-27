@@ -30,6 +30,7 @@ Tahapannya meliputi:
 
 # 4. Pembelajaran Terawasi (Supervised Learning)
 Supervised Learning adalah salah satu metode pembelajaran mesin yang menggunakan data berlabel (memiliki input dan output).
+
 Contoh teknik:
 - Naive Bayes
 - Support Vector Machines (SVM)
@@ -38,6 +39,7 @@ Contoh teknik:
 
 # 5. Pembelajaran Tak Terawasi (Unsupervised Learning)
 Unsupervised Learning digunakan untuk pengelompokan (clustering) atau asosiasi tanpa label data.
+
 Contoh penerapan:
 - Clustering Dokumen: Mengelompokkan dokumen berdasarkan kesamaan konten.
 Metode:
@@ -60,7 +62,8 @@ Proses Ekstraksi Informasi dari Dokumen Web:
 - Ringkasan Dokumen: Membuat versi singkat dari dokumen panjang.
 - Analisis Sentimen:
     - Menentukan polaritas opini (positif, netral, negatif).
-    - Contoh: Prediksi opini publik dari media sosial atau review produk.
+    - Contoh :
+    Prediksi opini publik dari media sosial atau review produk.
 
 - Klasifikasi Dokumen: Mengelompokkan dokumen ke kategori tertentu.
 - Clustering Dokumen: Mengelompokkan teks berdasarkan kesamaan.
@@ -69,6 +72,7 @@ Proses Ekstraksi Informasi dari Dokumen Web:
 # 6. Web Usage Mining
 
 Web Usage Mining adalah proses untuk mengidentifikasi pola dari data interaksi pengguna di website.
+
 Sumber Data:
 - Log server: Catatan aktivitas pengguna yang tersimpan di server.
 - Cookie pengguna: Data kecil yang menyimpan preferensi pengguna.
@@ -85,6 +89,7 @@ Contoh Penggunaan:
 # 7. Web Structure Mining (Graph Mining)
 
 Web Structure Mining adalah analisis pola hubungan antar halaman web melalui struktur hyperlink.
+
 Sumber Data:
 
 - Jaringan hyperlink (web graph): Relasi antar halaman melalui tautan.
@@ -98,6 +103,7 @@ Contoh Aplikasi:
 # 8. Deployment System
 
 Deployment adalah tahap akhir ketika hasil analisis atau model diimplementasikan dalam sistem nyata.
+
 Tahapan Deployment:
 
 - Persiapan: Memastikan sistem siap dipublikasikan.
