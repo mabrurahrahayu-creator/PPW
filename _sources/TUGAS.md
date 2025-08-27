@@ -37,7 +37,7 @@ Text mining dapat digunakan untuk berbagai tujuan praktis, seperti:
     - Pengelompokan Dokumen: membagi dokumen ke dalam kelompok berdasarkan kemiripan, misalnya untuk sistem rekomendasi.
     - Ekstraksi Kata Kunci: menemukan istilah atau frasa penting dalam teks.
 
-3. Klasifikasi Dokumen
+## Klasifikasi Dokumen
 - Tujuan Klasifikasi
 Proses klasifikasi bertujuan agar dokumen atau gambar yang sebelumnya belum pernah diolah yang dimana dapat ditempatkan ke dalam kategori yang sesuai dengan tingkat akurasi setinggi mungkin.
 
@@ -51,7 +51,7 @@ Beberapa teknik populer dalam klasifikasi meliputi:
     - Support Vector Machines (SVM)
     - Jaringan Saraf Tiruan (Deep Neural Networks)- Transformers
 
-4. Pengelompokan Konten (Content Clustering)
+## Pengelompokan Konten (Content Clustering)
 - Tujuan Pengelompokan (Clustering)
 Diberikan sekumpulan dokumen beserta ukuran kesamaan antar dokumen, tujuan clustering adalah membentuk kelompok sedemikian rupa sehingga:
     - Dokumen di dalam satu kelompok memiliki kemiripan yang tinggi.
@@ -62,13 +62,13 @@ Beberapa aplikasi clustering antara lain:
     - Pengelompokan Hasil Pencarian: menyusun hasil search engine agar dokumen sejenis berada dalam satu kelompok.
     - Penemuan Topik (Topic Discovery): menemukan tema atau topik tersembunyi dalam kumpulan dokumen.
 
-5. Analisa Sentimen
+3. Analisa Sentimen
 - Tujuan Analisis Sentimen
 Tugas utama dalam analisis sentimen adalah menentukan polaritas suatu teks, baik pada tingkat dokumen, kalimat, maupun fitur/atribut tertentu. Polaritas ini biasanya dikategorikan sebagai positif, netral, atau negatif.
 - Contoh Penerapan Analisis Sentimen
     - Prediksi Suara Publik: menganalisis opini dari tweet atau postingan media sosial untuk mengetahui sikap masyarakat terhadap isu tertentu, misalnya politik.- - Analisis Ulasan Produk: menilai kepuasan pelanggan terhadap produk atau layanan, misalnya terkait kualitas, desain, atau harga.
 
-6. Ekstraksi Informasi (Information Extraction)
+4. Ekstraksi Informasi (Information Extraction)
 - Tujuan Estraksi 
 Mengambil informasi terstruktur secara otomatis dari konten web yang awalnya tidak terstruktur atau semi-terstruktur.
 
