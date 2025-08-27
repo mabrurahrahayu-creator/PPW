@@ -5,7 +5,7 @@ Penambangan web adalah proses mencari dan mengekstrak informasi dari internet de
 2. **Web Content Mining** : Web content mining bertujuan untuk mengekstrak informasi atau pengetahuan yang berguna dari isi halaman web. Misalnya, kita dapat secara otomatis mengklasifikasikan dan mengelompokkan halaman web berdasarkan topiknya. Tugas ini serupa dengan data mining konvensional, tetapi memungkinkan kita untuk menambang data spesifik di situs web, seperti deskripsi produk, postingan forum, atau ulasan konsumen, untuk berbagai tujuan. Hal ini tidak tersedia dalam data mining tradisional.
 3. **Web Usage Mining** : Data penggunaan situs web biasanya dikumpulkan dari Web Server dan Server Aplikasi sebagai sumber utama. Data ini berupa log, yang tercatat setiap kali pengguna berinteraksi dengan halaman web. Berdasarkan sumbernya, log dapat dibagi menjadi tiga jenis: sisi server, sisi klien/pengguna, dan sisi proxy. Selain itu, terdapat sumber data tambahan, seperti cookies, data demografis, dan informasi lain yang relevan.
 
-## Definisi
+# 1. Definisi
 Web mining adalah penerapan metode data mining untuk menemukan informasi secara otomatis dari layanan web (Etzioni, 1996; CACM 39). Tujuannya adalah mengekstrak pola yang bermanfaat dari struktur link, isi halaman web, dan perilaku pengguna (Bing Liu, 2007).
 
 Tantangan Pemrosesan Data Web
@@ -18,17 +18,17 @@ Tantangan Pemrosesan Data Web
     - Tidak adanya domain spesifik yang jelas karena web bersifat umum.
     - Web mencakup beragam konten dan jenis data.
 
-# Web Crawling
+# 2. Web Crawling
 Web crawling adalah proses mengumpulkan dan mengindeks data dari internet menggunakan program otomatis seperti crawler, spider, atau bot. Hasil crawling disimpan dalam database mesin pencari agar informasi dapat diakses dengan cepat. Proses ini sangat penting karena tanpa crawling, search engine tidak dapat menampilkan hasil pencarian yang relevan. Crawling juga dikenal sebagai indexing, yaitu membaca dan menyimpan seluruh konten web untuk kebutuhan pencarian.
 
-# Web Data Preprocessing
+# 3. Web Data Preprocessing
 Data dari web umumnya mentah, tidak terstruktur, dan banyak mengandung noise. Oleh karena itu, perlu dilakukan preprocessing agar siap dianalisis.
 Tahapannya meliputi:
 1. Data Cleaning – menghapus data tidak konsisten, memperbaiki nilai hilang, serta mengurangi noise.
 2. Data Integration – menggabungkan data dari berbagai sumber menjadi satu dataset besar.
 3. Data Transformation – mengubah format, struktur, atau nilai data agar sesuai dengan kebutuhan analisis.
 
-# Pembelajaran Terawasi (Supervised Learning)
+# 4. Pembelajaran Terawasi (Supervised Learning)
 Supervised Learning adalah salah satu metode pembelajaran mesin yang menggunakan data berlabel (memiliki input dan output).
 Contoh teknik:
 - Naive Bayes
@@ -36,7 +36,7 @@ Contoh teknik:
 - Jaringan Saraf Tiruan (Deep Neural Networks)
 - Transformers
 
-# Pembelajaran Tak Terawasi (Unsupervised Learning)
+# 5. Pembelajaran Tak Terawasi (Unsupervised Learning)
 Unsupervised Learning digunakan untuk pengelompokan (clustering) atau asosiasi tanpa label data.
 Contoh penerapan:
 - Clustering Dokumen: Mengelompokkan dokumen berdasarkan kesamaan konten.
@@ -45,7 +45,7 @@ Metode:
 Ukuran kesamaan:
 - Cosine Similarity, Jaccard, Embedding Similarity.
 
-## Web Content Mining (Text Mining)
+## A. Web Content Mining (Text Mining)
 Proses Ekstraksi Informasi dari Dokumen Web:
 - Teks (Text Mining): Mengolah konten berbasis teks, seperti artikel, ulasan produk, atau komentar.
 - Gambar (Image Mining): Mengekstrak informasi dari data visual, misalnya foto produk atau ilustrasi.
@@ -53,7 +53,7 @@ Proses Ekstraksi Informasi dari Dokumen Web:
 - Video (Video Mining): Mengambil informasi dari konten multimedia seperti video streaming atau klip.
 - Data Terstruktur: Memanfaatkan data dalam format tabel, daftar, atau basis data.
 
-## Contoh Implementasi Text Mining:
+## B. Contoh Implementasi Text Mining:
 
 - Ekstraksi Informasi: Mengambil entitas atau data penting dari teks.
 - Pemodelan Topik (Topic Modelling): Mengidentifikasi tema utama dalam kumpulan dokumen.
@@ -66,7 +66,7 @@ Proses Ekstraksi Informasi dari Dokumen Web:
 - Clustering Dokumen: Mengelompokkan teks berdasarkan kesamaan.
 - Ekstraksi Kata Kunci: Mengambil istilah atau frasa yang paling relevan.
 
-# Web Usage Mining
+# 6. Web Usage Mining
 
 Web Usage Mining adalah proses untuk mengidentifikasi pola dari data interaksi pengguna di website.
 Sumber Data:
@@ -82,7 +82,7 @@ Contoh Penggunaan:
 - Sistem Rekomendasi Produk: Memberikan saran produk berdasarkan riwayat pengguna.
 - Pencarian Personal: Menyesuaikan hasil pencarian sesuai preferensi.
 
-# Web Structure Mining (Graph Mining)
+# 7. Web Structure Mining (Graph Mining)
 
 Web Structure Mining adalah analisis pola hubungan antar halaman web melalui struktur hyperlink.
 Sumber Data:
@@ -95,7 +95,7 @@ Contoh Aplikasi:
 - Analisis Jaringan Sosial: Mengidentifikasi aktor penting dalam jejaring.
 - Deteksi Komunitas: Menemukan kelompok pengguna yang saling berinteraksi intensif.
 
-# Deployment System
+# 8. Deployment System
 
 Deployment adalah tahap akhir ketika hasil analisis atau model diimplementasikan dalam sistem nyata.
 Tahapan Deployment:

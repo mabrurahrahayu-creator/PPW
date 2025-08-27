@@ -187,6 +187,7 @@
 
 
 
+
 </ul>
 
     </div>
@@ -382,21 +383,19 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Pengantar Web Mining</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#definisi">Definisi</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Pengantar Web Mining</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#definisi">1. Definisi</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#web-crawling">2. Web Crawling</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#web-data-preprocessing">3. Web Data Preprocessing</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#pembelajaran-terawasi-supervised-learning">4. Pembelajaran Terawasi (Supervised Learning)</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#pembelajaran-tak-terawasi-unsupervised-learning">5. Pembelajaran Tak Terawasi (Unsupervised Learning)</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a-web-content-mining-text-mining">A. Web Content Mining (Text Mining)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#b-contoh-implementasi-text-mining">B. Contoh Implementasi Text Mining:</a></li>
 </ul>
 </li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#web-crawling">Web Crawling</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#web-data-preprocessing">Web Data Preprocessing</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#pembelajaran-terawasi-supervised-learning">Pembelajaran Terawasi (Supervised Learning)</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#pembelajaran-tak-terawasi-unsupervised-learning">Pembelajaran Tak Terawasi (Unsupervised Learning)</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#web-content-mining-text-mining">Web Content Mining (Text Mining)</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#contoh-implementasi-text-mining">Contoh Implementasi Text Mining:</a></li>
-</ul>
-</li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#web-usage-mining">Web Usage Mining</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#web-structure-mining-graph-mining">Web Structure Mining (Graph Mining)</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#deployment-system">Deployment System</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#web-usage-mining">6. Web Usage Mining</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#web-structure-mining-graph-mining">7. Web Structure Mining (Graph Mining)</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#deployment-system">8. Deployment System</a></li>
 </ul>
 
             </nav>
@@ -417,8 +416,9 @@ document.write(`
 <li><p><strong>Web Content Mining</strong> : Web content mining bertujuan untuk mengekstrak informasi atau pengetahuan yang berguna dari isi halaman web. Misalnya, kita dapat secara otomatis mengklasifikasikan dan mengelompokkan halaman web berdasarkan topiknya. Tugas ini serupa dengan data mining konvensional, tetapi memungkinkan kita untuk menambang data spesifik di situs web, seperti deskripsi produk, postingan forum, atau ulasan konsumen, untuk berbagai tujuan. Hal ini tidak tersedia dalam data mining tradisional.</p></li>
 <li><p><strong>Web Usage Mining</strong> : Data penggunaan situs web biasanya dikumpulkan dari Web Server dan Server Aplikasi sebagai sumber utama. Data ini berupa log, yang tercatat setiap kali pengguna berinteraksi dengan halaman web. Berdasarkan sumbernya, log dapat dibagi menjadi tiga jenis: sisi server, sisi klien/pengguna, dan sisi proxy. Selain itu, terdapat sumber data tambahan, seperti cookies, data demografis, dan informasi lain yang relevan.</p></li>
 </ol>
-<section id="definisi">
-<h2>Definisi<a class="headerlink" href="#definisi" title="Link to this heading">#</a></h2>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="definisi">
+<h1>1. Definisi<a class="headerlink" href="#definisi" title="Link to this heading">#</a></h1>
 <p>Web mining adalah penerapan metode data mining untuk menemukan informasi secara otomatis dari layanan web (Etzioni, 1996; CACM 39). Tujuannya adalah mengekstrak pola yang bermanfaat dari struktur link, isi halaman web, dan perilaku pengguna (Bing Liu, 2007).</p>
 <p>Tantangan Pemrosesan Data Web</p>
 <ul class="simple">
@@ -435,13 +435,12 @@ document.write(`
 </li>
 </ul>
 </section>
-</section>
 <section class="tex2jax_ignore mathjax_ignore" id="web-crawling">
-<h1>Web Crawling<a class="headerlink" href="#web-crawling" title="Link to this heading">#</a></h1>
+<h1>2. Web Crawling<a class="headerlink" href="#web-crawling" title="Link to this heading">#</a></h1>
 <p>Web crawling adalah proses mengumpulkan dan mengindeks data dari internet menggunakan program otomatis seperti crawler, spider, atau bot. Hasil crawling disimpan dalam database mesin pencari agar informasi dapat diakses dengan cepat. Proses ini sangat penting karena tanpa crawling, search engine tidak dapat menampilkan hasil pencarian yang relevan. Crawling juga dikenal sebagai indexing, yaitu membaca dan menyimpan seluruh konten web untuk kebutuhan pencarian.</p>
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="web-data-preprocessing">
-<h1>Web Data Preprocessing<a class="headerlink" href="#web-data-preprocessing" title="Link to this heading">#</a></h1>
+<h1>3. Web Data Preprocessing<a class="headerlink" href="#web-data-preprocessing" title="Link to this heading">#</a></h1>
 <p>Data dari web umumnya mentah, tidak terstruktur, dan banyak mengandung noise. Oleh karena itu, perlu dilakukan preprocessing agar siap dianalisis.
 Tahapannya meliputi:</p>
 <ol class="arabic simple">
@@ -451,7 +450,7 @@ Tahapannya meliputi:</p>
 </ol>
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="pembelajaran-terawasi-supervised-learning">
-<h1>Pembelajaran Terawasi (Supervised Learning)<a class="headerlink" href="#pembelajaran-terawasi-supervised-learning" title="Link to this heading">#</a></h1>
+<h1>4. Pembelajaran Terawasi (Supervised Learning)<a class="headerlink" href="#pembelajaran-terawasi-supervised-learning" title="Link to this heading">#</a></h1>
 <p>Supervised Learning adalah salah satu metode pembelajaran mesin yang menggunakan data berlabel (memiliki input dan output).
 Contoh teknik:</p>
 <ul class="simple">
@@ -462,7 +461,7 @@ Contoh teknik:</p>
 </ul>
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="pembelajaran-tak-terawasi-unsupervised-learning">
-<h1>Pembelajaran Tak Terawasi (Unsupervised Learning)<a class="headerlink" href="#pembelajaran-tak-terawasi-unsupervised-learning" title="Link to this heading">#</a></h1>
+<h1>5. Pembelajaran Tak Terawasi (Unsupervised Learning)<a class="headerlink" href="#pembelajaran-tak-terawasi-unsupervised-learning" title="Link to this heading">#</a></h1>
 <p>Unsupervised Learning digunakan untuk pengelompokan (clustering) atau asosiasi tanpa label data.
 Contoh penerapan:</p>
 <ul class="simple">
@@ -472,8 +471,8 @@ Metode:</p></li>
 Ukuran kesamaan:</p></li>
 <li><p>Cosine Similarity, Jaccard, Embedding Similarity.</p></li>
 </ul>
-<section id="web-content-mining-text-mining">
-<h2>Web Content Mining (Text Mining)<a class="headerlink" href="#web-content-mining-text-mining" title="Link to this heading">#</a></h2>
+<section id="a-web-content-mining-text-mining">
+<h2>A. Web Content Mining (Text Mining)<a class="headerlink" href="#a-web-content-mining-text-mining" title="Link to this heading">#</a></h2>
 <p>Proses Ekstraksi Informasi dari Dokumen Web:</p>
 <ul class="simple">
 <li><p>Teks (Text Mining): Mengolah konten berbasis teks, seperti artikel, ulasan produk, atau komentar.</p></li>
@@ -483,8 +482,8 @@ Ukuran kesamaan:</p></li>
 <li><p>Data Terstruktur: Memanfaatkan data dalam format tabel, daftar, atau basis data.</p></li>
 </ul>
 </section>
-<section id="contoh-implementasi-text-mining">
-<h2>Contoh Implementasi Text Mining:<a class="headerlink" href="#contoh-implementasi-text-mining" title="Link to this heading">#</a></h2>
+<section id="b-contoh-implementasi-text-mining">
+<h2>B. Contoh Implementasi Text Mining:<a class="headerlink" href="#b-contoh-implementasi-text-mining" title="Link to this heading">#</a></h2>
 <ul class="simple">
 <li><p>Ekstraksi Informasi: Mengambil entitas atau data penting dari teks.</p></li>
 <li><p>Pemodelan Topik (Topic Modelling): Mengidentifikasi tema utama dalam kumpulan dokumen.</p></li>
@@ -502,7 +501,7 @@ Ukuran kesamaan:</p></li>
 </section>
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="web-usage-mining">
-<h1>Web Usage Mining<a class="headerlink" href="#web-usage-mining" title="Link to this heading">#</a></h1>
+<h1>6. Web Usage Mining<a class="headerlink" href="#web-usage-mining" title="Link to this heading">#</a></h1>
 <p>Web Usage Mining adalah proses untuk mengidentifikasi pola dari data interaksi pengguna di website.
 Sumber Data:</p>
 <ul class="simple">
@@ -522,7 +521,7 @@ Sumber Data:</p>
 </ul>
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="web-structure-mining-graph-mining">
-<h1>Web Structure Mining (Graph Mining)<a class="headerlink" href="#web-structure-mining-graph-mining" title="Link to this heading">#</a></h1>
+<h1>7. Web Structure Mining (Graph Mining)<a class="headerlink" href="#web-structure-mining-graph-mining" title="Link to this heading">#</a></h1>
 <p>Web Structure Mining adalah analisis pola hubungan antar halaman web melalui struktur hyperlink.
 Sumber Data:</p>
 <ul class="simple">
@@ -537,7 +536,7 @@ Sumber Data:</p>
 </ul>
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="deployment-system">
-<h1>Deployment System<a class="headerlink" href="#deployment-system" title="Link to this heading">#</a></h1>
+<h1>8. Deployment System<a class="headerlink" href="#deployment-system" title="Link to this heading">#</a></h1>
 <p>Deployment adalah tahap akhir ketika hasil analisis atau model diimplementasikan dalam sistem nyata.
 Tahapan Deployment:</p>
 <ul class="simple">
@@ -602,21 +601,19 @@ Tahapan Deployment:</p>
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Pengantar Web Mining</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#definisi">Definisi</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Pengantar Web Mining</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#definisi">1. Definisi</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#web-crawling">2. Web Crawling</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#web-data-preprocessing">3. Web Data Preprocessing</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#pembelajaran-terawasi-supervised-learning">4. Pembelajaran Terawasi (Supervised Learning)</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#pembelajaran-tak-terawasi-unsupervised-learning">5. Pembelajaran Tak Terawasi (Unsupervised Learning)</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a-web-content-mining-text-mining">A. Web Content Mining (Text Mining)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#b-contoh-implementasi-text-mining">B. Contoh Implementasi Text Mining:</a></li>
 </ul>
 </li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#web-crawling">Web Crawling</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#web-data-preprocessing">Web Data Preprocessing</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#pembelajaran-terawasi-supervised-learning">Pembelajaran Terawasi (Supervised Learning)</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#pembelajaran-tak-terawasi-unsupervised-learning">Pembelajaran Tak Terawasi (Unsupervised Learning)</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#web-content-mining-text-mining">Web Content Mining (Text Mining)</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#contoh-implementasi-text-mining">Contoh Implementasi Text Mining:</a></li>
-</ul>
-</li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#web-usage-mining">Web Usage Mining</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#web-structure-mining-graph-mining">Web Structure Mining (Graph Mining)</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#deployment-system">Deployment System</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#web-usage-mining">6. Web Usage Mining</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#web-structure-mining-graph-mining">7. Web Structure Mining (Graph Mining)</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#deployment-system">8. Deployment System</a></li>
 </ul>
 
   </nav></div>
