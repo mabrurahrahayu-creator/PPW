@@ -37,76 +37,71 @@ Text mining dapat digunakan untuk berbagai tujuan praktis, seperti:
     - Pengelompokan Dokumen: membagi dokumen ke dalam kelompok berdasarkan kemiripan, misalnya untuk sistem rekomendasi.
     - Ekstraksi Kata Kunci: menemukan istilah atau frasa penting dalam teks.
 
-## Klasifikasi Dokumen
-Tujuan Klasifikasi
-Proses klasifikasi bertujuan agar dokumen atau gambar yang sebelumnya belum pernah diolah dapat ditempatkan ke dalam kategori yang sesuai dengan tingkat akurasi setinggi mungkin.
+# Klasifikasi Dokumen
+- Tujuan Klasifikasi
+Proses klasifikasi bertujuan agar dokumen atau gambar yang sebelumnya belum pernah diolah yang dimana dapat ditempatkan ke dalam kategori yang sesuai dengan tingkat akurasi setinggi mungkin.
 
-Contoh Penerapan
-Beberapa bidang yang memanfaatkan klasifikasi antara lain:
-- Pengelompokan Berita: menempatkan artikel ke kategori topik tertentu.
-- Pengelompokan Produk: mengklasifikasikan produk berdasarkan jenis atau kategori.
-- Deteksi Spam: mengenali pesan atau konten yang bersifat spam.
+- Contoh Penerapan
+Beberapa bidang yang memanfaatkan pada klasifikasi antara lain:
+    - Pengelompokan Berita: menempatkan artikel ke kategori topik tertentu.- Pengelompokan Produk: mengklasifikasikan produk berdasarkan jenis atau kategori.- Deteksi Spam: mengenali pesan atau konten yang bersifat spam.
 
-Metode Klasifikasi yang Umum Digunakan
+- Metode Klasifikasi yang Umum Digunakan
 Beberapa teknik populer dalam klasifikasi meliputi:
-- Naive Bayes
-- Support Vector Machines (SVM)
-- Jaringan Saraf Tiruan (Deep Neural Networks)
-- Transformers
+    - Naive Bayes
+    - Support Vector Machines (SVM)
+    - Jaringan Saraf Tiruan (Deep Neural Networks)- Transformers
 
-## Pengelompokan Konten (Content Clustering)
-Tujuan Pengelompokan (Clustering)
+# Pengelompokan Konten (Content Clustering)
+- Tujuan Pengelompokan (Clustering)
 Diberikan sekumpulan dokumen beserta ukuran kesamaan antar dokumen, tujuan clustering adalah membentuk kelompok sedemikian rupa sehingga:
-- Dokumen di dalam satu kelompok memiliki kemiripan yang tinggi.
-- Dokumen di kelompok yang berbeda memiliki kemiripan yang rendah.
+    - Dokumen di dalam satu kelompok memiliki kemiripan yang tinggi.
+    - Dokumen di kelompok yang berbeda memiliki kemiripan yang rendah.
 
-Contoh Penerapan
+- Contoh Penerapan
 Beberapa aplikasi clustering antara lain:
-- Pengelompokan Hasil Pencarian: menyusun hasil search engine agar dokumen sejenis berada dalam satu kelompok.
-- Penemuan Topik (Topic Discovery): menemukan tema atau topik tersembunyi dalam kumpulan dokumen.
+    - Pengelompokan Hasil Pencarian: menyusun hasil search engine agar dokumen sejenis berada dalam satu kelompok.
+    - Penemuan Topik (Topic Discovery): menemukan tema atau topik tersembunyi dalam kumpulan dokumen.
 
-## Analisa Sentimen
-Tujuan Analisis Sentimen
+# Analisa Sentimen
+## Tujuan Analisis Sentimen
 Tugas utama dalam analisis sentimen adalah menentukan polaritas suatu teks, baik pada tingkat dokumen, kalimat, maupun fitur/atribut tertentu. Polaritas ini biasanya dikategorikan sebagai positif, netral, atau negatif.
+- Contoh Penerapan Analisis Sentimen
+    - Prediksi Suara Publik: menganalisis opini dari tweet atau postingan media sosial untuk mengetahui sikap masyarakat terhadap isu tertentu, misalnya politik.- - Analisis Ulasan Produk: menilai kepuasan pelanggan terhadap produk atau layanan, misalnya terkait kualitas, desain, atau harga.
 
-## Contoh Penerapan Analisis Sentimen
-- Prediksi Suara Publik: menganalisis opini dari tweet atau postingan media sosial untuk mengetahui sikap masyarakat terhadap isu tertentu, misalnya politik.
-- Analisis Ulasan Produk: menilai kepuasan pelanggan terhadap produk atau layanan, misalnya terkait kualitas, desain, atau harga.
-
-## Ekstraksi Informasi (Information Extraction)
+# Ekstraksi Informasi (Information Extraction)
 ## Tujuan Estraksi 
 Mengambil informasi terstruktur secara otomatis dari konten web yang awalnya tidak terstruktur atau semi-terstruktur.
 
-Tantangan
-- Informasi tersembunyi dalam format HTML seperti tabel, DOM tree, dan teks bebas.
-- Perlu menangani data yang diperoleh dari API dan berbagai format.
+- Tantangan
+    - Informasi tersembunyi dalam format HTML seperti tabel, DOM tree, dan teks bebas.-
+    - Perlu menangani data yang diperoleh dari API dan berbagai format.
 
-## Pendekatan Estraksi
-- Menggunakan parser HTML untuk mengekstrak data.
-- Memanfaatkan model berbasis LLM (Large Language Model) untuk memahami konteks teks.
+- Pendekatan Estraksi
+    - Menggunakan parser HTML untuk mengekstrak data.
+    - Memanfaatkan model berbasis LLM (Large Language Model) untuk memahami konteks teks.
 
 # Web Usage Mining
 Pengertian: Proses menemukan pola dari data yang dihasilkan oleh aktivitas pengguna di web, seperti kunjungan halaman atau transaksi.
-## Sumber Data
-- Log server.
-- Cookie pengguna.
-- Jejak klik (clickstream) yang merekam urutan interaksi pengguna.
+- Sumber Data
+    - Log server.
+    - Cookie pengguna.
+    - Jejak klik (clickstream) yang merekam urutan interaksi pengguna.
 ## Tujuan Web Usage mining
 - Memahami perilaku pengguna.
 - Membangun profil pengguna untuk memberikan layanan yang lebih personal.
-## Contoh Aplikasi Web
-- Rekomendasi Produk: Sistem yang menyarankan produk berdasarkan kebiasaan pengguna.
-- Pencarian Personal: Menyesuaikan hasil pencarian dengan preferensi pengguna.
+- Contoh Aplikasi Web
+    - Rekomendasi Produk: Sistem yang menyarankan produk berdasarkan kebiasaan pengguna.
+    - Pencarian Personal: Menyesuaikan hasil pencarian dengan preferensi pengguna.
 
 # Web Structure Mining
 Pengertian: Proses analisis pola yang terdapat pada struktur hyperlink dan jaringan sosial di web.
-## Sumber Data
-- Jaringan hyperlink (web graph).
-- Data dari media sosial, forum, dan komunikasi online.
-## Contoh Aplikasi
-- PageRank: Digunakan Google untuk menentukan urutan hasil pencarian.
-- Analisis Jaringan Sosial: Mencari aktor penting atau influencer.
-- Deteksi Komunitas: Mengidentifikasi kelompok pengguna yang memiliki interaksi intensif.
+- Sumber Data
+    - Jaringan hyperlink (web graph).
+    - Data dari media sosial, forum, dan komunikasi online.
+- Contoh Aplikasi
+    - PageRank: Digunakan Google untuk menentukan urutan hasil pencarian.
+    - Analisis Jaringan Sosial: Mencari aktor penting atau influencer.
+    - Deteksi Komunitas: Mengidentifikasi kelompok pengguna yang memiliki interaksi intensif.
 
 # Proses Web Mining
 Tahapan utama dalam web mining meliputi:

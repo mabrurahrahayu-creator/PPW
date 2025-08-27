@@ -186,6 +186,10 @@
 
 
 
+
+
+
+
 </ul>
 
     </div>
@@ -384,27 +388,22 @@ document.write(`
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Pengantar Web Mining</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#definisi">Definisi</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#tantangan-pemrosesan-data-web">Tantangan Pemrosesan Data Web</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#penambangan-isi-web-content-mining">Penambangan Isi Web (Content Mining)</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#klasifikasi-dokumen">Klasifikasi Dokumen</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pengelompokan-konten-content-clustering">Pengelompokan Konten (Content Clustering)</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#analisa-sentimen">Analisa Sentimen</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#contoh-penerapan-analisis-sentimen">Contoh Penerapan Analisis Sentimen</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ekstraksi-informasi-information-extraction">Ekstraksi Informasi (Information Extraction)</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#penambangan-isi-web-content-mining">Penambangan Isi Web (Content Mining)</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#klasifikasi-dokumen">Klasifikasi Dokumen</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#pengelompokan-konten-content-clustering">Pengelompokan Konten (Content Clustering)</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#analisa-sentimen">Analisa Sentimen</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tujuan-analisis-sentimen">Tujuan Analisis Sentimen</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#ekstraksi-informasi-information-extraction">Ekstraksi Informasi (Information Extraction)</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tujuan-estraksi">Tujuan Estraksi</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pendekatan-estraksi">Pendekatan Estraksi</a></li>
 </ul>
 </li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#web-usage-mining">Web Usage Mining</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sumber-data">Sumber Data</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tujuan-web-usage-mining">Tujuan Web Usage mining</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#contoh-aplikasi-web">Contoh Aplikasi Web</a></li>
 </ul>
 </li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#web-structure-mining">Web Structure Mining</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Sumber Data</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#contoh-aplikasi">Contoh Aplikasi</a></li>
-</ul>
-</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#web-structure-mining">Web Structure Mining</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#proses-web-mining">Proses Web Mining</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pengumpulan-dan-eksplorasi-data">Pengumpulan dan Eksplorasi Data</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pra-pemrosesan-dan-transformasi">Pra-pemrosesan dan Transformasi</a></li>
@@ -477,117 +476,126 @@ Text mining dapat digunakan untuk berbagai tujuan praktis, seperti:</p>
 </ul>
 </li>
 </ol>
-<section id="klasifikasi-dokumen">
-<h2>Klasifikasi Dokumen<a class="headerlink" href="#klasifikasi-dokumen" title="Link to this heading">#</a></h2>
-<p>Tujuan Klasifikasi
-Proses klasifikasi bertujuan agar dokumen atau gambar yang sebelumnya belum pernah diolah dapat ditempatkan ke dalam kategori yang sesuai dengan tingkat akurasi setinggi mungkin.</p>
-<p>Contoh Penerapan
-Beberapa bidang yang memanfaatkan klasifikasi antara lain:</p>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="klasifikasi-dokumen">
+<h1>Klasifikasi Dokumen<a class="headerlink" href="#klasifikasi-dokumen" title="Link to this heading">#</a></h1>
 <ul class="simple">
-<li><p>Pengelompokan Berita: menempatkan artikel ke kategori topik tertentu.</p></li>
-<li><p>Pengelompokan Produk: mengklasifikasikan produk berdasarkan jenis atau kategori.</p></li>
-<li><p>Deteksi Spam: mengenali pesan atau konten yang bersifat spam.</p></li>
+<li><p>Tujuan Klasifikasi
+Proses klasifikasi bertujuan agar dokumen atau gambar yang sebelumnya belum pernah diolah yang dimana dapat ditempatkan ke dalam kategori yang sesuai dengan tingkat akurasi setinggi mungkin.</p></li>
+<li><p>Contoh Penerapan
+Beberapa bidang yang memanfaatkan pada klasifikasi antara lain:</p>
+<ul>
+<li><p>Pengelompokan Berita: menempatkan artikel ke kategori topik tertentu.- Pengelompokan Produk: mengklasifikasikan produk berdasarkan jenis atau kategori.- Deteksi Spam: mengenali pesan atau konten yang bersifat spam.</p></li>
 </ul>
-<p>Metode Klasifikasi yang Umum Digunakan
+</li>
+<li><p>Metode Klasifikasi yang Umum Digunakan
 Beberapa teknik populer dalam klasifikasi meliputi:</p>
-<ul class="simple">
+<ul>
 <li><p>Naive Bayes</p></li>
 <li><p>Support Vector Machines (SVM)</p></li>
-<li><p>Jaringan Saraf Tiruan (Deep Neural Networks)</p></li>
-<li><p>Transformers</p></li>
+<li><p>Jaringan Saraf Tiruan (Deep Neural Networks)- Transformers</p></li>
+</ul>
+</li>
 </ul>
 </section>
-<section id="pengelompokan-konten-content-clustering">
-<h2>Pengelompokan Konten (Content Clustering)<a class="headerlink" href="#pengelompokan-konten-content-clustering" title="Link to this heading">#</a></h2>
-<p>Tujuan Pengelompokan (Clustering)
-Diberikan sekumpulan dokumen beserta ukuran kesamaan antar dokumen, tujuan clustering adalah membentuk kelompok sedemikian rupa sehingga:</p>
+<section class="tex2jax_ignore mathjax_ignore" id="pengelompokan-konten-content-clustering">
+<h1>Pengelompokan Konten (Content Clustering)<a class="headerlink" href="#pengelompokan-konten-content-clustering" title="Link to this heading">#</a></h1>
 <ul class="simple">
+<li><p>Tujuan Pengelompokan (Clustering)
+Diberikan sekumpulan dokumen beserta ukuran kesamaan antar dokumen, tujuan clustering adalah membentuk kelompok sedemikian rupa sehingga:</p>
+<ul>
 <li><p>Dokumen di dalam satu kelompok memiliki kemiripan yang tinggi.</p></li>
 <li><p>Dokumen di kelompok yang berbeda memiliki kemiripan yang rendah.</p></li>
 </ul>
-<p>Contoh Penerapan
+</li>
+<li><p>Contoh Penerapan
 Beberapa aplikasi clustering antara lain:</p>
-<ul class="simple">
+<ul>
 <li><p>Pengelompokan Hasil Pencarian: menyusun hasil search engine agar dokumen sejenis berada dalam satu kelompok.</p></li>
 <li><p>Penemuan Topik (Topic Discovery): menemukan tema atau topik tersembunyi dalam kumpulan dokumen.</p></li>
 </ul>
-</section>
-<section id="analisa-sentimen">
-<h2>Analisa Sentimen<a class="headerlink" href="#analisa-sentimen" title="Link to this heading">#</a></h2>
-<p>Tujuan Analisis Sentimen
-Tugas utama dalam analisis sentimen adalah menentukan polaritas suatu teks, baik pada tingkat dokumen, kalimat, maupun fitur/atribut tertentu. Polaritas ini biasanya dikategorikan sebagai positif, netral, atau negatif.</p>
-</section>
-<section id="contoh-penerapan-analisis-sentimen">
-<h2>Contoh Penerapan Analisis Sentimen<a class="headerlink" href="#contoh-penerapan-analisis-sentimen" title="Link to this heading">#</a></h2>
-<ul class="simple">
-<li><p>Prediksi Suara Publik: menganalisis opini dari tweet atau postingan media sosial untuk mengetahui sikap masyarakat terhadap isu tertentu, misalnya politik.</p></li>
-<li><p>Analisis Ulasan Produk: menilai kepuasan pelanggan terhadap produk atau layanan, misalnya terkait kualitas, desain, atau harga.</p></li>
+</li>
 </ul>
 </section>
-<section id="ekstraksi-informasi-information-extraction">
-<h2>Ekstraksi Informasi (Information Extraction)<a class="headerlink" href="#ekstraksi-informasi-information-extraction" title="Link to this heading">#</a></h2>
+<section class="tex2jax_ignore mathjax_ignore" id="analisa-sentimen">
+<h1>Analisa Sentimen<a class="headerlink" href="#analisa-sentimen" title="Link to this heading">#</a></h1>
+<section id="tujuan-analisis-sentimen">
+<h2>Tujuan Analisis Sentimen<a class="headerlink" href="#tujuan-analisis-sentimen" title="Link to this heading">#</a></h2>
+<p>Tugas utama dalam analisis sentimen adalah menentukan polaritas suatu teks, baik pada tingkat dokumen, kalimat, maupun fitur/atribut tertentu. Polaritas ini biasanya dikategorikan sebagai positif, netral, atau negatif.</p>
+<ul class="simple">
+<li><p>Contoh Penerapan Analisis Sentimen</p>
+<ul>
+<li><p>Prediksi Suara Publik: menganalisis opini dari tweet atau postingan media sosial untuk mengetahui sikap masyarakat terhadap isu tertentu, misalnya politik.- - Analisis Ulasan Produk: menilai kepuasan pelanggan terhadap produk atau layanan, misalnya terkait kualitas, desain, atau harga.</p></li>
+</ul>
+</li>
+</ul>
 </section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="ekstraksi-informasi-information-extraction">
+<h1>Ekstraksi Informasi (Information Extraction)<a class="headerlink" href="#ekstraksi-informasi-information-extraction" title="Link to this heading">#</a></h1>
 <section id="tujuan-estraksi">
 <h2>Tujuan Estraksi<a class="headerlink" href="#tujuan-estraksi" title="Link to this heading">#</a></h2>
 <p>Mengambil informasi terstruktur secara otomatis dari konten web yang awalnya tidak terstruktur atau semi-terstruktur.</p>
-<p>Tantangan</p>
 <ul class="simple">
-<li><p>Informasi tersembunyi dalam format HTML seperti tabel, DOM tree, dan teks bebas.</p></li>
+<li><p>Tantangan</p>
+<ul>
+<li><p>Informasi tersembunyi dalam format HTML seperti tabel, DOM tree, dan teks bebas.-</p></li>
 <li><p>Perlu menangani data yang diperoleh dari API dan berbagai format.</p></li>
 </ul>
-</section>
-<section id="pendekatan-estraksi">
-<h2>Pendekatan Estraksi<a class="headerlink" href="#pendekatan-estraksi" title="Link to this heading">#</a></h2>
-<ul class="simple">
+</li>
+<li><p>Pendekatan Estraksi</p>
+<ul>
 <li><p>Menggunakan parser HTML untuk mengekstrak data.</p></li>
 <li><p>Memanfaatkan model berbasis LLM (Large Language Model) untuk memahami konteks teks.</p></li>
+</ul>
+</li>
 </ul>
 </section>
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="web-usage-mining">
 <h1>Web Usage Mining<a class="headerlink" href="#web-usage-mining" title="Link to this heading">#</a></h1>
 <p>Pengertian: Proses menemukan pola dari data yang dihasilkan oleh aktivitas pengguna di web, seperti kunjungan halaman atau transaksi.</p>
-<section id="sumber-data">
-<h2>Sumber Data<a class="headerlink" href="#sumber-data" title="Link to this heading">#</a></h2>
 <ul class="simple">
+<li><p>Sumber Data</p>
+<ul>
 <li><p>Log server.</p></li>
 <li><p>Cookie pengguna.</p></li>
 <li><p>Jejak klik (clickstream) yang merekam urutan interaksi pengguna.</p></li>
 </ul>
-</section>
+</li>
+</ul>
 <section id="tujuan-web-usage-mining">
 <h2>Tujuan Web Usage mining<a class="headerlink" href="#tujuan-web-usage-mining" title="Link to this heading">#</a></h2>
 <ul class="simple">
 <li><p>Memahami perilaku pengguna.</p></li>
 <li><p>Membangun profil pengguna untuk memberikan layanan yang lebih personal.</p></li>
-</ul>
-</section>
-<section id="contoh-aplikasi-web">
-<h2>Contoh Aplikasi Web<a class="headerlink" href="#contoh-aplikasi-web" title="Link to this heading">#</a></h2>
-<ul class="simple">
+<li><p>Contoh Aplikasi Web</p>
+<ul>
 <li><p>Rekomendasi Produk: Sistem yang menyarankan produk berdasarkan kebiasaan pengguna.</p></li>
 <li><p>Pencarian Personal: Menyesuaikan hasil pencarian dengan preferensi pengguna.</p></li>
+</ul>
+</li>
 </ul>
 </section>
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="web-structure-mining">
 <h1>Web Structure Mining<a class="headerlink" href="#web-structure-mining" title="Link to this heading">#</a></h1>
 <p>Pengertian: Proses analisis pola yang terdapat pada struktur hyperlink dan jaringan sosial di web.</p>
-<section id="id1">
-<h2>Sumber Data<a class="headerlink" href="#id1" title="Link to this heading">#</a></h2>
 <ul class="simple">
+<li><p>Sumber Data</p>
+<ul>
 <li><p>Jaringan hyperlink (web graph).</p></li>
 <li><p>Data dari media sosial, forum, dan komunikasi online.</p></li>
 </ul>
-</section>
-<section id="contoh-aplikasi">
-<h2>Contoh Aplikasi<a class="headerlink" href="#contoh-aplikasi" title="Link to this heading">#</a></h2>
-<ul class="simple">
+</li>
+<li><p>Contoh Aplikasi</p>
+<ul>
 <li><p>PageRank: Digunakan Google untuk menentukan urutan hasil pencarian.</p></li>
 <li><p>Analisis Jaringan Sosial: Mencari aktor penting atau influencer.</p></li>
 <li><p>Deteksi Komunitas: Mengidentifikasi kelompok pengguna yang memiliki interaksi intensif.</p></li>
 </ul>
-</section>
+</li>
+</ul>
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="proses-web-mining">
 <h1>Proses Web Mining<a class="headerlink" href="#proses-web-mining" title="Link to this heading">#</a></h1>
@@ -674,27 +682,22 @@ Tugas utama dalam analisis sentimen adalah menentukan polaritas suatu teks, baik
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Pengantar Web Mining</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#definisi">Definisi</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#tantangan-pemrosesan-data-web">Tantangan Pemrosesan Data Web</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#penambangan-isi-web-content-mining">Penambangan Isi Web (Content Mining)</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#klasifikasi-dokumen">Klasifikasi Dokumen</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pengelompokan-konten-content-clustering">Pengelompokan Konten (Content Clustering)</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#analisa-sentimen">Analisa Sentimen</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#contoh-penerapan-analisis-sentimen">Contoh Penerapan Analisis Sentimen</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ekstraksi-informasi-information-extraction">Ekstraksi Informasi (Information Extraction)</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#penambangan-isi-web-content-mining">Penambangan Isi Web (Content Mining)</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#klasifikasi-dokumen">Klasifikasi Dokumen</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#pengelompokan-konten-content-clustering">Pengelompokan Konten (Content Clustering)</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#analisa-sentimen">Analisa Sentimen</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tujuan-analisis-sentimen">Tujuan Analisis Sentimen</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#ekstraksi-informasi-information-extraction">Ekstraksi Informasi (Information Extraction)</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tujuan-estraksi">Tujuan Estraksi</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pendekatan-estraksi">Pendekatan Estraksi</a></li>
 </ul>
 </li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#web-usage-mining">Web Usage Mining</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sumber-data">Sumber Data</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tujuan-web-usage-mining">Tujuan Web Usage mining</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#contoh-aplikasi-web">Contoh Aplikasi Web</a></li>
 </ul>
 </li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#web-structure-mining">Web Structure Mining</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Sumber Data</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#contoh-aplikasi">Contoh Aplikasi</a></li>
-</ul>
-</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#web-structure-mining">Web Structure Mining</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#proses-web-mining">Proses Web Mining</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pengumpulan-dan-eksplorasi-data">Pengumpulan dan Eksplorasi Data</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pra-pemrosesan-dan-transformasi">Pra-pemrosesan dan Transformasi</a></li>
