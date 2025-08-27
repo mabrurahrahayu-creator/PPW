@@ -49,31 +49,22 @@ Contoh penerapan:
 ## Web Content Mining (Text Mining)
 Proses Ekstraksi Informasi dari Dokumen Web:
 - Teks (Text Mining): Mengolah konten berbasis teks, seperti artikel, ulasan produk, atau komentar.
-
 - Gambar (Image Mining): Mengekstrak informasi dari data visual, misalnya foto produk atau ilustrasi.
-
 - Audio (Audio Mining): Memproses suara seperti podcast, rekaman, atau lagu.
-
 - Video (Video Mining): Mengambil informasi dari konten multimedia seperti video streaming atau klip.
-
 - Data Terstruktur: Memanfaatkan data dalam format tabel, daftar, atau basis data.
 
 ## Contoh Implementasi Text Mining:
 
 - Ekstraksi Informasi: Mengambil entitas atau data penting dari teks.
-
 - Pemodelan Topik (Topic Modelling): Mengidentifikasi tema utama dalam kumpulan dokumen.
-
 - Ringkasan Dokumen: Membuat versi singkat dari dokumen panjang.
-
 - Analisis Sentimen:
     - Menentukan polaritas opini (positif, netral, negatif).
     - Contoh: Prediksi opini publik dari media sosial atau review produk.
 
 - Klasifikasi Dokumen: Mengelompokkan dokumen ke kategori tertentu.
-
 - Clustering Dokumen: Mengelompokkan teks berdasarkan kesamaan.
-
 - Ekstraksi Kata Kunci: Mengambil istilah atau frasa yang paling relevan.
 
 # Web Usage Mining
@@ -81,9 +72,7 @@ Proses Ekstraksi Informasi dari Dokumen Web:
 Web Usage Mining adalah proses untuk mengidentifikasi pola dari data interaksi pengguna di website.
 Sumber Data:
 - Log server: Catatan aktivitas pengguna yang tersimpan di server.
-
 - Cookie pengguna: Data kecil yang menyimpan preferensi pengguna.
-
 - Jejak klik (clickstream): Urutan klik yang dilakukan pengguna saat menjelajah.
 
 Tujuan:
@@ -92,7 +81,6 @@ Tujuan:
 
 Contoh Penggunaan:
 - Sistem Rekomendasi Produk: Memberikan saran produk berdasarkan riwayat pengguna.
-
 - Pencarian Personal: Menyesuaikan hasil pencarian sesuai preferensi.
 
 # Web Structure Mining (Graph Mining)
@@ -101,14 +89,11 @@ Web Structure Mining adalah analisis pola hubungan antar halaman web melalui str
 Sumber Data:
 
 - Jaringan hyperlink (web graph): Relasi antar halaman melalui tautan.
-
 - Data media sosial: Koneksi antar pengguna di platform sosial.
 
 Contoh Aplikasi:
 - PageRank: Algoritma Google untuk menentukan peringkat halaman.
-
 - Analisis Jaringan Sosial: Mengidentifikasi aktor penting dalam jejaring.
-
 - Deteksi Komunitas: Menemukan kelompok pengguna yang saling berinteraksi intensif.
 
 # Deployment System
@@ -117,7 +102,5 @@ Deployment adalah tahap akhir ketika hasil analisis atau model diimplementasikan
 Tahapan Deployment:
 
 - Persiapan: Memastikan sistem siap dipublikasikan.
-
 - Pengujian: Mengecek sistem di lingkungan yang menyerupai kondisi asli.
-
 - Konfigurasi Produksi: Menyesuaikan server, database, dan infrastruktur agar sistem berjalan optimal.
