@@ -109,3 +109,6 @@ Tahapan Deployment:
 - Persiapan: Memastikan sistem siap dipublikasikan.
 - Pengujian: Mengecek sistem di lingkungan yang menyerupai kondisi asli.
 - Konfigurasi Produksi: Menyesuaikan server, database, dan infrastruktur agar sistem berjalan optimal.
+
+
+![Hasil Turnitin](image-1.png)
