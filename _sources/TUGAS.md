@@ -111,4 +111,4 @@ Tahapan Deployment:
 - Konfigurasi Produksi: Menyesuaikan server, database, dan infrastruktur agar sistem berjalan optimal.
 
 
-![Hasil Turnitin](image-1.png)
+![Hasil Turnitin](image.png)
