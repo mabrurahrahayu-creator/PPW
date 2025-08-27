@@ -21,7 +21,7 @@ Penambangan web adalah penggunaan teknik data mining untuk menemukan dan mengeks
 # Penambangan Isi Web (Content Mining)
 
 1. Proses Pengambilan Informasi dari Dokumen Web
-Proses ini bertujuan untuk mendapatkan informasi yang bermanfaat dari berbagai dokumen di web. Pendekatannya menitikberatkan pada isi halaman web, antara lain:
+Proses ini dapat bertujuan untuk mendapatkan informasi yang bermanfaat dari berbagai dokumen di web. Pendekatannya menitikberatkan pada isi halaman web, antara lain:
     - Teks (Text Mining): mencakup artikel, deskripsi produk, maupun komentar pengguna.
     - Gambar (Image Mining): mencakup foto, ilustrasi, atau grafis lainnya.
     - Audio (Audio Mining): meliputi rekaman suara, musik, atau klip audio lainnya.
@@ -38,16 +38,16 @@ Text mining dapat digunakan untuk berbagai tujuan praktis, seperti:
     - Ekstraksi Kata Kunci: menemukan istilah atau frasa penting dalam teks.
 
 ## Klasifikasi Dokumen
-## Tujuan Klasifikasi
+Tujuan Klasifikasi
 Proses klasifikasi bertujuan agar dokumen atau gambar yang sebelumnya belum pernah diolah dapat ditempatkan ke dalam kategori yang sesuai dengan tingkat akurasi setinggi mungkin.
 
-## Contoh Penerapan
+Contoh Penerapan
 Beberapa bidang yang memanfaatkan klasifikasi antara lain:
 - Pengelompokan Berita: menempatkan artikel ke kategori topik tertentu.
 - Pengelompokan Produk: mengklasifikasikan produk berdasarkan jenis atau kategori.
 - Deteksi Spam: mengenali pesan atau konten yang bersifat spam.
 
-## Metode Klasifikasi yang Umum Digunakan
+Metode Klasifikasi yang Umum Digunakan
 Beberapa teknik populer dalam klasifikasi meliputi:
 - Naive Bayes
 - Support Vector Machines (SVM)
@@ -55,22 +55,18 @@ Beberapa teknik populer dalam klasifikasi meliputi:
 - Transformers
 
 ## Pengelompokan Konten (Content Clustering)
-## Tujuan Pengelompokan (Clustering)
+Tujuan Pengelompokan (Clustering)
 Diberikan sekumpulan dokumen beserta ukuran kesamaan antar dokumen, tujuan clustering adalah membentuk kelompok sedemikian rupa sehingga:
 - Dokumen di dalam satu kelompok memiliki kemiripan yang tinggi.
 - Dokumen di kelompok yang berbeda memiliki kemiripan yang rendah.
 
-## Contoh Penerapan
+Contoh Penerapan
 Beberapa aplikasi clustering antara lain:
 - Pengelompokan Hasil Pencarian: menyusun hasil search engine agar dokumen sejenis berada dalam satu kelompok.
 - Penemuan Topik (Topic Discovery): menemukan tema atau topik tersembunyi dalam kumpulan dokumen.
 
-## Teknik dan Metode yang Digunakan
-- Algoritma Clustering: K-Means, Pengelompokan Hierarkis (Hierarchical Clustering), S-BERT.
-- Ukuran Kesamaan (Similarity Measures): Cosine Similarity, Jaccard, atau kesamaan berdasarkan embedding (Similarity of Embeddings).
-
 ## Analisa Sentimen
-## Tujuan Analisis Sentimen
+Tujuan Analisis Sentimen
 Tugas utama dalam analisis sentimen adalah menentukan polaritas suatu teks, baik pada tingkat dokumen, kalimat, maupun fitur/atribut tertentu. Polaritas ini biasanya dikategorikan sebagai positif, netral, atau negatif.
 
 ## Contoh Penerapan Analisis Sentimen
@@ -81,7 +77,7 @@ Tugas utama dalam analisis sentimen adalah menentukan polaritas suatu teks, baik
 ## Tujuan Estraksi 
 Mengambil informasi terstruktur secara otomatis dari konten web yang awalnya tidak terstruktur atau semi-terstruktur.
 
-## Tantangan
+Tantangan
 - Informasi tersembunyi dalam format HTML seperti tabel, DOM tree, dan teks bebas.
 - Perlu menangani data yang diperoleh dari API dan berbagai format.
 
@@ -126,7 +122,3 @@ Tahapan utama dalam web mining meliputi:
 ## Data Mining dan Evaluasi
 1. Menerapkan metode seperti klasifikasi, clustering, atau analisis sentimen.
 2.  Mengevaluasi hasil dan melakukan iterasi untuk perbaikan.
-
-
-This is just a simple starter to get you started.
-You can learn a lot more at [jupyterbook.org](https://jupyterbook.org).
