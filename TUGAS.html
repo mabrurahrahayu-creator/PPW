@@ -419,7 +419,7 @@ document.write(`
 </ol>
 <section id="definisi">
 <h2>Definisi<a class="headerlink" href="#definisi" title="Link to this heading">#</a></h2>
-<p>Penambangan web adalah penggunaan teknik data mining untuk menemukan dan mengekstrak informasi dari layanan web secara otomatis (Etzioni, 1996; CACM 39). Tujuannya adalah untuk menemukan pola atau pengetahuan yang berguna dari struktur hyperlink web, isi halaman web, serta perilaku pengguna (Bing Liu, 2007, Web Data Mining).</p>
+<p>Web mining adalah penerapan metode data mining untuk menemukan informasi secara otomatis dari layanan web (Etzioni, 1996; CACM 39). Tujuannya adalah mengekstrak pola yang bermanfaat dari struktur link, isi halaman web, dan perilaku pengguna (Bing Liu, 2007).</p>
 <p>Tantangan Pemrosesan Data Web</p>
 <ul class="simple">
 <li><p>Web memiliki ukuran yang sangat besar.</p></li>
@@ -438,14 +438,15 @@ document.write(`
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="web-crawling">
 <h1>Web Crawling<a class="headerlink" href="#web-crawling" title="Link to this heading">#</a></h1>
-<p>Web crawling adalah proses pengumpulan dan pengindeksan data dari internet yang dilakukan oleh program otomatis seperti web crawler, web spider, atau bot. Hasil dari crawling kemudian disimpan di database mesin pencari agar informasi dapat ditemukan dengan cepat. Proses ini sangat penting karena tanpa crawling, search engine tidak dapat memberikan hasil pencarian yang relevan. Crawling juga dikenal sebagai proses indexing, yakni membaca, mengarsip, dan menyimpan seluruh konten web untuk memudahkan pencarian di kemudian hari.</p>
+<p>Web crawling adalah proses mengumpulkan dan mengindeks data dari internet menggunakan program otomatis seperti crawler, spider, atau bot. Hasil crawling disimpan dalam database mesin pencari agar informasi dapat diakses dengan cepat. Proses ini sangat penting karena tanpa crawling, search engine tidak dapat menampilkan hasil pencarian yang relevan. Crawling juga dikenal sebagai indexing, yaitu membaca dan menyimpan seluruh konten web untuk kebutuhan pencarian.</p>
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="web-data-preprocessing">
 <h1>Web Data Preprocessing<a class="headerlink" href="#web-data-preprocessing" title="Link to this heading">#</a></h1>
-<p>Data yang diperoleh dari web umumnya masih mentah, tidak teratur, dan mengandung banyak noise. Oleh karena itu, dilakukan data preprocessing agar data lebih siap untuk dianalisis.
-Tahapan preprocessing meliputi:</p>
+<p>Data dari web umumnya mentah, tidak terstruktur, dan banyak mengandung noise. Oleh karena itu, perlu dilakukan preprocessing agar siap dianalisis.
+Tahapannya meliputi:</p>
 <ol class="arabic simple">
-<li><p>Data Cleaning – menghapus data tidak konsisten, memperbaiki nilai hilang, serta mengurangi noise.2. Data Integration – menggabungkan data dari berbagai sumber menjadi satu dataset besar.</p></li>
+<li><p>Data Cleaning – menghapus data tidak konsisten, memperbaiki nilai hilang, serta mengurangi noise.</p></li>
+<li><p>Data Integration – menggabungkan data dari berbagai sumber menjadi satu dataset besar.</p></li>
 <li><p>Data Transformation – mengubah format, struktur, atau nilai data agar sesuai dengan kebutuhan analisis.</p></li>
 </ol>
 </section>
@@ -462,17 +463,14 @@ Contoh teknik:</p>
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="pembelajaran-tak-terawasi-unsupervised-learning">
 <h1>Pembelajaran Tak Terawasi (Unsupervised Learning)<a class="headerlink" href="#pembelajaran-tak-terawasi-unsupervised-learning" title="Link to this heading">#</a></h1>
-<p>Pembelajaran Tak Terawasi (Unsupervised Learning)</p>
 <p>Unsupervised Learning digunakan untuk pengelompokan (clustering) atau asosiasi tanpa label data.
 Contoh penerapan:</p>
 <ul class="simple">
-<li><p>Pengelompokan Konten (Content Clustering)</p>
-<ul>
-<li><p>Tujuan: Dokumen dalam satu kelompok lebih mirip satu sama lain dibanding kelompok lain.</p></li>
-<li><p>Metode: K-Means, Hierarchical Clustering, S-BERT.</p></li>
-<li><p>Ukuran Kesamaan: Cosine Similarity, Jaccard, Embedding Similarity.</p></li>
-</ul>
-</li>
+<li><p>Clustering Dokumen: Mengelompokkan dokumen berdasarkan kesamaan konten.
+Metode:</p></li>
+<li><p>K-Means, Hierarchical Clustering, S-BERT.
+Ukuran kesamaan:</p></li>
+<li><p>Cosine Similarity, Jaccard, Embedding Similarity.</p></li>
 </ul>
 <section id="web-content-mining-text-mining">
 <h2>Web Content Mining (Text Mining)<a class="headerlink" href="#web-content-mining-text-mining" title="Link to this heading">#</a></h2>
@@ -514,8 +512,8 @@ Sumber Data:</p>
 </ul>
 <p>Tujuan:</p>
 <ul class="simple">
-<li><p>Memahami pola perilaku pengguna.</p></li>
-<li><p>Membuat profil pengguna untuk layanan yang lebih personal.</p></li>
+<li><p>Memahami pola perilaku pengguna</p></li>
+<li><p>personal terhadap pelayanan</p></li>
 </ul>
 <p>Contoh Penggunaan:</p>
 <ul class="simple">

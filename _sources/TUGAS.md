@@ -6,7 +6,7 @@ Penambangan web adalah proses mencari dan mengekstrak informasi dari internet de
 3. **Web Usage Mining** : Data penggunaan situs web biasanya dikumpulkan dari Web Server dan Server Aplikasi sebagai sumber utama. Data ini berupa log, yang tercatat setiap kali pengguna berinteraksi dengan halaman web. Berdasarkan sumbernya, log dapat dibagi menjadi tiga jenis: sisi server, sisi klien/pengguna, dan sisi proxy. Selain itu, terdapat sumber data tambahan, seperti cookies, data demografis, dan informasi lain yang relevan.
 
 ## Definisi
-Penambangan web adalah penggunaan teknik data mining untuk menemukan dan mengekstrak informasi dari layanan web secara otomatis (Etzioni, 1996; CACM 39). Tujuannya adalah untuk menemukan pola atau pengetahuan yang berguna dari struktur hyperlink web, isi halaman web, serta perilaku pengguna (Bing Liu, 2007, Web Data Mining).
+Web mining adalah penerapan metode data mining untuk menemukan informasi secara otomatis dari layanan web (Etzioni, 1996; CACM 39). Tujuannya adalah mengekstrak pola yang bermanfaat dari struktur link, isi halaman web, dan perilaku pengguna (Bing Liu, 2007).
 
 Tantangan Pemrosesan Data Web
 - Web memiliki ukuran yang sangat besar.
@@ -19,12 +19,13 @@ Tantangan Pemrosesan Data Web
     - Web mencakup beragam konten dan jenis data.
 
 # Web Crawling
-Web crawling adalah proses pengumpulan dan pengindeksan data dari internet yang dilakukan oleh program otomatis seperti web crawler, web spider, atau bot. Hasil dari crawling kemudian disimpan di database mesin pencari agar informasi dapat ditemukan dengan cepat. Proses ini sangat penting karena tanpa crawling, search engine tidak dapat memberikan hasil pencarian yang relevan. Crawling juga dikenal sebagai proses indexing, yakni membaca, mengarsip, dan menyimpan seluruh konten web untuk memudahkan pencarian di kemudian hari.
+Web crawling adalah proses mengumpulkan dan mengindeks data dari internet menggunakan program otomatis seperti crawler, spider, atau bot. Hasil crawling disimpan dalam database mesin pencari agar informasi dapat diakses dengan cepat. Proses ini sangat penting karena tanpa crawling, search engine tidak dapat menampilkan hasil pencarian yang relevan. Crawling juga dikenal sebagai indexing, yaitu membaca dan menyimpan seluruh konten web untuk kebutuhan pencarian.
 
 # Web Data Preprocessing
-Data yang diperoleh dari web umumnya masih mentah, tidak teratur, dan mengandung banyak noise. Oleh karena itu, dilakukan data preprocessing agar data lebih siap untuk dianalisis.
-Tahapan preprocessing meliputi:
-1. Data Cleaning – menghapus data tidak konsisten, memperbaiki nilai hilang, serta mengurangi noise.2. Data Integration – menggabungkan data dari berbagai sumber menjadi satu dataset besar.
+Data dari web umumnya mentah, tidak terstruktur, dan banyak mengandung noise. Oleh karena itu, perlu dilakukan preprocessing agar siap dianalisis.
+Tahapannya meliputi:
+1. Data Cleaning – menghapus data tidak konsisten, memperbaiki nilai hilang, serta mengurangi noise.
+2. Data Integration – menggabungkan data dari berbagai sumber menjadi satu dataset besar.
 3. Data Transformation – mengubah format, struktur, atau nilai data agar sesuai dengan kebutuhan analisis.
 
 # Pembelajaran Terawasi (Supervised Learning)
@@ -36,15 +37,13 @@ Contoh teknik:
 - Transformers
 
 # Pembelajaran Tak Terawasi (Unsupervised Learning)
-
-Pembelajaran Tak Terawasi (Unsupervised Learning)
-
 Unsupervised Learning digunakan untuk pengelompokan (clustering) atau asosiasi tanpa label data.
 Contoh penerapan:
-- Pengelompokan Konten (Content Clustering)
-    - Tujuan: Dokumen dalam satu kelompok lebih mirip satu sama lain dibanding kelompok lain.
-    - Metode: K-Means, Hierarchical Clustering, S-BERT.
-    - Ukuran Kesamaan: Cosine Similarity, Jaccard, Embedding Similarity.
+- Clustering Dokumen: Mengelompokkan dokumen berdasarkan kesamaan konten.
+Metode:
+- K-Means, Hierarchical Clustering, S-BERT.
+Ukuran kesamaan:
+- Cosine Similarity, Jaccard, Embedding Similarity.
 
 ## Web Content Mining (Text Mining)
 Proses Ekstraksi Informasi dari Dokumen Web:
@@ -76,8 +75,8 @@ Sumber Data:
 - Jejak klik (clickstream): Urutan klik yang dilakukan pengguna saat menjelajah.
 
 Tujuan:
-- Memahami pola perilaku pengguna.
-- Membuat profil pengguna untuk layanan yang lebih personal.
+- Memahami pola perilaku pengguna 
+- personal terhadap pelayanan
 
 Contoh Penggunaan:
 - Sistem Rekomendasi Produk: Memberikan saran produk berdasarkan riwayat pengguna.
