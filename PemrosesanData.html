@@ -1,0 +1,1187 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>1. Pemrosesan Data PTA dan Berita &#8212; My sample book</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css?v=6644e6bb" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'PemrosesanData';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="D. Crawling PTA" href="Crawling_PTA.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/Rahayu.jpeg" class="logo__image only-light" alt="My sample book - Home"/>
+    <script>document.write(`<img src="_static/Rahayu.jpeg" class="logo__image only-dark" alt="My sample book - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
+                    PROFILE
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="TUGAS.html">Pengantar Web Mining</a></li>
+
+
+
+
+
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="crawlingdata.html">A. Crawling Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Crawling_Link.html">B. Crawling Link</a></li>
+<li class="toctree-l1"><a class="reference internal" href="T2berita.html">C. Crawling Berita</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Crawling_PTA.html">D. Crawling PTA</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">1. Pemrosesan Data PTA dan Berita</a></li>
+
+
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2FPemrosesanData.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/PemrosesanData.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>1. Pemrosesan Data PTA dan Berita</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">1. Pemrosesan Data PTA dan Berita</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#a-berita">A. Berita</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#b-pta">B. PTA</a></li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="pemrosesan-data-pta-dan-berita">
+<h1>1. Pemrosesan Data PTA dan Berita<a class="headerlink" href="#pemrosesan-data-pta-dan-berita" title="Link to this heading">#</a></h1>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="a-berita">
+<h1>A. Berita<a class="headerlink" href="#a-berita" title="Link to this heading">#</a></h1>
+<p>Melakukan CSV pada berita</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">requests</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">bs4</span><span class="w"> </span><span class="kn">import</span> <span class="n">BeautifulSoup</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">urllib.parse</span><span class="w"> </span><span class="kn">import</span> <span class="n">urlparse</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">scrape_kompas_article</span><span class="p">(</span><span class="n">url</span><span class="p">):</span>
+    <span class="n">headers</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;User-Agent&quot;</span><span class="p">:</span> <span class="s2">&quot;Mozilla/5.0 (Windows NT 10.0; Win64; x64)&quot;</span><span class="p">}</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">)</span>
+        <span class="n">r</span><span class="o">.</span><span class="n">raise_for_status</span><span class="p">()</span>
+    <span class="k">except</span> <span class="n">requests</span><span class="o">.</span><span class="n">exceptions</span><span class="o">.</span><span class="n">RequestException</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Error saat mengambil URL: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="kc">None</span>
+
+    <span class="n">soup</span> <span class="o">=</span> <span class="n">BeautifulSoup</span><span class="p">(</span><span class="n">r</span><span class="o">.</span><span class="n">content</span><span class="p">,</span> <span class="s2">&quot;html.parser&quot;</span><span class="p">)</span>
+
+    <span class="c1"># Judul</span>
+    <span class="n">judul</span> <span class="o">=</span> <span class="n">soup</span><span class="o">.</span><span class="n">select_one</span><span class="p">(</span><span class="s2">&quot;h1.read__title&quot;</span><span class="p">)</span>
+    <span class="n">judul_text</span> <span class="o">=</span> <span class="n">judul</span><span class="o">.</span><span class="n">text</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="k">if</span> <span class="n">judul</span> <span class="k">else</span> <span class="s2">&quot;Tidak ditemukan judul&quot;</span>
+
+    <span class="c1"># Isi (100 kata)</span>
+    <span class="n">isi_elems</span> <span class="o">=</span> <span class="n">soup</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="s2">&quot;div.read__content p&quot;</span><span class="p">)</span>
+    <span class="n">isi_text</span> <span class="o">=</span> <span class="s2">&quot; &quot;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="n">p</span><span class="o">.</span><span class="n">get_text</span><span class="p">(</span><span class="n">strip</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span> <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">isi_elems</span><span class="p">])</span> <span class="k">if</span> <span class="n">isi_elems</span> <span class="k">else</span> <span class="s2">&quot;Tidak ditemukan isi&quot;</span>
+    <span class="n">words</span> <span class="o">=</span> <span class="n">isi_text</span><span class="o">.</span><span class="n">split</span><span class="p">()</span>
+    <span class="n">isi_100</span> <span class="o">=</span> <span class="s2">&quot; &quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">words</span><span class="p">[:</span><span class="mi">100</span><span class="p">])</span> <span class="o">+</span> <span class="p">(</span><span class="s2">&quot;...&quot;</span> <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">words</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">100</span> <span class="k">else</span> <span class="s2">&quot;&quot;</span><span class="p">)</span>
+
+    <span class="c1"># Cari kategori</span>
+    <span class="n">kategori_text</span> <span class="o">=</span> <span class="s2">&quot;Tidak ditemukan kategori&quot;</span>
+
+    <span class="n">kategori_meta</span> <span class="o">=</span> <span class="n">soup</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s2">&quot;meta&quot;</span><span class="p">,</span> <span class="p">{</span><span class="s2">&quot;property&quot;</span><span class="p">:</span> <span class="s2">&quot;article:section&quot;</span><span class="p">})</span>
+    <span class="k">if</span> <span class="n">kategori_meta</span> <span class="ow">and</span> <span class="n">kategori_meta</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;content&quot;</span><span class="p">):</span>
+        <span class="n">kategori_text</span> <span class="o">=</span> <span class="n">kategori_meta</span><span class="p">[</span><span class="s2">&quot;content&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+
+    <span class="k">if</span> <span class="n">kategori_text</span> <span class="o">==</span> <span class="s2">&quot;Tidak ditemukan kategori&quot;</span><span class="p">:</span>
+        <span class="n">breadcrumb</span> <span class="o">=</span> <span class="n">soup</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="s2">&quot;div.breadcrumb__link a&quot;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">breadcrumb</span> <span class="ow">and</span> <span class="nb">len</span><span class="p">(</span><span class="n">breadcrumb</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="n">kategori_text</span> <span class="o">=</span> <span class="n">breadcrumb</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">get_text</span><span class="p">(</span><span class="n">strip</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">kategori_text</span> <span class="o">==</span> <span class="s2">&quot;Tidak ditemukan kategori&quot;</span><span class="p">:</span>
+        <span class="n">parsed</span> <span class="o">=</span> <span class="n">urlparse</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+        <span class="n">subdomain</span> <span class="o">=</span> <span class="n">parsed</span><span class="o">.</span><span class="n">netloc</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;.&quot;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="k">if</span> <span class="n">subdomain</span> <span class="ow">and</span> <span class="n">subdomain</span> <span class="o">!=</span> <span class="s2">&quot;www&quot;</span> <span class="ow">and</span> <span class="n">subdomain</span> <span class="o">!=</span> <span class="s2">&quot;kompas&quot;</span><span class="p">:</span>
+            <span class="n">kategori_text</span> <span class="o">=</span> <span class="n">subdomain</span><span class="o">.</span><span class="n">capitalize</span><span class="p">()</span>
+
+    <span class="k">return</span> <span class="p">{</span>
+        <span class="s2">&quot;Judul&quot;</span><span class="p">:</span> <span class="n">judul_text</span><span class="p">,</span>
+        <span class="s2">&quot;Isi (100 kata)&quot;</span><span class="p">:</span> <span class="n">isi_100</span><span class="p">,</span>
+        <span class="s2">&quot;Kategori&quot;</span><span class="p">:</span> <span class="n">kategori_text</span>
+    <span class="p">}</span>
+
+<span class="c1"># Daftar URL</span>
+<span class="n">urls_to_test</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s2">&quot;https://lifestyle.kompas.com/read/2025/08/31/100000720/waspadai-kelelahan-mental-akibat-kebanyakan-berita-negatif-&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;https://money.kompas.com/read/2025/08/18/134653726/pendidikan-kewirausahaan-yang-merdeka&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;https://health.kompas.com/read/25H19130000068/dokter--olahraga-bisa-turunkan-risiko-kanker-asal-rutin-dan-benar&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;https://nasional.kompas.com/read/2025/09/03/18022971/peristiwa-gas-air-mata-unisba-mendikti-janjikan-pendampingan-dan&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;https://nasional.kompas.com/read/2025/08/19/07251961/harapan-dan-catatan-soal-anggaran-pendidikan-terbesar-sepanjang-sejarah-ri&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;https://travel.kompas.com/read/2025/09/04/210100827/berdarah-belanda-depok-pesepak-bola-miliano-jonathans-resmi-jadi-wni&quot;</span>
+<span class="p">]</span>
+
+<span class="c1"># Scraping data dari URL</span>
+<span class="n">results</span> <span class="o">=</span> <span class="p">[</span><span class="n">scrape_kompas_article</span><span class="p">(</span><span class="n">u</span><span class="p">)</span> <span class="k">for</span> <span class="n">u</span> <span class="ow">in</span> <span class="n">urls_to_test</span> <span class="k">if</span> <span class="n">scrape_kompas_article</span><span class="p">(</span><span class="n">u</span><span class="p">)]</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">results</span><span class="p">)</span>
+
+<span class="c1"># Simpan DataFrame ke file CSV</span>
+<span class="n">df</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s2">&quot;kompas_articles.csv&quot;</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">IPython.display</span><span class="w"> </span><span class="kn">import</span> <span class="n">display</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Data berhasil disimpan ke file &#39;kompas_articles.csv&#39;&quot;</span><span class="p">)</span>
+<span class="n">display</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Data berhasil disimpan ke file &#39;kompas_articles.csv&#39;
+</pre></div>
+</div>
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Judul</th>
+      <th>Isi (100 kata)</th>
+      <th>Kategori</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Waspadai Kelelahan Mental akibat Kebanyakan Be...</td>
+      <td>KOMPAS.com -Berbagai informasi peristiwa terba...</td>
+      <td>Lifestyle</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Pendidikan Kewirausahaan yang Merdeka</td>
+      <td>SETIAP17 Agustus, Masyarakat Indonesia merayak...</td>
+      <td>Money</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Dokter: Olahraga Bisa Turunkan Risiko Kanker, ...</td>
+      <td>KOMPAS.com –Health Management Specialist Corpo...</td>
+      <td>Health</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Peristiwa Gas Air Mata Unisba, Mendikti Janjik...</td>
+      <td>JAKARTA, KOMPAS.com- Menteri Pendidikan Tinggi...</td>
+      <td>Nasional</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>Harapan dan Catatan soal Anggaran Pendidikan T...</td>
+      <td>JAKARTA, KOMPAS.com- Presiden Prabowo Subianto...</td>
+      <td>Nasional</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>Berdarah Belanda Depok, Pesepak Bola Miliano J...</td>
+      <td>KOMPAS.com -Kementerian Hukum Republik Indones...</td>
+      <td>Travel</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>Import Library yang Dibutuhkan</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>pip<span class="w"> </span>install<span class="w"> </span>pandas
+<span class="o">!</span>pip<span class="w"> </span>install<span class="w"> </span>nltk
+<span class="o">!</span>pip<span class="w"> </span>install<span class="w"> </span>Sastrawi
+<span class="n">nltk</span><span class="o">.</span><span class="n">download</span><span class="p">(</span><span class="s1">&#39;punkt_tab&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: pandas in /home/codespace/.local/lib/python3.12/site-packages (2.3.1)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: numpy&gt;=1.26.0 in /home/codespace/.local/lib/python3.12/site-packages (from pandas) (2.3.1)
+Requirement already satisfied: python-dateutil&gt;=2.8.2 in /home/codespace/.local/lib/python3.12/site-packages (from pandas) (2.9.0.post0)
+Requirement already satisfied: pytz&gt;=2020.1 in /home/codespace/.local/lib/python3.12/site-packages (from pandas) (2025.2)
+Requirement already satisfied: tzdata&gt;=2022.7 in /home/codespace/.local/lib/python3.12/site-packages (from pandas) (2025.2)
+Requirement already satisfied: six&gt;=1.5 in /home/codespace/.local/lib/python3.12/site-packages (from python-dateutil&gt;=2.8.2-&gt;pandas) (1.17.0)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Bold">[</span><span class=" -Color -Color-Blue">notice</span><span class=" -Color -Color-Bold">]</span> A new release of pip is available: <span class=" -Color -Color-Red">25.1.1</span> -&gt; <span class=" -Color -Color-Green">25.2</span>
+<span class=" -Color -Color-Bold">[</span><span class=" -Color -Color-Blue">notice</span><span class=" -Color -Color-Bold">]</span> To update, run: <span class=" -Color -Color-Green">python3 -m pip install --upgrade pip</span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: nltk in /usr/local/python/3.12.1/lib/python3.12/site-packages (3.9.1)
+Requirement already satisfied: click in /usr/local/python/3.12.1/lib/python3.12/site-packages (from nltk) (8.2.1)
+Requirement already satisfied: joblib in /home/codespace/.local/lib/python3.12/site-packages (from nltk) (1.5.1)
+Requirement already satisfied: regex&gt;=2021.8.3 in /usr/local/python/3.12.1/lib/python3.12/site-packages (from nltk) (2025.9.1)
+Requirement already satisfied: tqdm in /usr/local/python/3.12.1/lib/python3.12/site-packages (from nltk) (4.67.1)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Bold">[</span><span class=" -Color -Color-Blue">notice</span><span class=" -Color -Color-Bold">]</span> A new release of pip is available: <span class=" -Color -Color-Red">25.1.1</span> -&gt; <span class=" -Color -Color-Green">25.2</span>
+<span class=" -Color -Color-Bold">[</span><span class=" -Color -Color-Blue">notice</span><span class=" -Color -Color-Bold">]</span> To update, run: <span class=" -Color -Color-Green">python3 -m pip install --upgrade pip</span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: Sastrawi in /usr/local/python/3.12.1/lib/python3.12/site-packages (1.0.1)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Bold">[</span><span class=" -Color -Color-Blue">notice</span><span class=" -Color -Color-Bold">]</span> A new release of pip is available: <span class=" -Color -Color-Red">25.1.1</span> -&gt; <span class=" -Color -Color-Green">25.2</span>
+<span class=" -Color -Color-Bold">[</span><span class=" -Color -Color-Blue">notice</span><span class=" -Color -Color-Bold">]</span> To update, run: <span class=" -Color -Color-Green">python3 -m pip install --upgrade pip</span>
+</pre></div>
+</div>
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">line</span> <span class="mi">4</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="n">get_ipython</span><span class="p">()</span><span class="o">.</span><span class="n">system</span><span class="p">(</span><span class="s1">&#39;pip install nltk&#39;</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="n">get_ipython</span><span class="p">()</span><span class="o">.</span><span class="n">system</span><span class="p">(</span><span class="s1">&#39;pip install Sastrawi&#39;</span><span class="p">)</span>
+<span class="ne">----&gt; </span><span class="mi">4</span> <span class="n">nltk</span><span class="o">.</span><span class="n">download</span><span class="p">(</span><span class="s1">&#39;punkt_tab&#39;</span><span class="p">)</span>
+
+<span class="ne">NameError</span>: name &#39;nltk&#39; is not defined
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">re</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">string</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">Sastrawi.Stemmer.StemmerFactory</span><span class="w"> </span><span class="kn">import</span> <span class="n">StemmerFactory</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">nltk</span>
+<span class="c1"># Pastikan &#39;punkt&#39; sudah terunduh, jika belum, jalankan baris di bawah ini</span>
+<span class="k">try</span><span class="p">:</span>
+    <span class="n">nltk</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;tokenizers/punkt&#39;</span><span class="p">)</span>
+<span class="k">except</span> <span class="n">nltk</span><span class="o">.</span><span class="n">downloader</span><span class="o">.</span><span class="n">DownloadError</span><span class="p">:</span>
+    <span class="n">nltk</span><span class="o">.</span><span class="n">download</span><span class="p">(</span><span class="s1">&#39;punkt&#39;</span><span class="p">)</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">nltk.tokenize</span><span class="w"> </span><span class="kn">import</span> <span class="n">word_tokenize</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">Sastrawi.StopWordRemover.StopWordRemoverFactory</span><span class="w"> </span><span class="kn">import</span> <span class="n">StopWordRemoverFactory</span>
+
+<span class="c1"># --- MEMBACA BERITA PERTAMA DARI FILE CSV ---</span>
+<span class="k">try</span><span class="p">:</span>
+    <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;kompas_articles.csv&#39;</span><span class="p">)</span>
+    <span class="n">teks</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;Isi (100 kata)&#39;</span><span class="p">]</span>
+<span class="k">except</span> <span class="ne">FileNotFoundError</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;File CSV &#39;kompas_articles.csv&#39; tidak ditemukan.&quot;</span><span class="p">)</span>
+    <span class="n">exit</span><span class="p">()</span>
+<span class="k">except</span> <span class="ne">KeyError</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Kolom &#39;Isi (100 kata)&#39; tidak ditemukan dalam file CSV.&quot;</span><span class="p">)</span>
+    <span class="n">exit</span><span class="p">()</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;--- Berita Asli dari CSV ---&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">teks</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;-&quot;</span> <span class="o">*</span> <span class="mi">30</span><span class="p">)</span>
+
+<span class="c1"># Inisialisasi Sastrawi</span>
+<span class="n">stopword_remover</span> <span class="o">=</span> <span class="n">StopWordRemoverFactory</span><span class="p">()</span><span class="o">.</span><span class="n">create_stop_word_remover</span><span class="p">()</span>
+<span class="n">factory</span> <span class="o">=</span> <span class="n">StemmerFactory</span><span class="p">()</span>
+<span class="n">stemmer</span> <span class="o">=</span> <span class="n">factory</span><span class="o">.</span><span class="n">create_stemmer</span><span class="p">()</span>
+
+<span class="c1"># Kamus pembakuan kata (contoh sederhana)</span>
+<span class="n">kata_baku</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;diumumin&#39;</span><span class="p">:</span> <span class="s1">&#39;diumumkan&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;resmi&#39;</span><span class="p">:</span> <span class="s1">&#39;resmi&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;enggak&#39;</span><span class="p">:</span> <span class="s1">&#39;tidak&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;syuting&#39;</span><span class="p">:</span> <span class="s1">&#39;syuting&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;berlarii&#39;</span><span class="p">:</span> <span class="s1">&#39;lari&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;sperti&#39;</span><span class="p">:</span> <span class="s1">&#39;seperti&#39;</span>
+<span class="p">}</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">standardisasi_kata</span><span class="p">(</span><span class="n">teks</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Fungsi untuk membakukan kata-kata dalam teks.&quot;&quot;&quot;</span>
+    <span class="n">tokens</span> <span class="o">=</span> <span class="n">teks</span><span class="o">.</span><span class="n">split</span><span class="p">()</span>
+    <span class="n">tokens_baku</span> <span class="o">=</span> <span class="p">[</span><span class="n">kata_baku</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">t</span><span class="p">)</span> <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="n">tokens</span><span class="p">]</span>
+    <span class="k">return</span> <span class="s1">&#39; &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">tokens_baku</span><span class="p">)</span>
+
+<span class="c1"># --- Proses Pra-pemrosesan Teks ---</span>
+
+<span class="c1"># 1. Penghapusan kata umum (stopword)</span>
+<span class="n">teks_no_stop</span> <span class="o">=</span> <span class="n">stopword_remover</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">teks</span><span class="o">.</span><span class="n">lower</span><span class="p">())</span> <span class="c1"># Konversi ke lowercase sebelum menghapus stopword</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;1. Penghapusan kata umum (stopword):&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">teks_no_stop</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;-&quot;</span> <span class="o">*</span> <span class="mi">30</span><span class="p">)</span>
+
+<span class="c1"># 2. Menghilangkan simbol tanda baca (punctuation)</span>
+<span class="n">teks_no_punct</span> <span class="o">=</span> <span class="n">teks_no_stop</span><span class="o">.</span><span class="n">translate</span><span class="p">(</span><span class="nb">str</span><span class="o">.</span><span class="n">maketrans</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">string</span><span class="o">.</span><span class="n">punctuation</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;2. Menghilangkan simbol tanda baca:&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">teks_no_punct</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;-&quot;</span> <span class="o">*</span> <span class="mi">30</span><span class="p">)</span>
+
+<span class="c1"># 3. Cek ejaan pembakuan kata</span>
+<span class="n">teks_baku</span> <span class="o">=</span> <span class="n">standardisasi_kata</span><span class="p">(</span><span class="n">teks_no_punct</span><span class="p">)</span> <span class="c1"># Langsung gunakan hasil dari step 2</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;3. Cek ejaan pembakuan kata:&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">teks_baku</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;-&quot;</span> <span class="o">*</span> <span class="mi">30</span><span class="p">)</span>
+
+<span class="c1"># 4. Stemming</span>
+<span class="n">teks_stemmed</span> <span class="o">=</span> <span class="n">stemmer</span><span class="o">.</span><span class="n">stem</span><span class="p">(</span><span class="n">teks_baku</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;4. Stemming dan lematisasi:&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">teks_stemmed</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;-&quot;</span> <span class="o">*</span> <span class="mi">30</span><span class="p">)</span>
+
+<span class="c1"># 5. Tokenisasi</span>
+<span class="c1"># Gunakan word_tokenize dari NLTK yang hanya memerlukan paket &#39;punkt&#39;</span>
+<span class="n">tokens</span> <span class="o">=</span> <span class="n">word_tokenize</span><span class="p">(</span><span class="n">teks_stemmed</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;5. Tokenisasi:&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">tokens</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;-&quot;</span> <span class="o">*</span> <span class="mi">30</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>--- Berita Asli dari CSV ---
+KOMPAS.com -Berbagai informasi peristiwa terbaru sekarang bisa kita dapatkan tanpa henti, baik melalui media arus utama atau media sosial. Tanpa disadari kondisi itu berpengaruh besar pada kondisi mental seseorang. Para ahli menyebut fenomena ini sebagai &quot;headline stress disorder&quot; untuk menggambarkan kondisi stres akibat terlalu sering terpapar berita bernuansa negatif. Psikolog sosial Dicky Pelupessy Ph.D menyebutkan, emosi sedih, gelisah, atau marah yang timbul tersebut sebenarnya hal yang normal. &quot;Ini adalah perasaan yang normal, karena peristiwa politik, apalagi yang luar biasa, tidak terjadi setiap hari, sehingga akan membangkitkan emosi negatif,&quot; katanya ketika dihubungi Kompas.com (29/8/2025). Baca juga:Mengapa Bisa Cemas Setelah Lihat Berita...
+------------------------------
+1. Penghapusan kata umum (stopword):
+kompas.com -berbagai informasi peristiwa terbaru sekarang kita dapatkan henti, baik melalui media arus utama media sosial. disadari kondisi berpengaruh besar kondisi mental seseorang. ahli menyebut fenomena sebagai &quot;headline stress disorder&quot; menggambarkan kondisi stres akibat terlalu sering terpapar berita bernuansa negatif. psikolog sosial dicky pelupessy ph.d menyebutkan, emosi sedih, gelisah, marah timbul tersebut sebenarnya normal. &quot;ini perasaan yang normal, peristiwa politik, yang luar biasa, terjadi hari, akan membangkitkan emosi negatif,&quot; katanya dihubungi kompas.com (29/8/2025). baca juga:mengapa cemas lihat berita...
+------------------------------
+2. Menghilangkan simbol tanda baca:
+kompascom berbagai informasi peristiwa terbaru sekarang kita dapatkan henti baik melalui media arus utama media sosial disadari kondisi berpengaruh besar kondisi mental seseorang ahli menyebut fenomena sebagai headline stress disorder menggambarkan kondisi stres akibat terlalu sering terpapar berita bernuansa negatif psikolog sosial dicky pelupessy phd menyebutkan emosi sedih gelisah marah timbul tersebut sebenarnya normal ini perasaan yang normal peristiwa politik yang luar biasa terjadi hari akan membangkitkan emosi negatif katanya dihubungi kompascom 2982025 baca jugamengapa cemas lihat berita
+------------------------------
+3. Cek ejaan pembakuan kata:
+kompascom berbagai informasi peristiwa terbaru sekarang kita dapatkan henti baik melalui media arus utama media sosial disadari kondisi berpengaruh besar kondisi mental seseorang ahli menyebut fenomena sebagai headline stress disorder menggambarkan kondisi stres akibat terlalu sering terpapar berita bernuansa negatif psikolog sosial dicky pelupessy phd menyebutkan emosi sedih gelisah marah timbul tersebut sebenarnya normal ini perasaan yang normal peristiwa politik yang luar biasa terjadi hari akan membangkitkan emosi negatif katanya dihubungi kompascom 2982025 baca jugamengapa cemas lihat berita
+------------------------------
+4. Stemming dan lematisasi:
+kompascom bagai informasi peristiwa baru sekarang kita dapat henti baik lalu media arus utama media sosial sadar kondisi pengaruh besar kondisi mental orang ahli sebut fenomena bagai headline stress disorder gambar kondisi stres akibat terlalu sering papar berita nuansa negatif psikolog sosial dicky pelupessy phd sebut emosi sedih gelisah marah timbul sebut benar normal ini asa yang normal peristiwa politik yang luar biasa jadi hari akan bangkit emosi negatif kata hubung kompascom 2982025 baca jugamengapa cemas lihat berita
+------------------------------
+5. Tokenisasi:
+[&#39;kompascom&#39;, &#39;bagai&#39;, &#39;informasi&#39;, &#39;peristiwa&#39;, &#39;baru&#39;, &#39;sekarang&#39;, &#39;kita&#39;, &#39;dapat&#39;, &#39;henti&#39;, &#39;baik&#39;, &#39;lalu&#39;, &#39;media&#39;, &#39;arus&#39;, &#39;utama&#39;, &#39;media&#39;, &#39;sosial&#39;, &#39;sadar&#39;, &#39;kondisi&#39;, &#39;pengaruh&#39;, &#39;besar&#39;, &#39;kondisi&#39;, &#39;mental&#39;, &#39;orang&#39;, &#39;ahli&#39;, &#39;sebut&#39;, &#39;fenomena&#39;, &#39;bagai&#39;, &#39;headline&#39;, &#39;stress&#39;, &#39;disorder&#39;, &#39;gambar&#39;, &#39;kondisi&#39;, &#39;stres&#39;, &#39;akibat&#39;, &#39;terlalu&#39;, &#39;sering&#39;, &#39;papar&#39;, &#39;berita&#39;, &#39;nuansa&#39;, &#39;negatif&#39;, &#39;psikolog&#39;, &#39;sosial&#39;, &#39;dicky&#39;, &#39;pelupessy&#39;, &#39;phd&#39;, &#39;sebut&#39;, &#39;emosi&#39;, &#39;sedih&#39;, &#39;gelisah&#39;, &#39;marah&#39;, &#39;timbul&#39;, &#39;sebut&#39;, &#39;benar&#39;, &#39;normal&#39;, &#39;ini&#39;, &#39;asa&#39;, &#39;yang&#39;, &#39;normal&#39;, &#39;peristiwa&#39;, &#39;politik&#39;, &#39;yang&#39;, &#39;luar&#39;, &#39;biasa&#39;, &#39;jadi&#39;, &#39;hari&#39;, &#39;akan&#39;, &#39;bangkit&#39;, &#39;emosi&#39;, &#39;negatif&#39;, &#39;kata&#39;, &#39;hubung&#39;, &#39;kompascom&#39;, &#39;2982025&#39;, &#39;baca&#39;, &#39;jugamengapa&#39;, &#39;cemas&#39;, &#39;lihat&#39;, &#39;berita&#39;]
+------------------------------
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="b-pta">
+<h1>B. PTA<a class="headerlink" href="#b-pta" title="Link to this heading">#</a></h1>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>pip<span class="w"> </span>install<span class="w"> </span>Sastrawi
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: Sastrawi in /usr/local/lib/python3.12/dist-packages (1.0.1)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">re</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">string</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">Sastrawi.Stemmer.StemmerFactory</span><span class="w"> </span><span class="kn">import</span> <span class="n">StemmerFactory</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">nltk</span>
+<span class="n">nltk</span><span class="o">.</span><span class="n">download</span><span class="p">(</span><span class="s1">&#39;punkt&#39;</span><span class="p">)</span>
+<span class="n">nltk</span><span class="o">.</span><span class="n">download</span><span class="p">(</span><span class="s1">&#39;punkt_tab&#39;</span><span class="p">)</span> <span class="c1"># Download the missing punkt_tab resource</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">nltk.tokenize</span><span class="w"> </span><span class="kn">import</span> <span class="n">word_tokenize</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">Sastrawi.StopWordRemover.StopWordRemoverFactory</span><span class="w"> </span><span class="kn">import</span> <span class="n">StopWordRemoverFactory</span>
+
+<span class="c1"># --- MEMBACA DATA DARI FILE CSV ---</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;PPW_HasilCrawling_FakultasTeknik_partial.csv&#39;</span><span class="p">,</span> <span class="n">engine</span><span class="o">=</span><span class="s1">&#39;python&#39;</span><span class="p">,</span> <span class="n">on_bad_lines</span><span class="o">=</span><span class="s1">&#39;skip&#39;</span><span class="p">)</span>
+
+<span class="c1"># Ambil hanya kolom abstrak bahasa Indonesia dari seluruh data</span>
+<span class="n">abstrak_list</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;abstrak_bindonesia&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">dropna</span><span class="p">()</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Jumlah data abstrak Bahasa Indonesia: </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">abstrak_list</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;=&quot;</span> <span class="o">*</span> <span class="mi">50</span><span class="p">)</span>
+
+<span class="c1"># --- PROSES SATU PERSATU ---</span>
+<span class="n">stopword_remover</span> <span class="o">=</span> <span class="n">StopWordRemoverFactory</span><span class="p">()</span><span class="o">.</span><span class="n">create_stop_word_remover</span><span class="p">()</span>
+<span class="n">factory</span> <span class="o">=</span> <span class="n">StemmerFactory</span><span class="p">()</span>
+<span class="n">stemmer</span> <span class="o">=</span> <span class="n">factory</span><span class="o">.</span><span class="n">create_stemmer</span><span class="p">()</span>
+
+<span class="c1"># Kamus pembakuan kata (contoh, bisa ditambah sesuai kebutuhan)</span>
+<span class="n">kata_baku</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;diumumin&#39;</span><span class="p">:</span> <span class="s1">&#39;diumumkan&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;resmi&#39;</span><span class="p">:</span> <span class="s1">&#39;resmi&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;enggak&#39;</span><span class="p">:</span> <span class="s1">&#39;tidak&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;syuting&#39;</span><span class="p">:</span> <span class="s1">&#39;syuting&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;berlarii&#39;</span><span class="p">:</span> <span class="s1">&#39;lari&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;sperti&#39;</span><span class="p">:</span> <span class="s1">&#39;seperti&#39;</span>
+<span class="p">}</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">standardisasi_kata</span><span class="p">(</span><span class="n">teks</span><span class="p">):</span>
+    <span class="n">teks_baru</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">kata</span> <span class="ow">in</span> <span class="n">teks</span><span class="o">.</span><span class="n">split</span><span class="p">():</span>
+        <span class="n">teks_baru</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">kata_baku</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">kata</span><span class="p">,</span> <span class="n">kata</span><span class="p">))</span>
+    <span class="k">return</span> <span class="s1">&#39; &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">teks_baru</span><span class="p">)</span>
+
+<span class="c1"># Looping semua abstrak</span>
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">teks</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">abstrak_list</span><span class="p">[:</span><span class="mi">5</span><span class="p">],</span> <span class="n">start</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>  <span class="c1"># tampilkan contoh 5 dulu</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">=== Abstrak </span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s2"> (Asli) ===&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">teks</span><span class="p">)</span>
+
+    <span class="c1"># 1. Stopword removal</span>
+    <span class="n">teks_no_stop</span> <span class="o">=</span> <span class="n">stopword_remover</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">teks</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">1. Stopword Removal:&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">teks_no_stop</span><span class="p">)</span>
+
+    <span class="c1"># 2. Hapus tanda baca</span>
+    <span class="n">teks_no_punct</span> <span class="o">=</span> <span class="n">teks_no_stop</span><span class="o">.</span><span class="n">translate</span><span class="p">(</span><span class="nb">str</span><span class="o">.</span><span class="n">maketrans</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">string</span><span class="o">.</span><span class="n">punctuation</span><span class="p">))</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">2. Hapus Tanda Baca:&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">teks_no_punct</span><span class="p">)</span>
+
+    <span class="c1"># 3. Standardisasi kata</span>
+    <span class="n">teks_baku</span> <span class="o">=</span> <span class="n">standardisasi_kata</span><span class="p">(</span><span class="n">teks_no_punct</span><span class="o">.</span><span class="n">lower</span><span class="p">())</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">3. Standardisasi Kata:&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">teks_baku</span><span class="p">)</span>
+
+    <span class="c1"># 4. Stemming</span>
+    <span class="n">teks_stemmed</span> <span class="o">=</span> <span class="n">stemmer</span><span class="o">.</span><span class="n">stem</span><span class="p">(</span><span class="n">teks_baku</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">4. Stemming:&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">teks_stemmed</span><span class="p">)</span>
+
+    <span class="c1"># 5. Tokenisasi</span>
+    <span class="n">tokens</span> <span class="o">=</span> <span class="n">word_tokenize</span><span class="p">(</span><span class="n">teks_stemmed</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">5. Tokenisasi:&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">tokens</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;=&quot;</span> <span class="o">*</span> <span class="mi">50</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[nltk_data] Downloading package punkt to /root/nltk_data...
+[nltk_data]   Package punkt is already up-to-date!
+[nltk_data] Downloading package punkt_tab to /root/nltk_data...
+[nltk_data]   Unzipping tokenizers/punkt_tab.zip.
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Jumlah data abstrak Bahasa Indonesia: 2265
+==================================================
+
+=== Abstrak 1 (Asli) ===
+Portofolio adalah sekumpulan saham yang dimiliki investor. Dalam setiap saham pada portofolio memiliki resiko yang harus diminimalkan dengan cara diversifikasi yaitu dengan mengalokasikan dana pada berbagai alternatif investasi pada kombinasi saham pada portofolio. Pada skripsi ini, saham yang digunakan berupa saham dari perusahan sektor tambang yang terdapat 4 subsektor didalamnya yaitu subsektor Batubara, subsektor batu-batuan, subsektor logam dan mineral lainnya, dan subsektor minyak dan gas bumi. Dari setiap subsektor tersebut terbentuk beberapa portofolio yang kemudian dilakukan optimasi dalam pemilihannya. Pada skripsi ini menggunakan goal programming untuk meminimalkan penyimpangan antara fungsi objektif dengan nilai ideal fungsi objektif yang menghasilkan proporsi dana yang harus diinvestasikan pada masing-masing saham. Hasil yang diperoleh dari goal programming pada setiap subsektor yaitu : subsektor batubara terdapat 4 portofolio efisien, subsektor batu-batuan terdapat 2 portofolio efisien, subsektor logam dan mineral lainnya terdapat 3 portofolio efisien dan subsektor minyak dan gas bumi terdapat 4 portofolio efisien serta proporsi dana yang harus diinvestasikan pada portofolio-portofolio pada setiap subsektor tersebut. Kata Kunci : Goal programming, Portofolio, Expected return, Resiko, Proporsi dana.
+
+1. Stopword Removal:
+Portofolio sekumpulan saham dimiliki investor. Dalam saham portofolio memiliki resiko harus diminimalkan cara diversifikasi mengalokasikan dana berbagai alternatif investasi kombinasi saham portofolio. Pada skripsi ini, saham digunakan berupa saham perusahan sektor tambang terdapat 4 subsektor didalamnya subsektor Batubara, subsektor batu-batuan, subsektor logam mineral lainnya, subsektor minyak gas bumi. Dari subsektor tersebut terbentuk beberapa portofolio kemudian dilakukan optimasi pemilihannya. Pada skripsi menggunakan goal programming meminimalkan penyimpangan fungsi objektif dengan nilai ideal fungsi objektif menghasilkan proporsi dana harus diinvestasikan masing-masing saham. Hasil diperoleh goal programming setiap subsektor : subsektor batubara terdapat 4 portofolio efisien, subsektor batu-batuan terdapat 2 portofolio efisien, subsektor logam mineral lainnya terdapat 3 portofolio efisien subsektor minyak gas bumi terdapat 4 portofolio efisien proporsi dana harus diinvestasikan portofolio-portofolio setiap subsektor tersebut. Kata Kunci : Goal programming, Portofolio, Expected return, Resiko, Proporsi dana.
+
+2. Hapus Tanda Baca:
+Portofolio sekumpulan saham dimiliki investor Dalam saham portofolio memiliki resiko harus diminimalkan cara diversifikasi mengalokasikan dana berbagai alternatif investasi kombinasi saham portofolio Pada skripsi ini saham digunakan berupa saham perusahan sektor tambang terdapat 4 subsektor didalamnya subsektor Batubara subsektor batubatuan subsektor logam mineral lainnya subsektor minyak gas bumi Dari subsektor tersebut terbentuk beberapa portofolio kemudian dilakukan optimasi pemilihannya Pada skripsi menggunakan goal programming meminimalkan penyimpangan fungsi objektif dengan nilai ideal fungsi objektif menghasilkan proporsi dana harus diinvestasikan masingmasing saham Hasil diperoleh goal programming setiap subsektor  subsektor batubara terdapat 4 portofolio efisien subsektor batubatuan terdapat 2 portofolio efisien subsektor logam mineral lainnya terdapat 3 portofolio efisien subsektor minyak gas bumi terdapat 4 portofolio efisien proporsi dana harus diinvestasikan portofolioportofolio setiap subsektor tersebut Kata Kunci  Goal programming Portofolio Expected return Resiko Proporsi dana
+
+3. Standardisasi Kata:
+portofolio sekumpulan saham dimiliki investor dalam saham portofolio memiliki resiko harus diminimalkan cara diversifikasi mengalokasikan dana berbagai alternatif investasi kombinasi saham portofolio pada skripsi ini saham digunakan berupa saham perusahan sektor tambang terdapat 4 subsektor didalamnya subsektor batubara subsektor batubatuan subsektor logam mineral lainnya subsektor minyak gas bumi dari subsektor tersebut terbentuk beberapa portofolio kemudian dilakukan optimasi pemilihannya pada skripsi menggunakan goal programming meminimalkan penyimpangan fungsi objektif dengan nilai ideal fungsi objektif menghasilkan proporsi dana harus diinvestasikan masingmasing saham hasil diperoleh goal programming setiap subsektor subsektor batubara terdapat 4 portofolio efisien subsektor batubatuan terdapat 2 portofolio efisien subsektor logam mineral lainnya terdapat 3 portofolio efisien subsektor minyak gas bumi terdapat 4 portofolio efisien proporsi dana harus diinvestasikan portofolioportofolio setiap subsektor tersebut kata kunci goal programming portofolio expected return resiko proporsi dana
+
+4. Stemming:
+portofolio kumpul saham milik investor dalam saham portofolio milik resiko harus minimal cara diversifikasi alokasi dana bagai alternatif investasi kombinasi saham portofolio pada skripsi ini saham guna upa saham usah sektor tambang dapat 4 subsektor dalam subsektor batubara subsektor batubatuan subsektor logam mineral lain subsektor minyak gas bumi dari subsektor sebut bentuk beberapa portofolio kemudian laku optimasi pilih pada skripsi guna goal programming minimal simpang fungsi objektif dengan nilai ideal fungsi objektif hasil proporsi dana harus investasi masingmasing saham hasil oleh goal programming tiap subsektor subsektor batubara dapat 4 portofolio efisien subsektor batubatuan dapat 2 portofolio efisien subsektor logam mineral lain dapat 3 portofolio efisien subsektor minyak gas bumi dapat 4 portofolio efisien proporsi dana harus investasi portofolioportofolio tiap subsektor sebut kata kunci goal programming portofolio expected return resiko proporsi dana
+
+5. Tokenisasi:
+[&#39;portofolio&#39;, &#39;kumpul&#39;, &#39;saham&#39;, &#39;milik&#39;, &#39;investor&#39;, &#39;dalam&#39;, &#39;saham&#39;, &#39;portofolio&#39;, &#39;milik&#39;, &#39;resiko&#39;, &#39;harus&#39;, &#39;minimal&#39;, &#39;cara&#39;, &#39;diversifikasi&#39;, &#39;alokasi&#39;, &#39;dana&#39;, &#39;bagai&#39;, &#39;alternatif&#39;, &#39;investasi&#39;, &#39;kombinasi&#39;, &#39;saham&#39;, &#39;portofolio&#39;, &#39;pada&#39;, &#39;skripsi&#39;, &#39;ini&#39;, &#39;saham&#39;, &#39;guna&#39;, &#39;upa&#39;, &#39;saham&#39;, &#39;usah&#39;, &#39;sektor&#39;, &#39;tambang&#39;, &#39;dapat&#39;, &#39;4&#39;, &#39;subsektor&#39;, &#39;dalam&#39;, &#39;subsektor&#39;, &#39;batubara&#39;, &#39;subsektor&#39;, &#39;batubatuan&#39;, &#39;subsektor&#39;, &#39;logam&#39;, &#39;mineral&#39;, &#39;lain&#39;, &#39;subsektor&#39;, &#39;minyak&#39;, &#39;gas&#39;, &#39;bumi&#39;, &#39;dari&#39;, &#39;subsektor&#39;, &#39;sebut&#39;, &#39;bentuk&#39;, &#39;beberapa&#39;, &#39;portofolio&#39;, &#39;kemudian&#39;, &#39;laku&#39;, &#39;optimasi&#39;, &#39;pilih&#39;, &#39;pada&#39;, &#39;skripsi&#39;, &#39;guna&#39;, &#39;goal&#39;, &#39;programming&#39;, &#39;minimal&#39;, &#39;simpang&#39;, &#39;fungsi&#39;, &#39;objektif&#39;, &#39;dengan&#39;, &#39;nilai&#39;, &#39;ideal&#39;, &#39;fungsi&#39;, &#39;objektif&#39;, &#39;hasil&#39;, &#39;proporsi&#39;, &#39;dana&#39;, &#39;harus&#39;, &#39;investasi&#39;, &#39;masingmasing&#39;, &#39;saham&#39;, &#39;hasil&#39;, &#39;oleh&#39;, &#39;goal&#39;, &#39;programming&#39;, &#39;tiap&#39;, &#39;subsektor&#39;, &#39;subsektor&#39;, &#39;batubara&#39;, &#39;dapat&#39;, &#39;4&#39;, &#39;portofolio&#39;, &#39;efisien&#39;, &#39;subsektor&#39;, &#39;batubatuan&#39;, &#39;dapat&#39;, &#39;2&#39;, &#39;portofolio&#39;, &#39;efisien&#39;, &#39;subsektor&#39;, &#39;logam&#39;, &#39;mineral&#39;, &#39;lain&#39;, &#39;dapat&#39;, &#39;3&#39;, &#39;portofolio&#39;, &#39;efisien&#39;, &#39;subsektor&#39;, &#39;minyak&#39;, &#39;gas&#39;, &#39;bumi&#39;, &#39;dapat&#39;, &#39;4&#39;, &#39;portofolio&#39;, &#39;efisien&#39;, &#39;proporsi&#39;, &#39;dana&#39;, &#39;harus&#39;, &#39;investasi&#39;, &#39;portofolioportofolio&#39;, &#39;tiap&#39;, &#39;subsektor&#39;, &#39;sebut&#39;, &#39;kata&#39;, &#39;kunci&#39;, &#39;goal&#39;, &#39;programming&#39;, &#39;portofolio&#39;, &#39;expected&#39;, &#39;return&#39;, &#39;resiko&#39;, &#39;proporsi&#39;, &#39;dana&#39;]
+==================================================
+
+=== Abstrak 2 (Asli) ===
+PT. ABC merupakan perusahaan yang bergerak dibidang manufaktur kayu yaitu memproduksi meja, kursi dan lain-lain. Terdapat berbagai jenis mesin yang berada dalam lantai produksi PT. ABC untuk menunjang jalannya proses produksi, diantaranya yaitu : planner, ripsaw, sanding, dan mesin lainnya. Saat ini PT. ABC memiliki permasalahan dengan tataletak fasilitas, hal tersebut terlihat pada jarak perpindahan bahan dari stasiun kerja satu menuju stasiun kerja yang lainnya yang terlalu jauh. Tujuan penelitian ini adalah merancang alternatif layout yang bisa meminimalkan total momen perpindahan bahan dengan menggunakan metode SLP (Systematic Layout Planning) dan Algoritma Genetik. Setelah pengumpulan dan pengolahan data didapatkan hasil perhitungan tataletak awal lantai produksi perusahaan memberikan total momen sebesar 207.203 meter perpindahan per bulan. Metode SLP memberikan total momen sebesar 152.506 meter perpindahan per bulan, sedangkan dengan algoritma genetik diperoleh total momen sebesar 197.974 meter perpindahan per bulan.
+
+1. Stopword Removal:
+PT. ABC merupakan perusahaan bergerak dibidang manufaktur kayu memproduksi meja, kursi lain-lain. Terdapat berbagai jenis mesin berada lantai produksi PT. ABC menunjang jalannya proses produksi, diantaranya : planner, ripsaw, sanding, mesin lainnya. Saat PT. ABC memiliki permasalahan tataletak fasilitas, tersebut terlihat jarak perpindahan bahan stasiun kerja satu menuju stasiun kerja lainnya terlalu jauh. Tujuan penelitian adalah merancang alternatif layout bisa meminimalkan total momen perpindahan bahan menggunakan metode SLP (Systematic Layout Planning) Algoritma Genetik. Setelah pengumpulan pengolahan data didapatkan hasil perhitungan tataletak awal lantai produksi perusahaan memberikan total momen sebesar 207.203 meter perpindahan per bulan. Metode SLP memberikan total momen sebesar 152.506 meter perpindahan per bulan, dengan algoritma genetik diperoleh total momen sebesar 197.974 meter perpindahan per bulan.
+
+2. Hapus Tanda Baca:
+PT ABC merupakan perusahaan bergerak dibidang manufaktur kayu memproduksi meja kursi lainlain Terdapat berbagai jenis mesin berada lantai produksi PT ABC menunjang jalannya proses produksi diantaranya  planner ripsaw sanding mesin lainnya Saat PT ABC memiliki permasalahan tataletak fasilitas tersebut terlihat jarak perpindahan bahan stasiun kerja satu menuju stasiun kerja lainnya terlalu jauh Tujuan penelitian adalah merancang alternatif layout bisa meminimalkan total momen perpindahan bahan menggunakan metode SLP Systematic Layout Planning Algoritma Genetik Setelah pengumpulan pengolahan data didapatkan hasil perhitungan tataletak awal lantai produksi perusahaan memberikan total momen sebesar 207203 meter perpindahan per bulan Metode SLP memberikan total momen sebesar 152506 meter perpindahan per bulan dengan algoritma genetik diperoleh total momen sebesar 197974 meter perpindahan per bulan
+
+3. Standardisasi Kata:
+pt abc merupakan perusahaan bergerak dibidang manufaktur kayu memproduksi meja kursi lainlain terdapat berbagai jenis mesin berada lantai produksi pt abc menunjang jalannya proses produksi diantaranya planner ripsaw sanding mesin lainnya saat pt abc memiliki permasalahan tataletak fasilitas tersebut terlihat jarak perpindahan bahan stasiun kerja satu menuju stasiun kerja lainnya terlalu jauh tujuan penelitian adalah merancang alternatif layout bisa meminimalkan total momen perpindahan bahan menggunakan metode slp systematic layout planning algoritma genetik setelah pengumpulan pengolahan data didapatkan hasil perhitungan tataletak awal lantai produksi perusahaan memberikan total momen sebesar 207203 meter perpindahan per bulan metode slp memberikan total momen sebesar 152506 meter perpindahan per bulan dengan algoritma genetik diperoleh total momen sebesar 197974 meter perpindahan per bulan
+
+4. Stemming:
+pt abc rupa usaha gerak bidang manufaktur kayu produksi meja kursi lainlain dapat bagai jenis mesin ada lantai produksi pt abc tunjang jalan proses produksi antara planner ripsaw sanding mesin lain saat pt abc milik masalah tataletak fasilitas sebut lihat jarak pindah bahan stasiun kerja satu tuju stasiun kerja lain terlalu jauh tuju teliti adalah rancang alternatif layout bisa minimal total momen pindah bahan guna metode slp systematic layout planning algoritma genetik telah kumpul olah data dapat hasil hitung tataletak awal lantai produksi usaha beri total momen besar 207203 meter pindah per bulan metode slp beri total momen besar 152506 meter pindah per bulan dengan algoritma genetik oleh total momen besar 197974 meter pindah per bulan
+
+5. Tokenisasi:
+[&#39;pt&#39;, &#39;abc&#39;, &#39;rupa&#39;, &#39;usaha&#39;, &#39;gerak&#39;, &#39;bidang&#39;, &#39;manufaktur&#39;, &#39;kayu&#39;, &#39;produksi&#39;, &#39;meja&#39;, &#39;kursi&#39;, &#39;lainlain&#39;, &#39;dapat&#39;, &#39;bagai&#39;, &#39;jenis&#39;, &#39;mesin&#39;, &#39;ada&#39;, &#39;lantai&#39;, &#39;produksi&#39;, &#39;pt&#39;, &#39;abc&#39;, &#39;tunjang&#39;, &#39;jalan&#39;, &#39;proses&#39;, &#39;produksi&#39;, &#39;antara&#39;, &#39;planner&#39;, &#39;ripsaw&#39;, &#39;sanding&#39;, &#39;mesin&#39;, &#39;lain&#39;, &#39;saat&#39;, &#39;pt&#39;, &#39;abc&#39;, &#39;milik&#39;, &#39;masalah&#39;, &#39;tataletak&#39;, &#39;fasilitas&#39;, &#39;sebut&#39;, &#39;lihat&#39;, &#39;jarak&#39;, &#39;pindah&#39;, &#39;bahan&#39;, &#39;stasiun&#39;, &#39;kerja&#39;, &#39;satu&#39;, &#39;tuju&#39;, &#39;stasiun&#39;, &#39;kerja&#39;, &#39;lain&#39;, &#39;terlalu&#39;, &#39;jauh&#39;, &#39;tuju&#39;, &#39;teliti&#39;, &#39;adalah&#39;, &#39;rancang&#39;, &#39;alternatif&#39;, &#39;layout&#39;, &#39;bisa&#39;, &#39;minimal&#39;, &#39;total&#39;, &#39;momen&#39;, &#39;pindah&#39;, &#39;bahan&#39;, &#39;guna&#39;, &#39;metode&#39;, &#39;slp&#39;, &#39;systematic&#39;, &#39;layout&#39;, &#39;planning&#39;, &#39;algoritma&#39;, &#39;genetik&#39;, &#39;telah&#39;, &#39;kumpul&#39;, &#39;olah&#39;, &#39;data&#39;, &#39;dapat&#39;, &#39;hasil&#39;, &#39;hitung&#39;, &#39;tataletak&#39;, &#39;awal&#39;, &#39;lantai&#39;, &#39;produksi&#39;, &#39;usaha&#39;, &#39;beri&#39;, &#39;total&#39;, &#39;momen&#39;, &#39;besar&#39;, &#39;207203&#39;, &#39;meter&#39;, &#39;pindah&#39;, &#39;per&#39;, &#39;bulan&#39;, &#39;metode&#39;, &#39;slp&#39;, &#39;beri&#39;, &#39;total&#39;, &#39;momen&#39;, &#39;besar&#39;, &#39;152506&#39;, &#39;meter&#39;, &#39;pindah&#39;, &#39;per&#39;, &#39;bulan&#39;, &#39;dengan&#39;, &#39;algoritma&#39;, &#39;genetik&#39;, &#39;oleh&#39;, &#39;total&#39;, &#39;momen&#39;, &#39;besar&#39;, &#39;197974&#39;, &#39;meter&#39;, &#39;pindah&#39;, &#39;per&#39;, &#39;bulan&#39;]
+==================================================
+
+=== Abstrak 3 (Asli) ===
+Bangkalan merupakan salah satu kabupaten yang memiliki potensi alam salak. ?Potensi alam tersebut dimanfaatkan oleh UD. Budi Jaya yang terletak di Desa ?Kramat? Bangkalan dengan memproduksi produk olahan salak. Selama ini UD ?Budi Jaya menemui banyak kendala, diantaranya adalah mengenai pemasaran, ?produksi bahan baku, dan lain-lain. salah satu solusi kendala tersebut adalah ?dengan merancang strategi bisnis yang sesuai dengan kondisi UD Budi Jaya. ?Model strategi Fred R. David mempunyai tiga tahap yaitu tahap masukan, ?pencocokan dan pengambilan keputusan. Matriks-matriks yang digunakan pada ?penelitian ini adalah IFE (Internal Factor Evaluation), EFE (External Factor ?Evaluation), SWOT, IE (Internal-External) Matrix, GRAND STRATEGY Matrix ?dan QSPM (Quantitative Strategic Planning Matrix). Hasil penelitian ini adalah ?beberapa alternatif strategi diantaranya adalah Strategi 5 (S5) yaitu menciptakan ?produk olahan baru (diversikasi), Strategi 3 (S3) pengiklanan, Strategi 2 (S2) ?Pengembangan produk yaitu meningkatkan kualitas produk, Strategi 7 (S7) ?Melakukan kesepakatan harga dengan anggota kelompok tani yang lain, dan ?strategi 1 (S1) Memperluas pasar.?
+
+1. Stopword Removal:
+Bangkalan merupakan salah satu kabupaten memiliki potensi alam salak. ?Potensi alam tersebut dimanfaatkan UD. Budi Jaya terletak Desa ?Kramat? Bangkalan memproduksi produk olahan salak. Selama UD ?Budi Jaya menemui banyak kendala, diantaranya mengenai pemasaran, ?produksi bahan baku, lain-lain. salah satu solusi kendala tersebut ?dengan merancang strategi bisnis sesuai kondisi UD Budi Jaya. ?Model strategi Fred R. David mempunyai tiga tahap tahap masukan, ?pencocokan pengambilan keputusan. Matriks-matriks digunakan ?penelitian IFE (Internal Factor Evaluation), EFE (External Factor ?Evaluation), SWOT, IE (Internal-External) Matrix, GRAND STRATEGY Matrix ?dan QSPM (Quantitative Strategic Planning Matrix). Hasil penelitian adalah ?beberapa alternatif strategi diantaranya adalah Strategi 5 (S5) menciptakan ?produk olahan baru (diversikasi), Strategi 3 (S3) pengiklanan, Strategi 2 (S2) ?Pengembangan produk meningkatkan kualitas produk, Strategi 7 (S7) ?Melakukan kesepakatan harga anggota kelompok tani lain, ?strategi 1 (S1) Memperluas pasar.?
+
+2. Hapus Tanda Baca:
+Bangkalan merupakan salah satu kabupaten memiliki potensi alam salak Potensi alam tersebut dimanfaatkan UD Budi Jaya terletak Desa Kramat Bangkalan memproduksi produk olahan salak Selama UD Budi Jaya menemui banyak kendala diantaranya mengenai pemasaran produksi bahan baku lainlain salah satu solusi kendala tersebut dengan merancang strategi bisnis sesuai kondisi UD Budi Jaya Model strategi Fred R David mempunyai tiga tahap tahap masukan pencocokan pengambilan keputusan Matriksmatriks digunakan penelitian IFE Internal Factor Evaluation EFE External Factor Evaluation SWOT IE InternalExternal Matrix GRAND STRATEGY Matrix dan QSPM Quantitative Strategic Planning Matrix Hasil penelitian adalah beberapa alternatif strategi diantaranya adalah Strategi 5 S5 menciptakan produk olahan baru diversikasi Strategi 3 S3 pengiklanan Strategi 2 S2 Pengembangan produk meningkatkan kualitas produk Strategi 7 S7 Melakukan kesepakatan harga anggota kelompok tani lain strategi 1 S1 Memperluas pasar
+
+3. Standardisasi Kata:
+bangkalan merupakan salah satu kabupaten memiliki potensi alam salak potensi alam tersebut dimanfaatkan ud budi jaya terletak desa kramat bangkalan memproduksi produk olahan salak selama ud budi jaya menemui banyak kendala diantaranya mengenai pemasaran produksi bahan baku lainlain salah satu solusi kendala tersebut dengan merancang strategi bisnis sesuai kondisi ud budi jaya model strategi fred r david mempunyai tiga tahap tahap masukan pencocokan pengambilan keputusan matriksmatriks digunakan penelitian ife internal factor evaluation efe external factor evaluation swot ie internalexternal matrix grand strategy matrix dan qspm quantitative strategic planning matrix hasil penelitian adalah beberapa alternatif strategi diantaranya adalah strategi 5 s5 menciptakan produk olahan baru diversikasi strategi 3 s3 pengiklanan strategi 2 s2 pengembangan produk meningkatkan kualitas produk strategi 7 s7 melakukan kesepakatan harga anggota kelompok tani lain strategi 1 s1 memperluas pasar
+
+4. Stemming:
+bangkal rupa salah satu kabupaten milik potensi alam salak potensi alam sebut manfaat ud budi jaya letak desa kramat bangkal produksi produk olah salak lama ud budi jaya temu banyak kendala antara kena pasar produksi bahan baku lainlain salah satu solusi kendala sebut dengan rancang strategi bisnis sesuai kondisi ud budi jaya model strategi fred r david punya tiga tahap tahap masuk cocok ambil putus matriksmatriks guna teliti ife internal factor evaluation efe external factor evaluation swot ie internalexternal matrix grand strategy matrix dan qspm quantitative strategic planning matrix hasil teliti adalah beberapa alternatif strategi antara adalah strategi 5 s5 cipta produk olah baru diversikasi strategi 3 s3 iklan strategi 2 s2 kembang produk tingkat kualitas produk strategi 7 s7 laku sepakat harga anggota kelompok tani lain strategi 1 s1 luas pasar
+
+5. Tokenisasi:
+[&#39;bangkal&#39;, &#39;rupa&#39;, &#39;salah&#39;, &#39;satu&#39;, &#39;kabupaten&#39;, &#39;milik&#39;, &#39;potensi&#39;, &#39;alam&#39;, &#39;salak&#39;, &#39;potensi&#39;, &#39;alam&#39;, &#39;sebut&#39;, &#39;manfaat&#39;, &#39;ud&#39;, &#39;budi&#39;, &#39;jaya&#39;, &#39;letak&#39;, &#39;desa&#39;, &#39;kramat&#39;, &#39;bangkal&#39;, &#39;produksi&#39;, &#39;produk&#39;, &#39;olah&#39;, &#39;salak&#39;, &#39;lama&#39;, &#39;ud&#39;, &#39;budi&#39;, &#39;jaya&#39;, &#39;temu&#39;, &#39;banyak&#39;, &#39;kendala&#39;, &#39;antara&#39;, &#39;kena&#39;, &#39;pasar&#39;, &#39;produksi&#39;, &#39;bahan&#39;, &#39;baku&#39;, &#39;lainlain&#39;, &#39;salah&#39;, &#39;satu&#39;, &#39;solusi&#39;, &#39;kendala&#39;, &#39;sebut&#39;, &#39;dengan&#39;, &#39;rancang&#39;, &#39;strategi&#39;, &#39;bisnis&#39;, &#39;sesuai&#39;, &#39;kondisi&#39;, &#39;ud&#39;, &#39;budi&#39;, &#39;jaya&#39;, &#39;model&#39;, &#39;strategi&#39;, &#39;fred&#39;, &#39;r&#39;, &#39;david&#39;, &#39;punya&#39;, &#39;tiga&#39;, &#39;tahap&#39;, &#39;tahap&#39;, &#39;masuk&#39;, &#39;cocok&#39;, &#39;ambil&#39;, &#39;putus&#39;, &#39;matriksmatriks&#39;, &#39;guna&#39;, &#39;teliti&#39;, &#39;ife&#39;, &#39;internal&#39;, &#39;factor&#39;, &#39;evaluation&#39;, &#39;efe&#39;, &#39;external&#39;, &#39;factor&#39;, &#39;evaluation&#39;, &#39;swot&#39;, &#39;ie&#39;, &#39;internalexternal&#39;, &#39;matrix&#39;, &#39;grand&#39;, &#39;strategy&#39;, &#39;matrix&#39;, &#39;dan&#39;, &#39;qspm&#39;, &#39;quantitative&#39;, &#39;strategic&#39;, &#39;planning&#39;, &#39;matrix&#39;, &#39;hasil&#39;, &#39;teliti&#39;, &#39;adalah&#39;, &#39;beberapa&#39;, &#39;alternatif&#39;, &#39;strategi&#39;, &#39;antara&#39;, &#39;adalah&#39;, &#39;strategi&#39;, &#39;5&#39;, &#39;s5&#39;, &#39;cipta&#39;, &#39;produk&#39;, &#39;olah&#39;, &#39;baru&#39;, &#39;diversikasi&#39;, &#39;strategi&#39;, &#39;3&#39;, &#39;s3&#39;, &#39;iklan&#39;, &#39;strategi&#39;, &#39;2&#39;, &#39;s2&#39;, &#39;kembang&#39;, &#39;produk&#39;, &#39;tingkat&#39;, &#39;kualitas&#39;, &#39;produk&#39;, &#39;strategi&#39;, &#39;7&#39;, &#39;s7&#39;, &#39;laku&#39;, &#39;sepakat&#39;, &#39;harga&#39;, &#39;anggota&#39;, &#39;kelompok&#39;, &#39;tani&#39;, &#39;lain&#39;, &#39;strategi&#39;, &#39;1&#39;, &#39;s1&#39;, &#39;luas&#39;, &#39;pasar&#39;]
+==================================================
+
+=== Abstrak 4 (Asli) ===
+Simulasi adalah duplikasi atau abstraksi dari persoalan dalam kehidupan nyata ke dalam model matematika. Berdasarkan hasil survey pendahuluan di lantai produksi PT Indospring tbk masih sering terjadi proses produksi yang belum optimal, salah satunya terlihat dari masih adanya jumlah antrian yang cukup tinggi, dan juga target output produksi yang sering belum tercapai. Dengan pendekatan simulasi diharapkan dapat memberikan gambaran permasalahan yang ada pada lantai produksi PT Indospring tbk guna meningkatkan efektifitas dan efisiensi lini produksi dengan cara memperbaiki utilitas pada resources yang ada pada lantai produksi PT Indospring tbk. Berdasarkan hasil pengolahan data didapatkan jumlah antrian tertinggi pada stasiun proses shearing sebesar 610 entity dengan nilai utillitas pada mesin sebesar 88% dan utilitas tenaga kerja sebesar 44%. Setelah usulan perbaikan dilakukan dengan cara menambahkan 1 unit mesin shearing akan berdampak penurunan antrian pada proses shearing dan juga perubahan nilai utilitas pada mesin menjadi 46% dan utilitas tenaga kerja menjadi 46%.
+
+1. Stopword Removal:
+Simulasi duplikasi abstraksi persoalan kehidupan nyata dalam model matematika. Berdasarkan hasil survey pendahuluan lantai produksi PT Indospring tbk sering terjadi proses produksi optimal, salah satunya terlihat masih adanya jumlah antrian cukup tinggi, juga target output produksi sering belum tercapai. Dengan pendekatan simulasi diharapkan memberikan gambaran permasalahan ada lantai produksi PT Indospring tbk meningkatkan efektifitas efisiensi lini produksi cara memperbaiki utilitas resources ada lantai produksi PT Indospring tbk. Berdasarkan hasil pengolahan data didapatkan jumlah antrian tertinggi stasiun proses shearing sebesar 610 entity nilai utillitas mesin sebesar 88% utilitas tenaga kerja sebesar 44%. Setelah usulan perbaikan dilakukan cara menambahkan 1 unit mesin shearing berdampak penurunan antrian proses shearing juga perubahan nilai utilitas mesin menjadi 46% utilitas tenaga kerja menjadi 46%.
+
+2. Hapus Tanda Baca:
+Simulasi duplikasi abstraksi persoalan kehidupan nyata dalam model matematika Berdasarkan hasil survey pendahuluan lantai produksi PT Indospring tbk sering terjadi proses produksi optimal salah satunya terlihat masih adanya jumlah antrian cukup tinggi juga target output produksi sering belum tercapai Dengan pendekatan simulasi diharapkan memberikan gambaran permasalahan ada lantai produksi PT Indospring tbk meningkatkan efektifitas efisiensi lini produksi cara memperbaiki utilitas resources ada lantai produksi PT Indospring tbk Berdasarkan hasil pengolahan data didapatkan jumlah antrian tertinggi stasiun proses shearing sebesar 610 entity nilai utillitas mesin sebesar 88 utilitas tenaga kerja sebesar 44 Setelah usulan perbaikan dilakukan cara menambahkan 1 unit mesin shearing berdampak penurunan antrian proses shearing juga perubahan nilai utilitas mesin menjadi 46 utilitas tenaga kerja menjadi 46
+
+3. Standardisasi Kata:
+simulasi duplikasi abstraksi persoalan kehidupan nyata dalam model matematika berdasarkan hasil survey pendahuluan lantai produksi pt indospring tbk sering terjadi proses produksi optimal salah satunya terlihat masih adanya jumlah antrian cukup tinggi juga target output produksi sering belum tercapai dengan pendekatan simulasi diharapkan memberikan gambaran permasalahan ada lantai produksi pt indospring tbk meningkatkan efektifitas efisiensi lini produksi cara memperbaiki utilitas resources ada lantai produksi pt indospring tbk berdasarkan hasil pengolahan data didapatkan jumlah antrian tertinggi stasiun proses shearing sebesar 610 entity nilai utillitas mesin sebesar 88 utilitas tenaga kerja sebesar 44 setelah usulan perbaikan dilakukan cara menambahkan 1 unit mesin shearing berdampak penurunan antrian proses shearing juga perubahan nilai utilitas mesin menjadi 46 utilitas tenaga kerja menjadi 46
+
+4. Stemming:
+simulasi duplikasi abstraksi soal hidup nyata dalam model matematika dasar hasil survey dahulu lantai produksi pt indospring tbk sering jadi proses produksi optimal salah satu lihat masih ada jumlah antri cukup tinggi juga target output produksi sering belum capai dengan dekat simulasi harap beri gambar masalah ada lantai produksi pt indospring tbk tingkat efektifitas efisiensi lini produksi cara baik utilitas resources ada lantai produksi pt indospring tbk dasar hasil olah data dapat jumlah antri tinggi stasiun proses shearing besar 610 entity nilai utillitas mesin besar 88 utilitas tenaga kerja besar 44 telah usul baik laku cara tambah 1 unit mesin shearing dampak turun antri proses shearing juga ubah nilai utilitas mesin jadi 46 utilitas tenaga kerja jadi 46
+
+5. Tokenisasi:
+[&#39;simulasi&#39;, &#39;duplikasi&#39;, &#39;abstraksi&#39;, &#39;soal&#39;, &#39;hidup&#39;, &#39;nyata&#39;, &#39;dalam&#39;, &#39;model&#39;, &#39;matematika&#39;, &#39;dasar&#39;, &#39;hasil&#39;, &#39;survey&#39;, &#39;dahulu&#39;, &#39;lantai&#39;, &#39;produksi&#39;, &#39;pt&#39;, &#39;indospring&#39;, &#39;tbk&#39;, &#39;sering&#39;, &#39;jadi&#39;, &#39;proses&#39;, &#39;produksi&#39;, &#39;optimal&#39;, &#39;salah&#39;, &#39;satu&#39;, &#39;lihat&#39;, &#39;masih&#39;, &#39;ada&#39;, &#39;jumlah&#39;, &#39;antri&#39;, &#39;cukup&#39;, &#39;tinggi&#39;, &#39;juga&#39;, &#39;target&#39;, &#39;output&#39;, &#39;produksi&#39;, &#39;sering&#39;, &#39;belum&#39;, &#39;capai&#39;, &#39;dengan&#39;, &#39;dekat&#39;, &#39;simulasi&#39;, &#39;harap&#39;, &#39;beri&#39;, &#39;gambar&#39;, &#39;masalah&#39;, &#39;ada&#39;, &#39;lantai&#39;, &#39;produksi&#39;, &#39;pt&#39;, &#39;indospring&#39;, &#39;tbk&#39;, &#39;tingkat&#39;, &#39;efektifitas&#39;, &#39;efisiensi&#39;, &#39;lini&#39;, &#39;produksi&#39;, &#39;cara&#39;, &#39;baik&#39;, &#39;utilitas&#39;, &#39;resources&#39;, &#39;ada&#39;, &#39;lantai&#39;, &#39;produksi&#39;, &#39;pt&#39;, &#39;indospring&#39;, &#39;tbk&#39;, &#39;dasar&#39;, &#39;hasil&#39;, &#39;olah&#39;, &#39;data&#39;, &#39;dapat&#39;, &#39;jumlah&#39;, &#39;antri&#39;, &#39;tinggi&#39;, &#39;stasiun&#39;, &#39;proses&#39;, &#39;shearing&#39;, &#39;besar&#39;, &#39;610&#39;, &#39;entity&#39;, &#39;nilai&#39;, &#39;utillitas&#39;, &#39;mesin&#39;, &#39;besar&#39;, &#39;88&#39;, &#39;utilitas&#39;, &#39;tenaga&#39;, &#39;kerja&#39;, &#39;besar&#39;, &#39;44&#39;, &#39;telah&#39;, &#39;usul&#39;, &#39;baik&#39;, &#39;laku&#39;, &#39;cara&#39;, &#39;tambah&#39;, &#39;1&#39;, &#39;unit&#39;, &#39;mesin&#39;, &#39;shearing&#39;, &#39;dampak&#39;, &#39;turun&#39;, &#39;antri&#39;, &#39;proses&#39;, &#39;shearing&#39;, &#39;juga&#39;, &#39;ubah&#39;, &#39;nilai&#39;, &#39;utilitas&#39;, &#39;mesin&#39;, &#39;jadi&#39;, &#39;46&#39;, &#39;utilitas&#39;, &#39;tenaga&#39;, &#39;kerja&#39;, &#39;jadi&#39;, &#39;46&#39;]
+==================================================
+
+=== Abstrak 5 (Asli) ===
+Kepuasan adalah tingkat perasaan seseorang terhadap pelayanan setelah membandingkan antara kinerja dengan harapan yang diinginkan. Dalam penelitian ini dilakukan studi kualitas layanan dalam meningkatkan kepuasan masyrakat dengan menggunakan integrasi Importance Performance Analysis (IPA) dan Model Kano. Pendekatan ini bertujuan untuk membantu SATLANTAS kabupaten Sampang pada layanan pembuatan surat izin mengemudi dalam mengevaluasi kepuasan pemohon SIM serta mengidentifikasi atribut-atribut layanan yang fungsional dan disfungsional. Sehingga dengan pengintegrasian tersebut bisa mengetahui layanan yang menjadi prioritas utama untuk ditingkatkan. Hasil yang diperoleh nilai rata-rata untuk kepuasan adalah 3,306, sehingga dinilai cukup oleh pemohon SIM. Sedangkan dari hasil integrasi IPA dan Kano dapat diketahui bahwa atribut yang termasuk dalam kuadran I menjadi prioritas utama untuk ditingkatkan dengan kategori must-be dan one-Dimensional ,yaitu jumlah tempat duduk yang ada diruangan layanan SIM sudah mencukupi kebutuhan, jumlah komputer yang ada diruangan layanan SIM sudah mencukupi, sistem antrian yang ada di ruangan layanan SIM sudah rapi, para petugas layanan SIM dapat memberikan pelayanan yang dijanjikan, biaya yang ada di layanan SIM sesuai dengan ketentuan dan pelayanan dari petugas. Sedangkan kuadran III menjadi prioritas rendah untuk ditingkatkan dengan kategori attractive dan must-be, yaitu sarana informasi yang ada sudah lengkap, pemohon mudah melakukan hubungan dengan petugas layanan SIM dan pemohon dilayani dengan ramah oleh petugas layanan SIM.
+Kata kunci : Kepuasan Terhadap Layanan, Integrasi IPA dan Kano
+
+1. Stopword Removal:
+Kepuasan tingkat perasaan seseorang pelayanan membandingkan kinerja harapan diinginkan. Dalam penelitian dilakukan studi kualitas layanan meningkatkan kepuasan masyrakat menggunakan integrasi Importance Performance Analysis (IPA) Model Kano. Pendekatan bertujuan membantu SATLANTAS kabupaten Sampang layanan pembuatan surat izin mengemudi mengevaluasi kepuasan pemohon SIM mengidentifikasi atribut-atribut layanan fungsional disfungsional. Sehingga pengintegrasian tersebut mengetahui layanan menjadi prioritas utama ditingkatkan. Hasil diperoleh nilai rata-rata kepuasan 3,306, dinilai cukup pemohon SIM. Sedangkan hasil integrasi IPA Kano diketahui atribut termasuk kuadran I menjadi prioritas utama ditingkatkan kategori must-be one-Dimensional ,yaitu jumlah tempat duduk ada diruangan layanan SIM mencukupi kebutuhan, jumlah komputer ada diruangan layanan SIM mencukupi, sistem antrian ada ruangan layanan SIM rapi, petugas layanan SIM memberikan pelayanan dijanjikan, biaya ada layanan SIM sesuai ketentuan pelayanan petugas. Sedangkan kuadran III menjadi prioritas rendah ditingkatkan kategori attractive must-be, sarana informasi ada lengkap, pemohon mudah melakukan hubungan petugas layanan SIM pemohon dilayani ramah petugas layanan SIM.
+Kata kunci : Kepuasan Terhadap Layanan, Integrasi IPA Kano
+
+2. Hapus Tanda Baca:
+Kepuasan tingkat perasaan seseorang pelayanan membandingkan kinerja harapan diinginkan Dalam penelitian dilakukan studi kualitas layanan meningkatkan kepuasan masyrakat menggunakan integrasi Importance Performance Analysis IPA Model Kano Pendekatan bertujuan membantu SATLANTAS kabupaten Sampang layanan pembuatan surat izin mengemudi mengevaluasi kepuasan pemohon SIM mengidentifikasi atributatribut layanan fungsional disfungsional Sehingga pengintegrasian tersebut mengetahui layanan menjadi prioritas utama ditingkatkan Hasil diperoleh nilai ratarata kepuasan 3306 dinilai cukup pemohon SIM Sedangkan hasil integrasi IPA Kano diketahui atribut termasuk kuadran I menjadi prioritas utama ditingkatkan kategori mustbe oneDimensional yaitu jumlah tempat duduk ada diruangan layanan SIM mencukupi kebutuhan jumlah komputer ada diruangan layanan SIM mencukupi sistem antrian ada ruangan layanan SIM rapi petugas layanan SIM memberikan pelayanan dijanjikan biaya ada layanan SIM sesuai ketentuan pelayanan petugas Sedangkan kuadran III menjadi prioritas rendah ditingkatkan kategori attractive mustbe sarana informasi ada lengkap pemohon mudah melakukan hubungan petugas layanan SIM pemohon dilayani ramah petugas layanan SIM
+Kata kunci  Kepuasan Terhadap Layanan Integrasi IPA Kano
+
+3. Standardisasi Kata:
+kepuasan tingkat perasaan seseorang pelayanan membandingkan kinerja harapan diinginkan dalam penelitian dilakukan studi kualitas layanan meningkatkan kepuasan masyrakat menggunakan integrasi importance performance analysis ipa model kano pendekatan bertujuan membantu satlantas kabupaten sampang layanan pembuatan surat izin mengemudi mengevaluasi kepuasan pemohon sim mengidentifikasi atributatribut layanan fungsional disfungsional sehingga pengintegrasian tersebut mengetahui layanan menjadi prioritas utama ditingkatkan hasil diperoleh nilai ratarata kepuasan 3306 dinilai cukup pemohon sim sedangkan hasil integrasi ipa kano diketahui atribut termasuk kuadran i menjadi prioritas utama ditingkatkan kategori mustbe onedimensional yaitu jumlah tempat duduk ada diruangan layanan sim mencukupi kebutuhan jumlah komputer ada diruangan layanan sim mencukupi sistem antrian ada ruangan layanan sim rapi petugas layanan sim memberikan pelayanan dijanjikan biaya ada layanan sim sesuai ketentuan pelayanan petugas sedangkan kuadran iii menjadi prioritas rendah ditingkatkan kategori attractive mustbe sarana informasi ada lengkap pemohon mudah melakukan hubungan petugas layanan sim pemohon dilayani ramah petugas layanan sim kata kunci kepuasan terhadap layanan integrasi ipa kano
+
+4. Stemming:
+puas tingkat asa orang layan banding kerja harap ingin dalam teliti laku studi kualitas layan tingkat puas masyrakat guna integrasi importance performance analysis ipa model kano dekat tuju bantu satlantas kabupaten sampang layan buat surat izin kemudi evaluasi puas mohon sim identifikasi atributatribut layan fungsional disfungsional sehingga integrasi sebut tahu layan jadi prioritas utama tingkat hasil oleh nilai ratarata puas 3306 nilai cukup mohon sim sedang hasil integrasi ipa kano tahu atribut masuk kuadran i jadi prioritas utama tingkat kategori mustbe onedimensional yaitu jumlah tempat duduk ada ruang layan sim cukup butuh jumlah komputer ada ruang layan sim cukup sistem antri ada ruang layan sim rapi tugas layan sim beri layan janji biaya ada layan sim sesuai tentu layan tugas sedang kuadran iii jadi prioritas rendah tingkat kategori attractive mustbe sarana informasi ada lengkap mohon mudah laku hubung tugas layan sim mohon layan ramah tugas layan sim kata kunci puas hadap layan integrasi ipa kano
+
+5. Tokenisasi:
+[&#39;puas&#39;, &#39;tingkat&#39;, &#39;asa&#39;, &#39;orang&#39;, &#39;layan&#39;, &#39;banding&#39;, &#39;kerja&#39;, &#39;harap&#39;, &#39;ingin&#39;, &#39;dalam&#39;, &#39;teliti&#39;, &#39;laku&#39;, &#39;studi&#39;, &#39;kualitas&#39;, &#39;layan&#39;, &#39;tingkat&#39;, &#39;puas&#39;, &#39;masyrakat&#39;, &#39;guna&#39;, &#39;integrasi&#39;, &#39;importance&#39;, &#39;performance&#39;, &#39;analysis&#39;, &#39;ipa&#39;, &#39;model&#39;, &#39;kano&#39;, &#39;dekat&#39;, &#39;tuju&#39;, &#39;bantu&#39;, &#39;satlantas&#39;, &#39;kabupaten&#39;, &#39;sampang&#39;, &#39;layan&#39;, &#39;buat&#39;, &#39;surat&#39;, &#39;izin&#39;, &#39;kemudi&#39;, &#39;evaluasi&#39;, &#39;puas&#39;, &#39;mohon&#39;, &#39;sim&#39;, &#39;identifikasi&#39;, &#39;atributatribut&#39;, &#39;layan&#39;, &#39;fungsional&#39;, &#39;disfungsional&#39;, &#39;sehingga&#39;, &#39;integrasi&#39;, &#39;sebut&#39;, &#39;tahu&#39;, &#39;layan&#39;, &#39;jadi&#39;, &#39;prioritas&#39;, &#39;utama&#39;, &#39;tingkat&#39;, &#39;hasil&#39;, &#39;oleh&#39;, &#39;nilai&#39;, &#39;ratarata&#39;, &#39;puas&#39;, &#39;3306&#39;, &#39;nilai&#39;, &#39;cukup&#39;, &#39;mohon&#39;, &#39;sim&#39;, &#39;sedang&#39;, &#39;hasil&#39;, &#39;integrasi&#39;, &#39;ipa&#39;, &#39;kano&#39;, &#39;tahu&#39;, &#39;atribut&#39;, &#39;masuk&#39;, &#39;kuadran&#39;, &#39;i&#39;, &#39;jadi&#39;, &#39;prioritas&#39;, &#39;utama&#39;, &#39;tingkat&#39;, &#39;kategori&#39;, &#39;mustbe&#39;, &#39;onedimensional&#39;, &#39;yaitu&#39;, &#39;jumlah&#39;, &#39;tempat&#39;, &#39;duduk&#39;, &#39;ada&#39;, &#39;ruang&#39;, &#39;layan&#39;, &#39;sim&#39;, &#39;cukup&#39;, &#39;butuh&#39;, &#39;jumlah&#39;, &#39;komputer&#39;, &#39;ada&#39;, &#39;ruang&#39;, &#39;layan&#39;, &#39;sim&#39;, &#39;cukup&#39;, &#39;sistem&#39;, &#39;antri&#39;, &#39;ada&#39;, &#39;ruang&#39;, &#39;layan&#39;, &#39;sim&#39;, &#39;rapi&#39;, &#39;tugas&#39;, &#39;layan&#39;, &#39;sim&#39;, &#39;beri&#39;, &#39;layan&#39;, &#39;janji&#39;, &#39;biaya&#39;, &#39;ada&#39;, &#39;layan&#39;, &#39;sim&#39;, &#39;sesuai&#39;, &#39;tentu&#39;, &#39;layan&#39;, &#39;tugas&#39;, &#39;sedang&#39;, &#39;kuadran&#39;, &#39;iii&#39;, &#39;jadi&#39;, &#39;prioritas&#39;, &#39;rendah&#39;, &#39;tingkat&#39;, &#39;kategori&#39;, &#39;attractive&#39;, &#39;mustbe&#39;, &#39;sarana&#39;, &#39;informasi&#39;, &#39;ada&#39;, &#39;lengkap&#39;, &#39;mohon&#39;, &#39;mudah&#39;, &#39;laku&#39;, &#39;hubung&#39;, &#39;tugas&#39;, &#39;layan&#39;, &#39;sim&#39;, &#39;mohon&#39;, &#39;layan&#39;, &#39;ramah&#39;, &#39;tugas&#39;, &#39;layan&#39;, &#39;sim&#39;, &#39;kata&#39;, &#39;kunci&#39;, &#39;puas&#39;, &#39;hadap&#39;, &#39;layan&#39;, &#39;integrasi&#39;, &#39;ipa&#39;, &#39;kano&#39;]
+==================================================
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">re</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">string</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">collections</span><span class="w"> </span><span class="kn">import</span> <span class="n">Counter</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">Sastrawi.Stemmer.StemmerFactory</span><span class="w"> </span><span class="kn">import</span> <span class="n">StemmerFactory</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">nltk</span>
+<span class="n">nltk</span><span class="o">.</span><span class="n">download</span><span class="p">(</span><span class="s1">&#39;punkt&#39;</span><span class="p">)</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">nltk.tokenize</span><span class="w"> </span><span class="kn">import</span> <span class="n">word_tokenize</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">Sastrawi.StopWordRemover.StopWordRemoverFactory</span><span class="w"> </span><span class="kn">import</span> <span class="n">StopWordRemoverFactory</span>
+
+<span class="c1"># --- MEMBACA DATA DARI FILE CSV ---</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;PPW_HasilCrawling_FakultasTeknik_partial.csv&#39;</span><span class="p">,</span> <span class="n">engine</span><span class="o">=</span><span class="s1">&#39;python&#39;</span><span class="p">,</span> <span class="n">on_bad_lines</span><span class="o">=</span><span class="s1">&#39;skip&#39;</span><span class="p">)</span>
+
+<span class="c1"># Ambil hanya kolom abstrak bahasa Indonesia dari seluruh data</span>
+<span class="n">abstrak_list</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;abstrak_bindonesia&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">dropna</span><span class="p">()</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Jumlah data abstrak Bahasa Indonesia: </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">abstrak_list</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;=&quot;</span> <span class="o">*</span> <span class="mi">50</span><span class="p">)</span>
+
+<span class="c1"># --- PROSES ---</span>
+<span class="n">stopword_remover</span> <span class="o">=</span> <span class="n">StopWordRemoverFactory</span><span class="p">()</span><span class="o">.</span><span class="n">create_stop_word_remover</span><span class="p">()</span>
+<span class="n">factory</span> <span class="o">=</span> <span class="n">StemmerFactory</span><span class="p">()</span>
+<span class="n">stemmer</span> <span class="o">=</span> <span class="n">factory</span><span class="o">.</span><span class="n">create_stemmer</span><span class="p">()</span>
+
+<span class="c1"># Kamus pembakuan kata</span>
+<span class="n">kata_baku</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;diumumin&#39;</span><span class="p">:</span> <span class="s1">&#39;diumumkan&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;resmi&#39;</span><span class="p">:</span> <span class="s1">&#39;resmi&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;enggak&#39;</span><span class="p">:</span> <span class="s1">&#39;tidak&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;syuting&#39;</span><span class="p">:</span> <span class="s1">&#39;syuting&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;berlarii&#39;</span><span class="p">:</span> <span class="s1">&#39;lari&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;sperti&#39;</span><span class="p">:</span> <span class="s1">&#39;seperti&#39;</span>
+<span class="p">}</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">standardisasi_kata</span><span class="p">(</span><span class="n">teks</span><span class="p">):</span>
+    <span class="n">teks_baru</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">kata</span> <span class="ow">in</span> <span class="n">teks</span><span class="o">.</span><span class="n">split</span><span class="p">():</span>
+        <span class="n">teks_baru</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">kata_baku</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">kata</span><span class="p">,</span> <span class="n">kata</span><span class="p">))</span>
+    <span class="k">return</span> <span class="s1">&#39; &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">teks_baru</span><span class="p">)</span>
+
+<span class="c1"># Simpan semua token</span>
+<span class="n">semua_token</span> <span class="o">=</span> <span class="p">[]</span>
+
+<span class="c1"># Looping semua abstrak</span>
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">teks</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">abstrak_list</span><span class="p">[:</span><span class="mi">5</span><span class="p">],</span> <span class="n">start</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>  <span class="c1"># tampilkan contoh 5 dulu</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">=== Abstrak </span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s2"> (Asli) ===&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">teks</span><span class="p">)</span>
+
+    <span class="c1"># 1. Stopword removal</span>
+    <span class="n">teks_no_stop</span> <span class="o">=</span> <span class="n">stopword_remover</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">teks</span><span class="p">)</span>
+
+    <span class="c1"># 2. Hapus tanda baca</span>
+    <span class="n">teks_no_punct</span> <span class="o">=</span> <span class="n">teks_no_stop</span><span class="o">.</span><span class="n">translate</span><span class="p">(</span><span class="nb">str</span><span class="o">.</span><span class="n">maketrans</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">string</span><span class="o">.</span><span class="n">punctuation</span><span class="p">))</span>
+
+    <span class="c1"># 3. Standardisasi kata</span>
+    <span class="n">teks_baku</span> <span class="o">=</span> <span class="n">standardisasi_kata</span><span class="p">(</span><span class="n">teks_no_punct</span><span class="o">.</span><span class="n">lower</span><span class="p">())</span>
+
+    <span class="c1"># 4. Stemming</span>
+    <span class="n">teks_stemmed</span> <span class="o">=</span> <span class="n">stemmer</span><span class="o">.</span><span class="n">stem</span><span class="p">(</span><span class="n">teks_baku</span><span class="p">)</span>
+
+    <span class="c1"># 5. Tokenisasi</span>
+    <span class="n">tokens</span> <span class="o">=</span> <span class="n">word_tokenize</span><span class="p">(</span><span class="n">teks_stemmed</span><span class="p">)</span>
+    <span class="n">semua_token</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">tokens</span><span class="p">)</span>  <span class="c1"># gabungkan ke list semua token</span>
+
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Tokenisasi:&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">tokens</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;=&quot;</span> <span class="o">*</span> <span class="mi">50</span><span class="p">)</span>
+
+<span class="c1"># --- Hitung frekuensi kata dari semua abstrak yang diproses ---</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">=== Frekuensi Kata (Dari Semua Abstrak) ===&quot;</span><span class="p">)</span>
+<span class="n">frekuensi</span> <span class="o">=</span> <span class="n">Counter</span><span class="p">(</span><span class="n">semua_token</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">kata</span><span class="p">,</span> <span class="n">jumlah</span> <span class="ow">in</span> <span class="n">frekuensi</span><span class="o">.</span><span class="n">most_common</span><span class="p">(</span><span class="mi">20</span><span class="p">):</span>  <span class="c1"># tampilkan 20 kata terbanyak</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">kata</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">jumlah</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[nltk_data] Downloading package punkt to /root/nltk_data...
+[nltk_data]   Package punkt is already up-to-date!
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Jumlah data abstrak Bahasa Indonesia: 2265
+==================================================
+
+=== Abstrak 1 (Asli) ===
+Portofolio adalah sekumpulan saham yang dimiliki investor. Dalam setiap saham pada portofolio memiliki resiko yang harus diminimalkan dengan cara diversifikasi yaitu dengan mengalokasikan dana pada berbagai alternatif investasi pada kombinasi saham pada portofolio. Pada skripsi ini, saham yang digunakan berupa saham dari perusahan sektor tambang yang terdapat 4 subsektor didalamnya yaitu subsektor Batubara, subsektor batu-batuan, subsektor logam dan mineral lainnya, dan subsektor minyak dan gas bumi. Dari setiap subsektor tersebut terbentuk beberapa portofolio yang kemudian dilakukan optimasi dalam pemilihannya. Pada skripsi ini menggunakan goal programming untuk meminimalkan penyimpangan antara fungsi objektif dengan nilai ideal fungsi objektif yang menghasilkan proporsi dana yang harus diinvestasikan pada masing-masing saham. Hasil yang diperoleh dari goal programming pada setiap subsektor yaitu : subsektor batubara terdapat 4 portofolio efisien, subsektor batu-batuan terdapat 2 portofolio efisien, subsektor logam dan mineral lainnya terdapat 3 portofolio efisien dan subsektor minyak dan gas bumi terdapat 4 portofolio efisien serta proporsi dana yang harus diinvestasikan pada portofolio-portofolio pada setiap subsektor tersebut. Kata Kunci : Goal programming, Portofolio, Expected return, Resiko, Proporsi dana.
+
+Tokenisasi:
+[&#39;portofolio&#39;, &#39;kumpul&#39;, &#39;saham&#39;, &#39;milik&#39;, &#39;investor&#39;, &#39;dalam&#39;, &#39;saham&#39;, &#39;portofolio&#39;, &#39;milik&#39;, &#39;resiko&#39;, &#39;harus&#39;, &#39;minimal&#39;, &#39;cara&#39;, &#39;diversifikasi&#39;, &#39;alokasi&#39;, &#39;dana&#39;, &#39;bagai&#39;, &#39;alternatif&#39;, &#39;investasi&#39;, &#39;kombinasi&#39;, &#39;saham&#39;, &#39;portofolio&#39;, &#39;pada&#39;, &#39;skripsi&#39;, &#39;ini&#39;, &#39;saham&#39;, &#39;guna&#39;, &#39;upa&#39;, &#39;saham&#39;, &#39;usah&#39;, &#39;sektor&#39;, &#39;tambang&#39;, &#39;dapat&#39;, &#39;4&#39;, &#39;subsektor&#39;, &#39;dalam&#39;, &#39;subsektor&#39;, &#39;batubara&#39;, &#39;subsektor&#39;, &#39;batubatuan&#39;, &#39;subsektor&#39;, &#39;logam&#39;, &#39;mineral&#39;, &#39;lain&#39;, &#39;subsektor&#39;, &#39;minyak&#39;, &#39;gas&#39;, &#39;bumi&#39;, &#39;dari&#39;, &#39;subsektor&#39;, &#39;sebut&#39;, &#39;bentuk&#39;, &#39;beberapa&#39;, &#39;portofolio&#39;, &#39;kemudian&#39;, &#39;laku&#39;, &#39;optimasi&#39;, &#39;pilih&#39;, &#39;pada&#39;, &#39;skripsi&#39;, &#39;guna&#39;, &#39;goal&#39;, &#39;programming&#39;, &#39;minimal&#39;, &#39;simpang&#39;, &#39;fungsi&#39;, &#39;objektif&#39;, &#39;dengan&#39;, &#39;nilai&#39;, &#39;ideal&#39;, &#39;fungsi&#39;, &#39;objektif&#39;, &#39;hasil&#39;, &#39;proporsi&#39;, &#39;dana&#39;, &#39;harus&#39;, &#39;investasi&#39;, &#39;masingmasing&#39;, &#39;saham&#39;, &#39;hasil&#39;, &#39;oleh&#39;, &#39;goal&#39;, &#39;programming&#39;, &#39;tiap&#39;, &#39;subsektor&#39;, &#39;subsektor&#39;, &#39;batubara&#39;, &#39;dapat&#39;, &#39;4&#39;, &#39;portofolio&#39;, &#39;efisien&#39;, &#39;subsektor&#39;, &#39;batubatuan&#39;, &#39;dapat&#39;, &#39;2&#39;, &#39;portofolio&#39;, &#39;efisien&#39;, &#39;subsektor&#39;, &#39;logam&#39;, &#39;mineral&#39;, &#39;lain&#39;, &#39;dapat&#39;, &#39;3&#39;, &#39;portofolio&#39;, &#39;efisien&#39;, &#39;subsektor&#39;, &#39;minyak&#39;, &#39;gas&#39;, &#39;bumi&#39;, &#39;dapat&#39;, &#39;4&#39;, &#39;portofolio&#39;, &#39;efisien&#39;, &#39;proporsi&#39;, &#39;dana&#39;, &#39;harus&#39;, &#39;investasi&#39;, &#39;portofolioportofolio&#39;, &#39;tiap&#39;, &#39;subsektor&#39;, &#39;sebut&#39;, &#39;kata&#39;, &#39;kunci&#39;, &#39;goal&#39;, &#39;programming&#39;, &#39;portofolio&#39;, &#39;expected&#39;, &#39;return&#39;, &#39;resiko&#39;, &#39;proporsi&#39;, &#39;dana&#39;]
+==================================================
+
+=== Abstrak 2 (Asli) ===
+PT. ABC merupakan perusahaan yang bergerak dibidang manufaktur kayu yaitu memproduksi meja, kursi dan lain-lain. Terdapat berbagai jenis mesin yang berada dalam lantai produksi PT. ABC untuk menunjang jalannya proses produksi, diantaranya yaitu : planner, ripsaw, sanding, dan mesin lainnya. Saat ini PT. ABC memiliki permasalahan dengan tataletak fasilitas, hal tersebut terlihat pada jarak perpindahan bahan dari stasiun kerja satu menuju stasiun kerja yang lainnya yang terlalu jauh. Tujuan penelitian ini adalah merancang alternatif layout yang bisa meminimalkan total momen perpindahan bahan dengan menggunakan metode SLP (Systematic Layout Planning) dan Algoritma Genetik. Setelah pengumpulan dan pengolahan data didapatkan hasil perhitungan tataletak awal lantai produksi perusahaan memberikan total momen sebesar 207.203 meter perpindahan per bulan. Metode SLP memberikan total momen sebesar 152.506 meter perpindahan per bulan, sedangkan dengan algoritma genetik diperoleh total momen sebesar 197.974 meter perpindahan per bulan.
+
+Tokenisasi:
+[&#39;pt&#39;, &#39;abc&#39;, &#39;rupa&#39;, &#39;usaha&#39;, &#39;gerak&#39;, &#39;bidang&#39;, &#39;manufaktur&#39;, &#39;kayu&#39;, &#39;produksi&#39;, &#39;meja&#39;, &#39;kursi&#39;, &#39;lainlain&#39;, &#39;dapat&#39;, &#39;bagai&#39;, &#39;jenis&#39;, &#39;mesin&#39;, &#39;ada&#39;, &#39;lantai&#39;, &#39;produksi&#39;, &#39;pt&#39;, &#39;abc&#39;, &#39;tunjang&#39;, &#39;jalan&#39;, &#39;proses&#39;, &#39;produksi&#39;, &#39;antara&#39;, &#39;planner&#39;, &#39;ripsaw&#39;, &#39;sanding&#39;, &#39;mesin&#39;, &#39;lain&#39;, &#39;saat&#39;, &#39;pt&#39;, &#39;abc&#39;, &#39;milik&#39;, &#39;masalah&#39;, &#39;tataletak&#39;, &#39;fasilitas&#39;, &#39;sebut&#39;, &#39;lihat&#39;, &#39;jarak&#39;, &#39;pindah&#39;, &#39;bahan&#39;, &#39;stasiun&#39;, &#39;kerja&#39;, &#39;satu&#39;, &#39;tuju&#39;, &#39;stasiun&#39;, &#39;kerja&#39;, &#39;lain&#39;, &#39;terlalu&#39;, &#39;jauh&#39;, &#39;tuju&#39;, &#39;teliti&#39;, &#39;adalah&#39;, &#39;rancang&#39;, &#39;alternatif&#39;, &#39;layout&#39;, &#39;bisa&#39;, &#39;minimal&#39;, &#39;total&#39;, &#39;momen&#39;, &#39;pindah&#39;, &#39;bahan&#39;, &#39;guna&#39;, &#39;metode&#39;, &#39;slp&#39;, &#39;systematic&#39;, &#39;layout&#39;, &#39;planning&#39;, &#39;algoritma&#39;, &#39;genetik&#39;, &#39;telah&#39;, &#39;kumpul&#39;, &#39;olah&#39;, &#39;data&#39;, &#39;dapat&#39;, &#39;hasil&#39;, &#39;hitung&#39;, &#39;tataletak&#39;, &#39;awal&#39;, &#39;lantai&#39;, &#39;produksi&#39;, &#39;usaha&#39;, &#39;beri&#39;, &#39;total&#39;, &#39;momen&#39;, &#39;besar&#39;, &#39;207203&#39;, &#39;meter&#39;, &#39;pindah&#39;, &#39;per&#39;, &#39;bulan&#39;, &#39;metode&#39;, &#39;slp&#39;, &#39;beri&#39;, &#39;total&#39;, &#39;momen&#39;, &#39;besar&#39;, &#39;152506&#39;, &#39;meter&#39;, &#39;pindah&#39;, &#39;per&#39;, &#39;bulan&#39;, &#39;dengan&#39;, &#39;algoritma&#39;, &#39;genetik&#39;, &#39;oleh&#39;, &#39;total&#39;, &#39;momen&#39;, &#39;besar&#39;, &#39;197974&#39;, &#39;meter&#39;, &#39;pindah&#39;, &#39;per&#39;, &#39;bulan&#39;]
+==================================================
+
+=== Abstrak 3 (Asli) ===
+Bangkalan merupakan salah satu kabupaten yang memiliki potensi alam salak. ?Potensi alam tersebut dimanfaatkan oleh UD. Budi Jaya yang terletak di Desa ?Kramat? Bangkalan dengan memproduksi produk olahan salak. Selama ini UD ?Budi Jaya menemui banyak kendala, diantaranya adalah mengenai pemasaran, ?produksi bahan baku, dan lain-lain. salah satu solusi kendala tersebut adalah ?dengan merancang strategi bisnis yang sesuai dengan kondisi UD Budi Jaya. ?Model strategi Fred R. David mempunyai tiga tahap yaitu tahap masukan, ?pencocokan dan pengambilan keputusan. Matriks-matriks yang digunakan pada ?penelitian ini adalah IFE (Internal Factor Evaluation), EFE (External Factor ?Evaluation), SWOT, IE (Internal-External) Matrix, GRAND STRATEGY Matrix ?dan QSPM (Quantitative Strategic Planning Matrix). Hasil penelitian ini adalah ?beberapa alternatif strategi diantaranya adalah Strategi 5 (S5) yaitu menciptakan ?produk olahan baru (diversikasi), Strategi 3 (S3) pengiklanan, Strategi 2 (S2) ?Pengembangan produk yaitu meningkatkan kualitas produk, Strategi 7 (S7) ?Melakukan kesepakatan harga dengan anggota kelompok tani yang lain, dan ?strategi 1 (S1) Memperluas pasar.?
+
+Tokenisasi:
+[&#39;bangkal&#39;, &#39;rupa&#39;, &#39;salah&#39;, &#39;satu&#39;, &#39;kabupaten&#39;, &#39;milik&#39;, &#39;potensi&#39;, &#39;alam&#39;, &#39;salak&#39;, &#39;potensi&#39;, &#39;alam&#39;, &#39;sebut&#39;, &#39;manfaat&#39;, &#39;ud&#39;, &#39;budi&#39;, &#39;jaya&#39;, &#39;letak&#39;, &#39;desa&#39;, &#39;kramat&#39;, &#39;bangkal&#39;, &#39;produksi&#39;, &#39;produk&#39;, &#39;olah&#39;, &#39;salak&#39;, &#39;lama&#39;, &#39;ud&#39;, &#39;budi&#39;, &#39;jaya&#39;, &#39;temu&#39;, &#39;banyak&#39;, &#39;kendala&#39;, &#39;antara&#39;, &#39;kena&#39;, &#39;pasar&#39;, &#39;produksi&#39;, &#39;bahan&#39;, &#39;baku&#39;, &#39;lainlain&#39;, &#39;salah&#39;, &#39;satu&#39;, &#39;solusi&#39;, &#39;kendala&#39;, &#39;sebut&#39;, &#39;dengan&#39;, &#39;rancang&#39;, &#39;strategi&#39;, &#39;bisnis&#39;, &#39;sesuai&#39;, &#39;kondisi&#39;, &#39;ud&#39;, &#39;budi&#39;, &#39;jaya&#39;, &#39;model&#39;, &#39;strategi&#39;, &#39;fred&#39;, &#39;r&#39;, &#39;david&#39;, &#39;punya&#39;, &#39;tiga&#39;, &#39;tahap&#39;, &#39;tahap&#39;, &#39;masuk&#39;, &#39;cocok&#39;, &#39;ambil&#39;, &#39;putus&#39;, &#39;matriksmatriks&#39;, &#39;guna&#39;, &#39;teliti&#39;, &#39;ife&#39;, &#39;internal&#39;, &#39;factor&#39;, &#39;evaluation&#39;, &#39;efe&#39;, &#39;external&#39;, &#39;factor&#39;, &#39;evaluation&#39;, &#39;swot&#39;, &#39;ie&#39;, &#39;internalexternal&#39;, &#39;matrix&#39;, &#39;grand&#39;, &#39;strategy&#39;, &#39;matrix&#39;, &#39;dan&#39;, &#39;qspm&#39;, &#39;quantitative&#39;, &#39;strategic&#39;, &#39;planning&#39;, &#39;matrix&#39;, &#39;hasil&#39;, &#39;teliti&#39;, &#39;adalah&#39;, &#39;beberapa&#39;, &#39;alternatif&#39;, &#39;strategi&#39;, &#39;antara&#39;, &#39;adalah&#39;, &#39;strategi&#39;, &#39;5&#39;, &#39;s5&#39;, &#39;cipta&#39;, &#39;produk&#39;, &#39;olah&#39;, &#39;baru&#39;, &#39;diversikasi&#39;, &#39;strategi&#39;, &#39;3&#39;, &#39;s3&#39;, &#39;iklan&#39;, &#39;strategi&#39;, &#39;2&#39;, &#39;s2&#39;, &#39;kembang&#39;, &#39;produk&#39;, &#39;tingkat&#39;, &#39;kualitas&#39;, &#39;produk&#39;, &#39;strategi&#39;, &#39;7&#39;, &#39;s7&#39;, &#39;laku&#39;, &#39;sepakat&#39;, &#39;harga&#39;, &#39;anggota&#39;, &#39;kelompok&#39;, &#39;tani&#39;, &#39;lain&#39;, &#39;strategi&#39;, &#39;1&#39;, &#39;s1&#39;, &#39;luas&#39;, &#39;pasar&#39;]
+==================================================
+
+=== Abstrak 4 (Asli) ===
+Simulasi adalah duplikasi atau abstraksi dari persoalan dalam kehidupan nyata ke dalam model matematika. Berdasarkan hasil survey pendahuluan di lantai produksi PT Indospring tbk masih sering terjadi proses produksi yang belum optimal, salah satunya terlihat dari masih adanya jumlah antrian yang cukup tinggi, dan juga target output produksi yang sering belum tercapai. Dengan pendekatan simulasi diharapkan dapat memberikan gambaran permasalahan yang ada pada lantai produksi PT Indospring tbk guna meningkatkan efektifitas dan efisiensi lini produksi dengan cara memperbaiki utilitas pada resources yang ada pada lantai produksi PT Indospring tbk. Berdasarkan hasil pengolahan data didapatkan jumlah antrian tertinggi pada stasiun proses shearing sebesar 610 entity dengan nilai utillitas pada mesin sebesar 88% dan utilitas tenaga kerja sebesar 44%. Setelah usulan perbaikan dilakukan dengan cara menambahkan 1 unit mesin shearing akan berdampak penurunan antrian pada proses shearing dan juga perubahan nilai utilitas pada mesin menjadi 46% dan utilitas tenaga kerja menjadi 46%.
+
+Tokenisasi:
+[&#39;simulasi&#39;, &#39;duplikasi&#39;, &#39;abstraksi&#39;, &#39;soal&#39;, &#39;hidup&#39;, &#39;nyata&#39;, &#39;dalam&#39;, &#39;model&#39;, &#39;matematika&#39;, &#39;dasar&#39;, &#39;hasil&#39;, &#39;survey&#39;, &#39;dahulu&#39;, &#39;lantai&#39;, &#39;produksi&#39;, &#39;pt&#39;, &#39;indospring&#39;, &#39;tbk&#39;, &#39;sering&#39;, &#39;jadi&#39;, &#39;proses&#39;, &#39;produksi&#39;, &#39;optimal&#39;, &#39;salah&#39;, &#39;satu&#39;, &#39;lihat&#39;, &#39;masih&#39;, &#39;ada&#39;, &#39;jumlah&#39;, &#39;antri&#39;, &#39;cukup&#39;, &#39;tinggi&#39;, &#39;juga&#39;, &#39;target&#39;, &#39;output&#39;, &#39;produksi&#39;, &#39;sering&#39;, &#39;belum&#39;, &#39;capai&#39;, &#39;dengan&#39;, &#39;dekat&#39;, &#39;simulasi&#39;, &#39;harap&#39;, &#39;beri&#39;, &#39;gambar&#39;, &#39;masalah&#39;, &#39;ada&#39;, &#39;lantai&#39;, &#39;produksi&#39;, &#39;pt&#39;, &#39;indospring&#39;, &#39;tbk&#39;, &#39;tingkat&#39;, &#39;efektifitas&#39;, &#39;efisiensi&#39;, &#39;lini&#39;, &#39;produksi&#39;, &#39;cara&#39;, &#39;baik&#39;, &#39;utilitas&#39;, &#39;resources&#39;, &#39;ada&#39;, &#39;lantai&#39;, &#39;produksi&#39;, &#39;pt&#39;, &#39;indospring&#39;, &#39;tbk&#39;, &#39;dasar&#39;, &#39;hasil&#39;, &#39;olah&#39;, &#39;data&#39;, &#39;dapat&#39;, &#39;jumlah&#39;, &#39;antri&#39;, &#39;tinggi&#39;, &#39;stasiun&#39;, &#39;proses&#39;, &#39;shearing&#39;, &#39;besar&#39;, &#39;610&#39;, &#39;entity&#39;, &#39;nilai&#39;, &#39;utillitas&#39;, &#39;mesin&#39;, &#39;besar&#39;, &#39;88&#39;, &#39;utilitas&#39;, &#39;tenaga&#39;, &#39;kerja&#39;, &#39;besar&#39;, &#39;44&#39;, &#39;telah&#39;, &#39;usul&#39;, &#39;baik&#39;, &#39;laku&#39;, &#39;cara&#39;, &#39;tambah&#39;, &#39;1&#39;, &#39;unit&#39;, &#39;mesin&#39;, &#39;shearing&#39;, &#39;dampak&#39;, &#39;turun&#39;, &#39;antri&#39;, &#39;proses&#39;, &#39;shearing&#39;, &#39;juga&#39;, &#39;ubah&#39;, &#39;nilai&#39;, &#39;utilitas&#39;, &#39;mesin&#39;, &#39;jadi&#39;, &#39;46&#39;, &#39;utilitas&#39;, &#39;tenaga&#39;, &#39;kerja&#39;, &#39;jadi&#39;, &#39;46&#39;]
+==================================================
+
+=== Abstrak 5 (Asli) ===
+Kepuasan adalah tingkat perasaan seseorang terhadap pelayanan setelah membandingkan antara kinerja dengan harapan yang diinginkan. Dalam penelitian ini dilakukan studi kualitas layanan dalam meningkatkan kepuasan masyrakat dengan menggunakan integrasi Importance Performance Analysis (IPA) dan Model Kano. Pendekatan ini bertujuan untuk membantu SATLANTAS kabupaten Sampang pada layanan pembuatan surat izin mengemudi dalam mengevaluasi kepuasan pemohon SIM serta mengidentifikasi atribut-atribut layanan yang fungsional dan disfungsional. Sehingga dengan pengintegrasian tersebut bisa mengetahui layanan yang menjadi prioritas utama untuk ditingkatkan. Hasil yang diperoleh nilai rata-rata untuk kepuasan adalah 3,306, sehingga dinilai cukup oleh pemohon SIM. Sedangkan dari hasil integrasi IPA dan Kano dapat diketahui bahwa atribut yang termasuk dalam kuadran I menjadi prioritas utama untuk ditingkatkan dengan kategori must-be dan one-Dimensional ,yaitu jumlah tempat duduk yang ada diruangan layanan SIM sudah mencukupi kebutuhan, jumlah komputer yang ada diruangan layanan SIM sudah mencukupi, sistem antrian yang ada di ruangan layanan SIM sudah rapi, para petugas layanan SIM dapat memberikan pelayanan yang dijanjikan, biaya yang ada di layanan SIM sesuai dengan ketentuan dan pelayanan dari petugas. Sedangkan kuadran III menjadi prioritas rendah untuk ditingkatkan dengan kategori attractive dan must-be, yaitu sarana informasi yang ada sudah lengkap, pemohon mudah melakukan hubungan dengan petugas layanan SIM dan pemohon dilayani dengan ramah oleh petugas layanan SIM.
+Kata kunci : Kepuasan Terhadap Layanan, Integrasi IPA dan Kano
+
+Tokenisasi:
+[&#39;puas&#39;, &#39;tingkat&#39;, &#39;asa&#39;, &#39;orang&#39;, &#39;layan&#39;, &#39;banding&#39;, &#39;kerja&#39;, &#39;harap&#39;, &#39;ingin&#39;, &#39;dalam&#39;, &#39;teliti&#39;, &#39;laku&#39;, &#39;studi&#39;, &#39;kualitas&#39;, &#39;layan&#39;, &#39;tingkat&#39;, &#39;puas&#39;, &#39;masyrakat&#39;, &#39;guna&#39;, &#39;integrasi&#39;, &#39;importance&#39;, &#39;performance&#39;, &#39;analysis&#39;, &#39;ipa&#39;, &#39;model&#39;, &#39;kano&#39;, &#39;dekat&#39;, &#39;tuju&#39;, &#39;bantu&#39;, &#39;satlantas&#39;, &#39;kabupaten&#39;, &#39;sampang&#39;, &#39;layan&#39;, &#39;buat&#39;, &#39;surat&#39;, &#39;izin&#39;, &#39;kemudi&#39;, &#39;evaluasi&#39;, &#39;puas&#39;, &#39;mohon&#39;, &#39;sim&#39;, &#39;identifikasi&#39;, &#39;atributatribut&#39;, &#39;layan&#39;, &#39;fungsional&#39;, &#39;disfungsional&#39;, &#39;sehingga&#39;, &#39;integrasi&#39;, &#39;sebut&#39;, &#39;tahu&#39;, &#39;layan&#39;, &#39;jadi&#39;, &#39;prioritas&#39;, &#39;utama&#39;, &#39;tingkat&#39;, &#39;hasil&#39;, &#39;oleh&#39;, &#39;nilai&#39;, &#39;ratarata&#39;, &#39;puas&#39;, &#39;3306&#39;, &#39;nilai&#39;, &#39;cukup&#39;, &#39;mohon&#39;, &#39;sim&#39;, &#39;sedang&#39;, &#39;hasil&#39;, &#39;integrasi&#39;, &#39;ipa&#39;, &#39;kano&#39;, &#39;tahu&#39;, &#39;atribut&#39;, &#39;masuk&#39;, &#39;kuadran&#39;, &#39;i&#39;, &#39;jadi&#39;, &#39;prioritas&#39;, &#39;utama&#39;, &#39;tingkat&#39;, &#39;kategori&#39;, &#39;mustbe&#39;, &#39;onedimensional&#39;, &#39;yaitu&#39;, &#39;jumlah&#39;, &#39;tempat&#39;, &#39;duduk&#39;, &#39;ada&#39;, &#39;ruang&#39;, &#39;layan&#39;, &#39;sim&#39;, &#39;cukup&#39;, &#39;butuh&#39;, &#39;jumlah&#39;, &#39;komputer&#39;, &#39;ada&#39;, &#39;ruang&#39;, &#39;layan&#39;, &#39;sim&#39;, &#39;cukup&#39;, &#39;sistem&#39;, &#39;antri&#39;, &#39;ada&#39;, &#39;ruang&#39;, &#39;layan&#39;, &#39;sim&#39;, &#39;rapi&#39;, &#39;tugas&#39;, &#39;layan&#39;, &#39;sim&#39;, &#39;beri&#39;, &#39;layan&#39;, &#39;janji&#39;, &#39;biaya&#39;, &#39;ada&#39;, &#39;layan&#39;, &#39;sim&#39;, &#39;sesuai&#39;, &#39;tentu&#39;, &#39;layan&#39;, &#39;tugas&#39;, &#39;sedang&#39;, &#39;kuadran&#39;, &#39;iii&#39;, &#39;jadi&#39;, &#39;prioritas&#39;, &#39;rendah&#39;, &#39;tingkat&#39;, &#39;kategori&#39;, &#39;attractive&#39;, &#39;mustbe&#39;, &#39;sarana&#39;, &#39;informasi&#39;, &#39;ada&#39;, &#39;lengkap&#39;, &#39;mohon&#39;, &#39;mudah&#39;, &#39;laku&#39;, &#39;hubung&#39;, &#39;tugas&#39;, &#39;layan&#39;, &#39;sim&#39;, &#39;mohon&#39;, &#39;layan&#39;, &#39;ramah&#39;, &#39;tugas&#39;, &#39;layan&#39;, &#39;sim&#39;, &#39;kata&#39;, &#39;kunci&#39;, &#39;puas&#39;, &#39;hadap&#39;, &#39;layan&#39;, &#39;integrasi&#39;, &#39;ipa&#39;, &#39;kano&#39;]
+==================================================
+
+=== Frekuensi Kata (Dari Semua Abstrak) ===
+layan: 16
+subsektor: 12
+produksi: 12
+portofolio: 9
+ada: 9
+sim: 9
+dapat: 8
+hasil: 8
+strategi: 8
+tingkat: 7
+saham: 6
+sebut: 6
+pt: 6
+besar: 6
+jadi: 6
+guna: 5
+lain: 5
+laku: 5
+nilai: 5
+mesin: 5
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="Crawling_PTA.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">D. Crawling PTA</p>
+      </div>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">1. Pemrosesan Data PTA dan Berita</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#a-berita">A. Berita</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#b-pta">B. PTA</a></li>
+</ul>
+
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By The Jupyter Book Community
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
