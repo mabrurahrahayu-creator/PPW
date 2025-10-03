@@ -19,54 +19,20 @@ Traceback (most recent call last):
            ^^^^^^^^^^^^^^^
   File "/home/codespace/.local/lib/python3.12/site-packages/nbclient/client.py", line 709, in async_execute
     await self.async_execute_cell(
-  File "/home/codespace/.local/lib/python3.12/site-packages/nbclient/client.py", line 1062, in async_execute_cell
-    await self._check_raise_for_error(cell, cell_index, exec_reply)
-  File "/home/codespace/.local/lib/python3.12/site-packages/nbclient/client.py", line 918, in _check_raise_for_error
-    raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
-nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
-------------------
-!pip install pandas
-!pip install nltk
-!pip install Sastrawi
-nltk.download('punkt_tab')
-------------------
-
------ stdout -----
-Requirement already satisfied: pandas in /home/codespace/.local/lib/python3.12/site-packages (2.3.1)
------ stdout -----
-Requirement already satisfied: numpy>=1.26.0 in /home/codespace/.local/lib/python3.12/site-packages (from pandas) (2.3.1)
-Requirement already satisfied: python-dateutil>=2.8.2 in /home/codespace/.local/lib/python3.12/site-packages (from pandas) (2.9.0.post0)
-Requirement already satisfied: pytz>=2020.1 in /home/codespace/.local/lib/python3.12/site-packages (from pandas) (2025.2)
-Requirement already satisfied: tzdata>=2022.7 in /home/codespace/.local/lib/python3.12/site-packages (from pandas) (2025.2)
-Requirement already satisfied: six>=1.5 in /home/codespace/.local/lib/python3.12/site-packages (from python-dateutil>=2.8.2->pandas) (1.17.0)
------ stdout -----
-
-[1m[[0m[34;49mnotice[0m[1;39;49m][0m[39;49m A new release of pip is available: [0m[31;49m25.1.1[0m[39;49m -> [0m[32;49m25.2[0m
-[1m[[0m[34;49mnotice[0m[1;39;49m][0m[39;49m To update, run: [0m[32;49mpython3 -m pip install --upgrade pip[0m
------ stdout -----
-Requirement already satisfied: nltk in /usr/local/python/3.12.1/lib/python3.12/site-packages (3.9.1)
-Requirement already satisfied: click in /usr/local/python/3.12.1/lib/python3.12/site-packages (from nltk) (8.2.1)
-Requirement already satisfied: joblib in /home/codespace/.local/lib/python3.12/site-packages (from nltk) (1.5.1)
-Requirement already satisfied: regex>=2021.8.3 in /usr/local/python/3.12.1/lib/python3.12/site-packages (from nltk) (2025.9.1)
-Requirement already satisfied: tqdm in /usr/local/python/3.12.1/lib/python3.12/site-packages (from nltk) (4.67.1)
------ stdout -----
-
-[1m[[0m[34;49mnotice[0m[1;39;49m][0m[39;49m A new release of pip is available: [0m[31;49m25.1.1[0m[39;49m -> [0m[32;49m25.2[0m
-[1m[[0m[34;49mnotice[0m[1;39;49m][0m[39;49m To update, run: [0m[32;49mpython3 -m pip install --upgrade pip[0m
------ stdout -----
-Requirement already satisfied: Sastrawi in /usr/local/python/3.12.1/lib/python3.12/site-packages (1.0.1)
------ stdout -----
-
-[1m[[0m[34;49mnotice[0m[1;39;49m][0m[39;49m A new release of pip is available: [0m[31;49m25.1.1[0m[39;49m -> [0m[32;49m25.2[0m
-[1m[[0m[34;49mnotice[0m[1;39;49m][0m[39;49m To update, run: [0m[32;49mpython3 -m pip install --upgrade pip[0m
-------------------
-
-[31m---------------------------------------------------------------------------[39m
-[31mNameError[39m                                 Traceback (most recent call last)
-[36mCell[39m[36m [39m[32mIn[2][39m[32m, line 4[39m
-[32m      2[39m get_ipython().system([33m'[39m[33mpip install nltk[39m[33m'[39m)
-[32m      3[39m get_ipython().system([33m'[39m[33mpip install Sastrawi[39m[33m'[39m)
-[32m----> [39m[32m4[39m [43mnltk[49m.download([33m'[39m[33mpunkt_tab[39m[33m'[39m)
-
-[31mNameError[39m: name 'nltk' is not defined
+  File "/home/codespace/.local/lib/python3.12/site-packages/nbclient/client.py", line 1005, in async_execute_cell
+    exec_reply = await self.task_poll_for_reply
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/codespace/.local/lib/python3.12/site-packages/nbclient/client.py", line 806, in _async_poll_for_reply
+    error_on_timeout_execute_reply = await self._async_handle_timeout(timeout, cell)
+                                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/codespace/.local/lib/python3.12/site-packages/nbclient/client.py", line 856, in _async_handle_timeout
+    raise CellTimeoutError.error_from_timeout_and_cell(
+nbclient.exceptions.CellTimeoutError: A cell timed out while it was being executed, after 30 seconds.
+The message was: Cell execution timed out.
+Here is a preview of the cell contents:
+-------------------
+['import requests', 'from bs4 import BeautifulSoup', 'import pandas as pd', 'from urllib.parse import urlparse', 'import time']
+...
+['print("\\n" + "="*70)', 'print(f"Selesai. {len(results)} artikel berhasil di-scrape.")', 'print(f"Data disimpan ke file \'{csv_filename}\'")', 'print("="*70)', 'display(df)']
+-------------------
 
