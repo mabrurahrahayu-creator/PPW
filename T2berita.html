@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>C. Crawling Berita &#8212; My sample book</title>
+    <title>&lt;no title&gt; &#8212; My sample book</title>
   
   
   
@@ -179,7 +179,7 @@
                 </a>
             </li>
         </ul>
-        <ul class="current nav bd-sidenav">
+        <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="TUGAS.html">Pengantar Web Mining</a></li>
 
 
@@ -192,10 +192,11 @@
 
 <li class="toctree-l1"><a class="reference internal" href="crawlingdata.html">A. Crawling Data</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Crawling_Link.html">B. Crawling Link</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">C. Crawling Berita</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Crawling_PTA.html">D. Crawling PTA</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Pemrosesan_Data.html">1. Pemrosesan Data PTA dan Berita</a></li>
+<li class="toctree-l1"><a class="reference internal" href="PemrosesanData.html">1. Pemrosesan Data PTA dan Berita</a></li>
 
+
+<li class="toctree-l1"><a class="reference internal" href="TFidf.html">2. Melakukan Tfidf &amp; Word Embedding</a></li>
 
 </ul>
 
@@ -369,7 +370,9 @@ document.write(`
   </button>
 `);
 </script>
-
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
 </div></div>
       
     </div>
@@ -380,11 +383,19 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>C. Crawling Berita</h1>
+    <h1><no title></h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
             
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="simple visible nav section-nav flex-column">
+</ul>
+
+            </nav>
         </div>
     </div>
 </div>
@@ -394,9 +405,7 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="c-crawling-berita">
-<h1>C. Crawling Berita<a class="headerlink" href="#c-crawling-berita" title="Link to this heading">#</a></h1>
-<div class="cell docutils container">
+  <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>pip<span class="w"> </span>install<span class="w"> </span>requests
 <span class="o">!</span>pip<span class="w"> </span>install<span class="w"> </span>beautifulsoup4
@@ -408,7 +417,9 @@ document.write(`
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: requests in /home/codespace/.local/lib/python3.12/site-packages (2.32.4)
-Requirement already satisfied: charset_normalizer&lt;4,&gt;=2 in /home/codespace/.local/lib/python3.12/site-packages (from requests) (3.4.2)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: charset_normalizer&lt;4,&gt;=2 in /home/codespace/.local/lib/python3.12/site-packages (from requests) (3.4.2)
 Requirement already satisfied: idna&lt;4,&gt;=2.5 in /home/codespace/.local/lib/python3.12/site-packages (from requests) (3.10)
 Requirement already satisfied: urllib3&lt;3,&gt;=1.21.1 in /home/codespace/.local/lib/python3.12/site-packages (from requests) (2.5.0)
 Requirement already satisfied: certifi&gt;=2017.4.17 in /home/codespace/.local/lib/python3.12/site-packages (from requests) (2025.7.9)
@@ -452,136 +463,403 @@ Requirement already satisfied: six in /home/codespace/.local/lib/python3.12/site
 <span class="kn">from</span><span class="w"> </span><span class="nn">bs4</span><span class="w"> </span><span class="kn">import</span> <span class="n">BeautifulSoup</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">urllib.parse</span><span class="w"> </span><span class="kn">import</span> <span class="n">urlparse</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">time</span>
 
 <span class="k">def</span><span class="w"> </span><span class="nf">scrape_kompas_article</span><span class="p">(</span><span class="n">url</span><span class="p">):</span>
-    <span class="n">headers</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;User-Agent&quot;</span><span class="p">:</span> <span class="s2">&quot;Mozilla/5.0 (Windows NT 10.0; Win64; x64)&quot;</span><span class="p">}</span>
+    <span class="c1"># Header standard untuk meniru browser</span>
+    <span class="n">headers</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;User-Agent&quot;</span><span class="p">:</span> <span class="s2">&quot;Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36&quot;</span><span class="p">}</span>
+
+    <span class="c1"># Inisialisasi data_artikel</span>
+    <span class="n">data_artikel</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s2">&quot;Judul&quot;</span><span class="p">:</span> <span class="s2">&quot;N/A&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;Isi (100 kata)&quot;</span><span class="p">:</span> <span class="s2">&quot;N/A&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;Kategori&quot;</span><span class="p">:</span> <span class="s2">&quot;N/A&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;URL&quot;</span><span class="p">:</span> <span class="n">url</span><span class="p">,</span>
+        <span class="s2">&quot;Status&quot;</span><span class="p">:</span> <span class="s2">&quot;Gagal&quot;</span>
+    <span class="p">}</span>
+
     <span class="k">try</span><span class="p">:</span>
-        <span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">)</span>
-        <span class="n">r</span><span class="o">.</span><span class="n">raise_for_status</span><span class="p">()</span>
+        <span class="c1"># Lakukan request ke URL dengan timeout</span>
+        <span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+        <span class="n">r</span><span class="o">.</span><span class="n">raise_for_status</span><span class="p">()</span> <span class="c1"># Tangkap error HTTP (4xx atau 5xx)</span>
+
     <span class="k">except</span> <span class="n">requests</span><span class="o">.</span><span class="n">exceptions</span><span class="o">.</span><span class="n">RequestException</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
-        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Error saat mengambil URL: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-        <span class="k">return</span> <span class="kc">None</span>
+        <span class="n">data_artikel</span><span class="p">[</span><span class="s2">&quot;Status&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;Error Request: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">&quot;</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;-&gt; Gagal mengambil URL </span><span class="si">{</span><span class="n">url</span><span class="p">[:</span><span class="mi">50</span><span class="p">]</span><span class="si">}</span><span class="s2">...: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">data_artikel</span>
 
     <span class="n">soup</span> <span class="o">=</span> <span class="n">BeautifulSoup</span><span class="p">(</span><span class="n">r</span><span class="o">.</span><span class="n">content</span><span class="p">,</span> <span class="s2">&quot;html.parser&quot;</span><span class="p">)</span>
 
-    <span class="c1"># Judul</span>
+    <span class="c1"># --- Ekstraksi Data ---</span>
+
+    <span class="c1"># Judul (Selector yang umum digunakan Kompas untuk judul)</span>
     <span class="n">judul</span> <span class="o">=</span> <span class="n">soup</span><span class="o">.</span><span class="n">select_one</span><span class="p">(</span><span class="s2">&quot;h1.read__title&quot;</span><span class="p">)</span>
-    <span class="n">judul_text</span> <span class="o">=</span> <span class="n">judul</span><span class="o">.</span><span class="n">text</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="k">if</span> <span class="n">judul</span> <span class="k">else</span> <span class="s2">&quot;Tidak ditemukan judul&quot;</span>
+    <span class="n">data_artikel</span><span class="p">[</span><span class="s2">&quot;Judul&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">judul</span><span class="o">.</span><span class="n">text</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="k">if</span> <span class="n">judul</span> <span class="k">else</span> <span class="s2">&quot;Tidak ditemukan judul&quot;</span>
 
     <span class="c1"># Isi (100 kata)</span>
     <span class="n">isi_elems</span> <span class="o">=</span> <span class="n">soup</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="s2">&quot;div.read__content p&quot;</span><span class="p">)</span>
-    <span class="n">isi_text</span> <span class="o">=</span> <span class="s2">&quot; &quot;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="n">p</span><span class="o">.</span><span class="n">get_text</span><span class="p">(</span><span class="n">strip</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span> <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">isi_elems</span><span class="p">])</span> <span class="k">if</span> <span class="n">isi_elems</span> <span class="k">else</span> <span class="s2">&quot;Tidak ditemukan isi&quot;</span>
+    <span class="n">isi_text</span> <span class="o">=</span> <span class="s2">&quot; &quot;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="n">p</span><span class="o">.</span><span class="n">get_text</span><span class="p">(</span><span class="n">strip</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span> <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">isi_elems</span><span class="p">])</span>
     <span class="n">words</span> <span class="o">=</span> <span class="n">isi_text</span><span class="o">.</span><span class="n">split</span><span class="p">()</span>
     <span class="n">isi_100</span> <span class="o">=</span> <span class="s2">&quot; &quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">words</span><span class="p">[:</span><span class="mi">100</span><span class="p">])</span> <span class="o">+</span> <span class="p">(</span><span class="s2">&quot;...&quot;</span> <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">words</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">100</span> <span class="k">else</span> <span class="s2">&quot;&quot;</span><span class="p">)</span>
+    <span class="n">data_artikel</span><span class="p">[</span><span class="s2">&quot;Isi (100 kata)&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">isi_100</span>
 
-    <span class="c1"># Cari kategori</span>
+    <span class="c1"># Kategori: Ditemukan dari 3 metode (meta tag, breadcrumb, atau subdomain)</span>
     <span class="n">kategori_text</span> <span class="o">=</span> <span class="s2">&quot;Tidak ditemukan kategori&quot;</span>
 
+    <span class="c1"># 1. Coba dari meta tag</span>
     <span class="n">kategori_meta</span> <span class="o">=</span> <span class="n">soup</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s2">&quot;meta&quot;</span><span class="p">,</span> <span class="p">{</span><span class="s2">&quot;property&quot;</span><span class="p">:</span> <span class="s2">&quot;article:section&quot;</span><span class="p">})</span>
     <span class="k">if</span> <span class="n">kategori_meta</span> <span class="ow">and</span> <span class="n">kategori_meta</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;content&quot;</span><span class="p">):</span>
         <span class="n">kategori_text</span> <span class="o">=</span> <span class="n">kategori_meta</span><span class="p">[</span><span class="s2">&quot;content&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
 
+    <span class="c1"># 2. Coba dari breadcrumb jika meta tag gagal</span>
     <span class="k">if</span> <span class="n">kategori_text</span> <span class="o">==</span> <span class="s2">&quot;Tidak ditemukan kategori&quot;</span><span class="p">:</span>
         <span class="n">breadcrumb</span> <span class="o">=</span> <span class="n">soup</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="s2">&quot;div.breadcrumb__link a&quot;</span><span class="p">)</span>
         <span class="k">if</span> <span class="n">breadcrumb</span> <span class="ow">and</span> <span class="nb">len</span><span class="p">(</span><span class="n">breadcrumb</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
             <span class="n">kategori_text</span> <span class="o">=</span> <span class="n">breadcrumb</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">get_text</span><span class="p">(</span><span class="n">strip</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 
+    <span class="c1"># 3. Coba dari subdomain jika breadcrumb gagal</span>
     <span class="k">if</span> <span class="n">kategori_text</span> <span class="o">==</span> <span class="s2">&quot;Tidak ditemukan kategori&quot;</span><span class="p">:</span>
         <span class="n">parsed</span> <span class="o">=</span> <span class="n">urlparse</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
         <span class="n">subdomain</span> <span class="o">=</span> <span class="n">parsed</span><span class="o">.</span><span class="n">netloc</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;.&quot;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
         <span class="k">if</span> <span class="n">subdomain</span> <span class="ow">and</span> <span class="n">subdomain</span> <span class="o">!=</span> <span class="s2">&quot;www&quot;</span> <span class="ow">and</span> <span class="n">subdomain</span> <span class="o">!=</span> <span class="s2">&quot;kompas&quot;</span><span class="p">:</span>
             <span class="n">kategori_text</span> <span class="o">=</span> <span class="n">subdomain</span><span class="o">.</span><span class="n">capitalize</span><span class="p">()</span>
 
-    <span class="k">return</span> <span class="p">{</span>
-        <span class="s2">&quot;Judul&quot;</span><span class="p">:</span> <span class="n">judul_text</span><span class="p">,</span>
-        <span class="s2">&quot;Isi (100 kata)&quot;</span><span class="p">:</span> <span class="n">isi_100</span><span class="p">,</span>
-        <span class="s2">&quot;Kategori&quot;</span><span class="p">:</span> <span class="n">kategori_text</span>
-    <span class="p">}</span>
+    <span class="n">data_artikel</span><span class="p">[</span><span class="s2">&quot;Kategori&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">kategori_text</span>
+    <span class="n">data_artikel</span><span class="p">[</span><span class="s2">&quot;Status&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;Sukses&quot;</span>
 
-<span class="c1"># Daftar URL</span>
-<span class="n">urls_to_test</span> <span class="o">=</span> <span class="p">[</span>
-    <span class="s2">&quot;https://lifestyle.kompas.com/read/2025/08/31/100000720/waspadai-kelelahan-mental-akibat-kebanyakan-berita-negatif-&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;https://money.kompas.com/read/2025/08/18/134653726/pendidikan-kewirausahaan-yang-merdeka&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;https://health.kompas.com/read/25H19130000068/dokter--olahraga-bisa-turunkan-risiko-kanker-asal-rutin-dan-benar&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;https://nasional.kompas.com/read/2025/09/03/18022971/peristiwa-gas-air-mata-unisba-mendikti-janjikan-pendampingan-dan&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;https://nasional.kompas.com/read/2025/08/19/07251961/harapan-dan-catatan-soal-anggaran-pendidikan-terbesar-sepanjang-sejarah-ri&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;https://travel.kompas.com/read/2025/09/04/210100827/berdarah-belanda-depok-pesepak-bola-miliano-jonathans-resmi-jadi-wni&quot;</span>
-<span class="p">]</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;-&gt; Sukses: </span><span class="si">{</span><span class="n">data_artikel</span><span class="p">[</span><span class="s1">&#39;Judul&#39;</span><span class="p">][:</span><span class="mi">50</span><span class="p">]</span><span class="si">}</span><span class="s2">...&quot;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">data_artikel</span>
 
-<span class="n">results</span> <span class="o">=</span> <span class="p">[</span><span class="n">scrape_kompas_article</span><span class="p">(</span><span class="n">u</span><span class="p">)</span> <span class="k">for</span> <span class="n">u</span> <span class="ow">in</span> <span class="n">urls_to_test</span> <span class="k">if</span> <span class="n">scrape_kompas_article</span><span class="p">(</span><span class="n">u</span><span class="p">)]</span>
+<span class="c1"># Daftar URL yang baru dari user (dibersihkan dari penomoran)</span>
+<span class="n">raw_urls</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">https://nasional.kompas.com/read/2024/08/16/11404101/jokowi-kenakan-pakaian-adat-betawi-di-sidang-tahunan-terakhirnya-simbol</span>
+<span class="s2">https://nasional.kompas.com/read/2024/02/13/21583481/kpu-tegaskan-pemilih-tak-terdaftar-di-dpt-bisa-nyoblos-begini-mekanismenya</span>
+<span class="s2">https://megapolitan.kompas.com/read/2024/05/11/19123091/warga-sebut-ada-benda-serupa-jimat-pada-mayat-dalam-sarung-di-pamulang</span>
+<span class="s2">https://megapolitan.kompas.com/read/2024/08/26/07235981/polisi-menganiaya-mereka-yang-cinta-damai-dan-bercita-cita-mulia</span>
+<span class="s2">https://nasional.kompas.com/read/2024/08/12/08444611/airlangga-hartarto-mundur-dari-ketum-golkar-bantah-karena-korupsi-dan-fokus</span>
+<span class="s2">https://nasional.kompas.com/read/2024/07/29/17462851/nasdem-pastikan-dukung-ilham-habibie-untuk-pilkada-jabar</span>
+<span class="s2">https://megapolitan.kompas.com/read/2024/08/02/23392851/influencer-parenting-aniaya-balita-kriminolog-kemampuan-di-bidang</span>
+<span class="s2">https://nasional.kompas.com/read/2024/08/21/05232081/jalan-mulus-bahlil-raih-kursi-ketum-golkar</span>
+<span class="s2">https://nasional.kompas.com/read/2024/01/19/22313101/maruarar-sirait-dukung-prabowo-gibran-tkn-mari-kerja-keras-bersama</span>
+<span class="s2">https://megapolitan.kompas.com/read/2024/08/12/21025981/usai-diturap-kali-mati-di-pademangan-tak-lagi-jadi-tempat-berenang-anak</span>
+<span class="s2">https://megapolitan.kompas.com/read/2024/08/29/12432031/maju-pilkada-depok-imam-budi-hartono-ingin-lanjutkan-program-walkot-idris</span>
+<span class="s2">https://megapolitan.kompas.com/read/2024/08/28/13024071/kpud-kota-bekasi-terima-dokumen-pendaftaran-paslon-tri-adhianto-dan</span>
+<span class="s2">https://nasional.kompas.com/read/2024/07/29/05000011/-populer-nasional-pbnu-heran-pansus-haji-dibentuk-muhadjir-effendy-jadi</span>
+<span class="s2">https://nasional.kompas.com/read/2024/04/06/21590521/antoninho-rangel-da-silva-jenderal-berdarah-timor-leste-yang-kini-jabat</span>
+<span class="s2">https://nasional.kompas.com/read/2024/09/04/12443721/pidato-lengkap-paus-fransiskus-di-istana-negara</span>
+<span class="s2">https://nasional.kompas.com/read/2024/02/24/20074351/ahy-serahkan-kepada-prabowo-jika-ingin-ajak-parpol-pengusung-anies-bergabung</span>
+<span class="s2">https://nasional.kompas.com/read/2024/08/06/20310821/wacana-kotak-kosong-pada-pilkada-jakarta-jadi-ironi-bagi-demokrasi</span>
+<span class="s2">https://nasional.kompas.com/read/2024/06/09/20234841/cerita-korban-penipuan-visa-haji-ilegal-panas-dingin-takut-ditangkap-polisi</span>
+<span class="s2">https://nasional.kompas.com/read/2024/08/20/07025071/gerindra-sebut-reshuffle-menkumham-untuk-sinkronisasi-pemerintahan-ke-depan</span>
+<span class="s2">https://nasional.kompas.com/read/2024/01/09/22152121/puan-salami-anies-muhaimin-usai-debat-capres-pkb-seperti-taufiq-kiemas</span>
+<span class="s2">https://megapolitan.kompas.com/read/2024/09/04/16151141/3-paslon-ramaikan-pilkada-jakarta-bamus-betawi-warga-punya-banyak-pilihan</span>
+<span class="s2">https://megapolitan.kompas.com/read/2024/09/03/17275901/berita-foto-tangis-bahagia-warga-sambut-kedatangan-paus-fransiskus-di</span>
+<span class="s2">https://nasional.kompas.com/read/2024/01/11/22261141/dilaporkan-ke-dewas-wakil-ketua-kpk-mengaku-tak-pernah-komunikasi-dengan</span>
+<span class="s2">https://megapolitan.kompas.com/read/2024/07/26/19404751/pengamat-nilai-dharma-kun-bakal-sulit-dapat-538178-data-dukungan-selama</span>
+<span class="s2">https://megapolitan.kompas.com/read/2024/06/21/22434391/kerap-dipandang-sebelah-mata-jadi-pelukis-jalanan-atu-bagi-saya-tidak</span>
+<span class="s2">https://nasional.kompas.com/read/2024/08/27/16243201/pramono-anung-belum-final-pdi-p-masih-berpeluang-usung-anies-di-jakarta</span>
+<span class="s2">https://megapolitan.kompas.com/read/2024/08/29/21383931/naik-becak-ke-kpu-uu-saeful-nurul-sumarheni-daftar-pilkada-bekasi</span>
+<span class="s2">https://nasional.kompas.com/read/2024/08/24/10493841/publik-diminta-jangan-mau-dininabobokan-dpr-kpu-tetap-kawal-putusan-mk</span>
+<span class="s2">https://megapolitan.kompas.com/read/2024/08/29/16534131/daftar-ke-kpu-supian-chandra-resmi-maju-pada-pilkada-depok-2024</span>
+<span class="s2">https://nasional.kompas.com/read/2024/05/02/21391271/icw-sebut-alasan-nurul-ghufron-absen-di-sidang-etik-dewas-kpk-tak-bisa</span>
+<span class="s2">https://nasional.kompas.com/read/2024/08/06/16442871/program-belanja-bareng-yatim-ajak-ratusan-anak-yatim-berbelanja-di-gps-mall</span>
+<span class="s2">https://megapolitan.kompas.com/read/2024/08/28/09353381/didorong-pdi-p-jadi-bacagub-jakarta-pramono-berpikir-dan-berkeinginan</span>
+<span class="s2">https://nasional.kompas.com/read/2024/05/21/20571641/kpk-sita-mobil-mercy-di-makassar-diduga-disembunyikan-syl</span>
+<span class="s2">https://nasional.kompas.com/read/2024/07/31/13055941/pertemuan-prabowo-erdogan-bahas-serangan-israel-ke-palestina</span>
+<span class="s2">https://nasional.kompas.com/read/2024/08/14/07180031/tinjau-layanan-publik-bpom-menpan-rb-dukung-penguatan-digitalisasi-layanan</span>
+<span class="s2">https://megapolitan.kompas.com/read/2024/05/08/23142931/bantah-pernyataan-ketua-stip-soal-tak-ada-lagi-perpeloncoan-alumni-masih</span>
+<span class="s2">https://nasional.kompas.com/read/2024/08/27/11582931/sindir-megawati-bahlil-bilang-tak-minta-pasangan-airin-jadi-kader-golkar</span>
+<span class="s2">https://nasional.kompas.com/read/2024/09/02/19032291/anies-cerita-pernah-tawarkan-diri-jadi-kader-partai-tapi-malah-ditolak</span>
+<span class="s2">https://nasional.kompas.com/read/2024/09/03/21352571/pada-iaf-2024-kepala-nfa-arief-prasetyo-adi-elaborasi-peran-aktif-indonesia</span>
+<span class="s2">https://nasional.kompas.com/read/2024/05/26/22004211/sambut-pilkada-2024-megawati-minta-kader-pdip-turun-ke-akar-rumput</span>
+<span class="s2">https://nasional.kompas.com/read/2024/04/13/18282131/opm-ajukan-syarat-pembebasan-pilot-susi-air-philips-mark-mehrtens</span>
+<span class="s2">https://megapolitan.kompas.com/read/2024/07/28/09413881/ditanya-soal-rencana-program-khusus-perempuan-di-jakarta-anies-banyak</span>
+<span class="s2">https://nasional.kompas.com/read/2024/08/08/11563851/menlu-retno-beri-saran-untuk-para-wni-yang-akan-bepergian-ke-inggris</span>
+<span class="s2">https://megapolitan.kompas.com/read/2024/07/19/22430791/pelaku-minta-maaf-kasus-perempuan-direkam-diam-diam-di-krl-berakhir-damai</span>
+<span class="s2">https://nasional.kompas.com/read/2024/07/29/13592631/pansus-haji-dpr-batal-gelar-rapat-pada-masa-reses</span>
+<span class="s2">https://megapolitan.kompas.com/read/2024/08/07/16340031/satpol-pp-kota-bekasi-bakal-razia-warung-penjual-rokok-ilegal</span>
+<span class="s2">https://nasional.kompas.com/read/2024/08/13/11204411/belanja-daerah-baru-31-persen-jokowi-kecil-sekali-segera-realisasikan</span>
+<span class="s2">https://nasional.kompas.com/read/2024/08/01/17345351/keluarga-korban-penganiayaan-pemilik-daycare-di-depok-minta-asistensi</span>
+<span class="s2">https://nasional.kompas.com/read/2024/08/01/20374201/berduka-atas-wafatnya-pemimpin-hamas-ismail-haniyeh-wapres-kita-kehilangan</span>
+<span class="s2">https://megapolitan.kompas.com/read/2024/08/07/20140301/lukman-edy-tak-hanya-dilaporkan-ke-bareskrim-tapi-juga-ke-polres-kota</span>
+<span class="s2">https://megapolitan.kompas.com/read/2024/08/07/20290361/polisi-akan-periksa-pengendara-ekskavator-yang-bikin-pipa-gas-bocor-di</span>
+<span class="s2">https://nasional.kompas.com/read/2024/07/26/22500721/ditetapkan-jadi-tersangka-ujang-iskandar-miliki-harta-kekayaan-rp-187-miliar</span>
+<span class="s2">https://megapolitan.kompas.com/read/2024/08/07/12330571/wali-kota-rumah-panggung-dari-kemenhan-di-muara-angke-dibangun-sesuai</span>
+<span class="s2">https://megapolitan.kompas.com/read/2024/01/31/22472491/anggota-dprd-dki-ajak-warga-tanding-sepak-bola-di-jis-biar-bisa-rasakan</span>
+<span class="s2">https://nasional.kompas.com/read/2024/08/16/09574431/megawati-tak-tampak-dalam-sidang-tahunan-mpr</span>
+<span class="s2">https://nasional.kompas.com/read/2024/09/02/16014281/bareskrim-tangkap-penjual-video-porno-di-telegram-aksi-dilakukan-sejak-2022</span>
+<span class="s2">https://nasional.kompas.com/read/2024/08/27/06154941/memaknai-pernyataan-prabowo-soal-haus-kekuasaan</span>
+<span class="s2">https://megapolitan.kompas.com/read/2024/04/18/21212681/banyak-warga-menonton-kebakaran-toko-bingkai-lalin-di-simpang-mampang</span>
+<span class="s2">https://megapolitan.kompas.com/read/2024/08/05/15340441/ridwan-kamil-otw-jakarta-peluang-lawan-kotak-kosong-disebut-sangat</span>
+<span class="s2">https://nasional.kompas.com/read/2024/07/30/13411041/benny-rhamdani-bongkar-inisial-lain-diduga-terlibat-sindikat-judi-online</span>
+<span class="s2">https://nasional.kompas.com/read/2024/09/05/11422681/menlu-belum-ada-temuan-wni-bentuk-geng-di-jepang</span>
+<span class="s2">https://nasional.kompas.com/read/2024/08/25/13331801/ratusan-orang-sempat-protes-muktamar-pkb-cak-imin-kalau-kalian-kader-nu</span>
+<span class="s2">https://megapolitan.kompas.com/read/2024/09/04/11351481/lambaikan-tangan-dari-mobil-paus-fransiskus-sapa-warga-yang-menantinya-di</span>
+<span class="s2">https://nasional.kompas.com/read/2024/08/28/14161421/polri-siapkan-pengamanan-kunjungan-paus-fransiskus-dan-kegiatan-isf</span>
+<span class="s2">https://megapolitan.kompas.com/read/2024/08/30/10562021/pramono-anung-rano-karno-mengaku-rutin-periksa-kesehatan</span>
+<span class="s2">https://nasional.kompas.com/read/2024/08/05/16015011/tak-usung-ridwan-kamil-pada-pilkada-jakarta-nasdem-konsisten-kalah-menang-ya</span>
+<span class="s2">https://nasional.kompas.com/read/2024/07/25/18405201/menag-yaqut-perintahkan-bpjph-cek-label-halal-pada-roti-okko</span>
+<span class="s2">https://megapolitan.kompas.com/read/2024/08/12/09515761/kbri-yangon-berupaya-selamatkan-wni-yang-diduga-disekap-dan-dianiaya-di</span>
+<span class="s2">https://megapolitan.kompas.com/read/2024/08/23/17253291/giliran-itb-unpas-uninda-dan-unindra-demo-di-gedung-dpr-tolak-revisi-uu</span>
+<span class="s2">https://nasional.kompas.com/read/2024/07/30/15355211/tni-tetap-aktifkan-posko-pengaduan-netralitas-prajurit-saat-pilkada</span>
+<span class="s2">https://megapolitan.kompas.com/read/2024/05/17/22443071/pria-di-kali-sodong-dibunuh-debt-collector-gadungan-karena-tolak-serahkan</span>
+<span class="s2">https://nasional.kompas.com/read/2024/01/13/20041561/pengancam-anies-ditangkap-tkn-minta-pendukung-prabowo-sampaikan-dukungan</span>
+<span class="s2">https://megapolitan.kompas.com/read/2024/09/03/11525681/mary-dan-irfan-berikan-bunga-tangan-untuk-paus-fransiskus</span>
+<span class="s2">https://megapolitan.kompas.com/read/2024/05/04/21072841/motif-pelaku-aniaya-taruna-stip-hingga-tewas-senioritas-dan-arogansi</span>
+<span class="s2">https://nasional.kompas.com/read/2024/08/24/09325691/ppp-dukung-petahana-ansar-ahmad-dan-nyangnyang-haris-pada-pilkada-kepulauan</span>
+<span class="s2">https://nasional.kompas.com/read/2024/08/19/17533431/pkb-anggap-anies-punya-peran-lain-selain-calon-gubernur-jakarta</span>
+<span class="s2">https://nasional.kompas.com/read/2024/08/14/12420361/soal-peluang-bahlil-jadi-calon-tunggal-ketum-golkar-keguyuban-lebih-penting</span>
+<span class="s2">https://nasional.kompas.com/read/2024/08/26/00000071/tanggal-29-agustus-2024-memperingati-hari-apa</span>
+<span class="s2">https://nasional.kompas.com/read/2024/08/20/18265831/komisi-ii-bakal-bahas-putusan-mk-dengan-kpu-pekan-depan</span>
+<span class="s2">https://megapolitan.kompas.com/read/2024/08/24/11092641/jaminan-dasco-dan-habiburokhman-demi-bebaskan-pedemo-tak-berlaku</span>
+<span class="s2">https://megapolitan.kompas.com/read/2024/04/24/20504291/kajari-jaksel-harap-banyak-masyarakat-ikut-lelang-rubicon-mario-dandy</span>
+<span class="s2">https://nasional.kompas.com/read/2024/08/29/06510571/pengamat-nilai-wajar-pdi-p-tak-jadi-calonkan-anies</span>
+<span class="s2">https://nasional.kompas.com/read/2024/09/05/13381861/alissa-wahid-paus-fransiskus-ajak-umat-jaga-tali-persaudaraan-antar-agama</span>
+<span class="s2">https://nasional.kompas.com/read/2024/08/18/21510451/survei-smrc-anies-unggul-jika-head-to-head-dengan-ridwan-kamil-pada-pilkada</span>
+<span class="s2">https://megapolitan.kompas.com/read/2024/08/08/19185211/parkir-liar-depan-stasiun-bekasi-bikin-macet-pj-wali-kota-apakah</span>
+<span class="s2">https://nasional.kompas.com/read/2024/08/14/20014481/sebut-ikn-bebas-polusi-zulhas-kalau-di-jakarta-kita-hirup-timbal-dan-bisa</span>
+<span class="s2">https://megapolitan.kompas.com/read/2024/02/26/21241071/seorang-pria-lakukan-percobaan-pembunuhan-di-perkantoran-jatinegara-kejar</span>
+<span class="s2">https://nasional.kompas.com/read/2024/05/23/20053171/tak-ada-jalan-pintas-hasto-politik-harus-belajar-dari-olahraga</span>
+<span class="s2">https://nasional.kompas.com/read/2024/08/06/14044561/soal-cak-imin-bawa-istri-ikut-timwas-haji-mkd-dpr-tak-ada-pelanggaran-hukum</span>
+<span class="s2">https://nasional.kompas.com/read/2024/02/27/21101401/ramai-wacana-hak-angket-menko-polhukam-diharap-bijak-tanggapi-isu-politik</span>
+<span class="s2">https://megapolitan.kompas.com/read/2024/08/22/17340931/2-ruas-tol-depan-gedung-dpr-ri-ditutup-massa-makin-banyak-yang-datang</span>
+<span class="s2">https://nasional.kompas.com/read/2024/08/24/17345931/psi-akui-bantu-kaesang-urus-persyaratan-pilkada-kini-dihentikan-pasca</span>
+<span class="s2">https://nasional.kompas.com/read/2024/08/12/16073641/sambangi-bareskrim-keluarga-wni-yang-disekap-di-myanmar-minta-korban</span>
+<span class="s2">https://nasional.kompas.com/read/2024/08/13/11505261/dirut-jasa-raharja-minta-jajaran-edukasi-masyarakat-tentang-bayar-pajak-dan</span>
+<span class="s2">https://nasional.kompas.com/read/2024/07/30/14553491/tak-setuju-uu-tni-dan-polri-direvisi-megawati-kok-sekarang-disetarakan</span>
+<span class="s2">https://nasional.kompas.com/read/2024/07/28/19091851/minta-ke-menteri-basuki-jokowi-di-kanan-kiri-jalan-tol-ikn-harus-super-hijau</span>
+<span class="s2">https://nasional.kompas.com/read/2024/09/04/15094961/paus-fransiskus-gereja-katolik-ingin-tingkatkan-dialog-antaragama</span>
+<span class="s2">https://megapolitan.kompas.com/read/2024/08/22/11340881/mahasiswa-ui-bersiap-terjun-dalam-aksi-tolak-revisi-uu-pilkada-di-gedung</span>
+<span class="s2">https://megapolitan.kompas.com/read/2024/05/07/20283801/mahasiswa-dikeroyok-di-tangsel-setara-institute-minta-hentikan-narasi</span>
+<span class="s2">https://nasional.kompas.com/read/2024/08/21/20353551/bahlil-ingatkan-prabowo-dilahirkan-golkar-sudah-betul-barang-ini-jadi</span>
+<span class="s2">https://megapolitan.kompas.com/read/2024/02/23/21483301/tiket-ka-jarak-jauh-h-2-lebaran-sudah-terjual-90-persen-per-hari-ini</span>
+<span class="s2">https://megapolitan.kompas.com/read/2024/05/03/20034391/dokter-belum-visum-jenazah-mahasiswa-stip-yang-tewas-akibat-diduga</span>
+<span class="s2">https://megapolitan.kompas.com/read/2024/07/29/15333591/fitri-rahmadani-hilang-hampir-2-pekan-keluarga-kecewa-karena-nilai-polisi</span>
+<span class="s2">https://megapolitan.kompas.com/read/2024/01/18/23523551/dishub-dki-cabut-8741-stick-cone-secara-bertahap-untuk-jamin-keselamatan</span>
+<span class="s2">https://nasional.kompas.com/read/2024/08/29/20463391/brutalitas-aparat-jadi-sorotan-jokowi-diminta-copot-kapolri-dari-jabatannya</span>
+<span class="s2">https://megapolitan.kompas.com/read/2024/08/09/08571351/sebut-anies-mungkin-gagal-dicalonkan-pks-kepastian-dukungan-cagub-jakarta</span>
+<span class="s2">https://megapolitan.kompas.com/read/2024/07/29/15515871/selebgram-medan-tewas-usai-sedot-lemak-klinik-sebut-dokter-yang-menangani</span>
+<span class="s2">https://nasional.kompas.com/read/2024/05/26/22125901/ganjar-pranowo-17-poin-rekomendasi-rakernas-beri-gambaran-sikap-politik-pdip</span>
+<span class="s2">https://megapolitan.kompas.com/read/2024/07/30/15004021/anaknya-dianiaya-orangtua-korban-laporkan-pemilik-daycare-di-depok-ke</span>
+<span class="s2">https://nasional.kompas.com/read/2024/08/22/13582931/kena-lemparan-botol-dari-demonstran-habiburokhman-risiko-wakil-rakyat</span>
+<span class="s2">https://megapolitan.kompas.com/read/2024/08/06/19104221/satu-warga-terluka-usai-bentrokan-di-gambir</span>
+<span class="s2">https://nasional.kompas.com/read/2024/08/21/14482361/uu-pilkada-direvisi-kepala-daerah-hasil-pilkada-diduga-melanggar-mesti-siap</span>
+<span class="s2">https://nasional.kompas.com/read/2024/08/30/18204081/kpk-akan-dalami-kemungkinan-kaesang-dapat-fasilitas-karena-campur-tangan</span>
+<span class="s2">https://nasional.kompas.com/read/2024/05/22/21061021/wwf-2024-jadi-komitmen-dan-aksi-nyata-pertamina-kelola-keberlangsungan-air</span>
+<span class="s2">https://nasional.kompas.com/read/2024/01/07/23193241/prabowo-pastikan-tni-dan-polri-tetap-berada-di-bawah-presiden-jika-terpilih</span>
+<span class="s2">https://nasional.kompas.com/read/2024/06/13/20523491/soal-usung-siapa-di-pilkada-jakarta-nasdem-sebut-anies-dan-tokoh-lain-punya</span>
+<span class="s2">https://megapolitan.kompas.com/read/2024/09/04/16090171/tak-segan-minta-masukan-pramono-anung-sebut-ahok-beri-banyak-legacy-buat</span>
+<span class="s2">https://megapolitan.kompas.com/read/2024/08/05/18455751/tak-dipecat-kepala-smpn-19-hanya-disanksi-disiplin-ringan-terkait-kasus</span>
+<span class="s2">https://nasional.kompas.com/read/2024/08/23/17344401/maju-pilkada-jateng-bersama-taj-yasin-ahmad-luthfi-minta-doa-restu</span>
+<span class="s2">https://nasional.kompas.com/read/2024/08/16/18442881/ridwan-kamil-versus-calon-independen-pengamat-pilkada-jakarta-game-over</span>
+<span class="s2">https://nasional.kompas.com/read/2024/09/02/13460541/pemerintah-siap-gandeng-negara-negara-afrika-tanggulangi-cacar-monyet</span>
+<span class="s2">https://nasional.kompas.com/read/2024/08/14/21075381/kuasa-hukum-sebut-dakwaan-harvey-moeis-rugikan-negara-rp-300-triliun-salah</span>
+<span class="s2">https://nasional.kompas.com/read/2024/09/05/06450071/konflik-pkb-pbnu--pengabaian-politik-dan-pengkhianatan-prinsip</span>
+<span class="s2">https://megapolitan.kompas.com/read/2024/09/03/16303251/komplotan-penipu-beraksi-di-kelapa-gading-sasar-korban-dengan-modus-tukar</span>
+<span class="s2">https://nasional.kompas.com/read/2024/07/31/15320181/dpr-minta-tni-serius-dan-transparan-tangani-dugaan-penganiayaan-pelajar</span>
+<span class="s2">https://nasional.kompas.com/read/2024/01/01/20350511/sambangi-rumah-kakeknya-anies-teringat-perjuangan-abdurrahman-baswedan</span>
+<span class="s2">https://nasional.kompas.com/read/2024/03/17/20360841/imparsial-nilai-pp-manajemen-asn-akan-perluas-masuknya-tni-polri-ke-ranah</span>
+<span class="s2">https://nasional.kompas.com/read/2024/05/01/23001581/prediksi-soal-kabinet-prabowo-gibran-menteri-triumvirat-tak-diberi-ke-parpol</span>
+<span class="s2">&quot;&quot;&quot;</span>
+
+<span class="c1"># Proses membersihkan daftar URL (menghilangkan nomor dan baris kosong)</span>
+<span class="n">urls_to_scrape</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">raw_urls</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">):</span>
+    <span class="n">parts</span> <span class="o">=</span> <span class="n">line</span><span class="o">.</span><span class="n">split</span><span class="p">()</span>
+    <span class="k">if</span> <span class="n">parts</span> <span class="ow">and</span> <span class="n">parts</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s1">&#39;http&#39;</span><span class="p">):</span>
+        <span class="n">urls_to_scrape</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">parts</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+    <span class="k">elif</span> <span class="n">line</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s1">&#39;http&#39;</span><span class="p">):</span>
+        <span class="n">urls_to_scrape</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">line</span><span class="p">)</span>
+
+<span class="c1"># Scraping data dari URL dengan perulangan yang aman dan jeda</span>
+<span class="n">results</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">total_urls</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">urls_to_scrape</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Mulai scraping </span><span class="si">{</span><span class="n">total_urls</span><span class="si">}</span><span class="s2"> artikel...&quot;</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">url</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">urls_to_scrape</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">[</span><span class="si">{</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="n">total_urls</span><span class="si">}</span><span class="s2">] Memproses URL: </span><span class="si">{</span><span class="n">url</span><span class="p">[:</span><span class="mi">70</span><span class="p">]</span><span class="si">}</span><span class="s2">...&quot;</span><span class="p">)</span>
+    <span class="n">data</span> <span class="o">=</span> <span class="n">scrape_kompas_article</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">data</span><span class="p">:</span>
+        <span class="n">results</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+
+    <span class="c1"># Etika Scraping: Beri jeda 1 detik agar tidak membebani server</span>
+    <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+
 <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">results</span><span class="p">)</span>
 
+<span class="c1"># Simpan DataFrame ke file CSV</span>
+<span class="n">csv_filename</span> <span class="o">=</span> <span class="s2">&quot;kompas_articles_new.csv&quot;</span>
+<span class="n">df</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="n">csv_filename</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+
+<span class="c1"># Tampilkan hasilnya</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">IPython.display</span><span class="w"> </span><span class="kn">import</span> <span class="n">display</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span> <span class="o">+</span> <span class="s2">&quot;=&quot;</span><span class="o">*</span><span class="mi">70</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Selesai. </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">results</span><span class="p">)</span><span class="si">}</span><span class="s2"> artikel berhasil di-scrape.&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Data disimpan ke file &#39;</span><span class="si">{</span><span class="n">csv_filename</span><span class="si">}</span><span class="s2">&#39;&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;=&quot;</span><span class="o">*</span><span class="mi">70</span><span class="p">)</span>
 <span class="n">display</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Mulai scraping 128 artikel...
 
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>Judul</th>
-      <th>Isi (100 kata)</th>
-      <th>Kategori</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>Waspadai Kelelahan Mental akibat Kebanyakan Be...</td>
-      <td>KOMPAS.com -Berbagai informasi peristiwa terba...</td>
-      <td>Lifestyle</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>Pendidikan Kewirausahaan yang Merdeka</td>
-      <td>SETIAP17 Agustus, Masyarakat Indonesia merayak...</td>
-      <td>Money</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>Dokter: Olahraga Bisa Turunkan Risiko Kanker, ...</td>
-      <td>KOMPAS.com –Health Management Specialist Corpo...</td>
-      <td>Health</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>Peristiwa Gas Air Mata Unisba, Mendikti Janjik...</td>
-      <td>JAKARTA, KOMPAS.com- Menteri Pendidikan Tinggi...</td>
-      <td>Nasional</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>Harapan dan Catatan soal Anggaran Pendidikan T...</td>
-      <td>JAKARTA, KOMPAS.com- Presiden Prabowo Subianto...</td>
-      <td>Nasional</td>
-    </tr>
-    <tr>
-      <th>5</th>
-      <td>Berdarah Belanda Depok, Pesepak Bola Miliano J...</td>
-      <td>KOMPAS.com -Kementerian Hukum Republik Indones...</td>
-      <td>Travel</td>
-    </tr>
-  </tbody>
-</table>
-</div></div></div>
+[1/128] Memproses URL: https://nasional.kompas.com/read/2024/08/16/11404101/jokowi-kenakan-pa...
+</pre></div>
 </div>
-</section>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-&gt; Sukses: Jokowi Kenakan Pakaian Adat Betawi di Sidang Tahun...
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2/128] Memproses URL: https://nasional.kompas.com/read/2024/02/13/21583481/kpu-tegaskan-pemi...
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-&gt; Sukses: KPU Tegaskan Pemilih Tak Terdaftar di DPT Bisa &quot;Ny...
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[3/128] Memproses URL: https://megapolitan.kompas.com/read/2024/05/11/19123091/warga-sebut-ad...
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-&gt; Sukses: Warga Sebut Ada Benda Serupa Jimat pada Mayat Dala...
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[4/128] Memproses URL: https://megapolitan.kompas.com/read/2024/08/26/07235981/polisi-mengani...
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-&gt; Sukses: Polisi Menganiaya Mereka yang Cinta Damai dan Berc...
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[5/128] Memproses URL: https://nasional.kompas.com/read/2024/08/12/08444611/airlangga-hartart...
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-&gt; Sukses: Airlangga Hartarto Mundur dari Ketum, Golkar Banta...
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[6/128] Memproses URL: https://nasional.kompas.com/read/2024/07/29/17462851/nasdem-pastikan-d...
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-&gt; Sukses: Nasdem Pastikan Dukung Ilham Habibie untuk Pilkada...
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[7/128] Memproses URL: https://megapolitan.kompas.com/read/2024/08/02/23392851/influencer-par...
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-&gt; Sukses: &quot;Influencer Parenting&quot; Aniaya Balita, Kriminolog: ...
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[8/128] Memproses URL: https://nasional.kompas.com/read/2024/08/21/05232081/jalan-mulus-bahli...
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-&gt; Sukses: Jalan Mulus Bahlil Raih Kursi Ketum Golkar...
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[9/128] Memproses URL: https://nasional.kompas.com/read/2024/01/19/22313101/maruarar-sirait-d...
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-&gt; Sukses: Maruarar Sirait Dukung Prabowo-Gibran, TKN: Mari K...
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[10/128] Memproses URL: https://megapolitan.kompas.com/read/2024/08/12/21025981/usai-diturap-k...
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-&gt; Sukses: Usai Diturap, Kali Mati di Pademangan Tak Lagi Jad...
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[11/128] Memproses URL: https://megapolitan.kompas.com/read/2024/08/29/12432031/maju-pilkada-d...
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-&gt; Sukses: Maju Pilkada Depok, Imam Budi Hartono Ingin Lanjut...
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[12/128] Memproses URL: https://megapolitan.kompas.com/read/2024/08/28/13024071/kpud-kota-beka...
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-&gt; Sukses: KPUD Kota Bekasi Terima Dokumen Pendaftaran Paslon...
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[13/128] Memproses URL: https://nasional.kompas.com/read/2024/07/29/05000011/-populer-nasional...
+-&gt; Sukses: [POPULER NASIONAL] PBNU Heran Pansus Haji Dibentuk...
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[14/128] Memproses URL: https://nasional.kompas.com/read/2024/04/06/21590521/antoninho-rangel-...
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-&gt; Sukses: Antoninho Rangel da Silva, Jenderal Berdarah Timor...
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[15/128] Memproses URL: https://nasional.kompas.com/read/2024/09/04/12443721/pidato-lengkap-pa...
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-&gt; Sukses: Pidato Lengkap Paus Fransiskus di Istana Negara...
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[16/128] Memproses URL: https://nasional.kompas.com/read/2024/02/24/20074351/ahy-serahkan-kepa...
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-&gt; Sukses: AHY Serahkan Kepada Prabowo Jika Ingin Ajak Parpol...
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[17/128] Memproses URL: https://nasional.kompas.com/read/2024/08/06/20310821/wacana-kotak-koso...
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-&gt; Sukses: Wacana Kotak Kosong pada Pilkada Jakarta Jadi Iron...
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[18/128] Memproses URL: https://nasional.kompas.com/read/2024/06/09/20234841/cerita-korban-pen...
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-&gt; Sukses: Cerita Korban Penipuan Visa Haji Ilegal: Panas Din...
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[19/128] Memproses URL: https://nasional.kompas.com/read/2024/08/20/07025071/gerindra-sebut-re...
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-&gt; Sukses: Gerindra Sebut &quot;Reshuffle&quot; Menkumham untuk Sinkron...
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[20/128] Memproses URL: https://nasional.kompas.com/read/2024/01/09/22152121/puan-salami-anies...
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-&gt; Sukses: Puan Salami Anies-Muhaimin Usai Debat Capres, PKB:...
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[21/128] Memproses URL: https://megapolitan.kompas.com/read/2024/09/04/16151141/3-paslon-ramai...
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-&gt; Sukses: 3 Paslon Ramaikan Pilkada Jakarta, Bamus Betawi: W...
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[22/128] Memproses URL: https://megapolitan.kompas.com/read/2024/09/03/17275901/berita-foto-ta...
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-&gt; Sukses: BERITA FOTO: Tangis Bahagia Warga Sambut Kedatanga...
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[23/128] Memproses URL: https://nasional.kompas.com/read/2024/01/11/22261141/dilaporkan-ke-dew...
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-&gt; Sukses: Dilaporkan ke Dewas, Wakil Ketua KPK Mengaku Tak P...
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[24/128] Memproses URL: https://megapolitan.kompas.com/read/2024/07/26/19404751/pengamat-nilai...
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-&gt; Sukses: Pengamat Nilai Dharma-Kun Bakal Sulit Dapat 538.17...
+</pre></div>
+</div>
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">KeyboardInterrupt</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">3</span><span class="p">],</span> <span class="n">line</span> <span class="mi">225</span>
+<span class="g g-Whitespace">    </span><span class="mi">222</span>         <span class="n">results</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">224</span>     <span class="c1"># Etika Scraping: Beri jeda 1 detik agar tidak membebani server</span>
+<span class="ne">--&gt; </span><span class="mi">225</span>     <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">227</span> <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">results</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">229</span> <span class="c1"># Simpan DataFrame ke file CSV</span>
+
+<span class="ne">KeyboardInterrupt</span>: 
+</pre></div>
+</div>
+</div>
+</div>
 
     <script type="text/x-thebe-config">
     {
@@ -637,6 +915,21 @@ Requirement already satisfied: six in /home/codespace/.local/lib/python3.12/site
             </div>
             
             
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="simple visible nav section-nav flex-column">
+</ul>
+
+  </nav></div>
+
+</div></div>
               
             
           </div>
