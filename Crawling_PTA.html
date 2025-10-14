@@ -60,8 +60,8 @@
     <script>DOCUMENTATION_OPTIONS.pagename = 'Crawling_PTA';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="1. Pemrosesan Data PTA dan Berita" href="Pemrosesan_Data.html" />
-    <link rel="prev" title="c. Crawling Berita" href="T2berita.html" />
+    <link rel="next" title="1. Pemrosesan Data PTA dan Berita" href="PemrosesanData.html" />
+    <link rel="prev" title="C. Crawling Berita" href="T2berita.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -192,9 +192,15 @@
 
 <li class="toctree-l1"><a class="reference internal" href="crawlingdata.html">A. Crawling Data</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Crawling_Link.html">B. Crawling Link</a></li>
-<li class="toctree-l1"><a class="reference internal" href="T2berita.html">c. Crawling Berita</a></li>
+<li class="toctree-l1"><a class="reference internal" href="T2berita.html">C. Crawling Berita</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">D. Crawling PTA</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Pemrosesan_Data.html">1. Pemrosesan Data PTA dan Berita</a></li>
+<li class="toctree-l1"><a class="reference internal" href="PemrosesanData.html">1. Pemrosesan Data PTA dan Berita</a></li>
+
+
+<li class="toctree-l1"><a class="reference internal" href="TFidf.html">2. Melakukan Tfidf &amp; Word Embedding</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="Klasifikasi_LDA.html">3. Melakukan Klasifikasi LDA</a></li>
+
 
 
 </ul>
@@ -399,7 +405,7 @@ document.write(`
 <p><em>Web crawler untuk mengambil semua data skripsi di PTA Trunojoyo (khusus prodi teknik).</em></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">requests</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">requests</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">bs4</span><span class="w"> </span><span class="kn">import</span> <span class="n">BeautifulSoup</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">sys</span><span class="o">,</span><span class="w"> </span><span class="nn">time</span>
@@ -491,173 +497,848 @@ document.write(`
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ptaa</span><span class="p">()</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">ptaa</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[9] Journal Jurusan Teknik Industri - Sedang ambil halaman 1 ...
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[9] Journal Jurusan Teknik Industri - Sedang ambil halaman 2 ...
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[9] Journal Jurusan Teknik Industri - Sedang ambil halaman 3 ...
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[9] Journal Jurusan Teknik Industri - Sedang ambil halaman 4 ...
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[9] Journal Jurusan Teknik Industri - Sedang ambil halaman 5 ...
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[9] Journal Jurusan Teknik Industri - Sedang ambil halaman 6 ...
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[9] Journal Jurusan Teknik Industri - Sedang ambil halaman 7 ...
-</pre></div>
-</div>
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">KeyboardInterrupt</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">ptaa</span><span class="p">()</span>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[9] Teknik Industri - Page 1/1 [] 100.00%
 
-<span class="nn">Cell In[1], line 43,</span> in <span class="ni">ptaa</span><span class="nt">()</span>
-<span class="g g-Whitespace">     </span><span class="mi">41</span> <span class="k">for</span> <span class="n">jurnal</span> <span class="ow">in</span> <span class="n">jurnals</span><span class="p">:</span>
-<span class="g g-Whitespace">     </span><span class="mi">42</span>     <span class="n">detail_url</span> <span class="o">=</span> <span class="n">jurnal</span><span class="o">.</span><span class="n">select_one</span><span class="p">(</span><span class="s1">&#39;a.gray.button&#39;</span><span class="p">)[</span><span class="s1">&#39;href&#39;</span><span class="p">]</span>
-<span class="ne">---&gt; </span><span class="mi">43</span>     <span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">detail_url</span><span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">44</span>     <span class="n">soup1</span> <span class="o">=</span> <span class="n">BeautifulSoup</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">content</span><span class="p">,</span> <span class="s2">&quot;html.parser&quot;</span><span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">45</span>     <span class="n">isi</span> <span class="o">=</span> <span class="n">soup1</span><span class="o">.</span><span class="n">select_one</span><span class="p">(</span><span class="s1">&#39;div#content_journal&#39;</span><span class="p">)</span>
+[9] Teknik Industri - Page 2/2 [] 100.00%
 
-<span class="nn">File ~/.local/lib/python3.12/site-packages/requests/api.py:73,</span> in <span class="ni">get</span><span class="nt">(url, params, **kwargs)</span>
-<span class="g g-Whitespace">     </span><span class="mi">62</span> <span class="k">def</span><span class="w"> </span><span class="nf">get</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
-<span class="g g-Whitespace">     </span><span class="mi">63</span><span class="w">     </span><span class="sa">r</span><span class="sd">&quot;&quot;&quot;Sends a GET request.</span>
-<span class="g g-Whitespace">     </span><span class="mi">64</span><span class="sd"> </span>
-<span class="g g-Whitespace">     </span><span class="mi">65</span><span class="sd">     :param url: URL for the new :class:`Request` object.</span>
-<span class="sd">   (...)     70     :rtype: requests.Response</span>
-<span class="g g-Whitespace">     </span><span class="mi">71</span><span class="sd">     &quot;&quot;&quot;</span>
-<span class="ne">---&gt; </span><span class="mi">73</span>     <span class="k">return</span> <span class="n">request</span><span class="p">(</span><span class="s2">&quot;get&quot;</span><span class="p">,</span> <span class="n">url</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="n">params</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+[9] Teknik Industri - Page 3/3 [] 100.00%
 
-<span class="nn">File ~/.local/lib/python3.12/site-packages/requests/api.py:59,</span> in <span class="ni">request</span><span class="nt">(method, url, **kwargs)</span>
-<span class="g g-Whitespace">     </span><span class="mi">55</span> <span class="c1"># By using the &#39;with&#39; statement we are sure the session is closed, thus we</span>
-<span class="g g-Whitespace">     </span><span class="mi">56</span> <span class="c1"># avoid leaving sockets open which can trigger a ResourceWarning in some</span>
-<span class="g g-Whitespace">     </span><span class="mi">57</span> <span class="c1"># cases, and look like a memory leak in others.</span>
-<span class="g g-Whitespace">     </span><span class="mi">58</span> <span class="k">with</span> <span class="n">sessions</span><span class="o">.</span><span class="n">Session</span><span class="p">()</span> <span class="k">as</span> <span class="n">session</span><span class="p">:</span>
-<span class="ne">---&gt; </span><span class="mi">59</span>     <span class="k">return</span> <span class="n">session</span><span class="o">.</span><span class="n">request</span><span class="p">(</span><span class="n">method</span><span class="o">=</span><span class="n">method</span><span class="p">,</span> <span class="n">url</span><span class="o">=</span><span class="n">url</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+[9] Teknik Industri - Page 4/4 [] 100.00%
 
-<span class="nn">File ~/.local/lib/python3.12/site-packages/requests/sessions.py:589,</span> in <span class="ni">Session.request</span><span class="nt">(self, method, url, params, data, headers, cookies, files, auth, timeout, allow_redirects, proxies, hooks, stream, verify, cert, json)</span>
-<span class="g g-Whitespace">    </span><span class="mi">584</span> <span class="n">send_kwargs</span> <span class="o">=</span> <span class="p">{</span>
-<span class="g g-Whitespace">    </span><span class="mi">585</span>     <span class="s2">&quot;timeout&quot;</span><span class="p">:</span> <span class="n">timeout</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">586</span>     <span class="s2">&quot;allow_redirects&quot;</span><span class="p">:</span> <span class="n">allow_redirects</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">587</span> <span class="p">}</span>
-<span class="g g-Whitespace">    </span><span class="mi">588</span> <span class="n">send_kwargs</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">settings</span><span class="p">)</span>
-<span class="ne">--&gt; </span><span class="mi">589</span> <span class="n">resp</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">send</span><span class="p">(</span><span class="n">prep</span><span class="p">,</span> <span class="o">**</span><span class="n">send_kwargs</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">591</span> <span class="k">return</span> <span class="n">resp</span>
+[9] Teknik Industri - Page 5/5 [] 100.00%
 
-<span class="nn">File ~/.local/lib/python3.12/site-packages/requests/sessions.py:703,</span> in <span class="ni">Session.send</span><span class="nt">(self, request, **kwargs)</span>
-<span class="g g-Whitespace">    </span><span class="mi">700</span> <span class="n">start</span> <span class="o">=</span> <span class="n">preferred_clock</span><span class="p">()</span>
-<span class="g g-Whitespace">    </span><span class="mi">702</span> <span class="c1"># Send the request</span>
-<span class="ne">--&gt; </span><span class="mi">703</span> <span class="n">r</span> <span class="o">=</span> <span class="n">adapter</span><span class="o">.</span><span class="n">send</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">705</span> <span class="c1"># Total elapsed time of the request (approximately)</span>
-<span class="g g-Whitespace">    </span><span class="mi">706</span> <span class="n">elapsed</span> <span class="o">=</span> <span class="n">preferred_clock</span><span class="p">()</span> <span class="o">-</span> <span class="n">start</span>
+[9] Teknik Industri - Page 6/6 [] 100.00%
 
-<span class="nn">File ~/.local/lib/python3.12/site-packages/requests/adapters.py:667,</span> in <span class="ni">HTTPAdapter.send</span><span class="nt">(self, request, stream, timeout, verify, cert, proxies)</span>
-<span class="g g-Whitespace">    </span><span class="mi">664</span>     <span class="n">timeout</span> <span class="o">=</span> <span class="n">TimeoutSauce</span><span class="p">(</span><span class="n">connect</span><span class="o">=</span><span class="n">timeout</span><span class="p">,</span> <span class="n">read</span><span class="o">=</span><span class="n">timeout</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">666</span> <span class="k">try</span><span class="p">:</span>
-<span class="ne">--&gt; </span><span class="mi">667</span>     <span class="n">resp</span> <span class="o">=</span> <span class="n">conn</span><span class="o">.</span><span class="n">urlopen</span><span class="p">(</span>
-<span class="g g-Whitespace">    </span><span class="mi">668</span>         <span class="n">method</span><span class="o">=</span><span class="n">request</span><span class="o">.</span><span class="n">method</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">669</span>         <span class="n">url</span><span class="o">=</span><span class="n">url</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">670</span>         <span class="n">body</span><span class="o">=</span><span class="n">request</span><span class="o">.</span><span class="n">body</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">671</span>         <span class="n">headers</span><span class="o">=</span><span class="n">request</span><span class="o">.</span><span class="n">headers</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">672</span>         <span class="n">redirect</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">673</span>         <span class="n">assert_same_host</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">674</span>         <span class="n">preload_content</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">675</span>         <span class="n">decode_content</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">676</span>         <span class="n">retries</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">max_retries</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">677</span>         <span class="n">timeout</span><span class="o">=</span><span class="n">timeout</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">678</span>         <span class="n">chunked</span><span class="o">=</span><span class="n">chunked</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">679</span>     <span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">681</span> <span class="k">except</span> <span class="p">(</span><span class="n">ProtocolError</span><span class="p">,</span> <span class="ne">OSError</span><span class="p">)</span> <span class="k">as</span> <span class="n">err</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">682</span>     <span class="k">raise</span> <span class="ne">ConnectionError</span><span class="p">(</span><span class="n">err</span><span class="p">,</span> <span class="n">request</span><span class="o">=</span><span class="n">request</span><span class="p">)</span>
+[9] Teknik Industri - Page 7/7 [] 100.00%
 
-<span class="nn">File ~/.local/lib/python3.12/site-packages/urllib3/connectionpool.py:787,</span> in <span class="ni">HTTPConnectionPool.urlopen</span><span class="nt">(self, method, url, body, headers, retries, redirect, assert_same_host, timeout, pool_timeout, release_conn, chunked, body_pos, preload_content, decode_content, **response_kw)</span>
-<span class="g g-Whitespace">    </span><span class="mi">784</span> <span class="n">response_conn</span> <span class="o">=</span> <span class="n">conn</span> <span class="k">if</span> <span class="ow">not</span> <span class="n">release_conn</span> <span class="k">else</span> <span class="kc">None</span>
-<span class="g g-Whitespace">    </span><span class="mi">786</span> <span class="c1"># Make the request on the HTTPConnection object</span>
-<span class="ne">--&gt; </span><span class="mi">787</span> <span class="n">response</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_make_request</span><span class="p">(</span>
-<span class="g g-Whitespace">    </span><span class="mi">788</span>     <span class="n">conn</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">789</span>     <span class="n">method</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">790</span>     <span class="n">url</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">791</span>     <span class="n">timeout</span><span class="o">=</span><span class="n">timeout_obj</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">792</span>     <span class="n">body</span><span class="o">=</span><span class="n">body</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">793</span>     <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">794</span>     <span class="n">chunked</span><span class="o">=</span><span class="n">chunked</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">795</span>     <span class="n">retries</span><span class="o">=</span><span class="n">retries</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">796</span>     <span class="n">response_conn</span><span class="o">=</span><span class="n">response_conn</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">797</span>     <span class="n">preload_content</span><span class="o">=</span><span class="n">preload_content</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">798</span>     <span class="n">decode_content</span><span class="o">=</span><span class="n">decode_content</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">799</span>     <span class="o">**</span><span class="n">response_kw</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">800</span> <span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">802</span> <span class="c1"># Everything went great!</span>
-<span class="g g-Whitespace">    </span><span class="mi">803</span> <span class="n">clean_exit</span> <span class="o">=</span> <span class="kc">True</span>
+[9] Teknik Industri - Page 8/8 [] 100.00%
 
-<span class="nn">File ~/.local/lib/python3.12/site-packages/urllib3/connectionpool.py:534,</span> in <span class="ni">HTTPConnectionPool._make_request</span><span class="nt">(self, conn, method, url, body, headers, retries, timeout, chunked, response_conn, preload_content, decode_content, enforce_content_length)</span>
-<span class="g g-Whitespace">    </span><span class="mi">532</span> <span class="c1"># Receive the response from the server</span>
-<span class="g g-Whitespace">    </span><span class="mi">533</span> <span class="k">try</span><span class="p">:</span>
-<span class="ne">--&gt; </span><span class="mi">534</span>     <span class="n">response</span> <span class="o">=</span> <span class="n">conn</span><span class="o">.</span><span class="n">getresponse</span><span class="p">()</span>
-<span class="g g-Whitespace">    </span><span class="mi">535</span> <span class="k">except</span> <span class="p">(</span><span class="n">BaseSSLError</span><span class="p">,</span> <span class="ne">OSError</span><span class="p">)</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">536</span>     <span class="bp">self</span><span class="o">.</span><span class="n">_raise_timeout</span><span class="p">(</span><span class="n">err</span><span class="o">=</span><span class="n">e</span><span class="p">,</span> <span class="n">url</span><span class="o">=</span><span class="n">url</span><span class="p">,</span> <span class="n">timeout_value</span><span class="o">=</span><span class="n">read_timeout</span><span class="p">)</span>
+[9] Teknik Industri - Page 9/9 [] 100.00%
 
-<span class="nn">File ~/.local/lib/python3.12/site-packages/urllib3/connection.py:565,</span> in <span class="ni">HTTPConnection.getresponse</span><span class="nt">(self)</span>
-<span class="g g-Whitespace">    </span><span class="mi">562</span> <span class="n">_shutdown</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">sock</span><span class="p">,</span> <span class="s2">&quot;shutdown&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">564</span> <span class="c1"># Get the response from http.client.HTTPConnection</span>
-<span class="ne">--&gt; </span><span class="mi">565</span> <span class="n">httplib_response</span> <span class="o">=</span> <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">getresponse</span><span class="p">()</span>
-<span class="g g-Whitespace">    </span><span class="mi">567</span> <span class="k">try</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">568</span>     <span class="n">assert_header_parsing</span><span class="p">(</span><span class="n">httplib_response</span><span class="o">.</span><span class="n">msg</span><span class="p">)</span>
+[9] Teknik Industri - Page 10/10 [] 100.00%
 
-<span class="nn">File /usr/local/python/3.12.1/lib/python3.12/http/client.py:1419,</span> in <span class="ni">HTTPConnection.getresponse</span><span class="nt">(self)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1417</span> <span class="k">try</span><span class="p">:</span>
-<span class="g g-Whitespace">   </span><span class="mi">1418</span>     <span class="k">try</span><span class="p">:</span>
-<span class="ne">-&gt; </span><span class="mi">1419</span>         <span class="n">response</span><span class="o">.</span><span class="n">begin</span><span class="p">()</span>
-<span class="g g-Whitespace">   </span><span class="mi">1420</span>     <span class="k">except</span> <span class="ne">ConnectionError</span><span class="p">:</span>
-<span class="g g-Whitespace">   </span><span class="mi">1421</span>         <span class="bp">self</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+[9] Teknik Industri - Page 11/11 [] 100.00%
 
-<span class="nn">File /usr/local/python/3.12.1/lib/python3.12/http/client.py:331,</span> in <span class="ni">HTTPResponse.begin</span><span class="nt">(self)</span>
-<span class="g g-Whitespace">    </span><span class="mi">329</span> <span class="c1"># read until we get a non-100 response</span>
-<span class="g g-Whitespace">    </span><span class="mi">330</span> <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
-<span class="ne">--&gt; </span><span class="mi">331</span>     <span class="n">version</span><span class="p">,</span> <span class="n">status</span><span class="p">,</span> <span class="n">reason</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_read_status</span><span class="p">()</span>
-<span class="g g-Whitespace">    </span><span class="mi">332</span>     <span class="k">if</span> <span class="n">status</span> <span class="o">!=</span> <span class="n">CONTINUE</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">333</span>         <span class="k">break</span>
+[9] Teknik Industri - Page 12/12 [] 100.00%
 
-<span class="nn">File /usr/local/python/3.12.1/lib/python3.12/http/client.py:292,</span> in <span class="ni">HTTPResponse._read_status</span><span class="nt">(self)</span>
-<span class="g g-Whitespace">    </span><span class="mi">291</span> <span class="k">def</span><span class="w"> </span><span class="nf">_read_status</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<span class="ne">--&gt; </span><span class="mi">292</span>     <span class="n">line</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">fp</span><span class="o">.</span><span class="n">readline</span><span class="p">(</span><span class="n">_MAXLINE</span> <span class="o">+</span> <span class="mi">1</span><span class="p">),</span> <span class="s2">&quot;iso-8859-1&quot;</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">293</span>     <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">line</span><span class="p">)</span> <span class="o">&gt;</span> <span class="n">_MAXLINE</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">294</span>         <span class="k">raise</span> <span class="n">LineTooLong</span><span class="p">(</span><span class="s2">&quot;status line&quot;</span><span class="p">)</span>
+[9] Teknik Industri - Page 13/13 [] 100.00%
 
-<span class="nn">File /usr/local/python/3.12.1/lib/python3.12/socket.py:707,</span> in <span class="ni">SocketIO.readinto</span><span class="nt">(self, b)</span>
-<span class="g g-Whitespace">    </span><span class="mi">705</span> <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">706</span>     <span class="k">try</span><span class="p">:</span>
-<span class="ne">--&gt; </span><span class="mi">707</span>         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_sock</span><span class="o">.</span><span class="n">recv_into</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">708</span>     <span class="k">except</span> <span class="n">timeout</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">709</span>         <span class="bp">self</span><span class="o">.</span><span class="n">_timeout_occurred</span> <span class="o">=</span> <span class="kc">True</span>
+[9] Teknik Industri - Page 14/14 [] 100.00%
 
-<span class="nn">File /usr/local/python/3.12.1/lib/python3.12/ssl.py:1253,</span> in <span class="ni">SSLSocket.recv_into</span><span class="nt">(self, buffer, nbytes, flags)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1249</span>     <span class="k">if</span> <span class="n">flags</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>
-<span class="g g-Whitespace">   </span><span class="mi">1250</span>         <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
-<span class="g g-Whitespace">   </span><span class="mi">1251</span>           <span class="s2">&quot;non-zero flags not allowed in calls to recv_into() on </span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span>
-<span class="g g-Whitespace">   </span><span class="mi">1252</span>           <span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="p">)</span>
-<span class="ne">-&gt; </span><span class="mi">1253</span>     <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="n">nbytes</span><span class="p">,</span> <span class="n">buffer</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1254</span> <span class="k">else</span><span class="p">:</span>
-<span class="g g-Whitespace">   </span><span class="mi">1255</span>     <span class="k">return</span> <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">recv_into</span><span class="p">(</span><span class="n">buffer</span><span class="p">,</span> <span class="n">nbytes</span><span class="p">,</span> <span class="n">flags</span><span class="p">)</span>
+[9] Teknik Industri - Page 15/15 [] 100.00%
 
-<span class="nn">File /usr/local/python/3.12.1/lib/python3.12/ssl.py:1105,</span> in <span class="ni">SSLSocket.read</span><span class="nt">(self, len, buffer)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1103</span> <span class="k">try</span><span class="p">:</span>
-<span class="g g-Whitespace">   </span><span class="mi">1104</span>     <span class="k">if</span> <span class="n">buffer</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
-<span class="ne">-&gt; </span><span class="mi">1105</span>         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_sslobj</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="nb">len</span><span class="p">,</span> <span class="n">buffer</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1106</span>     <span class="k">else</span><span class="p">:</span>
-<span class="g g-Whitespace">   </span><span class="mi">1107</span>         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_sslobj</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="nb">len</span><span class="p">)</span>
+[9] Teknik Industri - Page 16/16 [] 100.00%
 
-<span class="ne">KeyboardInterrupt</span>: 
+[9] Teknik Industri - Page 17/17 [] 100.00%
+
+[9] Teknik Industri - Page 18/18 [] 100.00%
+
+[9] Teknik Industri - Page 19/19 [] 100.00%
+
+[9] Teknik Industri - Page 20/20 [] 100.00%
+
+[9] Teknik Industri - Page 21/21 [] 100.00%
+
+[9] Teknik Industri - Page 22/22 [] 100.00%
+
+[9] Teknik Industri - Page 23/23 [] 100.00%
+
+[9] Teknik Industri - Page 24/24 [] 100.00%
+
+[9] Teknik Industri - Page 25/25 [] 100.00%
+
+[9] Teknik Industri - Page 26/26 [] 100.00%
+
+[9] Teknik Industri - Page 27/27 [] 100.00%
+
+[9] Teknik Industri - Page 28/28 [] 100.00%
+
+[9] Teknik Industri - Page 29/29 [] 100.00%
+
+[9] Teknik Industri - Page 30/30 [] 100.00%
+
+[9] Teknik Industri - Page 31/31 [] 100.00%
+
+[9] Teknik Industri - Page 32/32 [] 100.00%
+
+[9] Teknik Industri - Page 33/33 [] 100.00%
+
+[9] Teknik Industri - Page 34/34 [] 100.00%
+
+[9] Teknik Industri - Page 35/35 [] 100.00%
+
+[9] Teknik Industri - Page 36/36 [] 100.00%
+
+[9] Teknik Industri - Page 37/37 [] 100.00%
+
+[9] Teknik Industri - Page 38/38 [] 100.00%
+
+[9] Teknik Industri - Page 39/39 [] 100.00%
+
+[9] Teknik Industri - Page 40/40 [] 100.00%
+
+[9] Teknik Industri - Page 41/41 [] 100.00%
+
+[9] Teknik Industri - Page 42/42 [] 100.00%
+
+[9] Teknik Industri - Page 43/43 [] 100.00%
+
+[9] Teknik Industri - Page 44/44 [] 100.00%
+
+[9] Teknik Industri - Page 45/45 [] 100.00%
+
+[9] Teknik Industri - Page 46/46 [] 100.00%
+
+[9] Teknik Industri - Page 47/47 [] 100.00%
+
+[9] Teknik Industri - Page 48/48 [] 100.00%
+
+[9] Teknik Industri - Page 49/49 [] 100.00%
+
+[9] Teknik Industri - Page 50/50 [] 100.00%
+
+[9] Teknik Industri - Page 51/51 [] 100.00%
+
+[9] Teknik Industri - Page 52/52 [] 100.00%
+
+[9] Teknik Industri - Page 53/53 [] 100.00%
+
+[9] Teknik Industri - Page 54/54 [] 100.00%
+
+[9] Teknik Industri - Page 55/55 [] 100.00%
+
+[9] Teknik Industri - Page 56/56 [] 100.00%
+
+[9] Teknik Industri - Page 57/57 [] 100.00%
+
+[9] Teknik Industri - Page 58/58 [] 100.00%
+
+[9] Teknik Industri - Page 59/59 [] 100.00%
+
+[9] Teknik Industri - Page 60/60 [] 100.00%
+
+[9] Teknik Industri - Page 61/61 [] 100.00%
+
+[9] Teknik Industri - Page 62/62 [] 100.00%
+
+[9] Teknik Industri - Page 63/63 [] 100.00%
+
+[9] Teknik Industri - Page 64/64 [] 100.00%
+
+[9] Teknik Industri - Page 65/65 [] 100.00%
+
+[9] Teknik Industri - Page 66/66 [] 100.00%
+
+[9] Teknik Industri - Page 67/67 [] 100.00%
+
+[9] Teknik Industri - Page 68/68 [] 100.00%
+
+[9] Teknik Industri - Page 69/69 [] 100.00%
+
+[9] Teknik Industri - Page 70/70 [] 100.00%
+
+[9] Teknik Industri - Page 71/71 [] 100.00%
+
+[9] Teknik Industri - Page 72/72 [] 100.00%
+
+[9] Teknik Industri - Page 73/73 [] 100.00%
+
+[9] Teknik Industri - Page 74/74 [] 100.00%
+
+[9] Teknik Industri - Page 75/75 [] 100.00%
+
+[9] Teknik Industri - Page 76/76 [] 100.00%
+
+[9] Teknik Industri - Page 77/77 [] 100.00%
+
+[9] Teknik Industri - Page 78/78 [] 100.00%
+
+[9] Teknik Industri - Page 79/79 [] 100.00%
+
+[9] Teknik Industri - Page 80/80 [] 100.00%
+
+[9] Teknik Industri - Page 81/81 [] 100.00%
+
+[9] Teknik Industri - Page 82/82 [] 100.00%
+
+[9] Teknik Industri - Page 83/83 [] 100.00%
+
+[9] Teknik Industri - Page 84/84 [] 100.00%
+
+[9] Teknik Industri - Page 85/85 [] 100.00%
+
+[9] Teknik Industri - Page 86/86 [] 100.00%
+
+[9] Teknik Industri - Page 87/87 [] 100.00%
+
+[9] Teknik Industri - Page 88/88 [] 100.00%
+
+[9] Teknik Industri - Page 89/89 [] 100.00%
+
+[9] Teknik Industri - Page 90/90 [] 100.00%
+
+[9] Teknik Industri - Page 91/91 [] 100.00%
+
+[9] Teknik Industri - Page 92/92 [] 100.00%
+
+[9] Teknik Industri - Page 93/93 [] 100.00%
+
+[9] Teknik Industri - Page 94/94 [] 100.00%
+
+[9] Teknik Industri - Page 95/95 [] 100.00%
+
+[9] Teknik Industri - Page 96/96 [] 100.00%
+
+[9] Teknik Industri - Page 97/97 [] 100.00%
+
+[9] Teknik Industri - Page 98/98 [] 100.00%
+
+[9] Teknik Industri - Page 99/99 [] 100.00%
+
+[9] Teknik Industri - Page 100/100 [] 100.00%
+
+[9] Teknik Industri - Page 101/101 [] 100.00%
+
+[9] Teknik Industri - Page 102/102 [] 100.00%
+
+[9] Teknik Industri - Page 103/103 [] 100.00%
+
+[9] Teknik Industri - Page 104/104 [] 100.00%
+
+[9] Teknik Industri - Page 105/105 [] 100.00%
+
+[9] Teknik Industri - Page 106/106 [] 100.00%
+
+[9] Teknik Industri - Page 107/107 [] 100.00%
+
+[9] Teknik Industri - Page 108/108 [] 100.00%
+
+[9] Teknik Industri - Page 109/109 [] 100.00%
+
+[9] Teknik Industri - Page 110/110 [] 100.00%
+
+[9] Teknik Industri - Page 111/111 [] 100.00%
+
+[9] Teknik Industri - Page 112/112 [] 100.00%
+
+[9] Teknik Industri - Page 113/113 [] 100.00%
+
+[9] Teknik Industri - Page 114/114 [] 100.00%
+
+[9] Teknik Industri - Page 115/115 [] 100.00%
+
+[9] Teknik Industri - Page 116/116 [] 100.00%
+
+[9] Teknik Industri - Page 117/117 [] 100.00%
+
+[9] Teknik Industri - Page 118/118 [] 100.00%
+
+[9] Teknik Industri - Page 119/119 [] 100.00%
+
+[9] Teknik Industri - Page 120/120 [] 100.00%
+
+[9] Teknik Industri - Page 121/121 [] 100.00%
+
+[9] Teknik Industri - Page 122/122 [] 100.00%
+
+[9] Teknik Industri - Page 123/123 [] 100.00%
+
+[9] Teknik Industri - Page 124/124 [] 100.00%
+
+[9] Teknik Industri - Page 125/125 [] 100.00%
+
+[9] Teknik Industri - Page 126/126 [] 100.00%
+
+[9] Teknik Industri - Page 127/127 [] 100.00%
+
+[9] Teknik Industri - Page 128/128 [] 100.00%
+
+[9] Teknik Industri - Page 129/129 [] 100.00%
+
+[9] Teknik Industri - Page 130/130 [] 100.00%
+
+[9] Teknik Industri - Page 131/131 [] 100.00%
+
+[9] Teknik Industri - Page 132/132 [] 100.00%
+
+[9] Teknik Industri - Page 133/133 [] 100.00%
+
+[9] Teknik Industri - Page 134/134 [] 100.00%
+
+[9] Teknik Industri - Page 135/135 [] 100.00%
+
+[9] Teknik Industri - Page 136/136 [] 100.00%
+
+[9] Teknik Industri - Page 137/137 [] 100.00%
+
+[9] Teknik Industri - Page 138/138 [] 100.00%
+
+[9] Teknik Industri - Page 139/139 [] 100.00%
+
+[9] Teknik Industri - Page 140/140 [] 100.00%
+
+[9] Teknik Industri - Page 141/141 [] 100.00%
+
+[9] Teknik Industri - Page 142/142 [] 100.00%
+
+[9] Teknik Industri - Page 143/143 [] 100.00%
+
+[9] Teknik Industri  100% (Total halaman: 143)
+[10] Teknik Informatika - Page 1/1 [] 100.00%
+
+[10] Teknik Informatika - Page 2/2 [] 100.00%
+
+[10] Teknik Informatika - Page 3/3 [] 100.00%
+
+[10] Teknik Informatika - Page 4/4 [] 100.00%
+
+[10] Teknik Informatika - Page 5/5 [] 100.00%
+
+[10] Teknik Informatika - Page 6/6 [] 100.00%
+
+[10] Teknik Informatika - Page 7/7 [] 100.00%
+
+[10] Teknik Informatika - Page 8/8 [] 100.00%
+
+[10] Teknik Informatika - Page 9/9 [] 100.00%
+
+[10] Teknik Informatika - Page 10/10 [] 100.00%
+
+[10] Teknik Informatika - Page 11/11 [] 100.00%
+
+[10] Teknik Informatika - Page 12/12 [] 100.00%
+
+[10] Teknik Informatika - Page 13/13 [] 100.00%
+
+[10] Teknik Informatika - Page 14/14 [] 100.00%
+
+[10] Teknik Informatika - Page 15/15 [] 100.00%
+
+[10] Teknik Informatika - Page 16/16 [] 100.00%
+
+[10] Teknik Informatika - Page 17/17 [] 100.00%
+
+[10] Teknik Informatika - Page 18/18 [] 100.00%
+
+[10] Teknik Informatika - Page 19/19 [] 100.00%
+
+[10] Teknik Informatika - Page 20/20 [] 100.00%
+
+[10] Teknik Informatika - Page 21/21 [] 100.00%
+
+[10] Teknik Informatika - Page 22/22 [] 100.00%
+
+[10] Teknik Informatika - Page 23/23 [] 100.00%
+
+[10] Teknik Informatika - Page 24/24 [] 100.00%
+
+[10] Teknik Informatika - Page 25/25 [] 100.00%
+
+[10] Teknik Informatika - Page 26/26 [] 100.00%
+
+[10] Teknik Informatika - Page 27/27 [] 100.00%
+
+[10] Teknik Informatika - Page 28/28 [] 100.00%
+
+[10] Teknik Informatika - Page 29/29 [] 100.00%
+
+[10] Teknik Informatika - Page 30/30 [] 100.00%
+
+[10] Teknik Informatika - Page 31/31 [] 100.00%
+
+[10] Teknik Informatika - Page 32/32 [] 100.00%
+
+[10] Teknik Informatika - Page 33/33 [] 100.00%
+
+[10] Teknik Informatika - Page 34/34 [] 100.00%
+
+[10] Teknik Informatika - Page 35/35 [] 100.00%
+
+[10] Teknik Informatika - Page 36/36 [] 100.00%
+
+[10] Teknik Informatika - Page 37/37 [] 100.00%
+
+[10] Teknik Informatika - Page 38/38 [] 100.00%
+
+[10] Teknik Informatika - Page 39/39 [] 100.00%
+
+[10] Teknik Informatika - Page 40/40 [] 100.00%
+
+[10] Teknik Informatika - Page 41/41 [] 100.00%
+
+[10] Teknik Informatika - Page 42/42 [] 100.00%
+
+[10] Teknik Informatika - Page 43/43 [] 100.00%
+
+[10] Teknik Informatika - Page 44/44 [] 100.00%
+
+[10] Teknik Informatika - Page 45/45 [] 100.00%
+
+[10] Teknik Informatika - Page 46/46 [] 100.00%
+
+[10] Teknik Informatika - Page 47/47 [] 100.00%
+
+[10] Teknik Informatika - Page 48/48 [] 100.00%
+
+[10] Teknik Informatika - Page 49/49 [] 100.00%
+
+[10] Teknik Informatika - Page 50/50 [] 100.00%
+
+[10] Teknik Informatika - Page 51/51 [] 100.00%
+
+[10] Teknik Informatika - Page 52/52 [] 100.00%
+
+[10] Teknik Informatika - Page 53/53 [] 100.00%
+
+[10] Teknik Informatika - Page 54/54 [] 100.00%
+
+[10] Teknik Informatika - Page 55/55 [] 100.00%
+
+[10] Teknik Informatika - Page 56/56 [] 100.00%
+
+[10] Teknik Informatika - Page 57/57 [] 100.00%
+
+[10] Teknik Informatika - Page 58/58 [] 100.00%
+
+[10] Teknik Informatika - Page 59/59 [] 100.00%
+
+[10] Teknik Informatika - Page 60/60 [] 100.00%
+
+[10] Teknik Informatika - Page 61/61 [] 100.00%
+
+[10] Teknik Informatika - Page 62/62 [] 100.00%
+
+[10] Teknik Informatika - Page 63/63 [] 100.00%
+
+[10] Teknik Informatika - Page 64/64 [] 100.00%
+
+[10] Teknik Informatika - Page 65/65 [] 100.00%
+
+[10] Teknik Informatika - Page 66/66 [] 100.00%
+
+[10] Teknik Informatika - Page 67/67 [] 100.00%
+
+[10] Teknik Informatika - Page 68/68 [] 100.00%
+
+[10] Teknik Informatika - Page 69/69 [] 100.00%
+
+[10] Teknik Informatika - Page 70/70 [] 100.00%
+
+[10] Teknik Informatika - Page 71/71 [] 100.00%
+
+[10] Teknik Informatika - Page 72/72 [] 100.00%
+
+[10] Teknik Informatika - Page 73/73 [] 100.00%
+
+[10] Teknik Informatika - Page 74/74 [] 100.00%
+
+[10] Teknik Informatika - Page 75/75 [] 100.00%
+
+[10] Teknik Informatika - Page 76/76 [] 100.00%
+
+[10] Teknik Informatika - Page 77/77 [] 100.00%
+
+[10] Teknik Informatika - Page 78/78 [] 100.00%
+
+[10] Teknik Informatika - Page 79/79 [] 100.00%
+
+[10] Teknik Informatika - Page 80/80 [] 100.00%
+
+[10] Teknik Informatika - Page 81/81 [] 100.00%
+
+[10] Teknik Informatika - Page 82/82 [] 100.00%
+
+[10] Teknik Informatika - Page 83/83 [] 100.00%
+
+[10] Teknik Informatika - Page 84/84 [] 100.00%
+
+[10] Teknik Informatika - Page 85/85 [] 100.00%
+
+[10] Teknik Informatika - Page 86/86 [] 100.00%
+
+[10] Teknik Informatika - Page 87/87 [] 100.00%
+
+[10] Teknik Informatika - Page 88/88 [] 100.00%
+
+[10] Teknik Informatika - Page 89/89 [] 100.00%
+
+[10] Teknik Informatika - Page 90/90 [] 100.00%
+
+[10] Teknik Informatika - Page 91/91 [] 100.00%
+
+[10] Teknik Informatika - Page 92/92 [] 100.00%
+
+[10] Teknik Informatika - Page 93/93 [] 100.00%
+
+[10] Teknik Informatika - Page 94/94 [] 100.00%
+
+[10] Teknik Informatika - Page 95/95 [] 100.00%
+
+[10] Teknik Informatika - Page 96/96 [] 100.00%
+
+[10] Teknik Informatika - Page 97/97 [] 100.00%
+
+[10] Teknik Informatika - Page 98/98 [] 100.00%
+
+[10] Teknik Informatika - Page 99/99 [] 100.00%
+
+[10] Teknik Informatika - Page 100/100 [] 100.00%
+
+[10] Teknik Informatika - Page 101/101 [] 100.00%
+
+[10] Teknik Informatika - Page 102/102 [] 100.00%
+
+[10] Teknik Informatika - Page 103/103 [] 100.00%
+
+[10] Teknik Informatika - Page 104/104 [] 100.00%
+
+[10] Teknik Informatika - Page 105/105 [] 100.00%
+
+[10] Teknik Informatika - Page 106/106 [] 100.00%
+
+[10] Teknik Informatika - Page 107/107 [] 100.00%
+
+[10] Teknik Informatika - Page 108/108 [] 100.00%
+
+[10] Teknik Informatika - Page 109/109 [] 100.00%
+
+[10] Teknik Informatika - Page 110/110 [] 100.00%
+
+[10] Teknik Informatika - Page 111/111 [] 100.00%
+
+[10] Teknik Informatika - Page 112/112 [] 100.00%
+
+[10] Teknik Informatika - Page 113/113 [] 100.00%
+
+[10] Teknik Informatika - Page 114/114 [] 100.00%
+
+[10] Teknik Informatika - Page 115/115 [] 100.00%
+
+[10] Teknik Informatika - Page 116/116 [] 100.00%
+
+[10] Teknik Informatika - Page 117/117 [] 100.00%
+
+[10] Teknik Informatika - Page 118/118 [] 100.00%
+
+[10] Teknik Informatika - Page 119/119 [] 100.00%
+
+[10] Teknik Informatika - Page 120/120 [] 100.00%
+
+[10] Teknik Informatika - Page 121/121 [] 100.00%
+
+[10] Teknik Informatika - Page 122/122 [] 100.00%
+
+[10] Teknik Informatika - Page 123/123 [] 100.00%
+
+[10] Teknik Informatika - Page 124/124 [] 100.00%
+
+[10] Teknik Informatika - Page 125/125 [] 100.00%
+
+[10] Teknik Informatika - Page 126/126 [] 100.00%
+
+[10] Teknik Informatika - Page 127/127 [] 100.00%
+
+[10] Teknik Informatika - Page 128/128 [] 100.00%
+
+[10] Teknik Informatika - Page 129/129 [] 100.00%
+
+[10] Teknik Informatika - Page 130/130 [] 100.00%
+
+[10] Teknik Informatika - Page 131/131 [] 100.00%
+
+[10] Teknik Informatika - Page 132/132 [] 100.00%
+
+[10] Teknik Informatika - Page 133/133 [] 100.00%
+
+[10] Teknik Informatika - Page 134/134 [] 100.00%
+
+[10] Teknik Informatika - Page 135/135 [] 100.00%
+
+[10] Teknik Informatika - Page 136/136 [] 100.00%
+
+[10] Teknik Informatika - Page 137/137 [] 100.00%
+
+[10] Teknik Informatika - Page 138/138 [] 100.00%
+
+[10] Teknik Informatika - Page 139/139 [] 100.00%
+
+[10] Teknik Informatika - Page 140/140 [] 100.00%
+
+[10] Teknik Informatika - Page 141/141 [] 100.00%
+
+[10] Teknik Informatika - Page 142/142 [] 100.00%
+
+[10] Teknik Informatika - Page 143/143 [] 100.00%
+
+[10] Teknik Informatika - Page 144/144 [] 100.00%
+
+[10] Teknik Informatika - Page 145/145 [] 100.00%
+
+[10] Teknik Informatika - Page 146/146 [] 100.00%
+
+[10] Teknik Informatika - Page 147/147 [] 100.00%
+
+[10] Teknik Informatika - Page 148/148 [] 100.00%
+
+[10] Teknik Informatika - Page 149/149 [] 100.00%
+
+[10] Teknik Informatika - Page 150/150 [] 100.00%
+
+[10] Teknik Informatika - Page 151/151 [] 100.00%
+
+[10] Teknik Informatika - Page 152/152 [] 100.00%
+
+[10] Teknik Informatika - Page 153/153 [] 100.00%
+
+[10] Teknik Informatika - Page 154/154 [] 100.00%
+
+[10] Teknik Informatika - Page 155/155 [] 100.00%
+
+[10] Teknik Informatika - Page 156/156 [] 100.00%
+
+[10] Teknik Informatika - Page 157/157 [] 100.00%
+
+[10] Teknik Informatika - Page 158/158 [] 100.00%
+
+[10] Teknik Informatika - Page 159/159 [] 100.00%
+
+[10] Teknik Informatika - Page 160/160 [] 100.00%
+
+[10] Teknik Informatika - Page 161/161 [] 100.00%
+
+[10] Teknik Informatika - Page 162/162 [] 100.00%
+
+[10] Teknik Informatika - Page 163/163 [] 100.00%
+
+[10] Teknik Informatika - Page 164/164 [] 100.00%
+
+[10] Teknik Informatika - Page 165/165 [] 100.00%
+
+[10] Teknik Informatika - Page 166/166 [] 100.00%
+
+[10] Teknik Informatika - Page 167/167 [] 100.00%
+
+[10] Teknik Informatika - Page 168/168 [] 100.00%
+
+[10] Teknik Informatika - Page 169/169 [] 100.00%
+
+[10] Teknik Informatika - Page 170/170 [] 100.00%
+
+[10] Teknik Informatika - Page 171/171 [] 100.00%
+
+[10] Teknik Informatika - Page 172/172 [] 100.00%
+
+[10] Teknik Informatika  100% (Total halaman: 172)
+[11] Manajemen Informatika - Page 1/1 [] 100.00%
+
+[11] Manajemen Informatika - Page 2/2 [] 100.00%
+
+[11] Manajemen Informatika - Page 3/3 [] 100.00%
+
+[11] Manajemen Informatika - Page 4/4 [] 100.00%
+
+[11] Manajemen Informatika - Page 5/5 [] 100.00%
+
+[11] Manajemen Informatika - Page 6/6 [] 100.00%
+
+[11] Manajemen Informatika - Page 7/7 [] 100.00%
+
+[11] Manajemen Informatika - Page 8/8 [] 100.00%
+
+[11] Manajemen Informatika - Page 9/9 [] 100.00%
+
+[11] Manajemen Informatika - Page 10/10 [] 100.00%
+
+[11] Manajemen Informatika - Page 11/11 [] 100.00%
+
+[11] Manajemen Informatika - Page 12/12 [] 100.00%
+
+[11] Manajemen Informatika - Page 13/13 [] 100.00%
+
+[11] Manajemen Informatika - Page 14/14 [] 100.00%
+
+[11] Manajemen Informatika - Page 15/15 [] 100.00%
+
+[11] Manajemen Informatika - Page 16/16 [] 100.00%
+
+[11] Manajemen Informatika - Page 17/17 [] 100.00%
+
+[11] Manajemen Informatika - Page 18/18 [] 100.00%
+
+[11] Manajemen Informatika - Page 19/19 [] 100.00%
+
+[11] Manajemen Informatika - Page 20/20 [] 100.00%
+
+[11] Manajemen Informatika - Page 21/21 [] 100.00%
+
+[11] Manajemen Informatika - Page 22/22 [] 100.00%
+
+[11] Manajemen Informatika - Page 23/23 [] 100.00%
+
+[11] Manajemen Informatika - Page 24/24 [] 100.00%
+
+[11] Manajemen Informatika - Page 25/25 [] 100.00%
+
+[11] Manajemen Informatika - Page 26/26 [] 100.00%
+
+[11] Manajemen Informatika - Page 27/27 [] 100.00%
+
+[11] Manajemen Informatika - Page 28/28 [] 100.00%
+
+[11] Manajemen Informatika - Page 29/29 [] 100.00%
+
+[11] Manajemen Informatika - Page 30/30 [] 100.00%
+
+[11] Manajemen Informatika - Page 31/31 [] 100.00%
+
+[11] Manajemen Informatika - Page 32/32 [] 100.00%
+
+[11] Manajemen Informatika - Page 33/33 [] 100.00%
+
+[11] Manajemen Informatika - Page 34/34 [] 100.00%
+
+[11] Manajemen Informatika - Page 35/35 [] 100.00%
+
+[11] Manajemen Informatika - Page 36/36 [] 100.00%
+
+[11] Manajemen Informatika - Page 37/37 [] 100.00%
+
+[11] Manajemen Informatika - Page 38/38 [] 100.00%
+
+[11] Manajemen Informatika - Page 39/39 [] 100.00%
+
+[11] Manajemen Informatika - Page 40/40 [] 100.00%
+
+[11] Manajemen Informatika - Page 41/41 [] 100.00%
+
+[11] Manajemen Informatika - Page 42/42 [] 100.00%
+
+[11] Manajemen Informatika - Page 43/43 [] 100.00%
+
+[11] Manajemen Informatika - Page 44/44 [] 100.00%
+
+[11] Manajemen Informatika - Page 45/45 [] 100.00%
+
+[11] Manajemen Informatika - Page 46/46 [] 100.00%
+
+[11] Manajemen Informatika - Page 47/47 [] 100.00%
+
+[11] Manajemen Informatika - Page 48/48 [] 100.00%
+
+[11] Manajemen Informatika - Page 49/49 [] 100.00%
+
+[11] Manajemen Informatika - Page 50/50 [] 100.00%
+
+[11] Manajemen Informatika - Page 51/51 [] 100.00%
+
+[11] Manajemen Informatika - Page 52/52 [] 100.00%
+
+[11] Manajemen Informatika - Page 53/53 [] 100.00%
+
+[11] Manajemen Informatika - Page 54/54 [] 100.00%
+
+[11] Manajemen Informatika - Page 55/55 [] 100.00%
+
+[11] Manajemen Informatika - Page 56/56 [] 100.00%
+
+[11] Manajemen Informatika  100% (Total halaman: 56)
+[19] Teknik Multimedia Dan Jaringan - Page 1/1 [] 100.00%
+
+[19] Teknik Multimedia Dan Jaringan - Page 2/2 [] 100.00%
+
+[19] Teknik Multimedia Dan Jaringan - Page 3/3 [] 100.00%
+
+[19] Teknik Multimedia Dan Jaringan - Page 4/4 [] 100.00%
+
+[19] Teknik Multimedia Dan Jaringan - Page 5/5 [] 100.00%
+
+[19] Teknik Multimedia Dan Jaringan - Page 6/6 [] 100.00%
+
+[19] Teknik Multimedia Dan Jaringan - Page 7/7 [] 100.00%
+
+[19] Teknik Multimedia Dan Jaringan - Page 8/8 [] 100.00%
+
+[19] Teknik Multimedia Dan Jaringan - Page 9/9 [] 100.00%
+
+[19] Teknik Multimedia Dan Jaringan - Page 10/10 [] 100.00%
+
+[19] Teknik Multimedia Dan Jaringan - Page 11/11 [] 100.00%
+
+[19] Teknik Multimedia Dan Jaringan - Page 12/12 [] 100.00%
+
+[19] Teknik Multimedia Dan Jaringan - Page 13/13 [] 100.00%
+
+[19] Teknik Multimedia Dan Jaringan - Page 14/14 [] 100.00%
+
+[19] Teknik Multimedia Dan Jaringan - Page 15/15 [] 100.00%
+
+[19] Teknik Multimedia Dan Jaringan - Page 16/16 [] 100.00%
+
+[19] Teknik Multimedia Dan Jaringan - Page 17/17 [] 100.00%
+
+[19] Teknik Multimedia Dan Jaringan - Page 18/18 [] 100.00%
+
+[19] Teknik Multimedia Dan Jaringan - Page 19/19 [] 100.00%
+
+[19] Teknik Multimedia Dan Jaringan - Page 20/20 [] 100.00%
+
+[19] Teknik Multimedia Dan Jaringan - Page 21/21 [] 100.00%
+
+[19] Teknik Multimedia Dan Jaringan - Page 22/22 [] 100.00%
+
+[19] Teknik Multimedia Dan Jaringan - Page 23/23 [] 100.00%
+
+[19] Teknik Multimedia Dan Jaringan - Page 24/24 [] 100.00%
+
+[19] Teknik Multimedia Dan Jaringan - Page 25/25 [] 100.00%
+
+[19] Teknik Multimedia Dan Jaringan - Page 26/26 [] 100.00%
+
+[19] Teknik Multimedia Dan Jaringan - Page 27/27 [] 100.00%
+
+[19] Teknik Multimedia Dan Jaringan  100% (Total halaman: 27)
+[20] Mekatronika - Page 1/1 [] 100.00%
+
+[20] Mekatronika - Page 2/2 [] 100.00%
+
+[20] Mekatronika - Page 3/3 [] 100.00%
+
+[20] Mekatronika - Page 4/4 [] 100.00%
+
+[20] Mekatronika - Page 5/5 [] 100.00%
+
+[20] Mekatronika - Page 6/6 [] 100.00%
+
+[20] Mekatronika - Page 7/7 [] 100.00%
+
+[20] Mekatronika - Page 8/8 [] 100.00%
+
+[20] Mekatronika - Page 9/9 [] 100.00%
+
+[20] Mekatronika - Page 10/10 [] 100.00%
+
+[20] Mekatronika - Page 11/11 [] 100.00%
+
+[20] Mekatronika - Page 12/12 [] 100.00%
+
+[20] Mekatronika - Page 13/13 [] 100.00%
+
+[20] Mekatronika - Page 14/14 [] 100.00%
+
+[20] Mekatronika - Page 15/15 [] 100.00%
+
+[20] Mekatronika - Page 16/16 [] 100.00%
+
+[20] Mekatronika - Page 17/17 [] 100.00%
+
+[20] Mekatronika - Page 18/18 [] 100.00%
+
+[20] Mekatronika - Page 19/19 [] 100.00%
 </pre></div>
 </div>
 </div>
@@ -665,7 +1346,7 @@ document.write(`
 <p><em>Melanjutkan proses yang sempat berhenti di Prodi tertentu atau halaman tertentu.</em></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">requests</span><span class="o">,</span><span class="w"> </span><span class="nn">time</span><span class="o">,</span><span class="w"> </span><span class="nn">sys</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">requests</span><span class="o">,</span><span class="w"> </span><span class="nn">time</span><span class="o">,</span><span class="w"> </span><span class="nn">sys</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">bs4</span><span class="w"> </span><span class="kn">import</span> <span class="n">BeautifulSoup</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
 
@@ -745,7 +1426,7 @@ document.write(`
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ptaa</span><span class="p">(</span><span class="n">start_index</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">start_page</span><span class="o">=</span><span class="mi">19</span><span class="p">)</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">ptaa</span><span class="p">(</span><span class="n">start_index</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">start_page</span><span class="o">=</span><span class="mi">19</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1164,11 +1845,11 @@ Total entri keseluruhan: 228
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">c. Crawling Berita</p>
+        <p class="prev-next-title">C. Crawling Berita</p>
       </div>
     </a>
     <a class="right-next"
-       href="Pemrosesan_Data.html"
+       href="PemrosesanData.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
@@ -1192,7 +1873,7 @@ Total entri keseluruhan: 228
   <div class="footer-item">
     
 <p class="component-author">
-By Mabrurah Eka Rahayu (22-150)
+By The Jupyter Book Community
 </p>
 
   </div>
@@ -1202,7 +1883,7 @@ By Mabrurah Eka Rahayu (22-150)
 
   <p class="copyright">
     
-      © Copyright 2025.
+      © Copyright 2023.
       <br/>
     
   </p>

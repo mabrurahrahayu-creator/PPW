@@ -199,6 +199,10 @@
 
 <li class="toctree-l1"><a class="reference internal" href="TFidf.html">2. Melakukan Tfidf &amp; Word Embedding</a></li>
 
+<li class="toctree-l1"><a class="reference internal" href="Klasifikasi_LDA.html">3. Melakukan Klasifikasi LDA</a></li>
+
+
+
 </ul>
 
     </div>
@@ -417,7 +421,7 @@ document.write(`
 <p>Melakukan CSV pada berita</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">requests</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">requests</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">bs4</span><span class="w"> </span><span class="kn">import</span> <span class="n">BeautifulSoup</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">urllib.parse</span><span class="w"> </span><span class="kn">import</span> <span class="n">urlparse</span>
@@ -663,148 +667,784 @@ document.write(`
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Mulai scraping 128 artikel...
 
 [1/128] Memproses URL: https://nasional.kompas.com/read/2024/08/16/11404101/jokowi-kenakan-pa...
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-&gt; Sukses: Jokowi Kenakan Pakaian Adat Betawi di Sidang Tahun...
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2/128] Memproses URL: https://nasional.kompas.com/read/2024/02/13/21583481/kpu-tegaskan-pemi...
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-&gt; Sukses: KPU Tegaskan Pemilih Tak Terdaftar di DPT Bisa &quot;Ny...
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[3/128] Memproses URL: https://megapolitan.kompas.com/read/2024/05/11/19123091/warga-sebut-ad...
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-&gt; Sukses: Warga Sebut Ada Benda Serupa Jimat pada Mayat Dala...
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[4/128] Memproses URL: https://megapolitan.kompas.com/read/2024/08/26/07235981/polisi-mengani...
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-&gt; Sukses: Polisi Menganiaya Mereka yang Cinta Damai dan Berc...
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[5/128] Memproses URL: https://nasional.kompas.com/read/2024/08/12/08444611/airlangga-hartart...
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-&gt; Sukses: Airlangga Hartarto Mundur dari Ketum, Golkar Banta...
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[6/128] Memproses URL: https://nasional.kompas.com/read/2024/07/29/17462851/nasdem-pastikan-d...
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-&gt; Sukses: Nasdem Pastikan Dukung Ilham Habibie untuk Pilkada...
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[7/128] Memproses URL: https://megapolitan.kompas.com/read/2024/08/02/23392851/influencer-par...
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-&gt; Sukses: &quot;Influencer Parenting&quot; Aniaya Balita, Kriminolog: ...
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[8/128] Memproses URL: https://nasional.kompas.com/read/2024/08/21/05232081/jalan-mulus-bahli...
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-&gt; Sukses: Jalan Mulus Bahlil Raih Kursi Ketum Golkar...
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[9/128] Memproses URL: https://nasional.kompas.com/read/2024/01/19/22313101/maruarar-sirait-d...
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-&gt; Sukses: Maruarar Sirait Dukung Prabowo-Gibran, TKN: Mari K...
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[10/128] Memproses URL: https://megapolitan.kompas.com/read/2024/08/12/21025981/usai-diturap-k...
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-&gt; Sukses: Usai Diturap, Kali Mati di Pademangan Tak Lagi Jad...
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[11/128] Memproses URL: https://megapolitan.kompas.com/read/2024/08/29/12432031/maju-pilkada-d...
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-&gt; Sukses: Maju Pilkada Depok, Imam Budi Hartono Ingin Lanjut...
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[12/128] Memproses URL: https://megapolitan.kompas.com/read/2024/08/28/13024071/kpud-kota-beka...
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-&gt; Sukses: KPUD Kota Bekasi Terima Dokumen Pendaftaran Paslon...
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[13/128] Memproses URL: https://nasional.kompas.com/read/2024/07/29/05000011/-populer-nasional...
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-&gt; Sukses: [POPULER NASIONAL] PBNU Heran Pansus Haji Dibentuk...
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[14/128] Memproses URL: https://nasional.kompas.com/read/2024/04/06/21590521/antoninho-rangel-...
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-&gt; Sukses: Antoninho Rangel da Silva, Jenderal Berdarah Timor...
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[15/128] Memproses URL: https://nasional.kompas.com/read/2024/09/04/12443721/pidato-lengkap-pa...
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-&gt; Sukses: Pidato Lengkap Paus Fransiskus di Istana Negara...
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[16/128] Memproses URL: https://nasional.kompas.com/read/2024/02/24/20074351/ahy-serahkan-kepa...
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-&gt; Sukses: AHY Serahkan Kepada Prabowo Jika Ingin Ajak Parpol...
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[17/128] Memproses URL: https://nasional.kompas.com/read/2024/08/06/20310821/wacana-kotak-koso...
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-&gt; Sukses: Wacana Kotak Kosong pada Pilkada Jakarta Jadi Iron...
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[18/128] Memproses URL: https://nasional.kompas.com/read/2024/06/09/20234841/cerita-korban-pen...
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-&gt; Sukses: Cerita Korban Penipuan Visa Haji Ilegal: Panas Din...
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[19/128] Memproses URL: https://nasional.kompas.com/read/2024/08/20/07025071/gerindra-sebut-re...
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-&gt; Sukses: Gerindra Sebut &quot;Reshuffle&quot; Menkumham untuk Sinkron...
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[20/128] Memproses URL: https://nasional.kompas.com/read/2024/01/09/22152121/puan-salami-anies...
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-&gt; Sukses: Puan Salami Anies-Muhaimin Usai Debat Capres, PKB:...
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[21/128] Memproses URL: https://megapolitan.kompas.com/read/2024/09/04/16151141/3-paslon-ramai...
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-&gt; Sukses: 3 Paslon Ramaikan Pilkada Jakarta, Bamus Betawi: W...
-</pre></div>
-</div>
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">KeyboardInterrupt</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">line</span> <span class="mi">225</span>
-<span class="g g-Whitespace">    </span><span class="mi">222</span>         <span class="n">results</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">224</span>     <span class="c1"># Etika Scraping: Beri jeda 1 detik agar tidak membebani server</span>
-<span class="ne">--&gt; </span><span class="mi">225</span>     <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">227</span> <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">results</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">229</span> <span class="c1"># Simpan DataFrame ke file CSV</span>
+-&gt; Sukses: Jokowi Kenakan Pakaian Adat Betawi di Sidang Tahun...
 
-<span class="ne">KeyboardInterrupt</span>: 
+[2/128] Memproses URL: https://nasional.kompas.com/read/2024/02/13/21583481/kpu-tegaskan-pemi...
+-&gt; Sukses: KPU Tegaskan Pemilih Tak Terdaftar di DPT Bisa &quot;Ny...
+
+[3/128] Memproses URL: https://megapolitan.kompas.com/read/2024/05/11/19123091/warga-sebut-ad...
+-&gt; Sukses: Warga Sebut Ada Benda Serupa Jimat pada Mayat Dala...
+
+[4/128] Memproses URL: https://megapolitan.kompas.com/read/2024/08/26/07235981/polisi-mengani...
+-&gt; Sukses: Polisi Menganiaya Mereka yang Cinta Damai dan Berc...
+
+[5/128] Memproses URL: https://nasional.kompas.com/read/2024/08/12/08444611/airlangga-hartart...
+-&gt; Sukses: Airlangga Hartarto Mundur dari Ketum, Golkar Banta...
+
+[6/128] Memproses URL: https://nasional.kompas.com/read/2024/07/29/17462851/nasdem-pastikan-d...
+-&gt; Sukses: Nasdem Pastikan Dukung Ilham Habibie untuk Pilkada...
+
+[7/128] Memproses URL: https://megapolitan.kompas.com/read/2024/08/02/23392851/influencer-par...
+-&gt; Sukses: &quot;Influencer Parenting&quot; Aniaya Balita, Kriminolog: ...
+
+[8/128] Memproses URL: https://nasional.kompas.com/read/2024/08/21/05232081/jalan-mulus-bahli...
+-&gt; Sukses: Jalan Mulus Bahlil Raih Kursi Ketum Golkar...
+
+[9/128] Memproses URL: https://nasional.kompas.com/read/2024/01/19/22313101/maruarar-sirait-d...
+-&gt; Sukses: Maruarar Sirait Dukung Prabowo-Gibran, TKN: Mari K...
+
+[10/128] Memproses URL: https://megapolitan.kompas.com/read/2024/08/12/21025981/usai-diturap-k...
+-&gt; Sukses: Usai Diturap, Kali Mati di Pademangan Tak Lagi Jad...
+
+[11/128] Memproses URL: https://megapolitan.kompas.com/read/2024/08/29/12432031/maju-pilkada-d...
+-&gt; Sukses: Maju Pilkada Depok, Imam Budi Hartono Ingin Lanjut...
+
+[12/128] Memproses URL: https://megapolitan.kompas.com/read/2024/08/28/13024071/kpud-kota-beka...
+-&gt; Sukses: KPUD Kota Bekasi Terima Dokumen Pendaftaran Paslon...
+
+[13/128] Memproses URL: https://nasional.kompas.com/read/2024/07/29/05000011/-populer-nasional...
+-&gt; Sukses: [POPULER NASIONAL] PBNU Heran Pansus Haji Dibentuk...
+
+[14/128] Memproses URL: https://nasional.kompas.com/read/2024/04/06/21590521/antoninho-rangel-...
+-&gt; Sukses: Antoninho Rangel da Silva, Jenderal Berdarah Timor...
+
+[15/128] Memproses URL: https://nasional.kompas.com/read/2024/09/04/12443721/pidato-lengkap-pa...
+-&gt; Sukses: Pidato Lengkap Paus Fransiskus di Istana Negara...
+
+[16/128] Memproses URL: https://nasional.kompas.com/read/2024/02/24/20074351/ahy-serahkan-kepa...
+-&gt; Sukses: AHY Serahkan Kepada Prabowo Jika Ingin Ajak Parpol...
+
+[17/128] Memproses URL: https://nasional.kompas.com/read/2024/08/06/20310821/wacana-kotak-koso...
+-&gt; Sukses: Wacana Kotak Kosong pada Pilkada Jakarta Jadi Iron...
+
+[18/128] Memproses URL: https://nasional.kompas.com/read/2024/06/09/20234841/cerita-korban-pen...
+-&gt; Sukses: Cerita Korban Penipuan Visa Haji Ilegal: Panas Din...
+
+[19/128] Memproses URL: https://nasional.kompas.com/read/2024/08/20/07025071/gerindra-sebut-re...
+-&gt; Sukses: Gerindra Sebut &quot;Reshuffle&quot; Menkumham untuk Sinkron...
+
+[20/128] Memproses URL: https://nasional.kompas.com/read/2024/01/09/22152121/puan-salami-anies...
+-&gt; Sukses: Puan Salami Anies-Muhaimin Usai Debat Capres, PKB:...
+
+[21/128] Memproses URL: https://megapolitan.kompas.com/read/2024/09/04/16151141/3-paslon-ramai...
+-&gt; Sukses: 3 Paslon Ramaikan Pilkada Jakarta, Bamus Betawi: W...
+
+[22/128] Memproses URL: https://megapolitan.kompas.com/read/2024/09/03/17275901/berita-foto-ta...
+-&gt; Sukses: BERITA FOTO: Tangis Bahagia Warga Sambut Kedatanga...
+
+[23/128] Memproses URL: https://nasional.kompas.com/read/2024/01/11/22261141/dilaporkan-ke-dew...
+-&gt; Sukses: Dilaporkan ke Dewas, Wakil Ketua KPK Mengaku Tak P...
+
+[24/128] Memproses URL: https://megapolitan.kompas.com/read/2024/07/26/19404751/pengamat-nilai...
+-&gt; Sukses: Pengamat Nilai Dharma-Kun Bakal Sulit Dapat 538.17...
+
+[25/128] Memproses URL: https://megapolitan.kompas.com/read/2024/06/21/22434391/kerap-dipandan...
+-&gt; Sukses: Kerap Dipandang Sebelah Mata Jadi Pelukis Jalanan,...
+
+[26/128] Memproses URL: https://nasional.kompas.com/read/2024/08/27/16243201/pramono-anung-bel...
+-&gt; Sukses: Pramono Anung Belum Final, PDI-P Masih Berpeluang ...
+
+[27/128] Memproses URL: https://megapolitan.kompas.com/read/2024/08/29/21383931/naik-becak-ke-...
+-&gt; Sukses: Naik Becak ke KPU, UU Saeful-Nurul Sumarheni Dafta...
+
+[28/128] Memproses URL: https://nasional.kompas.com/read/2024/08/24/10493841/publik-diminta-ja...
+-&gt; Sukses: Publik Diminta Jangan Mau Dininabobokan DPR-KPU, T...
+
+[29/128] Memproses URL: https://megapolitan.kompas.com/read/2024/08/29/16534131/daftar-ke-kpu-...
+-&gt; Sukses: Daftar ke KPU, Supian-Chandra Resmi Maju pada Pilk...
+
+[30/128] Memproses URL: https://nasional.kompas.com/read/2024/05/02/21391271/icw-sebut-alasan-...
+-&gt; Sukses: ICW Sebut Alasan Nurul Ghufron Absen di Sidang Eti...
+
+[31/128] Memproses URL: https://nasional.kompas.com/read/2024/08/06/16442871/program-belanja-b...
+-&gt; Sukses: Program &quot;Belanja Bareng Yatim&quot; Ajak Ratusan Anak Y...
+
+[32/128] Memproses URL: https://megapolitan.kompas.com/read/2024/08/28/09353381/didorong-pdi-p...
+-&gt; Sukses: Didorong PDI-P Jadi Bacagub Jakarta, Pramono: Berp...
+
+[33/128] Memproses URL: https://nasional.kompas.com/read/2024/05/21/20571641/kpk-sita-mobil-me...
+-&gt; Sukses: KPK Sita Mobil Mercy di Makassar, Diduga Disembuny...
+
+[34/128] Memproses URL: https://nasional.kompas.com/read/2024/07/31/13055941/pertemuan-prabowo...
+-&gt; Sukses: Pertemuan Prabowo-Erdogan Bahas Serangan Israel ke...
+
+[35/128] Memproses URL: https://nasional.kompas.com/read/2024/08/14/07180031/tinjau-layanan-pu...
+-&gt; Sukses: Tinjau Layanan Publik BPOM, Menpan-RB Dukung Pengu...
+
+[36/128] Memproses URL: https://megapolitan.kompas.com/read/2024/05/08/23142931/bantah-pernyat...
+-&gt; Sukses: Bantah Pernyataan Ketua STIP soal Tak Ada Lagi Per...
+
+[37/128] Memproses URL: https://nasional.kompas.com/read/2024/08/27/11582931/sindir-megawati-b...
+-&gt; Sukses: Sindir Megawati, Bahlil Bilang Tak Minta Pasangan ...
+
+[38/128] Memproses URL: https://nasional.kompas.com/read/2024/09/02/19032291/anies-cerita-pern...
+-&gt; Sukses: Anies Cerita Pernah Tawarkan Diri Jadi Kader Parta...
+
+[39/128] Memproses URL: https://nasional.kompas.com/read/2024/09/03/21352571/pada-iaf-2024-kep...
+-&gt; Sukses: Pada IAF 2024, Kepala NFA Arief Prasetyo Adi Elabo...
+
+[40/128] Memproses URL: https://nasional.kompas.com/read/2024/05/26/22004211/sambut-pilkada-20...
+-&gt; Sukses: Sambut Pilkada 2024, Megawati Minta Kader PDIP Tur...
+
+[41/128] Memproses URL: https://nasional.kompas.com/read/2024/04/13/18282131/opm-ajukan-syarat...
+-&gt; Sukses: OPM Ajukan Syarat Pembebasan Pilot Susi Air Philip...
+
+[42/128] Memproses URL: https://megapolitan.kompas.com/read/2024/07/28/09413881/ditanya-soal-r...
+-&gt; Sukses: Ditanya Soal Rencana Program Khusus Perempuan di J...
+
+[43/128] Memproses URL: https://nasional.kompas.com/read/2024/08/08/11563851/menlu-retno-beri-...
+-&gt; Sukses: Menlu Retno Beri Saran untuk Para WNI yang Akan Be...
+
+[44/128] Memproses URL: https://megapolitan.kompas.com/read/2024/07/19/22430791/pelaku-minta-m...
+-&gt; Sukses: Pelaku Minta Maaf, Kasus Perempuan Direkam Diam-di...
+
+[45/128] Memproses URL: https://nasional.kompas.com/read/2024/07/29/13592631/pansus-haji-dpr-b...
+-&gt; Sukses: Pansus Haji DPR Batal Gelar Rapat pada Masa Reses...
+
+[46/128] Memproses URL: https://megapolitan.kompas.com/read/2024/08/07/16340031/satpol-pp-kota...
+-&gt; Sukses: Satpol PP Kota Bekasi Bakal Razia Warung Penjual R...
+
+[47/128] Memproses URL: https://nasional.kompas.com/read/2024/08/13/11204411/belanja-daerah-ba...
+-&gt; Sukses: Belanja Daerah Baru 31 Persen, Jokowi: Kecil Sekal...
+
+[48/128] Memproses URL: https://nasional.kompas.com/read/2024/08/01/17345351/keluarga-korban-p...
+-&gt; Sukses: Keluarga Korban Penganiayaan Pemilik &quot;Daycare&quot; di ...
+
+[49/128] Memproses URL: https://nasional.kompas.com/read/2024/08/01/20374201/berduka-atas-wafa...
+-&gt; Sukses: Berduka atas Wafatnya Pemimpin Hamas Ismail Haniye...
+
+[50/128] Memproses URL: https://megapolitan.kompas.com/read/2024/08/07/20140301/lukman-edy-tak...
+-&gt; Sukses: Lukman Edy Tak Hanya Dilaporkan ke Bareskrim, tapi...
+
+[51/128] Memproses URL: https://megapolitan.kompas.com/read/2024/08/07/20290361/polisi-akan-pe...
+-&gt; Sukses: Polisi Akan Periksa Pengendara Ekskavator yang Bik...
+
+[52/128] Memproses URL: https://nasional.kompas.com/read/2024/07/26/22500721/ditetapkan-jadi-t...
+-&gt; Sukses: Ditetapkan Jadi Tersangka, Ujang Iskandar Miliki H...
+
+[53/128] Memproses URL: https://megapolitan.kompas.com/read/2024/08/07/12330571/wali-kota-ruma...
+-&gt; Sukses: Wali Kota: Rumah Panggung dari Kemenhan di Muara A...
+
+[54/128] Memproses URL: https://megapolitan.kompas.com/read/2024/01/31/22472491/anggota-dprd-d...
+-&gt; Sukses: Anggota DPRD DKI Ajak Warga Tanding Sepak Bola di ...
+
+[55/128] Memproses URL: https://nasional.kompas.com/read/2024/08/16/09574431/megawati-tak-tamp...
+-&gt; Sukses: Megawati Tak Tampak dalam Sidang Tahunan MPR...
+
+[56/128] Memproses URL: https://nasional.kompas.com/read/2024/09/02/16014281/bareskrim-tangkap...
+-&gt; Sukses: Bareskrim Tangkap Penjual Video Porno di Telegram,...
+
+[57/128] Memproses URL: https://nasional.kompas.com/read/2024/08/27/06154941/memaknai-pernyata...
+-&gt; Sukses: Memaknai Pernyataan Prabowo soal Haus Kekuasaan...
+
+[58/128] Memproses URL: https://megapolitan.kompas.com/read/2024/04/18/21212681/banyak-warga-m...
+-&gt; Sukses: Banyak Warga Menonton Kebakaran Toko Bingkai, Lali...
+
+[59/128] Memproses URL: https://megapolitan.kompas.com/read/2024/08/05/15340441/ridwan-kamil-o...
+-&gt; Sukses: Ridwan Kamil OTW Jakarta, Peluang Lawan Kotak Koso...
+
+[60/128] Memproses URL: https://nasional.kompas.com/read/2024/07/30/13411041/benny-rhamdani-bo...
+-&gt; Sukses: Benny Rhamdani Bongkar Inisial Lain Diduga Terliba...
+
+[61/128] Memproses URL: https://nasional.kompas.com/read/2024/09/05/11422681/menlu-belum-ada-t...
+-&gt; Sukses: Menlu: Belum Ada Temuan WNI Bentuk Geng di Jepang...
+
+[62/128] Memproses URL: https://nasional.kompas.com/read/2024/08/25/13331801/ratusan-orang-sem...
+-&gt; Sukses: Ratusan Orang Sempat Protes Muktamar PKB, Cak Imin...
+
+[63/128] Memproses URL: https://megapolitan.kompas.com/read/2024/09/04/11351481/lambaikan-tang...
+-&gt; Sukses: Lambaikan Tangan dari Mobil, Paus Fransiskus Sapa ...
+
+[64/128] Memproses URL: https://nasional.kompas.com/read/2024/08/28/14161421/polri-siapkan-pen...
+-&gt; Sukses: Polri Siapkan Pengamanan Kunjungan Paus Fransiskus...
+
+[65/128] Memproses URL: https://megapolitan.kompas.com/read/2024/08/30/10562021/pramono-anung-...
+-&gt; Sukses: Pramono Anung-Rano Karno Mengaku Rutin Periksa Kes...
+
+[66/128] Memproses URL: https://nasional.kompas.com/read/2024/08/05/16015011/tak-usung-ridwan-...
+-&gt; Sukses: Tak Usung Ridwan Kamil pada Pilkada Jakarta, Nasde...
+
+[67/128] Memproses URL: https://nasional.kompas.com/read/2024/07/25/18405201/menag-yaqut-perin...
+-&gt; Sukses: Menag Yaqut Perintahkan BPJPH Cek Label Halal pada...
+
+[68/128] Memproses URL: https://megapolitan.kompas.com/read/2024/08/12/09515761/kbri-yangon-be...
+-&gt; Sukses: KBRI Yangon Berupaya Selamatkan WNI yang Diduga Di...
+
+[69/128] Memproses URL: https://megapolitan.kompas.com/read/2024/08/23/17253291/giliran-itb-un...
+-&gt; Sukses: Giliran ITB, Unpas, Uninda, dan Unindra Demo di Ge...
+
+[70/128] Memproses URL: https://nasional.kompas.com/read/2024/07/30/15355211/tni-tetap-aktifka...
+-&gt; Sukses: TNI Tetap Aktifkan Posko Pengaduan Netralitas Praj...
+
+[71/128] Memproses URL: https://megapolitan.kompas.com/read/2024/05/17/22443071/pria-di-kali-s...
+-&gt; Sukses: Pria di Kali Sodong Dibunuh &quot;Debt Collector&quot; Gadun...
+
+[72/128] Memproses URL: https://nasional.kompas.com/read/2024/01/13/20041561/pengancam-anies-d...
+-&gt; Sukses: Pengancam Anies Ditangkap, TKN Minta Pendukung Pra...
+
+[73/128] Memproses URL: https://megapolitan.kompas.com/read/2024/09/03/11525681/mary-dan-irfan...
+-&gt; Sukses: Mary dan Irfan Berikan Bunga Tangan untuk Paus Fra...
+
+[74/128] Memproses URL: https://megapolitan.kompas.com/read/2024/05/04/21072841/motif-pelaku-a...
+-&gt; Sukses: Motif Pelaku Aniaya Taruna STIP hingga Tewas: Seni...
+
+[75/128] Memproses URL: https://nasional.kompas.com/read/2024/08/24/09325691/ppp-dukung-petaha...
+-&gt; Sukses: PPP Dukung Petahana Ansar Ahmad dan Nyangnyang Har...
+
+[76/128] Memproses URL: https://nasional.kompas.com/read/2024/08/19/17533431/pkb-anggap-anies-...
+-&gt; Sukses: PKB Anggap Anies Punya Peran Lain Selain Calon Gub...
+
+[77/128] Memproses URL: https://nasional.kompas.com/read/2024/08/14/12420361/soal-peluang-bahl...
+-&gt; Sukses: Soal Peluang Bahlil Jadi Calon Tunggal Ketum, Golk...
+
+[78/128] Memproses URL: https://nasional.kompas.com/read/2024/08/26/00000071/tanggal-29-agustu...
+-&gt; Sukses: Tanggal 29 Agustus 2024 Memperingati Hari Apa?...
+
+[79/128] Memproses URL: https://nasional.kompas.com/read/2024/08/20/18265831/komisi-ii-bakal-b...
+-&gt; Sukses: Komisi II Bakal Bahas Putusan MK dengan KPU Pekan ...
+
+[80/128] Memproses URL: https://megapolitan.kompas.com/read/2024/08/24/11092641/jaminan-dasco-...
+-&gt; Sukses: Jaminan Dasco dan Habiburokhman Demi Bebaskan Pede...
+
+[81/128] Memproses URL: https://megapolitan.kompas.com/read/2024/04/24/20504291/kajari-jaksel-...
+-&gt; Sukses: Kajari Jaksel Harap Banyak Masyarakat Ikut Lelang ...
+
+[82/128] Memproses URL: https://nasional.kompas.com/read/2024/08/29/06510571/pengamat-nilai-wa...
+-&gt; Sukses: Pengamat Nilai Wajar PDI-P Tak Jadi Calonkan Anies...
+
+[83/128] Memproses URL: https://nasional.kompas.com/read/2024/09/05/13381861/alissa-wahid-paus...
+-&gt; Sukses: Alissa Wahid: Paus Fransiskus Ajak Umat Jaga Tali ...
+
+[84/128] Memproses URL: https://nasional.kompas.com/read/2024/08/18/21510451/survei-smrc-anies...
+-&gt; Sukses: Survei SMRC: Anies Unggul jika &quot;Head to Head&quot; deng...
+
+[85/128] Memproses URL: https://megapolitan.kompas.com/read/2024/08/08/19185211/parkir-liar-de...
+-&gt; Sukses: Parkir Liar Depan Stasiun Bekasi Bikin Macet, Pj W...
+
+[86/128] Memproses URL: https://nasional.kompas.com/read/2024/08/14/20014481/sebut-ikn-bebas-p...
+-&gt; Sukses: Sebut IKN Bebas Polusi, Zulhas: Kalau di Jakarta, ...
+
+[87/128] Memproses URL: https://megapolitan.kompas.com/read/2024/02/26/21241071/seorang-pria-l...
+-&gt; Sukses: Seorang Pria Lakukan Percobaan Pembunuhan di Perka...
+
+[88/128] Memproses URL: https://nasional.kompas.com/read/2024/05/23/20053171/tak-ada-jalan-pin...
+-&gt; Sukses: Tak Ada Jalan Pintas, Hasto: Politik Harus Belajar...
+
+[89/128] Memproses URL: https://nasional.kompas.com/read/2024/08/06/14044561/soal-cak-imin-baw...
+-&gt; Sukses: Soal Cak Imin Bawa Istri Ikut Timwas Haji, MKD DPR...
+
+[90/128] Memproses URL: https://nasional.kompas.com/read/2024/02/27/21101401/ramai-wacana-hak-...
+-&gt; Sukses: Ramai Wacana Hak Angket, Menko Polhukam Diharap Bi...
+
+[91/128] Memproses URL: https://megapolitan.kompas.com/read/2024/08/22/17340931/2-ruas-tol-dep...
+-&gt; Sukses: 2 Ruas Tol Depan Gedung DPR RI Ditutup, Massa Maki...
+
+[92/128] Memproses URL: https://nasional.kompas.com/read/2024/08/24/17345931/psi-akui-bantu-ka...
+-&gt; Sukses: PSI Akui Bantu Kaesang Urus Persyaratan Pilkada, K...
+
+[93/128] Memproses URL: https://nasional.kompas.com/read/2024/08/12/16073641/sambangi-bareskri...
+-&gt; Sukses: Sambangi Bareskrim, Keluarga WNI yang Disekap di M...
+
+[94/128] Memproses URL: https://nasional.kompas.com/read/2024/08/13/11505261/dirut-jasa-raharj...
+-&gt; Sukses: Dirut Jasa Raharja Minta Jajaran Edukasi Masyaraka...
+
+[95/128] Memproses URL: https://nasional.kompas.com/read/2024/07/30/14553491/tak-setuju-uu-tni...
+-&gt; Sukses: Tak Setuju UU TNI dan Polri Direvisi, Megawati: Ko...
+
+[96/128] Memproses URL: https://nasional.kompas.com/read/2024/07/28/19091851/minta-ke-menteri-...
+-&gt; Sukses: Minta ke Menteri Basuki, Jokowi: Di Kanan Kiri Jal...
+
+[97/128] Memproses URL: https://nasional.kompas.com/read/2024/09/04/15094961/paus-fransiskus-g...
+-&gt; Sukses: Paus Fransiskus: Gereja Katolik Ingin Tingkatkan D...
+
+[98/128] Memproses URL: https://megapolitan.kompas.com/read/2024/08/22/11340881/mahasiswa-ui-b...
+-&gt; Sukses: Mahasiswa UI Bersiap Terjun dalam Aksi Tolak Revis...
+
+[99/128] Memproses URL: https://megapolitan.kompas.com/read/2024/05/07/20283801/mahasiswa-dike...
+-&gt; Sukses: Mahasiswa Dikeroyok di Tangsel, Setara Institute M...
+
+[100/128] Memproses URL: https://nasional.kompas.com/read/2024/08/21/20353551/bahlil-ingatkan-p...
+-&gt; Sukses: Bahlil Ingatkan Prabowo Dilahirkan Golkar: Sudah B...
+
+[101/128] Memproses URL: https://megapolitan.kompas.com/read/2024/02/23/21483301/tiket-ka-jarak...
+-&gt; Sukses: Tiket KA Jarak Jauh H-2 Lebaran Sudah Terjual 90 P...
+
+[102/128] Memproses URL: https://megapolitan.kompas.com/read/2024/05/03/20034391/dokter-belum-v...
+-&gt; Sukses: Dokter Belum Visum Jenazah Mahasiswa STIP yang Tew...
+
+[103/128] Memproses URL: https://megapolitan.kompas.com/read/2024/07/29/15333591/fitri-rahmadan...
+-&gt; Sukses: Fitri Rahmadani Hilang Hampir 2 Pekan, Keluarga Ke...
+
+[104/128] Memproses URL: https://megapolitan.kompas.com/read/2024/01/18/23523551/dishub-dki-cab...
+-&gt; Sukses: Dishub DKI Cabut 8.741 Stick Cone Secara Bertahap ...
+
+[105/128] Memproses URL: https://nasional.kompas.com/read/2024/08/29/20463391/brutalitas-aparat...
+-&gt; Sukses: Brutalitas Aparat Jadi Sorotan, Jokowi Diminta Cop...
+
+[106/128] Memproses URL: https://megapolitan.kompas.com/read/2024/08/09/08571351/sebut-anies-mu...
+-&gt; Sukses: Sebut Anies Mungkin Gagal Dicalonkan, PKS: Kepasti...
+
+[107/128] Memproses URL: https://megapolitan.kompas.com/read/2024/07/29/15515871/selebgram-meda...
+-&gt; Sukses: Selebgram Medan Tewas Usai Sedot Lemak, Klinik Seb...
+
+[108/128] Memproses URL: https://nasional.kompas.com/read/2024/05/26/22125901/ganjar-pranowo-17...
+-&gt; Sukses: Ganjar Pranowo: 17 Poin Rekomendasi Rakernas Beri ...
+
+[109/128] Memproses URL: https://megapolitan.kompas.com/read/2024/07/30/15004021/anaknya-diania...
+-&gt; Sukses: Anaknya Dianiaya, Orangtua Korban Laporkan Pemilik...
+
+[110/128] Memproses URL: https://nasional.kompas.com/read/2024/08/22/13582931/kena-lemparan-bot...
+-&gt; Sukses: Kena Lemparan Botol dari Demonstran, Habiburokhman...
+
+[111/128] Memproses URL: https://megapolitan.kompas.com/read/2024/08/06/19104221/satu-warga-ter...
+-&gt; Sukses: Satu Warga Terluka Usai Bentrokan di Gambir...
+
+[112/128] Memproses URL: https://nasional.kompas.com/read/2024/08/21/14482361/uu-pilkada-direvi...
+-&gt; Sukses: UU Pilkada Direvisi, Kepala Daerah Hasil Pilkada D...
+
+[113/128] Memproses URL: https://nasional.kompas.com/read/2024/08/30/18204081/kpk-akan-dalami-k...
+-&gt; Sukses: KPK Akan Dalami Kemungkinan Kaesang Dapat Fasilita...
+
+[114/128] Memproses URL: https://nasional.kompas.com/read/2024/05/22/21061021/wwf-2024-jadi-kom...
+-&gt; Sukses: WWF 2024 Jadi Komitmen dan Aksi Nyata Pertamina Ke...
+
+[115/128] Memproses URL: https://nasional.kompas.com/read/2024/01/07/23193241/prabowo-pastikan-...
+-&gt; Sukses: Prabowo Pastikan TNI dan Polri Tetap Berada di Baw...
+
+[116/128] Memproses URL: https://nasional.kompas.com/read/2024/06/13/20523491/soal-usung-siapa-...
+-&gt; Sukses: Soal Usung Siapa di Pilkada Jakarta, Nasdem Sebut ...
+
+[117/128] Memproses URL: https://megapolitan.kompas.com/read/2024/09/04/16090171/tak-segan-mint...
+-&gt; Sukses: Tak Segan Minta Masukan, Pramono Anung Sebut Ahok ...
+
+[118/128] Memproses URL: https://megapolitan.kompas.com/read/2024/08/05/18455751/tak-dipecat-ke...
+-&gt; Sukses: Tak Dipecat, Kepala SMPN 19 Hanya Disanksi Disipli...
+
+[119/128] Memproses URL: https://nasional.kompas.com/read/2024/08/23/17344401/maju-pilkada-jate...
+-&gt; Sukses: Maju Pilkada Jateng Bersama Taj Yasin, Ahmad Luthf...
+
+[120/128] Memproses URL: https://nasional.kompas.com/read/2024/08/16/18442881/ridwan-kamil-vers...
+-&gt; Sukses: Ridwan Kamil Versus Calon Independen, Pengamat: Pi...
+
+[121/128] Memproses URL: https://nasional.kompas.com/read/2024/09/02/13460541/pemerintah-siap-g...
+-&gt; Sukses: Pemerintah Siap Gandeng Negara-negara Afrika Tangg...
+
+[122/128] Memproses URL: https://nasional.kompas.com/read/2024/08/14/21075381/kuasa-hukum-sebut...
+-&gt; Sukses: Kuasa Hukum Sebut Dakwaan Harvey Moeis Rugikan Neg...
+
+[123/128] Memproses URL: https://nasional.kompas.com/read/2024/09/05/06450071/konflik-pkb-pbnu-...
+-&gt; Sukses: Konflik PKB-PBNU: Pengabaian Politik dan Pengkhian...
+
+[124/128] Memproses URL: https://megapolitan.kompas.com/read/2024/09/03/16303251/komplotan-peni...
+-&gt; Sukses: Komplotan Penipu Beraksi di Kelapa Gading, Sasar K...
+
+[125/128] Memproses URL: https://nasional.kompas.com/read/2024/07/31/15320181/dpr-minta-tni-ser...
+-&gt; Sukses: DPR Minta TNI Serius dan Transparan Tangani Dugaan...
+
+[126/128] Memproses URL: https://nasional.kompas.com/read/2024/01/01/20350511/sambangi-rumah-ka...
+-&gt; Sukses: Sambangi Rumah Kakeknya, Anies Teringat Perjuangan...
+
+[127/128] Memproses URL: https://nasional.kompas.com/read/2024/03/17/20360841/imparsial-nilai-p...
+-&gt; Sukses: Imparsial Nilai PP Manajemen ASN Akan Perluas Masu...
+
+[128/128] Memproses URL: https://nasional.kompas.com/read/2024/05/01/23001581/prediksi-soal-kab...
+-&gt; Sukses: Prediksi soal Kabinet Prabowo-Gibran: Menteri Triu...
+
+======================================================================
+Selesai. 128 artikel berhasil di-scrape.
+Data disimpan ke file &#39;kompas_articles_new.csv&#39;
+======================================================================
 </pre></div>
 </div>
+<div class="output text_html">
+  <div id="df-739de0ac-d281-4a9c-a137-3c2ea1719c92" class="colab-df-container">
+    <div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Judul</th>
+      <th>Isi (100 kata)</th>
+      <th>Kategori</th>
+      <th>URL</th>
+      <th>Status</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Jokowi Kenakan Pakaian Adat Betawi di Sidang T...</td>
+      <td>JAKARTA, KOMPAS.com- Presiden Joko Widodo mema...</td>
+      <td>Nasional</td>
+      <td>https://nasional.kompas.com/read/2024/08/16/11...</td>
+      <td>Sukses</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>KPU Tegaskan Pemilih Tak Terdaftar di DPT Bisa...</td>
+      <td>JAKARTA, KOMPAS.com- Komisi Pemilihan Umum (KP...</td>
+      <td>Nasional</td>
+      <td>https://nasional.kompas.com/read/2024/02/13/21...</td>
+      <td>Sukses</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Warga Sebut Ada Benda Serupa Jimat pada Mayat ...</td>
+      <td>TANGERANG SELATAN, KOMPAS.com- Seutas tali ber...</td>
+      <td>Megapolitan</td>
+      <td>https://megapolitan.kompas.com/read/2024/05/11...</td>
+      <td>Sukses</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Polisi Menganiaya Mereka yang Cinta Damai dan ...</td>
+      <td>JAKARTA, KOMPAS.com- Sejumlah massa mendapat k...</td>
+      <td>Megapolitan</td>
+      <td>https://megapolitan.kompas.com/read/2024/08/26...</td>
+      <td>Sukses</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>Airlangga Hartarto Mundur dari Ketum, Golkar B...</td>
+      <td>JAKARTA, KOMPAS.com- Airlangga Hartarto secara...</td>
+      <td>Nasional</td>
+      <td>https://nasional.kompas.com/read/2024/08/12/08...</td>
+      <td>Sukses</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>123</th>
+      <td>Komplotan Penipu Beraksi di Kelapa Gading, Sas...</td>
+      <td>JAKARTA, KOMPAS.com- Komplotan penipu beraksi ...</td>
+      <td>Megapolitan</td>
+      <td>https://megapolitan.kompas.com/read/2024/09/03...</td>
+      <td>Sukses</td>
+    </tr>
+    <tr>
+      <th>124</th>
+      <td>DPR Minta TNI Serius dan Transparan Tangani Du...</td>
+      <td>JAKARTA, KOMPAS.com- Ketua Komisi I DPR RI Meu...</td>
+      <td>Nasional</td>
+      <td>https://nasional.kompas.com/read/2024/07/31/15...</td>
+      <td>Sukses</td>
+    </tr>
+    <tr>
+      <th>125</th>
+      <td>Sambangi Rumah Kakeknya, Anies Teringat Perjua...</td>
+      <td>YOGYAKARTA, KOMPAS.com- Calon presiden nomor u...</td>
+      <td>Nasional</td>
+      <td>https://nasional.kompas.com/read/2024/01/01/20...</td>
+      <td>Sukses</td>
+    </tr>
+    <tr>
+      <th>126</th>
+      <td>Imparsial Nilai PP Manajemen ASN Akan Perluas ...</td>
+      <td>JAKARTA, KOMPAS.com- Imparsial menilai, penges...</td>
+      <td>Nasional</td>
+      <td>https://nasional.kompas.com/read/2024/03/17/20...</td>
+      <td>Sukses</td>
+    </tr>
+    <tr>
+      <th>127</th>
+      <td>Prediksi soal Kabinet Prabowo-Gibran: Menteri ...</td>
+      <td>JAKARTA, KOMPAS.com- Direktur Eksekutif Poltra...</td>
+      <td>Nasional</td>
+      <td>https://nasional.kompas.com/read/2024/05/01/23...</td>
+      <td>Sukses</td>
+    </tr>
+  </tbody>
+</table>
+<p>128 rows × 5 columns</p>
 </div>
+    <div class="colab-df-buttons">
+
+  <div class="colab-df-container">
+    <button class="colab-df-convert" onclick="convertToInteractive('df-739de0ac-d281-4a9c-a137-3c2ea1719c92')"
+            title="Convert this dataframe to an interactive table."
+            style="display:none;">
+
+  <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960">
+    <path d="M120-120v-720h720v720H120Zm60-500h600v-160H180v160Zm220 220h160v-160H400v160Zm0 220h160v-160H400v160ZM180-400h160v-160H180v160Zm440 0h160v-160H620v160ZM180-180h160v-160H180v160Zm440 0h160v-160H620v160Z"/>
+  </svg>
+    </button>
+
+  <style>
+    .colab-df-container {
+      display:flex;
+      gap: 12px;
+    }
+
+    .colab-df-convert {
+      background-color: #E8F0FE;
+      border: none;
+      border-radius: 50%;
+      cursor: pointer;
+      display: none;
+      fill: #1967D2;
+      height: 32px;
+      padding: 0 0 0 0;
+      width: 32px;
+    }
+
+    .colab-df-convert:hover {
+      background-color: #E2EBFA;
+      box-shadow: 0px 1px 2px rgba(60, 64, 67, 0.3), 0px 1px 3px 1px rgba(60, 64, 67, 0.15);
+      fill: #174EA6;
+    }
+
+    .colab-df-buttons div {
+      margin-bottom: 4px;
+    }
+
+    [theme=dark] .colab-df-convert {
+      background-color: #3B4455;
+      fill: #D2E3FC;
+    }
+
+    [theme=dark] .colab-df-convert:hover {
+      background-color: #434B5C;
+      box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.15);
+      filter: drop-shadow(0px 1px 2px rgba(0, 0, 0, 0.3));
+      fill: #FFFFFF;
+    }
+  </style>
+
+    <script>
+      const buttonEl =
+        document.querySelector('#df-739de0ac-d281-4a9c-a137-3c2ea1719c92 button.colab-df-convert');
+      buttonEl.style.display =
+        google.colab.kernel.accessAllowed ? 'block' : 'none';
+
+      async function convertToInteractive(key) {
+        const element = document.querySelector('#df-739de0ac-d281-4a9c-a137-3c2ea1719c92');
+        const dataTable =
+          await google.colab.kernel.invokeFunction('convertToInteractive',
+                                                    [key], {});
+        if (!dataTable) return;
+
+        const docLinkHtml = 'Like what you see? Visit the ' +
+          '<a target="_blank" href=https://colab.research.google.com/notebooks/data_table.ipynb>data table notebook</a>'
+          + ' to learn more about interactive tables.';
+        element.innerHTML = '';
+        dataTable['output_type'] = 'display_data';
+        await google.colab.output.renderOutput(dataTable, element);
+        const docLink = document.createElement('div');
+        docLink.innerHTML = docLinkHtml;
+        element.appendChild(docLink);
+      }
+    </script>
+  </div>
+
+
+    <div id="df-1dd795c7-6a5b-4f39-8e36-abc2b54ce0de">
+      <button class="colab-df-quickchart" onclick="quickchart('df-1dd795c7-6a5b-4f39-8e36-abc2b54ce0de')"
+                title="Suggest charts"
+                style="display:none;">
+
+<svg xmlns="http://www.w3.org/2000/svg" height="24px"viewBox="0 0 24 24"
+     width="24px">
+    <g>
+        <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zM9 17H7v-7h2v7zm4 0h-2V7h2v10zm4 0h-2v-4h2v4z"/>
+    </g>
+</svg>
+      </button>
+
+<style>
+  .colab-df-quickchart {
+      --bg-color: #E8F0FE;
+      --fill-color: #1967D2;
+      --hover-bg-color: #E2EBFA;
+      --hover-fill-color: #174EA6;
+      --disabled-fill-color: #AAA;
+      --disabled-bg-color: #DDD;
+  }
+
+  [theme=dark] .colab-df-quickchart {
+      --bg-color: #3B4455;
+      --fill-color: #D2E3FC;
+      --hover-bg-color: #434B5C;
+      --hover-fill-color: #FFFFFF;
+      --disabled-bg-color: #3B4455;
+      --disabled-fill-color: #666;
+  }
+
+  .colab-df-quickchart {
+    background-color: var(--bg-color);
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    display: none;
+    fill: var(--fill-color);
+    height: 32px;
+    padding: 0;
+    width: 32px;
+  }
+
+  .colab-df-quickchart:hover {
+    background-color: var(--hover-bg-color);
+    box-shadow: 0 1px 2px rgba(60, 64, 67, 0.3), 0 1px 3px 1px rgba(60, 64, 67, 0.15);
+    fill: var(--button-hover-fill-color);
+  }
+
+  .colab-df-quickchart-complete:disabled,
+  .colab-df-quickchart-complete:disabled:hover {
+    background-color: var(--disabled-bg-color);
+    fill: var(--disabled-fill-color);
+    box-shadow: none;
+  }
+
+  .colab-df-spinner {
+    border: 2px solid var(--fill-color);
+    border-color: transparent;
+    border-bottom-color: var(--fill-color);
+    animation:
+      spin 1s steps(1) infinite;
+  }
+
+  @keyframes spin {
+    0% {
+      border-color: transparent;
+      border-bottom-color: var(--fill-color);
+      border-left-color: var(--fill-color);
+    }
+    20% {
+      border-color: transparent;
+      border-left-color: var(--fill-color);
+      border-top-color: var(--fill-color);
+    }
+    30% {
+      border-color: transparent;
+      border-left-color: var(--fill-color);
+      border-top-color: var(--fill-color);
+      border-right-color: var(--fill-color);
+    }
+    40% {
+      border-color: transparent;
+      border-right-color: var(--fill-color);
+      border-top-color: var(--fill-color);
+    }
+    60% {
+      border-color: transparent;
+      border-right-color: var(--fill-color);
+    }
+    80% {
+      border-color: transparent;
+      border-right-color: var(--fill-color);
+      border-bottom-color: var(--fill-color);
+    }
+    90% {
+      border-color: transparent;
+      border-bottom-color: var(--fill-color);
+    }
+  }
+</style>
+
+      <script>
+        async function quickchart(key) {
+          const quickchartButtonEl =
+            document.querySelector('#' + key + ' button');
+          quickchartButtonEl.disabled = true;  // To prevent multiple clicks.
+          quickchartButtonEl.classList.add('colab-df-spinner');
+          try {
+            const charts = await google.colab.kernel.invokeFunction(
+                'suggestCharts', [key], {});
+          } catch (error) {
+            console.error('Error during call to suggestCharts:', error);
+          }
+          quickchartButtonEl.classList.remove('colab-df-spinner');
+          quickchartButtonEl.classList.add('colab-df-quickchart-complete');
+        }
+        (() => {
+          let quickchartButtonEl =
+            document.querySelector('#df-1dd795c7-6a5b-4f39-8e36-abc2b54ce0de button');
+          quickchartButtonEl.style.display =
+            google.colab.kernel.accessAllowed ? 'block' : 'none';
+        })();
+      </script>
+    </div>
+
+  <div id="id_b78c4648-96bb-4f80-a1df-0692ddccc4e6">
+    <style>
+      .colab-df-generate {
+        background-color: #E8F0FE;
+        border: none;
+        border-radius: 50%;
+        cursor: pointer;
+        display: none;
+        fill: #1967D2;
+        height: 32px;
+        padding: 0 0 0 0;
+        width: 32px;
+      }
+
+      .colab-df-generate:hover {
+        background-color: #E2EBFA;
+        box-shadow: 0px 1px 2px rgba(60, 64, 67, 0.3), 0px 1px 3px 1px rgba(60, 64, 67, 0.15);
+        fill: #174EA6;
+      }
+
+      [theme=dark] .colab-df-generate {
+        background-color: #3B4455;
+        fill: #D2E3FC;
+      }
+
+      [theme=dark] .colab-df-generate:hover {
+        background-color: #434B5C;
+        box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.15);
+        filter: drop-shadow(0px 1px 2px rgba(0, 0, 0, 0.3));
+        fill: #FFFFFF;
+      }
+    </style>
+    <button class="colab-df-generate" onclick="generateWithVariable('df')"
+            title="Generate code using this dataframe."
+            style="display:none;">
+
+  <svg xmlns="http://www.w3.org/2000/svg" height="24px"viewBox="0 0 24 24"
+       width="24px">
+    <path d="M7,19H8.4L18.45,9,17,7.55,7,17.6ZM5,21V16.75L18.45,3.32a2,2,0,0,1,2.83,0l1.4,1.43a1.91,1.91,0,0,1,.58,1.4,1.91,1.91,0,0,1-.58,1.4L9.25,21ZM18.45,9,17,7.55Zm-12,3A5.31,5.31,0,0,0,4.9,8.1,5.31,5.31,0,0,0,1,6.5,5.31,5.31,0,0,0,4.9,4.9,5.31,5.31,0,0,0,6.5,1,5.31,5.31,0,0,0,8.1,4.9,5.31,5.31,0,0,0,12,6.5,5.46,5.46,0,0,0,6.5,12Z"/>
+  </svg>
+    </button>
+    <script>
+      (() => {
+      const buttonEl =
+        document.querySelector('#id_b78c4648-96bb-4f80-a1df-0692ddccc4e6 button.colab-df-generate');
+      buttonEl.style.display =
+        google.colab.kernel.accessAllowed ? 'block' : 'none';
+
+      buttonEl.onclick = () => {
+        google.colab.notebook.generateWithVariable('df');
+      }
+      })();
+    </script>
+  </div>
+
+    </div>
+  </div>
+</div></div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">shape</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">shape</span>
 </pre></div>
 </div>
 </div>
@@ -817,10 +1457,10 @@ document.write(`
 <p>Import Library yang Dibutuhkan</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>pip<span class="w"> </span>install<span class="w"> </span>pandas
-<span class="o">!</span>pip<span class="w"> </span>install<span class="w"> </span>nltk
-<span class="o">!</span>pip<span class="w"> </span>install<span class="w"> </span>Sastrawi
-<span class="o">!</span>pip<span class="w"> </span>install<span class="w"> </span>Sastrawi
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="err">!</span><span class="n">pip</span> <span class="n">install</span> <span class="n">pandas</span>
+<span class="err">!</span><span class="n">pip</span> <span class="n">install</span> <span class="n">nltk</span>
+<span class="err">!</span><span class="n">pip</span> <span class="n">install</span> <span class="n">Sastrawi</span>
+<span class="err">!</span><span class="n">pip</span> <span class="n">install</span> <span class="n">Sastrawi</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">nltk</span>
 <span class="n">nltk</span><span class="o">.</span><span class="n">download</span><span class="p">(</span><span class="s1">&#39;punkt_tab&#39;</span><span class="p">)</span>
 </pre></div>
@@ -858,7 +1498,7 @@ Requirement already satisfied: Sastrawi in /usr/local/lib/python3.12/dist-packag
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">re</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">string</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">Sastrawi.Stemmer.StemmerFactory</span><span class="w"> </span><span class="kn">import</span> <span class="n">StemmerFactory</span>
@@ -953,7 +1593,7 @@ jakarta kompascom presiden joko widodo pakai baju adat betawi hadir sidang tahun
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>pip<span class="w"> </span>install<span class="w"> </span>Sastrawi
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="err">!</span><span class="n">pip</span> <span class="n">install</span> <span class="n">Sastrawi</span>
 </pre></div>
 </div>
 </div>
@@ -965,7 +1605,7 @@ jakarta kompascom presiden joko widodo pakai baju adat betawi hadir sidang tahun
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">re</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">string</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">Sastrawi.Stemmer.StemmerFactory</span><span class="w"> </span><span class="kn">import</span> <span class="n">StemmerFactory</span>
@@ -3952,7 +4592,7 @@ Kata: zulkifli             | Frekuensi: 1
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">corpus</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;Isi (100 kata)&#39;</span><span class="p">]</span><span class="o">.</span> <span class="n">to_numpy</span><span class="p">()</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">corpus</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;Isi (100 kata)&#39;</span><span class="p">]</span><span class="o">.</span> <span class="n">to_numpy</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -3962,7 +4602,7 @@ Kata: zulkifli             | Frekuensi: 1
 <h1>B. PTA<a class="headerlink" href="#b-pta" title="Link to this heading">#</a></h1>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>pip<span class="w"> </span>install<span class="w"> </span>Sastrawi
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="err">!</span><span class="n">pip</span> <span class="n">install</span> <span class="n">Sastrawi</span>
 </pre></div>
 </div>
 </div>
@@ -3974,7 +4614,7 @@ Kata: zulkifli             | Frekuensi: 1
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">re</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">string</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">Sastrawi.Stemmer.StemmerFactory</span><span class="w"> </span><span class="kn">import</span> <span class="n">StemmerFactory</span>
@@ -4160,7 +4800,7 @@ puas tingkat asa orang layan banding kerja harap ingin dalam teliti laku studi k
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">re</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">string</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">collections</span><span class="w"> </span><span class="kn">import</span> <span class="n">Counter</span>
@@ -4391,7 +5031,7 @@ mesin: 5
   <div class="footer-item">
     
 <p class="component-author">
-By Mabrurah Eka Rahayu (22-150)
+By The Jupyter Book Community
 </p>
 
   </div>
@@ -4401,7 +5041,7 @@ By Mabrurah Eka Rahayu (22-150)
 
   <p class="copyright">
     
-      © Copyright 2025.
+      © Copyright 2023.
       <br/>
     
   </p>
