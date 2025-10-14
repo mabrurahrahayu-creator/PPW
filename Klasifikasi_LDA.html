@@ -1,0 +1,2494 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>E. Melakukan Klasifikasi LDA &#8212; My sample book</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css?v=6644e6bb" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'Klasifikasi_LDA';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="2. Melakukan Tfidf &amp; Word Embedding" href="TFidf.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/Rahayu.jpeg" class="logo__image only-light" alt="My sample book - Home"/>
+    <script>document.write(`<img src="_static/Rahayu.jpeg" class="logo__image only-dark" alt="My sample book - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
+                    PROFILE
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="TUGAS.html">Pengantar Web Mining</a></li>
+
+
+
+
+
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="crawlingdata.html">A. Crawling Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Crawling_Link.html">B. Crawling Link</a></li>
+<li class="toctree-l1"><a class="reference internal" href="T2berita.html">C. Crawling Berita</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Crawling_PTA.html">D. Crawling PTA</a></li>
+<li class="toctree-l1"><a class="reference internal" href="PemrosesanData.html">1. Pemrosesan Data PTA dan Berita</a></li>
+
+
+<li class="toctree-l1"><a class="reference internal" href="TFidf.html">2. Melakukan Tfidf &amp; Word Embedding</a></li>
+
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">E. Melakukan Klasifikasi LDA</a></li>
+
+
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2FKlasifikasi_LDA.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/Klasifikasi_LDA.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>E. Melakukan Klasifikasi LDA</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">E. Melakukan Klasifikasi LDA</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#versi-bar-chart">— Versi Bar Chart —</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#versi-heatmap">— Versi Heatmap —</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fungsi-evaluasi">Fungsi Evaluasi</a></li>
+</ul>
+</li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="e-melakukan-klasifikasi-lda">
+<h1>E. Melakukan Klasifikasi LDA<a class="headerlink" href="#e-melakukan-klasifikasi-lda" title="Link to this heading">#</a></h1>
+<ol class="arabic simple">
+<li><p>Import Library</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">Sastrawi.Stemmer.StemmerFactory</span><span class="w"> </span><span class="kn">import</span> <span class="n">StemmerFactory</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">Sastrawi.StopWordRemover.StopWordRemoverFactory</span><span class="w"> </span><span class="kn">import</span> <span class="n">StopWordRemoverFactory</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">re</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">string</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.model_selection</span><span class="w"> </span><span class="kn">import</span> <span class="n">train_test_split</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.feature_extraction.text</span><span class="w"> </span><span class="kn">import</span> <span class="n">TfidfVectorizer</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.naive_bayes</span><span class="w"> </span><span class="kn">import</span> <span class="n">MultinomialNB</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.metrics</span><span class="w"> </span><span class="kn">import</span> <span class="n">accuracy_score</span><span class="p">,</span> <span class="n">precision_score</span><span class="p">,</span> <span class="n">recall_score</span><span class="p">,</span> <span class="n">f1_score</span><span class="p">,</span> <span class="n">classification_report</span><span class="p">,</span> <span class="n">confusion_matrix</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">gensim</span><span class="w"> </span><span class="kn">import</span> <span class="n">corpora</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">gensim.models.ldamodel</span><span class="w"> </span><span class="kn">import</span> <span class="n">LdaModel</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">gensim.models</span><span class="w"> </span><span class="kn">import</span> <span class="n">CoherenceModel</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">seaborn</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">sns</span>
+</pre></div>
+</div>
+</div>
+</div>
+<ol class="arabic simple" start="2">
+<li><p>Membaca Dataset</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Baca dataset</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;kompas_articles_new.csv&#39;</span><span class="p">)</span>
+
+<span class="c1"># Atur agar Pandas menampilkan semua baris</span>
+<span class="n">pd</span><span class="o">.</span><span class="n">set_option</span><span class="p">(</span><span class="s1">&#39;display.max_rows&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Jumlah total berita:&quot;</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">df</span><span class="p">))</span>
+
+<span class="c1"># Tampilkan semua isi dataframe</span>
+<span class="n">display</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">FileNotFoundError</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">line</span> <span class="mi">2</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="c1"># Baca dataset</span>
+<span class="ne">----&gt; </span><span class="mi">2</span> <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;kompas_articles_new.csv&#39;</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="c1"># Atur agar Pandas menampilkan semua baris</span>
+<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="n">pd</span><span class="o">.</span><span class="n">set_option</span><span class="p">(</span><span class="s1">&#39;display.max_rows&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+
+<span class="nn">File ~/.local/lib/python3.12/site-packages/pandas/io/parsers/readers.py:1026,</span> in <span class="ni">read_csv</span><span class="nt">(filepath_or_buffer, sep, delimiter, header, names, index_col, usecols, dtype, engine, converters, true_values, false_values, skipinitialspace, skiprows, skipfooter, nrows, na_values, keep_default_na, na_filter, verbose, skip_blank_lines, parse_dates, infer_datetime_format, keep_date_col, date_parser, date_format, dayfirst, cache_dates, iterator, chunksize, compression, thousands, decimal, lineterminator, quotechar, quoting, doublequote, escapechar, comment, encoding, encoding_errors, dialect, on_bad_lines, delim_whitespace, low_memory, memory_map, float_precision, storage_options, dtype_backend)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1013</span> <span class="n">kwds_defaults</span> <span class="o">=</span> <span class="n">_refine_defaults_read</span><span class="p">(</span>
+<span class="g g-Whitespace">   </span><span class="mi">1014</span>     <span class="n">dialect</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1015</span>     <span class="n">delimiter</span><span class="p">,</span>
+   <span class="p">(</span><span class="o">...</span><span class="p">)</span>   <span class="mi">1022</span>     <span class="n">dtype_backend</span><span class="o">=</span><span class="n">dtype_backend</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1023</span> <span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1024</span> <span class="n">kwds</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">kwds_defaults</span><span class="p">)</span>
+<span class="ne">-&gt; </span><span class="mi">1026</span> <span class="k">return</span> <span class="n">_read</span><span class="p">(</span><span class="n">filepath_or_buffer</span><span class="p">,</span> <span class="n">kwds</span><span class="p">)</span>
+
+<span class="nn">File ~/.local/lib/python3.12/site-packages/pandas/io/parsers/readers.py:620,</span> in <span class="ni">_read</span><span class="nt">(filepath_or_buffer, kwds)</span>
+<span class="g g-Whitespace">    </span><span class="mi">617</span> <span class="n">_validate_names</span><span class="p">(</span><span class="n">kwds</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;names&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">))</span>
+<span class="g g-Whitespace">    </span><span class="mi">619</span> <span class="c1"># Create the parser.</span>
+<span class="ne">--&gt; </span><span class="mi">620</span> <span class="n">parser</span> <span class="o">=</span> <span class="n">TextFileReader</span><span class="p">(</span><span class="n">filepath_or_buffer</span><span class="p">,</span> <span class="o">**</span><span class="n">kwds</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">622</span> <span class="k">if</span> <span class="n">chunksize</span> <span class="ow">or</span> <span class="n">iterator</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">623</span>     <span class="k">return</span> <span class="n">parser</span>
+
+<span class="nn">File ~/.local/lib/python3.12/site-packages/pandas/io/parsers/readers.py:1620,</span> in <span class="ni">TextFileReader.__init__</span><span class="nt">(self, f, engine, **kwds)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1617</span>     <span class="bp">self</span><span class="o">.</span><span class="n">options</span><span class="p">[</span><span class="s2">&quot;has_index_names&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">kwds</span><span class="p">[</span><span class="s2">&quot;has_index_names&quot;</span><span class="p">]</span>
+<span class="g g-Whitespace">   </span><span class="mi">1619</span> <span class="bp">self</span><span class="o">.</span><span class="n">handles</span><span class="p">:</span> <span class="n">IOHandles</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>
+<span class="ne">-&gt; </span><span class="mi">1620</span> <span class="bp">self</span><span class="o">.</span><span class="n">_engine</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_make_engine</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">engine</span><span class="p">)</span>
+
+<span class="nn">File ~/.local/lib/python3.12/site-packages/pandas/io/parsers/readers.py:1880,</span> in <span class="ni">TextFileReader._make_engine</span><span class="nt">(self, f, engine)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1878</span>     <span class="k">if</span> <span class="s2">&quot;b&quot;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">mode</span><span class="p">:</span>
+<span class="g g-Whitespace">   </span><span class="mi">1879</span>         <span class="n">mode</span> <span class="o">+=</span> <span class="s2">&quot;b&quot;</span>
+<span class="ne">-&gt; </span><span class="mi">1880</span> <span class="bp">self</span><span class="o">.</span><span class="n">handles</span> <span class="o">=</span> <span class="n">get_handle</span><span class="p">(</span>
+<span class="g g-Whitespace">   </span><span class="mi">1881</span>     <span class="n">f</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1882</span>     <span class="n">mode</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1883</span>     <span class="n">encoding</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">options</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;encoding&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">),</span>
+<span class="g g-Whitespace">   </span><span class="mi">1884</span>     <span class="n">compression</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">options</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;compression&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">),</span>
+<span class="g g-Whitespace">   </span><span class="mi">1885</span>     <span class="n">memory_map</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">options</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;memory_map&quot;</span><span class="p">,</span> <span class="kc">False</span><span class="p">),</span>
+<span class="g g-Whitespace">   </span><span class="mi">1886</span>     <span class="n">is_text</span><span class="o">=</span><span class="n">is_text</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1887</span>     <span class="n">errors</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">options</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;encoding_errors&quot;</span><span class="p">,</span> <span class="s2">&quot;strict&quot;</span><span class="p">),</span>
+<span class="g g-Whitespace">   </span><span class="mi">1888</span>     <span class="n">storage_options</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">options</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;storage_options&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">),</span>
+<span class="g g-Whitespace">   </span><span class="mi">1889</span> <span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1890</span> <span class="k">assert</span> <span class="bp">self</span><span class="o">.</span><span class="n">handles</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span>
+<span class="g g-Whitespace">   </span><span class="mi">1891</span> <span class="n">f</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">handles</span><span class="o">.</span><span class="n">handle</span>
+
+<span class="nn">File ~/.local/lib/python3.12/site-packages/pandas/io/common.py:873,</span> in <span class="ni">get_handle</span><span class="nt">(path_or_buf, mode, encoding, compression, memory_map, is_text, errors, storage_options)</span>
+<span class="g g-Whitespace">    </span><span class="mi">868</span> <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">handle</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
+<span class="g g-Whitespace">    </span><span class="mi">869</span>     <span class="c1"># Check whether the filename is to be opened in binary mode.</span>
+<span class="g g-Whitespace">    </span><span class="mi">870</span>     <span class="c1"># Binary mode does not support &#39;encoding&#39; and &#39;newline&#39;.</span>
+<span class="g g-Whitespace">    </span><span class="mi">871</span>     <span class="k">if</span> <span class="n">ioargs</span><span class="o">.</span><span class="n">encoding</span> <span class="ow">and</span> <span class="s2">&quot;b&quot;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">ioargs</span><span class="o">.</span><span class="n">mode</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">872</span>         <span class="c1"># Encoding</span>
+<span class="ne">--&gt; </span><span class="mi">873</span>         <span class="n">handle</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">874</span>             <span class="n">handle</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">875</span>             <span class="n">ioargs</span><span class="o">.</span><span class="n">mode</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">876</span>             <span class="n">encoding</span><span class="o">=</span><span class="n">ioargs</span><span class="o">.</span><span class="n">encoding</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">877</span>             <span class="n">errors</span><span class="o">=</span><span class="n">errors</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">878</span>             <span class="n">newline</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">879</span>         <span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">880</span>     <span class="k">else</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">881</span>         <span class="c1"># Binary mode</span>
+<span class="g g-Whitespace">    </span><span class="mi">882</span>         <span class="n">handle</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">handle</span><span class="p">,</span> <span class="n">ioargs</span><span class="o">.</span><span class="n">mode</span><span class="p">)</span>
+
+<span class="ne">FileNotFoundError</span>: [Errno 2] No such file or directory: &#39;kompas_articles_new.csv&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<ol class="arabic simple" start="3">
+<li><p>Preprocessing Data</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">preprocess_data</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">source_col</span><span class="o">=</span><span class="s2">&quot;Isi (100 kata)&quot;</span><span class="p">):</span>
+    <span class="n">factory</span> <span class="o">=</span> <span class="n">StemmerFactory</span><span class="p">()</span>
+    <span class="n">stemmer</span> <span class="o">=</span> <span class="n">factory</span><span class="o">.</span><span class="n">create_stemmer</span><span class="p">()</span>
+    <span class="n">stop_factory</span> <span class="o">=</span> <span class="n">StopWordRemoverFactory</span><span class="p">()</span>
+    <span class="n">stopwords</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="n">stop_factory</span><span class="o">.</span><span class="n">get_stop_words</span><span class="p">())</span>
+
+    <span class="n">clean_texts</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">text</span> <span class="ow">in</span> <span class="n">df</span><span class="p">[</span><span class="n">source_col</span><span class="p">]</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">str</span><span class="p">):</span>
+        <span class="n">text</span> <span class="o">=</span> <span class="n">text</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
+        <span class="n">text</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;http\S+|www\S+|https\S+&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">text</span><span class="p">)</span>
+        <span class="n">text</span> <span class="o">=</span> <span class="n">text</span><span class="o">.</span><span class="n">translate</span><span class="p">(</span><span class="nb">str</span><span class="o">.</span><span class="n">maketrans</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">string</span><span class="o">.</span><span class="n">punctuation</span><span class="p">))</span>
+        <span class="n">text</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;\d+&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">text</span><span class="p">)</span>
+        <span class="n">tokens</span> <span class="o">=</span> <span class="n">text</span><span class="o">.</span><span class="n">split</span><span class="p">()</span>
+        <span class="n">tokens</span> <span class="o">=</span> <span class="p">[</span><span class="n">t</span> <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="n">tokens</span> <span class="k">if</span> <span class="n">t</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">stopwords</span> <span class="ow">and</span> <span class="nb">len</span><span class="p">(</span><span class="n">t</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">]</span>
+        <span class="n">stemmed</span> <span class="o">=</span> <span class="p">[</span><span class="n">stemmer</span><span class="o">.</span><span class="n">stem</span><span class="p">(</span><span class="n">t</span><span class="p">)</span> <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="n">tokens</span><span class="p">]</span>
+        <span class="n">clean_texts</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">&quot; &quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">stemmed</span><span class="p">))</span>
+    <span class="n">df</span><span class="p">[</span><span class="s2">&quot;clean&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">clean_texts</span>
+    <span class="k">return</span> <span class="n">df</span>
+
+<span class="n">df_clean</span> <span class="o">=</span> <span class="n">preprocess_data</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+<span class="n">display</span><span class="p">(</span><span class="n">df_clean</span><span class="o">.</span><span class="n">head</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">
+  <div id="df-48f19c5f-dfc0-4a73-b1d2-a8602e80a48a" class="colab-df-container">
+    <div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Judul</th>
+      <th>Isi (100 kata)</th>
+      <th>Kategori</th>
+      <th>URL</th>
+      <th>Status</th>
+      <th>clean</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Jokowi Kenakan Pakaian Adat Betawi di Sidang T...</td>
+      <td>JAKARTA, KOMPAS.com- Presiden Joko Widodo mema...</td>
+      <td>Nasional</td>
+      <td>https://nasional.kompas.com/read/2024/08/16/11...</td>
+      <td>Sukses</td>
+      <td>jakarta kompascom presiden joko widodo pakai b...</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>KPU Tegaskan Pemilih Tak Terdaftar di DPT Bisa...</td>
+      <td>JAKARTA, KOMPAS.com- Komisi Pemilihan Umum (KP...</td>
+      <td>Nasional</td>
+      <td>https://nasional.kompas.com/read/2024/02/13/21...</td>
+      <td>Sukses</td>
+      <td>jakarta kompascom komisi pilih umum kpu ri pas...</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Warga Sebut Ada Benda Serupa Jimat pada Mayat ...</td>
+      <td>TANGERANG SELATAN, KOMPAS.com- Seutas tali ber...</td>
+      <td>Megapolitan</td>
+      <td>https://megapolitan.kompas.com/read/2024/05/11...</td>
+      <td>Sukses</td>
+      <td>tangerang selatan kompascom utas tali warna hi...</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Polisi Menganiaya Mereka yang Cinta Damai dan ...</td>
+      <td>JAKARTA, KOMPAS.com- Sejumlah massa mendapat k...</td>
+      <td>Megapolitan</td>
+      <td>https://megapolitan.kompas.com/read/2024/08/26...</td>
+      <td>Sukses</td>
+      <td>jakarta kompascom jumlah massa dapat keras apa...</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>Airlangga Hartarto Mundur dari Ketum, Golkar B...</td>
+      <td>JAKARTA, KOMPAS.com- Airlangga Hartarto secara...</td>
+      <td>Nasional</td>
+      <td>https://nasional.kompas.com/read/2024/08/12/08...</td>
+      <td>Sukses</td>
+      <td>jakarta kompascom airlangga hartarto resmi und...</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+    <div class="colab-df-buttons">
+      
+  <div class="colab-df-container">
+    <button class="colab-df-convert" onclick="convertToInteractive('df-48f19c5f-dfc0-4a73-b1d2-a8602e80a48a')"
+            title="Convert this dataframe to an interactive table."
+            style="display:none;">
+      
+  <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960">
+    <path d="M120-120v-720h720v720H120Zm60-500h600v-160H180v160Zm220 220h160v-160H400v160Zm0 220h160v-160H400v160ZM180-400h160v-160H180v160Zm440 0h160v-160H620v160ZM180-180h160v-160H180v160Zm440 0h160v-160H620v160Z"/>
+  </svg>
+    </button>
+    
+  <style>
+    .colab-df-container {
+      display:flex;
+      gap: 12px;
+    }
+
+    .colab-df-convert {
+      background-color: #E8F0FE;
+      border: none;
+      border-radius: 50%;
+      cursor: pointer;
+      display: none;
+      fill: #1967D2;
+      height: 32px;
+      padding: 0 0 0 0;
+      width: 32px;
+    }
+
+    .colab-df-convert:hover {
+      background-color: #E2EBFA;
+      box-shadow: 0px 1px 2px rgba(60, 64, 67, 0.3), 0px 1px 3px 1px rgba(60, 64, 67, 0.15);
+      fill: #174EA6;
+    }
+
+    .colab-df-buttons div {
+      margin-bottom: 4px;
+    }
+
+    [theme=dark] .colab-df-convert {
+      background-color: #3B4455;
+      fill: #D2E3FC;
+    }
+
+    [theme=dark] .colab-df-convert:hover {
+      background-color: #434B5C;
+      box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.15);
+      filter: drop-shadow(0px 1px 2px rgba(0, 0, 0, 0.3));
+      fill: #FFFFFF;
+    }
+  </style>
+
+    <script>
+      const buttonEl =
+        document.querySelector('#df-48f19c5f-dfc0-4a73-b1d2-a8602e80a48a button.colab-df-convert');
+      buttonEl.style.display =
+        google.colab.kernel.accessAllowed ? 'block' : 'none';
+
+      async function convertToInteractive(key) {
+        const element = document.querySelector('#df-48f19c5f-dfc0-4a73-b1d2-a8602e80a48a');
+        const dataTable =
+          await google.colab.kernel.invokeFunction('convertToInteractive',
+                                                    [key], {});
+        if (!dataTable) return;
+
+        const docLinkHtml = 'Like what you see? Visit the ' +
+          '<a target="_blank" href=https://colab.research.google.com/notebooks/data_table.ipynb>data table notebook</a>'
+          + ' to learn more about interactive tables.';
+        element.innerHTML = '';
+        dataTable['output_type'] = 'display_data';
+        await google.colab.output.renderOutput(dataTable, element);
+        const docLink = document.createElement('div');
+        docLink.innerHTML = docLinkHtml;
+        element.appendChild(docLink);
+      }
+    </script>
+  </div>
+  
+    </div>
+  </div>
+  </div></div>
+</div>
+<ol class="arabic simple" start="4">
+<li><p>Tokenisasi, Dictionary, dan Corpus</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">texts</span> <span class="o">=</span> <span class="p">[</span><span class="n">doc</span><span class="o">.</span><span class="n">split</span><span class="p">()</span> <span class="k">for</span> <span class="n">doc</span> <span class="ow">in</span> <span class="n">df_clean</span><span class="p">[</span><span class="s2">&quot;clean&quot;</span><span class="p">]]</span>
+<span class="n">dictionary</span> <span class="o">=</span> <span class="n">corpora</span><span class="o">.</span><span class="n">Dictionary</span><span class="p">(</span><span class="n">texts</span><span class="p">)</span>
+<span class="n">dictionary</span><span class="o">.</span><span class="n">filter_extremes</span><span class="p">(</span><span class="n">no_below</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">no_above</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+<span class="n">corpus</span> <span class="o">=</span> <span class="p">[</span><span class="n">dictionary</span><span class="o">.</span><span class="n">doc2bow</span><span class="p">(</span><span class="n">text</span><span class="p">)</span> <span class="k">for</span> <span class="n">text</span> <span class="ow">in</span> <span class="n">texts</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<ol class="arabic simple" start="5">
+<li><p>Menentukan Model LDA Terbaik (dengan Coherence Score)</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">coherence_values</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">model_list</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">topic_range</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">130</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">num_topics</span> <span class="ow">in</span> <span class="n">topic_range</span><span class="p">:</span>
+    <span class="n">model</span> <span class="o">=</span> <span class="n">LdaModel</span><span class="p">(</span>
+        <span class="n">corpus</span><span class="o">=</span><span class="n">corpus</span><span class="p">,</span>
+        <span class="n">num_topics</span><span class="o">=</span><span class="n">num_topics</span><span class="p">,</span>
+        <span class="n">id2word</span><span class="o">=</span><span class="n">dictionary</span><span class="p">,</span>
+        <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">,</span>
+        <span class="n">passes</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span>
+        <span class="n">iterations</span><span class="o">=</span><span class="mi">100</span>
+    <span class="p">)</span>
+    <span class="n">model_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">model</span><span class="p">)</span>
+    <span class="n">coherencemodel</span> <span class="o">=</span> <span class="n">CoherenceModel</span><span class="p">(</span><span class="n">model</span><span class="o">=</span><span class="n">model</span><span class="p">,</span> <span class="n">texts</span><span class="o">=</span><span class="n">texts</span><span class="p">,</span> <span class="n">dictionary</span><span class="o">=</span><span class="n">dictionary</span><span class="p">,</span> <span class="n">coherence</span><span class="o">=</span><span class="s1">&#39;c_v&#39;</span><span class="p">)</span>
+    <span class="n">coherence_values</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">coherencemodel</span><span class="o">.</span><span class="n">get_coherence</span><span class="p">())</span>
+
+<span class="c1"># Visualisasi Coherence Score</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">topic_range</span><span class="p">,</span> <span class="n">coherence_values</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;o&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Jumlah Topik&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Coherence Score&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Coherence Score vs Jumlah Topik&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+<span class="c1"># Model terbaik</span>
+<span class="n">optimal_model</span> <span class="o">=</span> <span class="n">model_list</span><span class="p">[</span><span class="n">coherence_values</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="nb">max</span><span class="p">(</span><span class="n">coherence_values</span><span class="p">))]</span>
+<span class="n">optimal_topics</span> <span class="o">=</span> <span class="n">topic_range</span><span class="p">[</span><span class="n">coherence_values</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="nb">max</span><span class="p">(</span><span class="n">coherence_values</span><span class="p">))]</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;✅ Model terbaik memiliki&quot;</span><span class="p">,</span> <span class="n">optimal_topics</span><span class="p">,</span> <span class="s2">&quot;topik&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Coherence Score terbaik:&quot;</span><span class="p">,</span> <span class="nb">max</span><span class="p">(</span><span class="n">coherence_values</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/c6558c57996ed87a99867815da38d5c87da80e1b9f83bcfbe03875bb1457f497.png" src="_images/c6558c57996ed87a99867815da38d5c87da80e1b9f83bcfbe03875bb1457f497.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>✅ Model terbaik memiliki 112 topik
+Coherence Score terbaik: 0.5944232145404877
+</pre></div>
+</div>
+</div>
+</div>
+<ol class="arabic simple" start="6">
+<li><p>Melakukan Topik yang terbaik</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">idx</span><span class="p">,</span> <span class="n">topic</span> <span class="ow">in</span> <span class="n">optimal_model</span><span class="o">.</span><span class="n">print_topics</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Topik </span><span class="si">{</span><span class="n">idx</span><span class="o">+</span><span class="mi">1</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">topic</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Topik 1: 0.067*&quot;rumah&quot; + 0.067*&quot;baswedan&quot; + 0.050*&quot;tempat&quot; + 0.050*&quot;bagi&quot; + 0.033*&quot;satu&quot; + 0.033*&quot;atas&quot; + 0.033*&quot;anies&quot; + 0.033*&quot;sembunyi&quot; + 0.033*&quot;nomor&quot; + 0.033*&quot;salah&quot;
+
+Topik 2: 0.001*&quot;tni&quot; + 0.001*&quot;pilkada&quot; + 0.001*&quot;kepala&quot; + 0.001*&quot;pilih&quot; + 0.001*&quot;bambang&quot; + 0.001*&quot;tetap&quot; + 0.001*&quot;adu&quot; + 0.001*&quot;kan&quot; + 0.001*&quot;militer&quot; + 0.001*&quot;kok&quot;
+
+Topik 3: 0.038*&quot;pramono&quot; + 0.038*&quot;gubernur&quot; + 0.031*&quot;sehat&quot; + 0.031*&quot;periksa&quot; + 0.030*&quot;kader&quot; + 0.029*&quot;partai&quot; + 0.021*&quot;aku&quot; + 0.021*&quot;calon&quot; + 0.021*&quot;usung&quot; + 0.019*&quot;jadi&quot;
+
+Topik 4: 0.034*&quot;belanja&quot; + 0.034*&quot;layan&quot; + 0.034*&quot;bpom&quot; + 0.025*&quot;daerah&quot; + 0.025*&quot;laku&quot; + 0.017*&quot;publik&quot; + 0.017*&quot;kantor&quot; + 0.017*&quot;segera&quot; + 0.017*&quot;persen&quot; + 0.017*&quot;lihat&quot;
+
+Topik 5: 0.001*&quot;warga&quot; + 0.001*&quot;tanding&quot; + 0.001*&quot;dki&quot; + 0.001*&quot;bangun&quot; + 0.001*&quot;pemprov&quot; + 0.001*&quot;bola&quot; + 0.001*&quot;dprd&quot; + 0.001*&quot;tahu&quot; + 0.001*&quot;anggar&quot; + 0.001*&quot;internasional&quot;
+
+Topik 6: 0.035*&quot;pdip&quot; + 0.028*&quot;jamin&quot; + 0.028*&quot;ketua&quot; + 0.028*&quot;megawati&quot; + 0.028*&quot;rakyat&quot; + 0.021*&quot;hukum&quot; + 0.021*&quot;metro&quot; + 0.021*&quot;polda&quot; + 0.021*&quot;jaya&quot; + 0.021*&quot;kader&quot;
+
+Topik 7: 0.031*&quot;kaesang&quot; + 0.023*&quot;hak&quot; + 0.023*&quot;angket&quot; + 0.023*&quot;negara&quot; + 0.016*&quot;kait&quot; + 0.016*&quot;komunikasi&quot; + 0.016*&quot;politik&quot; + 0.016*&quot;mesti&quot; + 0.016*&quot;wacana&quot; + 0.016*&quot;tengah&quot;
+
+Topik 8: 0.051*&quot;minta&quot; + 0.051*&quot;indra&quot; + 0.051*&quot;krl&quot; + 0.034*&quot;atas&quot; + 0.034*&quot;sengaja&quot; + 0.034*&quot;tujuh&quot; + 0.034*&quot;ulang&quot; + 0.034*&quot;buat&quot; + 0.034*&quot;korban&quot; + 0.034*&quot;surat&quot;
+
+Topik 9: 0.045*&quot;dpr&quot; + 0.025*&quot;pilkada&quot; + 0.025*&quot;jalan&quot; + 0.020*&quot;mk&quot; + 0.020*&quot;putus&quot; + 0.020*&quot;wakil&quot; + 0.020*&quot;gedung&quot; + 0.020*&quot;tak&quot; + 0.015*&quot;habiburokhman&quot; + 0.015*&quot;baleg&quot;
+
+Topik 10: 0.003*&quot;ganti&quot; + 0.003*&quot;dasco&quot; + 0.002*&quot;menteri&quot; + 0.002*&quot;kader&quot; + 0.002*&quot;gerindra&quot; + 0.002*&quot;minta&quot; + 0.002*&quot;partai&quot; + 0.001*&quot;kompleks&quot; + 0.001*&quot;dilatarbelakangi&quot; + 0.001*&quot;prabowogibran&quot;
+
+Topik 11: 0.053*&quot;timur&quot; + 0.053*&quot;laku&quot; + 0.035*&quot;aku&quot; + 0.035*&quot;jadi&quot; + 0.035*&quot;korban&quot; + 0.035*&quot;polisi&quot; + 0.035*&quot;bunuh&quot; + 0.035*&quot;kali&quot; + 0.018*&quot;ary&quot; + 0.018*&quot;sepeda&quot;
+
+Topik 12: 0.056*&quot;tengah&quot; + 0.037*&quot;jawa&quot; + 0.037*&quot;sama&quot; + 0.028*&quot;sekolah&quot; + 0.028*&quot;belanja&quot; + 0.019*&quot;partai&quot; + 0.019*&quot;maju&quot; + 0.019*&quot;gubernur&quot; + 0.019*&quot;pilkada&quot; + 0.019*&quot;pilih&quot;
+
+Topik 13: 0.044*&quot;gidion&quot; + 0.029*&quot;laku&quot; + 0.029*&quot;senioritas&quot; + 0.029*&quot;senior&quot; + 0.029*&quot;aniaya&quot; + 0.029*&quot;korban&quot; + 0.029*&quot;paling&quot; + 0.029*&quot;jadi&quot; + 0.029*&quot;kuat&quot; + 0.029*&quot;sebut&quot;
+
+Topik 14: 0.036*&quot;orang&quot; + 0.027*&quot;myanmar&quot; + 0.027*&quot;pulang&quot; + 0.018*&quot;minta&quot; + 0.018*&quot;dapat&quot; + 0.018*&quot;saudara&quot; + 0.018*&quot;perintah&quot; + 0.018*&quot;segera&quot; + 0.018*&quot;pria&quot; + 0.018*&quot;jadi&quot;
+
+Topik 15: 0.001*&quot;lebih&quot; + 0.001*&quot;global&quot; + 0.001*&quot;serang&quot; + 0.001*&quot;sedia&quot; + 0.001*&quot;samping&quot; + 0.001*&quot;palestina&quot; + 0.001*&quot;wilayah&quot; + 0.001*&quot;isu&quot; + 0.001*&quot;bahas&quot; + 0.001*&quot;desak&quot;
+
+Topik 16: 0.041*&quot;negara&quot; + 0.041*&quot;afrika&quot; + 0.031*&quot;kerja&quot; + 0.031*&quot;jenderal&quot; + 0.021*&quot;beri&quot; + 0.021*&quot;sama&quot; + 0.021*&quot;jabat&quot; + 0.021*&quot;tni&quot; + 0.021*&quot;tangan&quot; + 0.021*&quot;selalu&quot;
+
+Topik 17: 0.001*&quot;partai&quot; + 0.001*&quot;kaesang&quot; + 0.001*&quot;tahu&quot; + 0.001*&quot;pilkada&quot; + 0.001*&quot;mas&quot; + 0.001*&quot;psi&quot; + 0.001*&quot;syarat&quot; + 0.001*&quot;urus&quot; + 0.001*&quot;juli&quot; + 0.001*&quot;maju&quot;
+
+Topik 18: 0.028*&quot;jalan&quot; + 0.028*&quot;lihat&quot; + 0.028*&quot;paus&quot; + 0.028*&quot;fransiskus&quot; + 0.028*&quot;sebut&quot; + 0.028*&quot;lintas&quot; + 0.019*&quot;depan&quot; + 0.019*&quot;sambut&quot; + 0.019*&quot;pasti&quot; + 0.019*&quot;mata&quot;
+
+Topik 19: 0.001*&quot;lebih&quot; + 0.001*&quot;global&quot; + 0.001*&quot;serang&quot; + 0.001*&quot;sedia&quot; + 0.001*&quot;samping&quot; + 0.001*&quot;palestina&quot; + 0.001*&quot;wilayah&quot; + 0.001*&quot;isu&quot; + 0.001*&quot;bahas&quot; + 0.001*&quot;desak&quot;
+
+Topik 20: 0.060*&quot;pramono&quot; + 0.030*&quot;pdip&quot; + 0.030*&quot;calon&quot; + 0.030*&quot;jadi&quot; + 0.030*&quot;sempat&quot; + 0.030*&quot;aku&quot; + 0.030*&quot;pikir&quot; + 0.030*&quot;anung&quot; + 0.030*&quot;ingin&quot; + 0.030*&quot;bakal&quot;
+
+Topik 21: 0.125*&quot;golkar&quot; + 0.063*&quot;bahlil&quot; + 0.063*&quot;tum&quot; + 0.050*&quot;jadi&quot; + 0.025*&quot;tuju&quot; + 0.025*&quot;munas&quot; + 0.013*&quot;dekat&quot; + 0.013*&quot;selasa&quot; + 0.013*&quot;mulus&quot; + 0.013*&quot;orang&quot;
+
+Topik 22: 0.003*&quot;etik&quot; + 0.002*&quot;kpk&quot; + 0.002*&quot;hadir&quot; + 0.002*&quot;sidang&quot; + 0.002*&quot;kamis&quot; + 0.002*&quot;dewas&quot; + 0.002*&quot;proses&quot; + 0.002*&quot;alas&quot; + 0.002*&quot;duga&quot; + 0.001*&quot;tan&quot;
+
+Topik 23: 0.052*&quot;kpk&quot; + 0.039*&quot;tan&quot; + 0.026*&quot;tani&quot; + 0.026*&quot;dewas&quot; + 0.026*&quot;pimpin&quot; + 0.026*&quot;lapor&quot; + 0.026*&quot;nyata&quot; + 0.026*&quot;enggak&quot; + 0.026*&quot;kait&quot; + 0.026*&quot;ketua&quot;
+
+Topik 24: 0.044*&quot;aparat&quot; + 0.044*&quot;dapat&quot; + 0.029*&quot;dpr&quot; + 0.029*&quot;polisi&quot; + 0.029*&quot;keras&quot; + 0.029*&quot;jumlah&quot; + 0.029*&quot;pukul&quot; + 0.029*&quot;demo&quot; + 0.015*&quot;lembaga&quot; + 0.015*&quot;jaya&quot;
+
+Topik 25: 0.102*&quot;paus&quot; + 0.068*&quot;fransiskus&quot; + 0.051*&quot;tahun&quot; + 0.051*&quot;usia&quot; + 0.034*&quot;turun&quot; + 0.034*&quot;anak&quot; + 0.017*&quot;kursi&quot; + 0.017*&quot;dua&quot; + 0.017*&quot;udara&quot; + 0.017*&quot;mobil&quot;
+
+Topik 26: 0.038*&quot;jadi&quot; + 0.028*&quot;usaha&quot; + 0.028*&quot;layan&quot; + 0.019*&quot;tuju&quot; + 0.019*&quot;riau&quot; + 0.019*&quot;direktur&quot; + 0.019*&quot;hari&quot; + 0.019*&quot;laku&quot; + 0.019*&quot;senin&quot; + 0.019*&quot;mula&quot;
+
+Topik 27: 0.002*&quot;kondisi&quot; + 0.002*&quot;proses&quot; + 0.002*&quot;baik&quot; + 0.001*&quot;milik&quot; + 0.001*&quot;banyak&quot; + 0.001*&quot;mobil&quot; + 0.001*&quot;masyarakat&quot; + 0.001*&quot;ikut&quot; + 0.001*&quot;rp&quot; + 0.001*&quot;ibu&quot;
+
+Topik 28: 0.001*&quot;tali&quot; + 0.001*&quot;pria&quot; + 0.001*&quot;warna&quot; + 0.001*&quot;tangerang&quot; + 0.001*&quot;temu&quot; + 0.001*&quot;selatan&quot; + 0.001*&quot;sabtu&quot; + 0.001*&quot;sidik&quot; + 0.001*&quot;hitam&quot; + 0.001*&quot;tempat&quot;
+
+Topik 29: 0.001*&quot;nasdem&quot; + 0.001*&quot;partai&quot; + 0.001*&quot;komunikasi&quot; + 0.001*&quot;politik&quot; + 0.001*&quot;paling&quot; + 0.001*&quot;pilkada&quot; + 0.001*&quot;ridwan&quot; + 0.001*&quot;barat&quot; + 0.001*&quot;jawa&quot; + 0.001*&quot;terus&quot;
+
+Topik 30: 0.038*&quot;wakil&quot; + 0.030*&quot;ketua&quot; + 0.030*&quot;dpr&quot; + 0.023*&quot;iskandar&quot; + 0.023*&quot;jazilul&quot; + 0.023*&quot;ri&quot; + 0.023*&quot;langgar&quot; + 0.023*&quot;capres&quot; + 0.015*&quot;selasa&quot; + 0.015*&quot;salam&quot;
+
+Topik 31: 0.115*&quot;kota&quot; + 0.100*&quot;bekas&quot; + 0.057*&quot;calon&quot; + 0.043*&quot;kpud&quot; + 0.043*&quot;terima&quot; + 0.043*&quot;periksa&quot; + 0.043*&quot;kpu&quot; + 0.029*&quot;sehat&quot; + 0.029*&quot;ali&quot; + 0.029*&quot;wali&quot;
+
+Topik 32: 0.044*&quot;tni&quot; + 0.044*&quot;partai&quot; + 0.030*&quot;pilih&quot; + 0.030*&quot;pilkada&quot; + 0.029*&quot;golkar&quot; + 0.022*&quot;kepala&quot; + 0.022*&quot;umum&quot; + 0.022*&quot;minta&quot; + 0.022*&quot;kader&quot; + 0.022*&quot;pdip&quot;
+
+Topik 33: 0.002*&quot;jaya&quot; + 0.002*&quot;aman&quot; + 0.002*&quot;kunjung&quot; + 0.002*&quot;gelar&quot; + 0.002*&quot;fransiskus&quot; + 0.002*&quot;rangka&quot; + 0.002*&quot;imam&quot; + 0.002*&quot;giat&quot; + 0.002*&quot;rabu&quot; + 0.001*&quot;polri&quot;
+
+Topik 34: 0.029*&quot;indonesia&quot; + 0.029*&quot;kuasa&quot; + 0.029*&quot;nyata&quot; + 0.024*&quot;tak&quot; + 0.024*&quot;pan&quot; + 0.024*&quot;sampai&quot; + 0.018*&quot;ikn&quot; + 0.018*&quot;sini&quot; + 0.018*&quot;udara&quot; + 0.018*&quot;nasional&quot;
+
+Topik 35: 0.058*&quot;partai&quot; + 0.035*&quot;golkar&quot; + 0.035*&quot;prabowo&quot; + 0.023*&quot;politik&quot; + 0.023*&quot;komunikasi&quot; + 0.023*&quot;sebut&quot; + 0.017*&quot;nasdem&quot; + 0.017*&quot;anak&quot; + 0.012*&quot;umum&quot; + 0.012*&quot;bapak&quot;
+
+Topik 36: 0.037*&quot;koalisi&quot; + 0.029*&quot;pks&quot; + 0.029*&quot;usung&quot; + 0.029*&quot;anies&quot; + 0.029*&quot;calon&quot; + 0.029*&quot;gubernur&quot; + 0.022*&quot;waktu&quot; + 0.022*&quot;jadi&quot; + 0.022*&quot;prabowo&quot; + 0.022*&quot;presiden&quot;
+
+Topik 37: 0.118*&quot;depok&quot; + 0.045*&quot;daftar&quot; + 0.045*&quot;kpu&quot; + 0.044*&quot;resmi&quot; + 0.030*&quot;umum&quot; + 0.030*&quot;pilih&quot; + 0.030*&quot;komisi&quot; + 0.030*&quot;kota&quot; + 0.030*&quot;wali&quot; + 0.030*&quot;politik&quot;
+
+Topik 38: 0.060*&quot;badan&quot; + 0.060*&quot;bpom&quot; + 0.060*&quot;halal&quot; + 0.040*&quot;tarik&quot; + 0.040*&quot;kepala&quot; + 0.020*&quot;pondok&quot; + 0.020*&quot;benar&quot; + 0.020*&quot;pasti&quot; + 0.020*&quot;aman&quot; + 0.020*&quot;tanya&quot;
+
+Topik 39: 0.001*&quot;lebih&quot; + 0.001*&quot;global&quot; + 0.001*&quot;serang&quot; + 0.001*&quot;sedia&quot; + 0.001*&quot;samping&quot; + 0.001*&quot;palestina&quot; + 0.001*&quot;wilayah&quot; + 0.001*&quot;isu&quot; + 0.001*&quot;bahas&quot; + 0.001*&quot;desak&quot;
+
+Topik 40: 0.083*&quot;rt&quot; + 0.083*&quot;warga&quot; + 0.033*&quot;jadi&quot; + 0.033*&quot;satu&quot; + 0.033*&quot;pusat&quot; + 0.033*&quot;ada&quot; + 0.033*&quot;jatuh&quot; + 0.017*&quot;ketua&quot; + 0.017*&quot;kepala&quot; + 0.017*&quot;ujar&quot;
+
+Topik 41: 0.061*&quot;pkb&quot; + 0.038*&quot;muhaimin&quot; + 0.030*&quot;muktamar&quot; + 0.023*&quot;partai&quot; + 0.023*&quot;orang&quot; + 0.023*&quot;iskandar&quot; + 0.015*&quot;sabtu&quot; + 0.015*&quot;umum&quot; + 0.015*&quot;tak&quot; + 0.015*&quot;ganggu&quot;
+
+Topik 42: 0.042*&quot;rokok&quot; + 0.042*&quot;kaesang&quot; + 0.033*&quot;bekas&quot; + 0.033*&quot;pilkada&quot; + 0.025*&quot;kota&quot; + 0.025*&quot;jual&quot; + 0.025*&quot;pp&quot; + 0.025*&quot;mas&quot; + 0.017*&quot;kumpul&quot; + 0.017*&quot;informasi&quot;
+
+Topik 43: 0.001*&quot;lebih&quot; + 0.001*&quot;global&quot; + 0.001*&quot;serang&quot; + 0.001*&quot;sedia&quot; + 0.001*&quot;samping&quot; + 0.001*&quot;palestina&quot; + 0.001*&quot;wilayah&quot; + 0.001*&quot;isu&quot; + 0.001*&quot;bahas&quot; + 0.001*&quot;desak&quot;
+
+Topik 44: 0.064*&quot;partai&quot; + 0.064*&quot;golkar&quot; + 0.048*&quot;airlangga&quot; + 0.048*&quot;diri&quot; + 0.048*&quot;umum&quot; + 0.032*&quot;minggu&quot; + 0.032*&quot;timbang&quot; + 0.032*&quot;pasti&quot; + 0.032*&quot;perintah&quot; + 0.032*&quot;ketua&quot;
+
+Topik 45: 0.001*&quot;lebih&quot; + 0.001*&quot;global&quot; + 0.001*&quot;serang&quot; + 0.001*&quot;sedia&quot; + 0.001*&quot;samping&quot; + 0.001*&quot;palestina&quot; + 0.001*&quot;wilayah&quot; + 0.001*&quot;isu&quot; + 0.001*&quot;bahas&quot; + 0.001*&quot;desak&quot;
+
+Topik 46: 0.064*&quot;sidang&quot; + 0.064*&quot;megawati&quot; + 0.039*&quot;pdip&quot; + 0.026*&quot;mpr&quot; + 0.026*&quot;sekaligus&quot; + 0.026*&quot;tahun&quot; + 0.026*&quot;ketua&quot; + 0.026*&quot;lihat&quot; + 0.026*&quot;hadir&quot; + 0.013*&quot;tuju&quot;
+
+Topik 47: 0.001*&quot;lebih&quot; + 0.001*&quot;global&quot; + 0.001*&quot;serang&quot; + 0.001*&quot;sedia&quot; + 0.001*&quot;samping&quot; + 0.001*&quot;palestina&quot; + 0.001*&quot;wilayah&quot; + 0.001*&quot;isu&quot; + 0.001*&quot;bahas&quot; + 0.001*&quot;desak&quot;
+
+Topik 48: 0.042*&quot;tak&quot; + 0.035*&quot;anies&quot; + 0.024*&quot;tni&quot; + 0.018*&quot;lukman&quot; + 0.018*&quot;orang&quot; + 0.018*&quot;aniaya&quot; + 0.018*&quot;anggota&quot; + 0.018*&quot;duga&quot; + 0.018*&quot;diri&quot; + 0.018*&quot;bukan&quot;
+
+Topik 49: 0.056*&quot;wni&quot; + 0.030*&quot;indonesia&quot; + 0.030*&quot;retno&quot; + 0.025*&quot;ada&quot; + 0.020*&quot;luar&quot; + 0.020*&quot;pihak&quot; + 0.020*&quot;ujar&quot; + 0.020*&quot;negeri&quot; + 0.015*&quot;konflik&quot; + 0.015*&quot;myanmar&quot;
+
+Topik 50: 0.001*&quot;lebih&quot; + 0.001*&quot;global&quot; + 0.001*&quot;serang&quot; + 0.001*&quot;sedia&quot; + 0.001*&quot;samping&quot; + 0.001*&quot;palestina&quot; + 0.001*&quot;wilayah&quot; + 0.001*&quot;isu&quot; + 0.001*&quot;bahas&quot; + 0.001*&quot;desak&quot;
+
+Topik 51: 0.029*&quot;calon&quot; + 0.027*&quot;stip&quot; + 0.023*&quot;sebut&quot; + 0.023*&quot;hasil&quot; + 0.018*&quot;mk&quot; + 0.018*&quot;putus&quot; + 0.014*&quot;nyata&quot; + 0.014*&quot;kampus&quot; + 0.014*&quot;orang&quot; + 0.014*&quot;keras&quot;
+
+Topik 52: 0.040*&quot;tambang&quot; + 0.024*&quot;duga&quot; + 0.024*&quot;sita&quot; + 0.024*&quot;izin&quot; + 0.024*&quot;usaha&quot; + 0.024*&quot;wajib&quot; + 0.024*&quot;jaksa&quot; + 0.016*&quot;syl&quot; + 0.016*&quot;mobil&quot; + 0.016*&quot;unit&quot;
+
+Topik 53: 0.001*&quot;lebih&quot; + 0.001*&quot;global&quot; + 0.001*&quot;serang&quot; + 0.001*&quot;sedia&quot; + 0.001*&quot;samping&quot; + 0.001*&quot;palestina&quot; + 0.001*&quot;wilayah&quot; + 0.001*&quot;isu&quot; + 0.001*&quot;bahas&quot; + 0.001*&quot;desak&quot;
+
+Topik 54: 0.002*&quot;keluarga&quot; + 0.002*&quot;hilang&quot; + 0.002*&quot;juli&quot; + 0.002*&quot;rasa&quot; + 0.002*&quot;pihak&quot; + 0.002*&quot;lantar&quot; + 0.002*&quot;tak&quot; + 0.002*&quot;acara&quot; + 0.001*&quot;bekas&quot; + 0.001*&quot;telepon&quot;
+
+Topik 55: 0.044*&quot;paus&quot; + 0.044*&quot;katolik&quot; + 0.044*&quot;gereja&quot; + 0.029*&quot;hapus&quot; + 0.029*&quot;ingin&quot; + 0.029*&quot;percaya&quot; + 0.029*&quot;tingkat&quot; + 0.029*&quot;antaragama&quot; + 0.029*&quot;dialog&quot; + 0.029*&quot;saling&quot;
+
+Topik 56: 0.037*&quot;paus&quot; + 0.037*&quot;jadi&quot; + 0.037*&quot;anies&quot; + 0.030*&quot;agama&quot; + 0.030*&quot;ikat&quot; + 0.030*&quot;ridwan&quot; + 0.030*&quot;kamil&quot; + 0.022*&quot;fransiskus&quot; + 0.022*&quot;jaga&quot; + 0.022*&quot;penting&quot;
+
+Topik 57: 0.066*&quot;partai&quot; + 0.049*&quot;nasdem&quot; + 0.033*&quot;sebut&quot; + 0.033*&quot;nama&quot; + 0.033*&quot;gubernur&quot; + 0.033*&quot;pilkada&quot; + 0.033*&quot;anies&quot; + 0.033*&quot;sampai&quot; + 0.017*&quot;internal&quot; + 0.017*&quot;dukung&quot;
+
+Topik 58: 0.001*&quot;lebih&quot; + 0.001*&quot;global&quot; + 0.001*&quot;serang&quot; + 0.001*&quot;sedia&quot; + 0.001*&quot;samping&quot; + 0.001*&quot;palestina&quot; + 0.001*&quot;wilayah&quot; + 0.001*&quot;isu&quot; + 0.001*&quot;bahas&quot; + 0.001*&quot;desak&quot;
+
+Topik 59: 0.042*&quot;paus&quot; + 0.042*&quot;fransiskus&quot; + 0.033*&quot;warga&quot; + 0.025*&quot;merdeka&quot; + 0.025*&quot;istana&quot; + 0.025*&quot;tunggu&quot; + 0.025*&quot;rabu&quot; + 0.025*&quot;aman&quot; + 0.025*&quot;jaya&quot; + 0.017*&quot;lewat&quot;
+
+Topik 60: 0.002*&quot;gidion&quot; + 0.002*&quot;sebut&quot; + 0.002*&quot;kuat&quot; + 0.002*&quot;jadi&quot; + 0.002*&quot;paling&quot; + 0.001*&quot;korban&quot; + 0.001*&quot;aniaya&quot; + 0.001*&quot;senior&quot; + 0.001*&quot;senioritas&quot; + 0.001*&quot;laku&quot;
+
+Topik 61: 0.062*&quot;bekas&quot; + 0.053*&quot;kota&quot; + 0.036*&quot;sosok&quot; + 0.027*&quot;daring&quot; + 0.027*&quot;libat&quot; + 0.027*&quot;sindikat&quot; + 0.027*&quot;inisial&quot; + 0.027*&quot;kpu&quot; + 0.027*&quot;tiba&quot; + 0.018*&quot;badan&quot;
+
+Topik 62: 0.001*&quot;pkb&quot; + 0.001*&quot;muhaimin&quot; + 0.001*&quot;iskandar&quot; + 0.001*&quot;organisasi&quot; + 0.001*&quot;partai&quot; + 0.001*&quot;jadi&quot; + 0.001*&quot;libat&quot; + 0.001*&quot;pbnu&quot; + 0.001*&quot;imin&quot; + 0.001*&quot;ranah&quot;
+
+Topik 63: 0.050*&quot;pramono&quot; + 0.050*&quot;pdip&quot; + 0.038*&quot;nama&quot; + 0.038*&quot;usung&quot; + 0.038*&quot;partai&quot; + 0.038*&quot;anung&quot; + 0.025*&quot;jadi&quot; + 0.025*&quot;pilkada&quot; + 0.025*&quot;masuk&quot; + 0.025*&quot;said&quot;
+
+Topik 64: 0.046*&quot;universitas&quot; + 0.030*&quot;mahasiswa&quot; + 0.030*&quot;sampai&quot; + 0.023*&quot;massa&quot; + 0.023*&quot;demonstrasi&quot; + 0.023*&quot;ri&quot; + 0.023*&quot;dpr&quot; + 0.023*&quot;aksi&quot; + 0.023*&quot;polisi&quot; + 0.023*&quot;desak&quot;
+
+Topik 65: 0.018*&quot;jadi&quot; + 0.018*&quot;tahan&quot; + 0.014*&quot;laku&quot; + 0.014*&quot;rumah&quot; + 0.014*&quot;bangun&quot; + 0.014*&quot;sama&quot; + 0.014*&quot;kota&quot; + 0.014*&quot;masyarakat&quot; + 0.011*&quot;haji&quot; + 0.011*&quot;mahasiswa&quot;
+
+Topik 66: 0.001*&quot;lebih&quot; + 0.001*&quot;global&quot; + 0.001*&quot;serang&quot; + 0.001*&quot;sedia&quot; + 0.001*&quot;samping&quot; + 0.001*&quot;palestina&quot; + 0.001*&quot;wilayah&quot; + 0.001*&quot;isu&quot; + 0.001*&quot;bahas&quot; + 0.001*&quot;desak&quot;
+
+Topik 67: 0.034*&quot;prabowo&quot; + 0.034*&quot;warga&quot; + 0.025*&quot;tni&quot; + 0.025*&quot;polri&quot; + 0.025*&quot;presiden&quot; + 0.025*&quot;tanding&quot; + 0.017*&quot;ujar&quot; + 0.017*&quot;kendali&quot; + 0.017*&quot;bawah&quot; + 0.017*&quot;tetap&quot;
+
+Topik 68: 0.001*&quot;lebih&quot; + 0.001*&quot;global&quot; + 0.001*&quot;serang&quot; + 0.001*&quot;sedia&quot; + 0.001*&quot;samping&quot; + 0.001*&quot;palestina&quot; + 0.001*&quot;wilayah&quot; + 0.001*&quot;isu&quot; + 0.001*&quot;bahas&quot; + 0.001*&quot;desak&quot;
+
+Topik 69: 0.055*&quot;ri&quot; + 0.047*&quot;dpr&quot; + 0.039*&quot;presiden&quot; + 0.039*&quot;tahun&quot; + 0.039*&quot;pakai&quot; + 0.031*&quot;hari&quot; + 0.031*&quot;betawi&quot; + 0.031*&quot;ingat&quot; + 0.024*&quot;tanggal&quot; + 0.024*&quot;kota&quot;
+
+Topik 70: 0.061*&quot;komisi&quot; + 0.061*&quot;senin&quot; + 0.046*&quot;dpr&quot; + 0.046*&quot;ii&quot; + 0.030*&quot;kpu&quot; + 0.030*&quot;kemarin&quot; + 0.030*&quot;hari&quot; + 0.030*&quot;rapat&quot; + 0.015*&quot;kan&quot; + 0.015*&quot;selasa&quot;
+
+Topik 71: 0.153*&quot;depok&quot; + 0.070*&quot;imam&quot; + 0.056*&quot;lanjut&quot; + 0.056*&quot;kota&quot; + 0.042*&quot;sejahtera&quot; + 0.042*&quot;wali&quot; + 0.042*&quot;program&quot; + 0.028*&quot;mohammad&quot; + 0.028*&quot;beberapa&quot; + 0.028*&quot;warga&quot;
+
+Topik 72: 0.035*&quot;lalu&quot; + 0.026*&quot;warga&quot; + 0.026*&quot;selatan&quot; + 0.026*&quot;anak&quot; + 0.026*&quot;polri&quot; + 0.026*&quot;laku&quot; + 0.017*&quot;proses&quot; + 0.017*&quot;lintas&quot; + 0.017*&quot;tuju&quot; + 0.017*&quot;kendara&quot;
+
+Topik 73: 0.057*&quot;lapor&quot; + 0.042*&quot;rizki&quot; + 0.042*&quot;metro&quot; + 0.042*&quot;duga&quot; + 0.028*&quot;anak&quot; + 0.028*&quot;suami&quot; + 0.028*&quot;tindak&quot; + 0.028*&quot;depok&quot; + 0.028*&quot;aniaya&quot; + 0.028*&quot;pidana&quot;
+
+Topik 74: 0.031*&quot;jokowi&quot; + 0.031*&quot;mahasiswa&quot; + 0.023*&quot;ikn&quot; + 0.016*&quot;minta&quot; + 0.016*&quot;ui&quot; + 0.016*&quot;tol&quot; + 0.016*&quot;ilmu&quot; + 0.016*&quot;sampai&quot; + 0.016*&quot;rakyat&quot; + 0.016*&quot;hijau&quot;
+
+Topik 75: 0.073*&quot;depok&quot; + 0.042*&quot;kasus&quot; + 0.033*&quot;beri&quot; + 0.025*&quot;orang&quot; + 0.024*&quot;sebut&quot; + 0.024*&quot;hukum&quot; + 0.024*&quot;kuasa&quot; + 0.024*&quot;balita&quot; + 0.024*&quot;irianty&quot; + 0.024*&quot;meita&quot;
+
+Topik 76: 0.051*&quot;presiden&quot; + 0.051*&quot;palestina&quot; + 0.034*&quot;negara&quot; + 0.034*&quot;prabowo&quot; + 0.034*&quot;serang&quot; + 0.017*&quot;sekaligus&quot; + 0.017*&quot;ri&quot; + 0.017*&quot;mana&quot; + 0.017*&quot;bahas&quot; + 0.017*&quot;bunuh&quot;
+
+Topik 77: 0.027*&quot;pdip&quot; + 0.027*&quot;olahraga&quot; + 0.027*&quot;tali&quot; + 0.027*&quot;warna&quot; + 0.018*&quot;rakernas&quot; + 0.018*&quot;politik&quot; + 0.018*&quot;obor&quot; + 0.018*&quot;ajar&quot; + 0.018*&quot;lokasi&quot; + 0.018*&quot;sendiri&quot;
+
+Topik 78: 0.045*&quot;bekas&quot; + 0.038*&quot;kota&quot; + 0.038*&quot;pkb&quot; + 0.038*&quot;lapor&quot; + 0.038*&quot;sepeda&quot; + 0.030*&quot;lajur&quot; + 0.023*&quot;polres&quot; + 0.023*&quot;lukman&quot; + 0.023*&quot;rizki&quot; + 0.023*&quot;kait&quot;
+
+Topik 79: 0.033*&quot;juang&quot; + 0.033*&quot;kpk&quot; + 0.033*&quot;etik&quot; + 0.025*&quot;merdeka&quot; + 0.025*&quot;atas&quot; + 0.025*&quot;wapres&quot; + 0.025*&quot;pimpin&quot; + 0.025*&quot;dewas&quot; + 0.025*&quot;kamis&quot; + 0.025*&quot;sidang&quot;
+
+Topik 80: 0.063*&quot;air&quot; + 0.042*&quot;tuju&quot; + 0.042*&quot;forum&quot; + 0.042*&quot;komitmen&quot; + 0.042*&quot;sampai&quot; + 0.042*&quot;nyata&quot; + 0.042*&quot;lanjut&quot; + 0.042*&quot;sebut&quot; + 0.021*&quot;lingkung&quot; + 0.021*&quot;sumber&quot;
+
+Topik 81: 0.041*&quot;jadi&quot; + 0.041*&quot;bahlil&quot; + 0.041*&quot;ketua&quot; + 0.028*&quot;partai&quot; + 0.028*&quot;sebut&quot; + 0.027*&quot;calon&quot; + 0.027*&quot;lebih&quot; + 0.027*&quot;penting&quot; + 0.027*&quot;minta&quot; + 0.027*&quot;umum&quot;
+
+Topik 82: 0.052*&quot;beri&quot; + 0.035*&quot;dukung&quot; + 0.035*&quot;pilkada&quot; + 0.035*&quot;rekomendasi&quot; + 0.035*&quot;ahmad&quot; + 0.017*&quot;satu&quot; + 0.017*&quot;bakal&quot; + 0.017*&quot;janji&quot; + 0.017*&quot;lanjut&quot; + 0.017*&quot;prabowo&quot;
+
+Topik 83: 0.067*&quot;pt&quot; + 0.050*&quot;tiket&quot; + 0.050*&quot;hari&quot; + 0.050*&quot;berangkat&quot; + 0.034*&quot;kereta&quot; + 0.034*&quot;april&quot; + 0.034*&quot;lalu&quot; + 0.034*&quot;resmi&quot; + 0.034*&quot;jumat&quot; + 0.034*&quot;api&quot;
+
+Topik 84: 0.001*&quot;lebih&quot; + 0.001*&quot;global&quot; + 0.001*&quot;serang&quot; + 0.001*&quot;sedia&quot; + 0.001*&quot;samping&quot; + 0.001*&quot;palestina&quot; + 0.001*&quot;wilayah&quot; + 0.001*&quot;isu&quot; + 0.001*&quot;bahas&quot; + 0.001*&quot;desak&quot;
+
+Topik 85: 0.088*&quot;ahok&quot; + 0.059*&quot;pramono&quot; + 0.044*&quot;pak&quot; + 0.029*&quot;anung&quot; + 0.029*&quot;gubernur&quot; + 0.029*&quot;ide&quot; + 0.029*&quot;banyak&quot; + 0.015*&quot;pilkada&quot; + 0.015*&quot;lalu&quot; + 0.015*&quot;sebut&quot;
+
+Topik 86: 0.037*&quot;partai&quot; + 0.031*&quot;adi&quot; + 0.031*&quot;politik&quot; + 0.026*&quot;bekas&quot; + 0.026*&quot;kim&quot; + 0.026*&quot;pilkada&quot; + 0.021*&quot;pilih&quot; + 0.021*&quot;calon&quot; + 0.021*&quot;punya&quot; + 0.016*&quot;stasiun&quot;
+
+Topik 87: 0.050*&quot;barat&quot; + 0.050*&quot;iskandar&quot; + 0.033*&quot;lapor&quot; + 0.033*&quot;milik&quot; + 0.033*&quot;rp&quot; + 0.017*&quot;perintah&quot; + 0.017*&quot;capai&quot; + 0.017*&quot;sebar&quot; + 0.017*&quot;korupsi&quot; + 0.017*&quot;jaksa&quot;
+
+Topik 88: 0.001*&quot;lebih&quot; + 0.001*&quot;global&quot; + 0.001*&quot;serang&quot; + 0.001*&quot;sedia&quot; + 0.001*&quot;samping&quot; + 0.001*&quot;palestina&quot; + 0.001*&quot;wilayah&quot; + 0.001*&quot;isu&quot; + 0.001*&quot;bahas&quot; + 0.001*&quot;desak&quot;
+
+Topik 89: 0.167*&quot;pilih&quot; + 0.067*&quot;daftar&quot; + 0.033*&quot;kpu&quot; + 0.033*&quot;guna&quot; + 0.033*&quot;ri&quot; + 0.033*&quot;khusus&quot; + 0.033*&quot;hak&quot; + 0.033*&quot;tetap&quot; + 0.017*&quot;masuk&quot; + 0.017*&quot;tutup&quot;
+
+Topik 90: 0.057*&quot;dukung&quot; + 0.057*&quot;data&quot; + 0.043*&quot;bakal&quot; + 0.043*&quot;baik&quot; + 0.043*&quot;calon&quot; + 0.029*&quot;waktu&quot; + 0.029*&quot;verifikasi&quot; + 0.029*&quot;beri&quot; + 0.029*&quot;hari&quot; + 0.029*&quot;nilai&quot;
+
+Topik 91: 0.001*&quot;lebih&quot; + 0.001*&quot;global&quot; + 0.001*&quot;serang&quot; + 0.001*&quot;sedia&quot; + 0.001*&quot;samping&quot; + 0.001*&quot;palestina&quot; + 0.001*&quot;wilayah&quot; + 0.001*&quot;isu&quot; + 0.001*&quot;bahas&quot; + 0.001*&quot;desak&quot;
+
+Topik 92: 0.060*&quot;program&quot; + 0.030*&quot;dki&quot; + 0.030*&quot;ekonomi&quot; + 0.030*&quot;gubernur&quot; + 0.030*&quot;satu&quot; + 0.030*&quot;salah&quot; + 0.030*&quot;anies&quot; + 0.030*&quot;tugas&quot; + 0.030*&quot;pilkada&quot; + 0.030*&quot;beri&quot;
+
+Topik 93: 0.001*&quot;lebih&quot; + 0.001*&quot;global&quot; + 0.001*&quot;serang&quot; + 0.001*&quot;sedia&quot; + 0.001*&quot;samping&quot; + 0.001*&quot;palestina&quot; + 0.001*&quot;wilayah&quot; + 0.001*&quot;isu&quot; + 0.001*&quot;bahas&quot; + 0.001*&quot;desak&quot;
+
+Topik 94: 0.001*&quot;lebih&quot; + 0.001*&quot;global&quot; + 0.001*&quot;serang&quot; + 0.001*&quot;sedia&quot; + 0.001*&quot;samping&quot; + 0.001*&quot;palestina&quot; + 0.001*&quot;wilayah&quot; + 0.001*&quot;isu&quot; + 0.001*&quot;bahas&quot; + 0.001*&quot;desak&quot;
+
+Topik 95: 0.066*&quot;nasdem&quot; + 0.058*&quot;anies&quot; + 0.050*&quot;dki&quot; + 0.033*&quot;ketua&quot; + 0.033*&quot;dukung&quot; + 0.032*&quot;partai&quot; + 0.032*&quot;jadi&quot; + 0.029*&quot;pilkada&quot; + 0.017*&quot;tekan&quot; + 0.017*&quot;politik&quot;
+
+Topik 96: 0.052*&quot;jenazah&quot; + 0.035*&quot;tewas&quot; + 0.035*&quot;jumat&quot; + 0.035*&quot;akibat&quot; + 0.035*&quot;aniaya&quot; + 0.035*&quot;sidik&quot; + 0.035*&quot;stip&quot; + 0.035*&quot;periksa&quot; + 0.035*&quot;senior&quot; + 0.035*&quot;rumah&quot;
+
+Topik 97: 0.071*&quot;dukung&quot; + 0.060*&quot;prabowo&quot; + 0.056*&quot;tkn&quot; + 0.056*&quot;presiden&quot; + 0.048*&quot;sampai&quot; + 0.043*&quot;prabowogibran&quot; + 0.033*&quot;wakil&quot; + 0.032*&quot;calon&quot; + 0.024*&quot;pak&quot; + 0.023*&quot;minta&quot;
+
+Topik 98: 0.054*&quot;fransiskus&quot; + 0.040*&quot;paus&quot; + 0.027*&quot;kerja&quot; + 0.027*&quot;gereja&quot; + 0.027*&quot;sama&quot; + 0.027*&quot;ingin&quot; + 0.027*&quot;bagai&quot; + 0.027*&quot;katolik&quot; + 0.027*&quot;negara&quot; + 0.013*&quot;lembaga&quot;
+
+Topik 99: 0.044*&quot;kali&quot; + 0.035*&quot;anakanak&quot; + 0.035*&quot;mati&quot; + 0.035*&quot;keluarga&quot; + 0.026*&quot;pihak&quot; + 0.026*&quot;tak&quot; + 0.026*&quot;hilang&quot; + 0.018*&quot;bangun&quot; + 0.018*&quot;jadi&quot; + 0.018*&quot;banyak&quot;
+
+Topik 100: 0.001*&quot;lebih&quot; + 0.001*&quot;global&quot; + 0.001*&quot;serang&quot; + 0.001*&quot;sedia&quot; + 0.001*&quot;samping&quot; + 0.001*&quot;palestina&quot; + 0.001*&quot;wilayah&quot; + 0.001*&quot;isu&quot; + 0.001*&quot;bahas&quot; + 0.001*&quot;desak&quot;
+
+Topik 101: 0.068*&quot;pdip&quot; + 0.054*&quot;politik&quot; + 0.054*&quot;partai&quot; + 0.041*&quot;ganjar&quot; + 0.027*&quot;sikap&quot; + 0.027*&quot;hasil&quot; + 0.027*&quot;demokrasi&quot; + 0.027*&quot;rakernas&quot; + 0.027*&quot;perintah&quot; + 0.027*&quot;juang&quot;
+
+Topik 102: 0.062*&quot;ganti&quot; + 0.062*&quot;dasco&quot; + 0.031*&quot;partai&quot; + 0.031*&quot;minta&quot; + 0.031*&quot;kader&quot; + 0.031*&quot;gerindra&quot; + 0.031*&quot;menteri&quot; + 0.016*&quot;tugas&quot; + 0.016*&quot;jumlah&quot; + 0.016*&quot;bantah&quot;
+
+Topik 103: 0.098*&quot;alias&quot; + 0.041*&quot;pansus&quot; + 0.041*&quot;dpr&quot; + 0.041*&quot;haji&quot; + 0.041*&quot;masa&quot; + 0.033*&quot;rapat&quot; + 0.024*&quot;sidang&quot; + 0.024*&quot;utara&quot; + 0.016*&quot;gelar&quot; + 0.016*&quot;dasco&quot;
+
+Topik 104: 0.001*&quot;lebih&quot; + 0.001*&quot;global&quot; + 0.001*&quot;serang&quot; + 0.001*&quot;sedia&quot; + 0.001*&quot;samping&quot; + 0.001*&quot;palestina&quot; + 0.001*&quot;wilayah&quot; + 0.001*&quot;isu&quot; + 0.001*&quot;bahas&quot; + 0.001*&quot;desak&quot;
+
+Topik 105: 0.081*&quot;anies&quot; + 0.045*&quot;ridwan&quot; + 0.038*&quot;kamil&quot; + 0.033*&quot;pilkada&quot; + 0.030*&quot;persen&quot; + 0.030*&quot;baswedan&quot; + 0.023*&quot;unggul&quot; + 0.023*&quot;pkb&quot; + 0.022*&quot;gubernur&quot; + 0.017*&quot;nyata&quot;
+
+Topik 106: 0.001*&quot;lebih&quot; + 0.001*&quot;global&quot; + 0.001*&quot;serang&quot; + 0.001*&quot;sedia&quot; + 0.001*&quot;samping&quot; + 0.001*&quot;palestina&quot; + 0.001*&quot;wilayah&quot; + 0.001*&quot;isu&quot; + 0.001*&quot;bahas&quot; + 0.001*&quot;desak&quot;
+
+Topik 107: 0.001*&quot;lebih&quot; + 0.001*&quot;global&quot; + 0.001*&quot;serang&quot; + 0.001*&quot;sedia&quot; + 0.001*&quot;samping&quot; + 0.001*&quot;palestina&quot; + 0.001*&quot;wilayah&quot; + 0.001*&quot;isu&quot; + 0.001*&quot;bahas&quot; + 0.001*&quot;desak&quot;
+
+Topik 108: 0.001*&quot;lebih&quot; + 0.001*&quot;global&quot; + 0.001*&quot;serang&quot; + 0.001*&quot;sedia&quot; + 0.001*&quot;samping&quot; + 0.001*&quot;palestina&quot; + 0.001*&quot;wilayah&quot; + 0.001*&quot;isu&quot; + 0.001*&quot;bahas&quot; + 0.001*&quot;desak&quot;
+
+Topik 109: 0.084*&quot;sipil&quot; + 0.050*&quot;masuk&quot; + 0.034*&quot;rencana&quot; + 0.034*&quot;jabat&quot; + 0.034*&quot;pp&quot; + 0.034*&quot;nilai&quot; + 0.034*&quot;kesah&quot; + 0.034*&quot;ranah&quot; + 0.034*&quot;luas&quot; + 0.033*&quot;perintah&quot;
+
+Topik 110: 0.082*&quot;menteri&quot; + 0.066*&quot;presiden&quot; + 0.033*&quot;partai&quot; + 0.033*&quot;tiga&quot; + 0.033*&quot;negeri&quot; + 0.033*&quot;posisi&quot; + 0.033*&quot;menlu&quot; + 0.017*&quot;politik&quot; + 0.017*&quot;pilih&quot; + 0.017*&quot;indonesia&quot;
+
+Topik 111: 0.059*&quot;megawati&quot; + 0.044*&quot;undangundang&quot; + 0.044*&quot;tni&quot; + 0.030*&quot;revisi&quot; + 0.030*&quot;tuju&quot; + 0.030*&quot;kalau&quot; + 0.030*&quot;tak&quot; + 0.030*&quot;tahun&quot; + 0.030*&quot;polri&quot; + 0.030*&quot;nomor&quot;
+
+Topik 112: 0.002*&quot;anung&quot; + 0.001*&quot;pdip&quot; + 0.001*&quot;pramono&quot; + 0.001*&quot;partai&quot; + 0.001*&quot;aspirasi&quot; + 0.001*&quot;sekretaris&quot; + 0.001*&quot;karno&quot; + 0.001*&quot;usung&quot; + 0.001*&quot;said&quot; + 0.001*&quot;nama&quot;
+</pre></div>
+</div>
+</div>
+</div>
+<ol class="arabic simple" start="7">
+<li><p>Menentukan Topik Dominan per Dokumen</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dominant_topics</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">doc_bow</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">corpus</span><span class="p">):</span>
+    <span class="n">topics_in_doc</span> <span class="o">=</span> <span class="n">optimal_model</span><span class="o">.</span><span class="n">get_document_topics</span><span class="p">(</span><span class="n">doc_bow</span><span class="p">,</span> <span class="n">minimum_probability</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+    <span class="n">topics_in_doc</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">topics_in_doc</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">reverse</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">topic_num</span><span class="p">,</span> <span class="n">prop</span> <span class="o">=</span> <span class="n">topics_in_doc</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">dominant_topics</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">i</span><span class="p">,</span> <span class="n">topic_num</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="nb">round</span><span class="p">(</span><span class="n">prop</span><span class="p">,</span> <span class="mi">3</span><span class="p">)))</span>
+
+<span class="n">df_dominant</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">dominant_topics</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;Index&quot;</span><span class="p">,</span> <span class="s2">&quot;Topik Dominan&quot;</span><span class="p">,</span> <span class="s2">&quot;Proporsi&quot;</span><span class="p">])</span>
+<span class="n">df_result</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">df_clean</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">drop</span><span class="o">=</span><span class="kc">True</span><span class="p">),</span> <span class="n">df_dominant</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s2">&quot;Index&quot;</span><span class="p">)],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="n">display</span><span class="p">(</span><span class="n">df_result</span><span class="p">[[</span><span class="s2">&quot;Judul&quot;</span><span class="p">,</span> <span class="s2">&quot;Kategori&quot;</span><span class="p">,</span> <span class="s2">&quot;Topik Dominan&quot;</span><span class="p">,</span> <span class="s2">&quot;Proporsi&quot;</span><span class="p">,</span> <span class="s2">&quot;clean&quot;</span><span class="p">]])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">
+  <div id="df-d9f944e9-15f2-414b-9c93-013157d1bdee" class="colab-df-container">
+    <div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Judul</th>
+      <th>Kategori</th>
+      <th>Topik Dominan</th>
+      <th>Proporsi</th>
+      <th>clean</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Jokowi Kenakan Pakaian Adat Betawi di Sidang T...</td>
+      <td>Nasional</td>
+      <td>69</td>
+      <td>0.983</td>
+      <td>jakarta kompascom presiden joko widodo pakai b...</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>KPU Tegaskan Pemilih Tak Terdaftar di DPT Bisa...</td>
+      <td>Nasional</td>
+      <td>89</td>
+      <td>0.981</td>
+      <td>jakarta kompascom komisi pilih umum kpu ri pas...</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Warga Sebut Ada Benda Serupa Jimat pada Mayat ...</td>
+      <td>Megapolitan</td>
+      <td>77</td>
+      <td>0.982</td>
+      <td>tangerang selatan kompascom utas tali warna hi...</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Polisi Menganiaya Mereka yang Cinta Damai dan ...</td>
+      <td>Megapolitan</td>
+      <td>24</td>
+      <td>0.984</td>
+      <td>jakarta kompascom jumlah massa dapat keras apa...</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>Airlangga Hartarto Mundur dari Ketum, Golkar B...</td>
+      <td>Nasional</td>
+      <td>44</td>
+      <td>0.982</td>
+      <td>jakarta kompascom airlangga hartarto resmi und...</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>Nasdem Pastikan Dukung Ilham Habibie untuk Pil...</td>
+      <td>Nasional</td>
+      <td>35</td>
+      <td>0.984</td>
+      <td>jakarta kompascom partai nasdem pasti dukung i...</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>"Influencer Parenting" Aniaya Balita, Kriminol...</td>
+      <td>Megapolitan</td>
+      <td>75</td>
+      <td>0.981</td>
+      <td>jakarta kompascom kriminolog universitas indon...</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>Jalan Mulus Bahlil Raih Kursi Ketum Golkar</td>
+      <td>Nasional</td>
+      <td>21</td>
+      <td>0.986</td>
+      <td>jakarta kompascom jalan menteri energi sumber ...</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>Maruarar Sirait Dukung Prabowo-Gibran, TKN: Ma...</td>
+      <td>Nasional</td>
+      <td>51</td>
+      <td>0.610</td>
+      <td>jakarta kompascom sekretaris tim kampanye nasi...</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>Usai Diturap, Kali Mati di Pademangan Tak Lagi...</td>
+      <td>Megapolitan</td>
+      <td>99</td>
+      <td>0.980</td>
+      <td>jakarta kompascom usai turap kali mati banyak ...</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>Maju Pilkada Depok, Imam Budi Hartono Ingin La...</td>
+      <td>Megapolitan</td>
+      <td>71</td>
+      <td>0.985</td>
+      <td>depok kompascom bakal calon wali kota depok im...</td>
+    </tr>
+    <tr>
+      <th>11</th>
+      <td>KPUD Kota Bekasi Terima Dokumen Pendaftaran Pa...</td>
+      <td>Megapolitan</td>
+      <td>31</td>
+      <td>0.984</td>
+      <td>bekas kompascom komisi pilih umum daerah kpud ...</td>
+    </tr>
+    <tr>
+      <th>12</th>
+      <td>[POPULER NASIONAL] PBNU Heran Pansus Haji Dibe...</td>
+      <td>Nasional</td>
+      <td>65</td>
+      <td>0.986</td>
+      <td>jakarta kompascom berita urus besar nahdlatul ...</td>
+    </tr>
+    <tr>
+      <th>13</th>
+      <td>Antoninho Rangel da Silva, Jenderal Berdarah T...</td>
+      <td>Nasional</td>
+      <td>16</td>
+      <td>0.972</td>
+      <td>jakarta kompascom wakil asisten intelijen kepa...</td>
+    </tr>
+    <tr>
+      <th>14</th>
+      <td>Pidato Lengkap Paus Fransiskus di Istana Negara</td>
+      <td>Nasional</td>
+      <td>98</td>
+      <td>0.985</td>
+      <td>jakarta kompascom paus fransiskus sampai bagai...</td>
+    </tr>
+    <tr>
+      <th>15</th>
+      <td>AHY Serahkan Kepada Prabowo Jika Ingin Ajak Pa...</td>
+      <td>Nasional</td>
+      <td>36</td>
+      <td>0.985</td>
+      <td>jakarta kompascom ketua umum partai demokrat a...</td>
+    </tr>
+    <tr>
+      <th>16</th>
+      <td>Wacana Kotak Kosong pada Pilkada Jakarta Jadi ...</td>
+      <td>Nasional</td>
+      <td>86</td>
+      <td>0.986</td>
+      <td>jakarta kompascom direktur parameter politik i...</td>
+    </tr>
+    <tr>
+      <th>17</th>
+      <td>Cerita Korban Penipuan Visa Haji Ilegal: Panas...</td>
+      <td>Nasional</td>
+      <td>48</td>
+      <td>0.983</td>
+      <td>mek kompascom lukman bukan nama benar orang gu...</td>
+    </tr>
+    <tr>
+      <th>18</th>
+      <td>Gerindra Sebut "Reshuffle" Menkumham untuk Sin...</td>
+      <td>Nasional</td>
+      <td>102</td>
+      <td>0.983</td>
+      <td>jakarta kompascom ketua hari partai gerindra s...</td>
+    </tr>
+    <tr>
+      <th>19</th>
+      <td>Puan Salami Anies-Muhaimin Usai Debat Capres, ...</td>
+      <td>Nasional</td>
+      <td>30</td>
+      <td>0.983</td>
+      <td>jakarta kompascom wakil ketua umum waketum par...</td>
+    </tr>
+    <tr>
+      <th>20</th>
+      <td>3 Paslon Ramaikan Pilkada Jakarta, Bamus Betaw...</td>
+      <td>Megapolitan</td>
+      <td>51</td>
+      <td>0.984</td>
+      <td>jakarta kompascom ketua umum badan musyawarah ...</td>
+    </tr>
+    <tr>
+      <th>21</th>
+      <td>BERITA FOTO: Tangis Bahagia Warga Sambut Kedat...</td>
+      <td>Megapolitan</td>
+      <td>18</td>
+      <td>0.982</td>
+      <td>jakarta kompascom tangis bahagia lihat raut wa...</td>
+    </tr>
+    <tr>
+      <th>22</th>
+      <td>Dilaporkan ke Dewas, Wakil Ketua KPK Mengaku T...</td>
+      <td>Nasional</td>
+      <td>23</td>
+      <td>0.986</td>
+      <td>jakarta kompascom wakil ketua komisi berantas ...</td>
+    </tr>
+    <tr>
+      <th>23</th>
+      <td>Pengamat Nilai Dharma-Kun Bakal Sulit Dapat 53...</td>
+      <td>Megapolitan</td>
+      <td>90</td>
+      <td>0.984</td>
+      <td>jakarta kompascom amat komunikasi politik univ...</td>
+    </tr>
+    <tr>
+      <th>24</th>
+      <td>Kerap Dipandang Sebelah Mata Jadi Pelukis Jala...</td>
+      <td>Megapolitan</td>
+      <td>14</td>
+      <td>0.981</td>
+      <td>jakarta kompascom mulidi aku kerap pandang bel...</td>
+    </tr>
+    <tr>
+      <th>25</th>
+      <td>Pramono Anung Belum Final, PDI-P Masih Berpelu...</td>
+      <td>Nasional</td>
+      <td>63</td>
+      <td>0.986</td>
+      <td>jakarta kompascom partai demokrasi indonesia j...</td>
+    </tr>
+    <tr>
+      <th>26</th>
+      <td>Naik Becak ke KPU, UU Saeful-Nurul Sumarheni D...</td>
+      <td>Megapolitan</td>
+      <td>61</td>
+      <td>0.984</td>
+      <td>bekas kompascom bakal calon wali kota wakil wa...</td>
+    </tr>
+    <tr>
+      <th>27</th>
+      <td>Publik Diminta Jangan Mau Dininabobokan DPR-KP...</td>
+      <td>Nasional</td>
+      <td>51</td>
+      <td>0.984</td>
+      <td>jakarta kompascom pakar hukum tata negara bvit...</td>
+    </tr>
+    <tr>
+      <th>28</th>
+      <td>Daftar ke KPU, Supian-Chandra Resmi Maju pada ...</td>
+      <td>Megapolitan</td>
+      <td>37</td>
+      <td>0.982</td>
+      <td>depok kompascom supian suri chandra rahmansyah...</td>
+    </tr>
+    <tr>
+      <th>29</th>
+      <td>ICW Sebut Alasan Nurul Ghufron Absen di Sidang...</td>
+      <td>Nasional</td>
+      <td>79</td>
+      <td>0.983</td>
+      <td>jakarta kompascom indonesia corruption watch i...</td>
+    </tr>
+    <tr>
+      <th>30</th>
+      <td>Program "Belanja Bareng Yatim" Ajak Ratusan An...</td>
+      <td>Nasional</td>
+      <td>12</td>
+      <td>0.978</td>
+      <td>kompascom dompet dhuafa sukses ada program bel...</td>
+    </tr>
+    <tr>
+      <th>31</th>
+      <td>Didorong PDI-P Jadi Bacagub Jakarta, Pramono: ...</td>
+      <td>Megapolitan</td>
+      <td>20</td>
+      <td>0.983</td>
+      <td>jakarta kompascom pramono anung dorong pdip ba...</td>
+    </tr>
+    <tr>
+      <th>32</th>
+      <td>KPK Sita Mobil Mercy di Makassar, Diduga Disem...</td>
+      <td>Nasional</td>
+      <td>52</td>
+      <td>0.984</td>
+      <td>jakarta kompascom komisi pembernatasan korupsi...</td>
+    </tr>
+    <tr>
+      <th>33</th>
+      <td>Pertemuan Prabowo-Erdogan Bahas Serangan Israe...</td>
+      <td>Nasional</td>
+      <td>76</td>
+      <td>0.981</td>
+      <td>jakarta kompascom serang israel jalur gaza pal...</td>
+    </tr>
+    <tr>
+      <th>34</th>
+      <td>Tinjau Layanan Publik BPOM, Menpan-RB Dukung P...</td>
+      <td>Nasional</td>
+      <td>4</td>
+      <td>0.982</td>
+      <td>kompascom menteri pendayagunaan aparatur negar...</td>
+    </tr>
+    <tr>
+      <th>35</th>
+      <td>Bantah Pernyataan Ketua STIP soal Tak Ada Lagi...</td>
+      <td>Megapolitan</td>
+      <td>51</td>
+      <td>0.981</td>
+      <td>jakarta kompascom salah orang alumni sekolah t...</td>
+    </tr>
+    <tr>
+      <th>36</th>
+      <td>Sindir Megawati, Bahlil Bilang Tak Minta Pasan...</td>
+      <td>Nasional</td>
+      <td>32</td>
+      <td>0.985</td>
+      <td>jakarta kompascom ketua umum partai golkar bah...</td>
+    </tr>
+    <tr>
+      <th>37</th>
+      <td>Anies Cerita Pernah Tawarkan Diri Jadi Kader P...</td>
+      <td>Nasional</td>
+      <td>48</td>
+      <td>0.763</td>
+      <td>jakarta kompascom mantan gubernur dki jakarta ...</td>
+    </tr>
+    <tr>
+      <th>38</th>
+      <td>Pada IAF 2024, Kepala NFA Arief Prasetyo Adi E...</td>
+      <td>Nasional</td>
+      <td>34</td>
+      <td>0.979</td>
+      <td>kompascom tantang dinamika global kait pangan ...</td>
+    </tr>
+    <tr>
+      <th>39</th>
+      <td>Sambut Pilkada 2024, Megawati Minta Kader PDIP...</td>
+      <td>Nasional</td>
+      <td>6</td>
+      <td>0.986</td>
+      <td>jakarta kompascom ketua umum partai demokrasi ...</td>
+    </tr>
+    <tr>
+      <th>40</th>
+      <td>OPM Ajukan Syarat Pembebasan Pilot Susi Air Ph...</td>
+      <td>Nasional</td>
+      <td>49</td>
+      <td>0.974</td>
+      <td>jakarta kompascom tentara bebas nasional papua...</td>
+    </tr>
+    <tr>
+      <th>41</th>
+      <td>Ditanya Soal Rencana Program Khusus Perempuan ...</td>
+      <td>Megapolitan</td>
+      <td>92</td>
+      <td>0.983</td>
+      <td>jakarta kompascom mantan gubernur dki jakarta ...</td>
+    </tr>
+    <tr>
+      <th>42</th>
+      <td>Menlu Retno Beri Saran untuk Para WNI yang Aka...</td>
+      <td>Nasional</td>
+      <td>49</td>
+      <td>0.978</td>
+      <td>jakarta kompascom menteri luar negeri menlu re...</td>
+    </tr>
+    <tr>
+      <th>43</th>
+      <td>Pelaku Minta Maaf, Kasus Perempuan Direkam Dia...</td>
+      <td>Megapolitan</td>
+      <td>8</td>
+      <td>0.981</td>
+      <td>jakarta kompascom laku leceh seksual nama indr...</td>
+    </tr>
+    <tr>
+      <th>44</th>
+      <td>Pansus Haji DPR Batal Gelar Rapat pada Masa Reses</td>
+      <td>Nasional</td>
+      <td>103</td>
+      <td>0.986</td>
+      <td>jakarta kompascom panitia khusus pansus haji d...</td>
+    </tr>
+    <tr>
+      <th>45</th>
+      <td>Satpol PP Kota Bekasi Bakal Razia Warung Penju...</td>
+      <td>Megapolitan</td>
+      <td>42</td>
+      <td>0.981</td>
+      <td>bekas kompascom satu polisi pamong praja satpo...</td>
+    </tr>
+    <tr>
+      <th>46</th>
+      <td>Belanja Daerah Baru 31 Persen, Jokowi: Kecil S...</td>
+      <td>Nasional</td>
+      <td>4</td>
+      <td>0.983</td>
+      <td>jakarta kompascom presiden joko widodo minta k...</td>
+    </tr>
+    <tr>
+      <th>47</th>
+      <td>Keluarga Korban Penganiayaan Pemilik "Daycare"...</td>
+      <td>Nasional</td>
+      <td>65</td>
+      <td>0.649</td>
+      <td>jakarta kompascom keluarga korban aniaya wense...</td>
+    </tr>
+    <tr>
+      <th>48</th>
+      <td>Berduka atas Wafatnya Pemimpin Hamas Ismail Ha...</td>
+      <td>Nasional</td>
+      <td>79</td>
+      <td>0.982</td>
+      <td>jakarta kompascom wakil presiden wapres ma ruf...</td>
+    </tr>
+    <tr>
+      <th>49</th>
+      <td>Lukman Edy Tak Hanya Dilaporkan ke Bareskrim, ...</td>
+      <td>Megapolitan</td>
+      <td>78</td>
+      <td>0.986</td>
+      <td>bekas kompascom dewan pimpin cabang dpc pkb ko...</td>
+    </tr>
+    <tr>
+      <th>50</th>
+      <td>Polisi Akan Periksa Pengendara Ekskavator yang...</td>
+      <td>Megapolitan</td>
+      <td>18</td>
+      <td>0.977</td>
+      <td>jakarta kompascom kapolsek setiabudi kompol fi...</td>
+    </tr>
+    <tr>
+      <th>51</th>
+      <td>Ditetapkan Jadi Tersangka, Ujang Iskandar Mili...</td>
+      <td>Nasional</td>
+      <td>87</td>
+      <td>0.981</td>
+      <td>jakarta kompascom jaksa agung jagung tetap ang...</td>
+    </tr>
+    <tr>
+      <th>52</th>
+      <td>Wali Kota: Rumah Panggung dari Kemenhan di Mua...</td>
+      <td>Megapolitan</td>
+      <td>65</td>
+      <td>0.980</td>
+      <td>jakarta kompascom wali kota jakarta utara ali ...</td>
+    </tr>
+    <tr>
+      <th>53</th>
+      <td>Anggota DPRD DKI Ajak Warga Tanding Sepak Bola...</td>
+      <td>Megapolitan</td>
+      <td>67</td>
+      <td>0.978</td>
+      <td>jakarta kompascom anggota dprd dki jakarta fra...</td>
+    </tr>
+    <tr>
+      <th>54</th>
+      <td>Megawati Tak Tampak dalam Sidang Tahunan MPR</td>
+      <td>Nasional</td>
+      <td>46</td>
+      <td>0.986</td>
+      <td>jakarta kompascom presiden lima ri sekaligus k...</td>
+    </tr>
+    <tr>
+      <th>55</th>
+      <td>Bareskrim Tangkap Penjual Video Porno di Teleg...</td>
+      <td>Nasional</td>
+      <td>72</td>
+      <td>0.982</td>
+      <td>jakarta kompascom direktorat tindak pidana sib...</td>
+    </tr>
+    <tr>
+      <th>56</th>
+      <td>Memaknai Pernyataan Prabowo soal Haus Kekuasaan</td>
+      <td>Nasional</td>
+      <td>34</td>
+      <td>0.983</td>
+      <td>presidenterpilih prabowo subianto sampai nyata...</td>
+    </tr>
+    <tr>
+      <th>57</th>
+      <td>Banyak Warga Menonton Kebakaran Toko Bingkai, ...</td>
+      <td>Megapolitan</td>
+      <td>72</td>
+      <td>0.981</td>
+      <td>jakarta kompascom situasi lalu lintas lalin si...</td>
+    </tr>
+    <tr>
+      <th>58</th>
+      <td>Ridwan Kamil OTW Jakarta, Peluang Lawan Kotak ...</td>
+      <td>Megapolitan</td>
+      <td>56</td>
+      <td>0.985</td>
+      <td>jakarta kompascom peluang eks gubernur jawa ba...</td>
+    </tr>
+    <tr>
+      <th>59</th>
+      <td>Benny Rhamdani Bongkar Inisial Lain Diduga Ter...</td>
+      <td>Nasional</td>
+      <td>61</td>
+      <td>0.978</td>
+      <td>jakarta kompascom kepala badan lindung kerja m...</td>
+    </tr>
+    <tr>
+      <th>60</th>
+      <td>Menlu: Belum Ada Temuan WNI Bentuk Geng di Jepang</td>
+      <td>Nasional</td>
+      <td>49</td>
+      <td>0.982</td>
+      <td>jakarta kompascom menteri luar menlu negeri re...</td>
+    </tr>
+    <tr>
+      <th>61</th>
+      <td>Ratusan Orang Sempat Protes Muktamar PKB, Cak ...</td>
+      <td>Nasional</td>
+      <td>41</td>
+      <td>0.985</td>
+      <td>jakarta kompascom ketua umum partai bangkit ba...</td>
+    </tr>
+    <tr>
+      <th>62</th>
+      <td>Lambaikan Tangan dari Mobil, Paus Fransiskus S...</td>
+      <td>Megapolitan</td>
+      <td>59</td>
+      <td>0.983</td>
+      <td>jakarta kompascom paus fransiskus sapa warga t...</td>
+    </tr>
+    <tr>
+      <th>63</th>
+      <td>Polri Siapkan Pengamanan Kunjungan Paus Fransi...</td>
+      <td>Nasional</td>
+      <td>59</td>
+      <td>0.982</td>
+      <td>jakarta kompascom polisi republik indonesia po...</td>
+    </tr>
+    <tr>
+      <th>64</th>
+      <td>Pramono Anung-Rano Karno Mengaku Rutin Periksa...</td>
+      <td>Megapolitan</td>
+      <td>3</td>
+      <td>0.983</td>
+      <td>jakarta kompascom pasang calon gubernur cagub ...</td>
+    </tr>
+    <tr>
+      <th>65</th>
+      <td>Tak Usung Ridwan Kamil pada Pilkada Jakarta, N...</td>
+      <td>Nasional</td>
+      <td>95</td>
+      <td>0.882</td>
+      <td>jakarta kompascom ketua dpp partai nasdem effe...</td>
+    </tr>
+    <tr>
+      <th>66</th>
+      <td>Menag Yaqut Perintahkan BPJPH Cek Label Halal ...</td>
+      <td>Nasional</td>
+      <td>38</td>
+      <td>0.976</td>
+      <td>jakarta kompascom menteri agama yaqut cholil q...</td>
+    </tr>
+    <tr>
+      <th>67</th>
+      <td>KBRI Yangon Berupaya Selamatkan WNI yang Didug...</td>
+      <td>Megapolitan</td>
+      <td>49</td>
+      <td>0.982</td>
+      <td>jakarta kompascom duta besar republik indonesi...</td>
+    </tr>
+    <tr>
+      <th>68</th>
+      <td>Giliran ITB, Unpas, Uninda, dan Unindra Demo d...</td>
+      <td>Megapolitan</td>
+      <td>64</td>
+      <td>0.985</td>
+      <td>jakarta kompascom mahasiswa gelar aksi demonst...</td>
+    </tr>
+    <tr>
+      <th>69</th>
+      <td>TNI Tetap Aktifkan Posko Pengaduan Netralitas ...</td>
+      <td>Nasional</td>
+      <td>32</td>
+      <td>0.985</td>
+      <td>jakarta kompascom tentara nasional indonesia t...</td>
+    </tr>
+    <tr>
+      <th>70</th>
+      <td>Pria di Kali Sodong Dibunuh "Debt Collector" G...</td>
+      <td>Megapolitan</td>
+      <td>11</td>
+      <td>0.980</td>
+      <td>jakarta kompascom polisi ungkap modus laku bun...</td>
+    </tr>
+    <tr>
+      <th>71</th>
+      <td>Pengancam Anies Ditangkap, TKN Minta Pendukung...</td>
+      <td>Nasional</td>
+      <td>97</td>
+      <td>0.982</td>
+      <td>jakarta kompascom tim kampanye nasional tkn pr...</td>
+    </tr>
+    <tr>
+      <th>72</th>
+      <td>Mary dan Irfan Berikan Bunga Tangan untuk Paus...</td>
+      <td>Megapolitan</td>
+      <td>25</td>
+      <td>0.981</td>
+      <td>jakarta kompascom pimpin umat katolik dunia pa...</td>
+    </tr>
+    <tr>
+      <th>73</th>
+      <td>Motif Pelaku Aniaya Taruna STIP hingga Tewas: ...</td>
+      <td>Megapolitan</td>
+      <td>13</td>
+      <td>0.984</td>
+      <td>jakarta kompascom kapolres metro jakarta utara...</td>
+    </tr>
+    <tr>
+      <th>74</th>
+      <td>PPP Dukung Petahana Ansar Ahmad dan Nyangnyang...</td>
+      <td>Nasional</td>
+      <td>82</td>
+      <td>0.980</td>
+      <td>jakarta kompascom partai satu bangun ppp beri ...</td>
+    </tr>
+    <tr>
+      <th>75</th>
+      <td>PKB Anggap Anies Punya Peran Lain Selain Calon...</td>
+      <td>Nasional</td>
+      <td>105</td>
+      <td>0.985</td>
+      <td>jakarta kompascom wakil sekretaris jenderal wa...</td>
+    </tr>
+    <tr>
+      <th>76</th>
+      <td>Soal Peluang Bahlil Jadi Calon Tunggal Ketum, ...</td>
+      <td>Nasional</td>
+      <td>81</td>
+      <td>0.985</td>
+      <td>jakarta kompascom ketua dewan pimpin pusat dpp...</td>
+    </tr>
+    <tr>
+      <th>77</th>
+      <td>Tanggal 29 Agustus 2024 Memperingati Hari Apa?</td>
+      <td>Nasional</td>
+      <td>69</td>
+      <td>0.984</td>
+      <td>kompascom tanggal agustus jatuh hari kamis tan...</td>
+    </tr>
+    <tr>
+      <th>78</th>
+      <td>Komisi II Bakal Bahas Putusan MK dengan KPU Pe...</td>
+      <td>Nasional</td>
+      <td>70</td>
+      <td>0.983</td>
+      <td>jakarta kompascom komisi ii dpr rapat sama kom...</td>
+    </tr>
+    <tr>
+      <th>79</th>
+      <td>Jaminan Dasco dan Habiburokhman Demi Bebaskan ...</td>
+      <td>Megapolitan</td>
+      <td>6</td>
+      <td>0.985</td>
+      <td>jakarta kompascom jamin beri wakil ketua dpr r...</td>
+    </tr>
+    <tr>
+      <th>80</th>
+      <td>Kajari Jaksel Harap Banyak Masyarakat Ikut Lel...</td>
+      <td>Megapolitan</td>
+      <td>65</td>
+      <td>0.981</td>
+      <td>jakarta kompascom kepala jaksa negeri jakarta ...</td>
+    </tr>
+    <tr>
+      <th>81</th>
+      <td>Pengamat Nilai Wajar PDI-P Tak Jadi Calonkan A...</td>
+      <td>Nasional</td>
+      <td>3</td>
+      <td>0.982</td>
+      <td>jakarta kompascom guru besar ilmu politik univ...</td>
+    </tr>
+    <tr>
+      <th>82</th>
+      <td>Alissa Wahid: Paus Fransiskus Ajak Umat Jaga T...</td>
+      <td>Nasional</td>
+      <td>56</td>
+      <td>0.985</td>
+      <td>jakarta kompascom direktur jaring gusdurian al...</td>
+    </tr>
+    <tr>
+      <th>83</th>
+      <td>Survei SMRC: Anies Unggul jika "Head to Head" ...</td>
+      <td>Nasional</td>
+      <td>105</td>
+      <td>0.982</td>
+      <td>jakarta kompascom survei saiful mujani researc...</td>
+    </tr>
+    <tr>
+      <th>84</th>
+      <td>Parkir Liar Depan Stasiun Bekasi Bikin Macet, ...</td>
+      <td>Megapolitan</td>
+      <td>86</td>
+      <td>0.979</td>
+      <td>bekas kompascom jabat pj wali kota bekas raden...</td>
+    </tr>
+    <tr>
+      <th>85</th>
+      <td>Sebut IKN Bebas Polusi, Zulhas: Kalau di Jakar...</td>
+      <td>Nasional</td>
+      <td>34</td>
+      <td>0.983</td>
+      <td>jakarta kompascom ketua dpp partai amanat nasi...</td>
+    </tr>
+    <tr>
+      <th>86</th>
+      <td>Seorang Pria Lakukan Percobaan Pembunuhan di P...</td>
+      <td>Megapolitan</td>
+      <td>26</td>
+      <td>0.979</td>
+      <td>jakarta kompascom orang pria inisial gsl duga ...</td>
+    </tr>
+    <tr>
+      <th>87</th>
+      <td>Tak Ada Jalan Pintas, Hasto: Politik Harus Bel...</td>
+      <td>Nasional</td>
+      <td>77</td>
+      <td>0.981</td>
+      <td>jakarta kompascom sekretaris jenderal pdip has...</td>
+    </tr>
+    <tr>
+      <th>88</th>
+      <td>Soal Cak Imin Bawa Istri Ikut Timwas Haji, MKD...</td>
+      <td>Nasional</td>
+      <td>30</td>
+      <td>0.985</td>
+      <td>kompascom wakil ketua mahkamah hormat dewan mk...</td>
+    </tr>
+    <tr>
+      <th>89</th>
+      <td>Ramai Wacana Hak Angket, Menko Polhukam Dihara...</td>
+      <td>Nasional</td>
+      <td>7</td>
+      <td>0.983</td>
+      <td>jakarta kompascom menteri koordinator bidang p...</td>
+    </tr>
+    <tr>
+      <th>90</th>
+      <td>2 Ruas Tol Depan Gedung DPR RI Ditutup, Massa ...</td>
+      <td>Megapolitan</td>
+      <td>9</td>
+      <td>0.984</td>
+      <td>jakarta kompascom ruas jalan tol arah slip jak...</td>
+    </tr>
+    <tr>
+      <th>91</th>
+      <td>PSI Akui Bantu Kaesang Urus Persyaratan Pilkad...</td>
+      <td>Nasional</td>
+      <td>42</td>
+      <td>0.984</td>
+      <td>jakarta kompascom sekretaris jenderal partai s...</td>
+    </tr>
+    <tr>
+      <th>92</th>
+      <td>Sambangi Bareskrim, Keluarga WNI yang Disekap ...</td>
+      <td>Nasional</td>
+      <td>14</td>
+      <td>0.982</td>
+      <td>jakarta kompascom keluarga suhendri ardiansyah...</td>
+    </tr>
+    <tr>
+      <th>93</th>
+      <td>Dirut Jasa Raharja Minta Jajaran Edukasi Masya...</td>
+      <td>Nasional</td>
+      <td>26</td>
+      <td>0.981</td>
+      <td>kompascom direktur utama dirut jasa raharja ri...</td>
+    </tr>
+    <tr>
+      <th>94</th>
+      <td>Tak Setuju UU TNI dan Polri Direvisi, Megawati...</td>
+      <td>Nasional</td>
+      <td>111</td>
+      <td>0.983</td>
+      <td>jakarta kompascom ketua umum pdi juang pdip me...</td>
+    </tr>
+    <tr>
+      <th>95</th>
+      <td>Minta ke Menteri Basuki, Jokowi: Di Kanan Kiri...</td>
+      <td>Nasional</td>
+      <td>74</td>
+      <td>0.984</td>
+      <td>jakarta kompascom presiden joko widodo jokowi ...</td>
+    </tr>
+    <tr>
+      <th>96</th>
+      <td>Paus Fransiskus: Gereja Katolik Ingin Tingkatk...</td>
+      <td>Nasional</td>
+      <td>55</td>
+      <td>0.984</td>
+      <td>jakarta kompascom paus fransiskus ungkap ingin...</td>
+    </tr>
+    <tr>
+      <th>97</th>
+      <td>Mahasiswa UI Bersiap Terjun dalam Aksi Tolak R...</td>
+      <td>Megapolitan</td>
+      <td>74</td>
+      <td>0.984</td>
+      <td>depok kompascom rombong mahasiswa universitas ...</td>
+    </tr>
+    <tr>
+      <th>98</th>
+      <td>Mahasiswa Dikeroyok di Tangsel, Setara Institu...</td>
+      <td>Megapolitan</td>
+      <td>65</td>
+      <td>0.984</td>
+      <td>jakarta kompascom tara institute minta masyara...</td>
+    </tr>
+    <tr>
+      <th>99</th>
+      <td>Bahlil Ingatkan Prabowo Dilahirkan Golkar: Sud...</td>
+      <td>Nasional</td>
+      <td>35</td>
+      <td>0.985</td>
+      <td>jakarta kompascom ketua umum partai golkar bah...</td>
+    </tr>
+    <tr>
+      <th>100</th>
+      <td>Tiket KA Jarak Jauh H-2 Lebaran Sudah Terjual ...</td>
+      <td>Megapolitan</td>
+      <td>83</td>
+      <td>0.981</td>
+      <td>jakarta kompascom tiket kereta api jarak jauh ...</td>
+    </tr>
+    <tr>
+      <th>101</th>
+      <td>Dokter Belum Visum Jenazah Mahasiswa STIP yang...</td>
+      <td>Megapolitan</td>
+      <td>96</td>
+      <td>0.980</td>
+      <td>jakarta kompascom kepala rumah sakit karumkit ...</td>
+    </tr>
+    <tr>
+      <th>102</th>
+      <td>Fitri Rahmadani Hilang Hampir 2 Pekan, Keluarg...</td>
+      <td>Megapolitan</td>
+      <td>99</td>
+      <td>0.983</td>
+      <td>bekas kompascom pihak keluarga fitri rahmadani...</td>
+    </tr>
+    <tr>
+      <th>103</th>
+      <td>Dishub DKI Cabut 8.741 Stick Cone Secara Berta...</td>
+      <td>Megapolitan</td>
+      <td>78</td>
+      <td>0.982</td>
+      <td>jakarta kompascom kepala dinas hubung dishub d...</td>
+    </tr>
+    <tr>
+      <th>104</th>
+      <td>Brutalitas Aparat Jadi Sorotan, Jokowi Diminta...</td>
+      <td>Nasional</td>
+      <td>64</td>
+      <td>0.984</td>
+      <td>jakarta kompascom presiden joko widodo desak c...</td>
+    </tr>
+    <tr>
+      <th>105</th>
+      <td>Sebut Anies Mungkin Gagal Dicalonkan, PKS: Kep...</td>
+      <td>Megapolitan</td>
+      <td>36</td>
+      <td>0.985</td>
+      <td>jakarta kompascom partai adil sejahtera pks um...</td>
+    </tr>
+    <tr>
+      <th>106</th>
+      <td>Selebgram Medan Tewas Usai Sedot Lemak, Klinik...</td>
+      <td>Megapolitan</td>
+      <td>35</td>
+      <td>0.881</td>
+      <td>depok kompascom kuasa hukum klinik cantik wsj ...</td>
+    </tr>
+    <tr>
+      <th>107</th>
+      <td>Ganjar Pranowo: 17 Poin Rekomendasi Rakernas B...</td>
+      <td>Nasional</td>
+      <td>101</td>
+      <td>0.985</td>
+      <td>jakarta kompascom mantan calon presiden kader ...</td>
+    </tr>
+    <tr>
+      <th>108</th>
+      <td>Anaknya Dianiaya, Orangtua Korban Laporkan Pem...</td>
+      <td>Megapolitan</td>
+      <td>73</td>
+      <td>0.984</td>
+      <td>jakarta kompascom orang ibu nama rizki dwi uta...</td>
+    </tr>
+    <tr>
+      <th>109</th>
+      <td>Kena Lemparan Botol dari Demonstran, Habiburok...</td>
+      <td>Nasional</td>
+      <td>9</td>
+      <td>0.984</td>
+      <td>jakarta kompascom wakil ketua komisi iii dpr f...</td>
+    </tr>
+    <tr>
+      <th>110</th>
+      <td>Satu Warga Terluka Usai Bentrokan di Gambir</td>
+      <td>Megapolitan</td>
+      <td>40</td>
+      <td>0.981</td>
+      <td>jakarta kompascom satu orang luka usai libat b...</td>
+    </tr>
+    <tr>
+      <th>111</th>
+      <td>UU Pilkada Direvisi, Kepala Daerah Hasil Pilka...</td>
+      <td>Nasional</td>
+      <td>9</td>
+      <td>0.985</td>
+      <td>jakarta kompascom sikap dewan wakil rakyat dpr...</td>
+    </tr>
+    <tr>
+      <th>112</th>
+      <td>KPK Akan Dalami Kemungkinan Kaesang Dapat Fasi...</td>
+      <td>Nasional</td>
+      <td>7</td>
+      <td>0.984</td>
+      <td>jakarta kompascom ketua komisi berantas korups...</td>
+    </tr>
+    <tr>
+      <th>113</th>
+      <td>WWF 2024 Jadi Komitmen dan Aksi Nyata Pertamin...</td>
+      <td>Nasional</td>
+      <td>80</td>
+      <td>0.975</td>
+      <td>kompascom pt pertamina persero komitmen kelola...</td>
+    </tr>
+    <tr>
+      <th>114</th>
+      <td>Prabowo Pastikan TNI dan Polri Tetap Berada di...</td>
+      <td>Nasional</td>
+      <td>67</td>
+      <td>0.985</td>
+      <td>jakarta kompascom calon presiden nomor urut pr...</td>
+    </tr>
+    <tr>
+      <th>115</th>
+      <td>Soal Usung Siapa di Pilkada Jakarta, Nasdem Se...</td>
+      <td>Nasional</td>
+      <td>57</td>
+      <td>0.981</td>
+      <td>jakarta kompascom ketua dewan pimpin pusat dpp...</td>
+    </tr>
+    <tr>
+      <th>116</th>
+      <td>Tak Segan Minta Masukan, Pramono Anung Sebut A...</td>
+      <td>Megapolitan</td>
+      <td>85</td>
+      <td>0.983</td>
+      <td>jakarta kompascom bakal calon gubernur jakarta...</td>
+    </tr>
+    <tr>
+      <th>117</th>
+      <td>Tak Dipecat, Kepala SMPN 19 Hanya Disanksi Dis...</td>
+      <td>Megapolitan</td>
+      <td>75</td>
+      <td>0.978</td>
+      <td>depok kompascom sekretaris dinas didik kota de...</td>
+    </tr>
+    <tr>
+      <th>118</th>
+      <td>Maju Pilkada Jateng Bersama Taj Yasin, Ahmad L...</td>
+      <td>Nasional</td>
+      <td>12</td>
+      <td>0.982</td>
+      <td>jakarta kompascom bakal calon gubernur jawa te...</td>
+    </tr>
+    <tr>
+      <th>119</th>
+      <td>Ridwan Kamil Versus Calon Independen, Pengamat...</td>
+      <td>Nasional</td>
+      <td>86</td>
+      <td>0.985</td>
+      <td>jakarta kompascom amat politik uin syarif hida...</td>
+    </tr>
+    <tr>
+      <th>120</th>
+      <td>Pemerintah Siap Gandeng Negara-negara Afrika T...</td>
+      <td>Nasional</td>
+      <td>16</td>
+      <td>0.982</td>
+      <td>jakarta kompascom perintah nyata kerja sama ne...</td>
+    </tr>
+    <tr>
+      <th>121</th>
+      <td>Kuasa Hukum Sebut Dakwaan Harvey Moeis Rugikan...</td>
+      <td>Nasional</td>
+      <td>52</td>
+      <td>0.982</td>
+      <td>jakarta kompascom kuasa hukum harvey moeis jun...</td>
+    </tr>
+    <tr>
+      <th>122</th>
+      <td>Konflik PKB-PBNU: Pengabaian Politik dan Pengk...</td>
+      <td>Nasional</td>
+      <td>41</td>
+      <td>0.983</td>
+      <td>meningkatnyaketegangan partai bangkit bangsa p...</td>
+    </tr>
+    <tr>
+      <th>123</th>
+      <td>Komplotan Penipu Beraksi di Kelapa Gading, Sas...</td>
+      <td>Megapolitan</td>
+      <td>103</td>
+      <td>0.978</td>
+      <td>jakarta kompascom komplot tipu aksi kelapa gad...</td>
+    </tr>
+    <tr>
+      <th>124</th>
+      <td>DPR Minta TNI Serius dan Transparan Tangani Du...</td>
+      <td>Nasional</td>
+      <td>48</td>
+      <td>0.983</td>
+      <td>jakarta kompascom ketua komisi dpr ri meutya h...</td>
+    </tr>
+    <tr>
+      <th>125</th>
+      <td>Sambangi Rumah Kakeknya, Anies Teringat Perjua...</td>
+      <td>Nasional</td>
+      <td>1</td>
+      <td>0.981</td>
+      <td>yogyakarta kompascom calon presiden nomor urut...</td>
+    </tr>
+    <tr>
+      <th>126</th>
+      <td>Imparsial Nilai PP Manajemen ASN Akan Perluas ...</td>
+      <td>Nasional</td>
+      <td>109</td>
+      <td>0.981</td>
+      <td>jakarta kompascom imparsial nilai kesah atur p...</td>
+    </tr>
+    <tr>
+      <th>127</th>
+      <td>Prediksi soal Kabinet Prabowo-Gibran: Menteri ...</td>
+      <td>Nasional</td>
+      <td>110</td>
+      <td>0.981</td>
+      <td>jakarta kompascom direktur eksekutif poltracki...</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+    <div class="colab-df-buttons">
+      
+  <div class="colab-df-container">
+    <button class="colab-df-convert" onclick="convertToInteractive('df-d9f944e9-15f2-414b-9c93-013157d1bdee')"
+            title="Convert this dataframe to an interactive table."
+            style="display:none;">
+      
+  <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960">
+    <path d="M120-120v-720h720v720H120Zm60-500h600v-160H180v160Zm220 220h160v-160H400v160Zm0 220h160v-160H400v160ZM180-400h160v-160H180v160Zm440 0h160v-160H620v160ZM180-180h160v-160H180v160Zm440 0h160v-160H620v160Z"/>
+  </svg>
+    </button>
+    
+  <style>
+    .colab-df-container {
+      display:flex;
+      gap: 12px;
+    }
+
+    .colab-df-convert {
+      background-color: #E8F0FE;
+      border: none;
+      border-radius: 50%;
+      cursor: pointer;
+      display: none;
+      fill: #1967D2;
+      height: 32px;
+      padding: 0 0 0 0;
+      width: 32px;
+    }
+
+    .colab-df-convert:hover {
+      background-color: #E2EBFA;
+      box-shadow: 0px 1px 2px rgba(60, 64, 67, 0.3), 0px 1px 3px 1px rgba(60, 64, 67, 0.15);
+      fill: #174EA6;
+    }
+
+    .colab-df-buttons div {
+      margin-bottom: 4px;
+    }
+
+    [theme=dark] .colab-df-convert {
+      background-color: #3B4455;
+      fill: #D2E3FC;
+    }
+
+    [theme=dark] .colab-df-convert:hover {
+      background-color: #434B5C;
+      box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.15);
+      filter: drop-shadow(0px 1px 2px rgba(0, 0, 0, 0.3));
+      fill: #FFFFFF;
+    }
+  </style>
+
+    <script>
+      const buttonEl =
+        document.querySelector('#df-d9f944e9-15f2-414b-9c93-013157d1bdee button.colab-df-convert');
+      buttonEl.style.display =
+        google.colab.kernel.accessAllowed ? 'block' : 'none';
+
+      async function convertToInteractive(key) {
+        const element = document.querySelector('#df-d9f944e9-15f2-414b-9c93-013157d1bdee');
+        const dataTable =
+          await google.colab.kernel.invokeFunction('convertToInteractive',
+                                                    [key], {});
+        if (!dataTable) return;
+
+        const docLinkHtml = 'Like what you see? Visit the ' +
+          '<a target="_blank" href=https://colab.research.google.com/notebooks/data_table.ipynb>data table notebook</a>'
+          + ' to learn more about interactive tables.';
+        element.innerHTML = '';
+        dataTable['output_type'] = 'display_data';
+        await google.colab.output.renderOutput(dataTable, element);
+        const docLink = document.createElement('div');
+        docLink.innerHTML = docLinkHtml;
+        element.appendChild(docLink);
+      }
+    </script>
+  </div>
+  
+    </div>
+  </div>
+  </div></div>
+</div>
+<ol class="arabic simple" start="8">
+<li><p>Visualisasi Distribusi Topik per Dokumen</p></li>
+</ol>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="versi-bar-chart">
+<h1>— Versi Bar Chart —<a class="headerlink" href="#versi-bar-chart" title="Link to this heading">#</a></h1>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Ambil distribusi topik untuk setiap dokumen</span>
+<span class="n">topic_distribution</span> <span class="o">=</span> <span class="p">[</span><span class="n">optimal_model</span><span class="o">.</span><span class="n">get_document_topics</span><span class="p">(</span><span class="n">doc</span><span class="p">,</span> <span class="n">minimum_probability</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span> <span class="k">for</span> <span class="n">doc</span> <span class="ow">in</span> <span class="n">corpus</span><span class="p">]</span>
+
+<span class="c1"># Batasi ke 15 dokumen pertama agar tidak padat</span>
+<span class="n">n_docs</span> <span class="o">=</span> <span class="mi">15</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="n">prob</span> <span class="k">for</span> <span class="n">_</span><span class="p">,</span> <span class="n">prob</span> <span class="ow">in</span> <span class="n">topic_distribution</span><span class="p">[</span><span class="n">i</span><span class="p">]]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n_docs</span><span class="p">)])</span>
+
+<span class="c1"># Plot stacked bar</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+<span class="n">bottom</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">n_docs</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]):</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="n">n_docs</span><span class="p">),</span> <span class="n">data</span><span class="p">[:,</span> <span class="n">k</span><span class="p">],</span> <span class="n">bottom</span><span class="o">=</span><span class="n">bottom</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">f</span><span class="s1">&#39;Topik </span><span class="si">{</span><span class="n">k</span><span class="o">+</span><span class="mi">1</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+    <span class="n">bottom</span> <span class="o">+=</span> <span class="n">data</span><span class="p">[:,</span> <span class="n">k</span><span class="p">]</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Distribusi Topik per Dokumen (15 Dokumen Pertama)&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;Dokumen&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;Proporsi Topik&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">bbox_to_anchor</span><span class="o">=</span><span class="p">(</span><span class="mf">1.05</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="n">loc</span><span class="o">=</span><span class="s1">&#39;upper left&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipython-input-2308262128.py:20: UserWarning: Tight layout not applied. The bottom and top margins cannot be made large enough to accommodate all Axes decorations.
+  plt.tight_layout()
+</pre></div>
+</div>
+<img alt="_images/7d30dd7f6135bbba54bb27d553c195a5abfa2026ee60210ac3c29d8bb5f99bde.png" src="_images/7d30dd7f6135bbba54bb27d553c195a5abfa2026ee60210ac3c29d8bb5f99bde.png" />
+</div>
+</div>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="versi-heatmap">
+<h1>— Versi Heatmap —<a class="headerlink" href="#versi-heatmap" title="Link to this heading">#</a></h1>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">topic_distribution</span> <span class="o">=</span> <span class="p">[</span><span class="n">optimal_model</span><span class="o">.</span><span class="n">get_document_topics</span><span class="p">(</span><span class="n">doc</span><span class="p">,</span> <span class="n">minimum_probability</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span> <span class="k">for</span> <span class="n">doc</span> <span class="ow">in</span> <span class="n">corpus</span><span class="p">]</span>
+
+<span class="n">num_docs_to_show</span> <span class="o">=</span> <span class="mi">10</span>
+<span class="n">topic_matrix</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="n">score</span> <span class="k">for</span> <span class="n">_</span><span class="p">,</span> <span class="n">score</span> <span class="ow">in</span> <span class="n">doc</span><span class="p">]</span> <span class="k">for</span> <span class="n">doc</span> <span class="ow">in</span> <span class="n">topic_distribution</span><span class="p">[:</span><span class="n">num_docs_to_show</span><span class="p">]])</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">topic_matrix</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;coolwarm&#39;</span><span class="p">,</span> <span class="n">aspect</span><span class="o">=</span><span class="s1">&#39;auto&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;Proporsi Topik&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Topik&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Dokumen&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Distribusi Topik pada Beberapa Dokumen Pertama&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/a61f9c8d658d93d9e0d28d7930a2cc8106cd2e622cab063bbf596e11e91323f2.png" src="_images/a61f9c8d658d93d9e0d28d7930a2cc8106cd2e622cab063bbf596e11e91323f2.png" />
+</div>
+</div>
+<ol class="arabic simple" start="8">
+<li><p>Menyiapkan Data untuk Klasifikasi (TF-IDF)</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">X</span> <span class="o">=</span> <span class="n">df_result</span><span class="p">[</span><span class="s2">&quot;clean&quot;</span><span class="p">]</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">df_result</span><span class="p">[</span><span class="s2">&quot;Kategori&quot;</span><span class="p">]</span>
+
+<span class="n">vectorizer</span> <span class="o">=</span> <span class="n">TfidfVectorizer</span><span class="p">(</span><span class="n">max_features</span><span class="o">=</span><span class="mi">5000</span><span class="p">)</span>
+<span class="n">X_tfidf</span> <span class="o">=</span> <span class="n">vectorizer</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+
+<span class="n">X_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">X_tfidf</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">test_size</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<ol class="arabic simple" start="9">
+<li><p>Klasifikasi: SVM &amp; Softmax Regression</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># SVM</span>
+<span class="n">svm_model</span> <span class="o">=</span> <span class="n">SVC</span><span class="p">(</span><span class="n">kernel</span><span class="o">=</span><span class="s1">&#39;linear&#39;</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
+<span class="n">svm_model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+<span class="n">y_pred_svm</span> <span class="o">=</span> <span class="n">svm_model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
+
+<span class="c1"># Softmax Regression</span>
+<span class="n">softmax_model</span> <span class="o">=</span> <span class="n">LogisticRegression</span><span class="p">(</span><span class="n">multi_class</span><span class="o">=</span><span class="s1">&#39;multinomial&#39;</span><span class="p">,</span> <span class="n">solver</span><span class="o">=</span><span class="s1">&#39;lbfgs&#39;</span><span class="p">,</span> <span class="n">max_iter</span><span class="o">=</span><span class="mi">1000</span><span class="p">)</span>
+<span class="n">softmax_model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+<span class="n">y_pred_softmax</span> <span class="o">=</span> <span class="n">softmax_model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/usr/local/lib/python3.12/dist-packages/sklearn/linear_model/_logistic.py:1237: FutureWarning: &#39;multi_class&#39; was deprecated in version 1.5 and will be removed in 1.7. From then on, binary problems will be fit as proper binary  logistic regression models (as if multi_class=&#39;ovr&#39; were set). Leave it to its default value to avoid this warning.
+  warnings.warn(
+</pre></div>
+</div>
+</div>
+</div>
+<section id="fungsi-evaluasi">
+<h2>Fungsi Evaluasi<a class="headerlink" href="#fungsi-evaluasi" title="Link to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">evaluasi_model</span><span class="p">(</span><span class="n">y_true</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">,</span> <span class="n">model_name</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">=== Evaluasi Model: </span><span class="si">{</span><span class="n">model_name</span><span class="si">}</span><span class="s2"> ===&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Accuracy :&quot;</span><span class="p">,</span> <span class="n">accuracy_score</span><span class="p">(</span><span class="n">y_true</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">))</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Precision:&quot;</span><span class="p">,</span> <span class="n">precision_score</span><span class="p">(</span><span class="n">y_true</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">,</span> <span class="n">average</span><span class="o">=</span><span class="s1">&#39;weighted&#39;</span><span class="p">))</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Recall   :&quot;</span><span class="p">,</span> <span class="n">recall_score</span><span class="p">(</span><span class="n">y_true</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">,</span> <span class="n">average</span><span class="o">=</span><span class="s1">&#39;weighted&#39;</span><span class="p">))</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Classification Report:</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">classification_report</span><span class="p">(</span><span class="n">y_true</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">))</span>
+
+    <span class="n">cm</span> <span class="o">=</span> <span class="n">confusion_matrix</span><span class="p">(</span><span class="n">y_true</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span>
+    <span class="n">sns</span><span class="o">.</span><span class="n">heatmap</span><span class="p">(</span><span class="n">cm</span><span class="p">,</span> <span class="n">annot</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">fmt</span><span class="o">=</span><span class="s1">&#39;d&#39;</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;Blues&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Confusion Matrix - </span><span class="si">{</span><span class="n">model_name</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Predicted&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Actual&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Langkah 1 — Evaluasi Model SVM</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;### 🔍 Evaluasi Model SVM ###&quot;</span><span class="p">)</span>
+<span class="n">evaluasi_model</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_pred_svm</span><span class="p">,</span> <span class="s2">&quot;SVM&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>### 🔍 Evaluasi Model SVM ###
+
+=== Evaluasi Model: SVM ===
+Accuracy : 0.8846153846153846
+Precision: 0.902834008097166
+Recall   : 0.8846153846153846
+
+Classification Report:
+               precision    recall  f1-score   support
+
+ Megapolitan       1.00      0.70      0.82        10
+    Nasional       0.84      1.00      0.91        16
+
+    accuracy                           0.88        26
+   macro avg       0.92      0.85      0.87        26
+weighted avg       0.90      0.88      0.88        26
+</pre></div>
+</div>
+<img alt="_images/e3c291e809da5ab516e9f542b14fcca34d0e51c273680a4107bf768f0d8ea3e8.png" src="_images/e3c291e809da5ab516e9f542b14fcca34d0e51c273680a4107bf768f0d8ea3e8.png" />
+</div>
+</div>
+<p>Langkah 2 — Evaluasi Model Softmax Regression</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n\n</span><span class="s2">### 🔍 Evaluasi Model Softmax Regression ###&quot;</span><span class="p">)</span>
+<span class="n">evaluasi_model</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_pred_softmax</span><span class="p">,</span> <span class="s2">&quot;Softmax Regression&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>### 🔍 Evaluasi Model Softmax Regression ###
+
+=== Evaluasi Model: Softmax Regression ===
+Accuracy : 0.6538461538461539
+Precision: 0.7784615384615385
+Recall   : 0.6538461538461539
+
+Classification Report:
+               precision    recall  f1-score   support
+
+ Megapolitan       1.00      0.10      0.18        10
+    Nasional       0.64      1.00      0.78        16
+
+    accuracy                           0.65        26
+   macro avg       0.82      0.55      0.48        26
+weighted avg       0.78      0.65      0.55        26
+</pre></div>
+</div>
+<img alt="_images/6a568f3ae7f389fecd1f4d98893defd8ca71cdd2aae12d393f7799ab6a5001af.png" src="_images/6a568f3ae7f389fecd1f4d98893defd8ca71cdd2aae12d393f7799ab6a5001af.png" />
+</div>
+</div>
+<ol class="arabic simple" start="10">
+<li><p>Menghitung Coherence Score Akhir</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">coherence_model</span> <span class="o">=</span> <span class="n">CoherenceModel</span><span class="p">(</span><span class="n">model</span><span class="o">=</span><span class="n">optimal_model</span><span class="p">,</span> <span class="n">texts</span><span class="o">=</span><span class="n">texts</span><span class="p">,</span> <span class="n">dictionary</span><span class="o">=</span><span class="n">dictionary</span><span class="p">,</span> <span class="n">coherence</span><span class="o">=</span><span class="s1">&#39;c_v&#39;</span><span class="p">)</span>
+<span class="n">coherence</span> <span class="o">=</span> <span class="n">coherence_model</span><span class="o">.</span><span class="n">get_coherence</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;✅ Coherence Score (c_v) untuk model terbaik:&quot;</span><span class="p">,</span> <span class="n">coherence</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>✅ Coherence Score (c_v) untuk model terbaik: 0.5944232145404877
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="TFidf.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">2. Melakukan Tfidf &amp; Word Embedding</p>
+      </div>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">E. Melakukan Klasifikasi LDA</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#versi-bar-chart">— Versi Bar Chart —</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#versi-heatmap">— Versi Heatmap —</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fungsi-evaluasi">Fungsi Evaluasi</a></li>
+</ul>
+</li>
+</ul>
+
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By The Jupyter Book Community
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
