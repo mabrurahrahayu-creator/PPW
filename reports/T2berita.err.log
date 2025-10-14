@@ -31,8 +31,8 @@ nbclient.exceptions.CellTimeoutError: A cell timed out while it was being execut
 The message was: Cell execution timed out.
 Here is a preview of the cell contents:
 -------------------
-['import requests', 'from bs4 import BeautifulSoup', 'import pandas as pd', 'from urllib.parse import urlparse', 'import time']
+['import requests', 'from bs4 import BeautifulSoup', 'import pandas as pd', 'from urllib.parse import urlparse', '']
 ...
-['print("\\n" + "="*70)', 'print(f"Selesai. {len(results)} artikel berhasil di-scrape.")', 'print(f"Data disimpan ke file \'{csv_filename}\'")', 'print("="*70)', 'display(df)']
+['results = [scrape_kompas_article(u) for u in urls_to_test if scrape_kompas_article(u)]', 'df = pd.DataFrame(results)', '', 'from IPython.display import display', 'display(df)']
 -------------------
 
