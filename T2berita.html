@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>&lt;no title&gt; &#8212; My sample book</title>
+    <title>C. Crawling Berita &#8212; My sample book</title>
   
   
   
@@ -179,7 +179,7 @@
                 </a>
             </li>
         </ul>
-        <ul class="nav bd-sidenav">
+        <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="TUGAS.html">Pengantar Web Mining</a></li>
 
 
@@ -192,6 +192,7 @@
 
 <li class="toctree-l1"><a class="reference internal" href="crawlingdata.html">A. Crawling Data</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Crawling_Link.html">B. Crawling Link</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">C. Crawling Berita</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Crawling_PTA.html">D. Crawling PTA</a></li>
 <li class="toctree-l1"><a class="reference internal" href="PemrosesanData.html">1. Pemrosesan Data PTA dan Berita</a></li>
 
@@ -370,9 +371,7 @@ document.write(`
   </button>
 `);
 </script>
-<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="fa-solid fa-list"></span>
-</button>
+
 </div></div>
       
     </div>
@@ -383,19 +382,11 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1><no title></h1>
+    <h1>C. Crawling Berita</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
             
-            <div>
-                <h2> Contents </h2>
-            </div>
-            <nav aria-label="Page">
-                <ul class="simple visible nav section-nav flex-column">
-</ul>
-
-            </nav>
         </div>
     </div>
 </div>
@@ -405,7 +396,9 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <div class="cell docutils container">
+  <section id="c-crawling-berita">
+<h1>C. Crawling Berita<a class="headerlink" href="#c-crawling-berita" title="Link to this heading">#</a></h1>
+<div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>pip<span class="w"> </span>install<span class="w"> </span>requests
 <span class="o">!</span>pip<span class="w"> </span>install<span class="w"> </span>beautifulsoup4
@@ -711,69 +704,47 @@ Requirement already satisfied: six in /home/codespace/.local/lib/python3.12/site
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2/128] Memproses URL: https://nasional.kompas.com/read/2024/02/13/21583481/kpu-tegaskan-pemi...
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-&gt; Sukses: KPU Tegaskan Pemilih Tak Terdaftar di DPT Bisa &quot;Ny...
+-&gt; Sukses: KPU Tegaskan Pemilih Tak Terdaftar di DPT Bisa &quot;Ny...
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[3/128] Memproses URL: https://megapolitan.kompas.com/read/2024/05/11/19123091/warga-sebut-ad...
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-&gt; Sukses: Warga Sebut Ada Benda Serupa Jimat pada Mayat Dala...
+-&gt; Sukses: Warga Sebut Ada Benda Serupa Jimat pada Mayat Dala...
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[4/128] Memproses URL: https://megapolitan.kompas.com/read/2024/08/26/07235981/polisi-mengani...
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-&gt; Sukses: Polisi Menganiaya Mereka yang Cinta Damai dan Berc...
+-&gt; Sukses: Polisi Menganiaya Mereka yang Cinta Damai dan Berc...
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[5/128] Memproses URL: https://nasional.kompas.com/read/2024/08/12/08444611/airlangga-hartart...
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-&gt; Sukses: Airlangga Hartarto Mundur dari Ketum, Golkar Banta...
+-&gt; Sukses: Airlangga Hartarto Mundur dari Ketum, Golkar Banta...
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[6/128] Memproses URL: https://nasional.kompas.com/read/2024/07/29/17462851/nasdem-pastikan-d...
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-&gt; Sukses: Nasdem Pastikan Dukung Ilham Habibie untuk Pilkada...
+-&gt; Sukses: Nasdem Pastikan Dukung Ilham Habibie untuk Pilkada...
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[7/128] Memproses URL: https://megapolitan.kompas.com/read/2024/08/02/23392851/influencer-par...
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-&gt; Sukses: &quot;Influencer Parenting&quot; Aniaya Balita, Kriminolog: ...
+-&gt; Sukses: &quot;Influencer Parenting&quot; Aniaya Balita, Kriminolog: ...
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[8/128] Memproses URL: https://nasional.kompas.com/read/2024/08/21/05232081/jalan-mulus-bahli...
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-&gt; Sukses: Jalan Mulus Bahlil Raih Kursi Ketum Golkar...
+-&gt; Sukses: Jalan Mulus Bahlil Raih Kursi Ketum Golkar...
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[9/128] Memproses URL: https://nasional.kompas.com/read/2024/01/19/22313101/maruarar-sirait-d...
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-&gt; Sukses: Maruarar Sirait Dukung Prabowo-Gibran, TKN: Mari K...
+-&gt; Sukses: Maruarar Sirait Dukung Prabowo-Gibran, TKN: Mari K...
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[10/128] Memproses URL: https://megapolitan.kompas.com/read/2024/08/12/21025981/usai-diturap-k...
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-&gt; Sukses: Usai Diturap, Kali Mati di Pademangan Tak Lagi Jad...
+-&gt; Sukses: Usai Diturap, Kali Mati di Pademangan Tak Lagi Jad...
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[11/128] Memproses URL: https://megapolitan.kompas.com/read/2024/08/29/12432031/maju-pilkada-d...
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-&gt; Sukses: Maju Pilkada Depok, Imam Budi Hartono Ingin Lanjut...
+-&gt; Sukses: Maju Pilkada Depok, Imam Budi Hartono Ingin Lanjut...
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[12/128] Memproses URL: https://megapolitan.kompas.com/read/2024/08/28/13024071/kpud-kota-beka...
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-&gt; Sukses: KPUD Kota Bekasi Terima Dokumen Pendaftaran Paslon...
+-&gt; Sukses: KPUD Kota Bekasi Terima Dokumen Pendaftaran Paslon...
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[13/128] Memproses URL: https://nasional.kompas.com/read/2024/07/29/05000011/-populer-nasional...
@@ -781,69 +752,65 @@ Requirement already satisfied: six in /home/codespace/.local/lib/python3.12/site
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[14/128] Memproses URL: https://nasional.kompas.com/read/2024/04/06/21590521/antoninho-rangel-...
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-&gt; Sukses: Antoninho Rangel da Silva, Jenderal Berdarah Timor...
+-&gt; Sukses: Antoninho Rangel da Silva, Jenderal Berdarah Timor...
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[15/128] Memproses URL: https://nasional.kompas.com/read/2024/09/04/12443721/pidato-lengkap-pa...
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-&gt; Sukses: Pidato Lengkap Paus Fransiskus di Istana Negara...
+-&gt; Sukses: Pidato Lengkap Paus Fransiskus di Istana Negara...
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[16/128] Memproses URL: https://nasional.kompas.com/read/2024/02/24/20074351/ahy-serahkan-kepa...
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-&gt; Sukses: AHY Serahkan Kepada Prabowo Jika Ingin Ajak Parpol...
+-&gt; Sukses: AHY Serahkan Kepada Prabowo Jika Ingin Ajak Parpol...
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[17/128] Memproses URL: https://nasional.kompas.com/read/2024/08/06/20310821/wacana-kotak-koso...
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-&gt; Sukses: Wacana Kotak Kosong pada Pilkada Jakarta Jadi Iron...
+-&gt; Sukses: Wacana Kotak Kosong pada Pilkada Jakarta Jadi Iron...
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[18/128] Memproses URL: https://nasional.kompas.com/read/2024/06/09/20234841/cerita-korban-pen...
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-&gt; Sukses: Cerita Korban Penipuan Visa Haji Ilegal: Panas Din...
+-&gt; Sukses: Cerita Korban Penipuan Visa Haji Ilegal: Panas Din...
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[19/128] Memproses URL: https://nasional.kompas.com/read/2024/08/20/07025071/gerindra-sebut-re...
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-&gt; Sukses: Gerindra Sebut &quot;Reshuffle&quot; Menkumham untuk Sinkron...
+-&gt; Sukses: Gerindra Sebut &quot;Reshuffle&quot; Menkumham untuk Sinkron...
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[20/128] Memproses URL: https://nasional.kompas.com/read/2024/01/09/22152121/puan-salami-anies...
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-&gt; Sukses: Puan Salami Anies-Muhaimin Usai Debat Capres, PKB:...
+-&gt; Sukses: Puan Salami Anies-Muhaimin Usai Debat Capres, PKB:...
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[21/128] Memproses URL: https://megapolitan.kompas.com/read/2024/09/04/16151141/3-paslon-ramai...
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-&gt; Sukses: 3 Paslon Ramaikan Pilkada Jakarta, Bamus Betawi: W...
+-&gt; Sukses: 3 Paslon Ramaikan Pilkada Jakarta, Bamus Betawi: W...
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[22/128] Memproses URL: https://megapolitan.kompas.com/read/2024/09/03/17275901/berita-foto-ta...
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-&gt; Sukses: BERITA FOTO: Tangis Bahagia Warga Sambut Kedatanga...
+-&gt; Sukses: BERITA FOTO: Tangis Bahagia Warga Sambut Kedatanga...
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[23/128] Memproses URL: https://nasional.kompas.com/read/2024/01/11/22261141/dilaporkan-ke-dew...
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-&gt; Sukses: Dilaporkan ke Dewas, Wakil Ketua KPK Mengaku Tak P...
+-&gt; Sukses: Dilaporkan ke Dewas, Wakil Ketua KPK Mengaku Tak P...
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[24/128] Memproses URL: https://megapolitan.kompas.com/read/2024/07/26/19404751/pengamat-nilai...
+-&gt; Sukses: Pengamat Nilai Dharma-Kun Bakal Sulit Dapat 538.17...
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-&gt; Sukses: Pengamat Nilai Dharma-Kun Bakal Sulit Dapat 538.17...
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[25/128] Memproses URL: https://megapolitan.kompas.com/read/2024/06/21/22434391/kerap-dipandan...
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-&gt; Sukses: Kerap Dipandang Sebelah Mata Jadi Pelukis Jalanan,...
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[26/128] Memproses URL: https://nasional.kompas.com/read/2024/08/27/16243201/pramono-anung-bel...
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-&gt; Sukses: Pramono Anung Belum Final, PDI-P Masih Berpeluang ...
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[27/128] Memproses URL: https://megapolitan.kompas.com/read/2024/08/29/21383931/naik-becak-ke-...
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-&gt; Sukses: Naik Becak ke KPU, UU Saeful-Nurul Sumarheni Dafta...
 </pre></div>
 </div>
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
@@ -860,6 +827,7 @@ Requirement already satisfied: six in /home/codespace/.local/lib/python3.12/site
 </div>
 </div>
 </div>
+</section>
 
     <script type="text/x-thebe-config">
     {
@@ -915,21 +883,6 @@ Requirement already satisfied: six in /home/codespace/.local/lib/python3.12/site
             </div>
             
             
-              
-                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
-
-
-  <div class="sidebar-secondary-item">
-  <div class="page-toc tocsection onthispage">
-    <i class="fa-solid fa-list"></i> Contents
-  </div>
-  <nav class="bd-toc-nav page-toc">
-    <ul class="simple visible nav section-nav flex-column">
-</ul>
-
-  </nav></div>
-
-</div></div>
               
             
           </div>
