@@ -463,7 +463,7 @@ Requirement already satisfied: wrapt in /usr/local/lib/python3.12/dist-packages 
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_excel</span><span class="p">(</span><span class="s1">&#39;Berita.xlsx&#39;</span><span class="p">)</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;Berita.csv&#39;</span><span class="p">)</span>
 <span class="n">pd</span><span class="o">.</span><span class="n">set_option</span><span class="p">(</span><span class="s1">&#39;display.max_rows&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Jumlah total berita:&quot;</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">df</span><span class="p">))</span>
 
@@ -476,7 +476,7 @@ Requirement already satisfied: wrapt in /usr/local/lib/python3.12/dist-packages 
 </pre></div>
 </div>
 <div class="output text_html">
-  <div id="df-67afd8e2-9558-4526-99df-460420560808" class="colab-df-container">
+  <div id="df-34ef78b7-57e7-4934-923f-f33066fe8e43" class="colab-df-container">
     <div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
@@ -14010,7 +14010,7 @@ Requirement already satisfied: wrapt in /usr/local/lib/python3.12/dist-packages 
     <div class="colab-df-buttons">
 
   <div class="colab-df-container">
-    <button class="colab-df-convert" onclick="convertToInteractive('df-67afd8e2-9558-4526-99df-460420560808')"
+    <button class="colab-df-convert" onclick="convertToInteractive('df-34ef78b7-57e7-4934-923f-f33066fe8e43')"
             title="Convert this dataframe to an interactive table."
             style="display:none;">
 
@@ -14062,12 +14062,12 @@ Requirement already satisfied: wrapt in /usr/local/lib/python3.12/dist-packages 
 
     <script>
       const buttonEl =
-        document.querySelector('#df-67afd8e2-9558-4526-99df-460420560808 button.colab-df-convert');
+        document.querySelector('#df-34ef78b7-57e7-4934-923f-f33066fe8e43 button.colab-df-convert');
       buttonEl.style.display =
         google.colab.kernel.accessAllowed ? 'block' : 'none';
 
       async function convertToInteractive(key) {
-        const element = document.querySelector('#df-67afd8e2-9558-4526-99df-460420560808');
+        const element = document.querySelector('#df-34ef78b7-57e7-4934-923f-f33066fe8e43');
         const dataTable =
           await google.colab.kernel.invokeFunction('convertToInteractive',
                                                     [key], {});
@@ -14087,8 +14087,8 @@ Requirement already satisfied: wrapt in /usr/local/lib/python3.12/dist-packages 
   </div>
 
 
-    <div id="df-86b92d8f-2d34-4ca9-be8f-96c090fd398a">
-      <button class="colab-df-quickchart" onclick="quickchart('df-86b92d8f-2d34-4ca9-be8f-96c090fd398a')"
+    <div id="df-ab909be2-51fb-4c1d-96a6-a7f44e91591a">
+      <button class="colab-df-quickchart" onclick="quickchart('df-ab909be2-51fb-4c1d-96a6-a7f44e91591a')"
                 title="Suggest charts"
                 style="display:none;">
 
@@ -14207,14 +14207,14 @@ Requirement already satisfied: wrapt in /usr/local/lib/python3.12/dist-packages 
         }
         (() => {
           let quickchartButtonEl =
-            document.querySelector('#df-86b92d8f-2d34-4ca9-be8f-96c090fd398a button');
+            document.querySelector('#df-ab909be2-51fb-4c1d-96a6-a7f44e91591a button');
           quickchartButtonEl.style.display =
             google.colab.kernel.accessAllowed ? 'block' : 'none';
         })();
       </script>
     </div>
 
-  <div id="id_16d6cc3f-fa44-4d91-aa8d-17f7d281b983">
+  <div id="id_58c03b28-5968-4e58-8a69-b51a6565787d">
     <style>
       .colab-df-generate {
         background-color: #E8F0FE;
@@ -14258,7 +14258,7 @@ Requirement already satisfied: wrapt in /usr/local/lib/python3.12/dist-packages 
     <script>
       (() => {
       const buttonEl =
-        document.querySelector('#id_16d6cc3f-fa44-4d91-aa8d-17f7d281b983 button.colab-df-generate');
+        document.querySelector('#id_58c03b28-5968-4e58-8a69-b51a6565787d button.colab-df-generate');
       buttonEl.style.display =
         google.colab.kernel.accessAllowed ? 'block' : 'none';
 
@@ -14279,7 +14279,7 @@ Requirement already satisfied: wrapt in /usr/local/lib/python3.12/dist-packages 
 <span class="kn">import</span><span class="w"> </span><span class="nn">re</span>
 
 <span class="c1"># --- 1. Baca dataset ---</span>
-<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_excel</span><span class="p">(</span><span class="s2">&quot;Berita.xlsx&quot;</span><span class="p">)</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;Berita.csv&quot;</span><span class="p">)</span> <span class="c1"># Changed from pd.read_excel(&quot;Berita.xlsx&quot;)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Jumlah total data:&quot;</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">df</span><span class="p">))</span>
 
 <span class="c1"># --- 2. Bersihkan data kosong atau duplikat ---</span>
@@ -14309,7 +14309,7 @@ Requirement already satisfied: wrapt in /usr/local/lib/python3.12/dist-packages 
 </pre></div>
 </div>
 <div class="output text_html">
-  <div id="df-713e3492-78ad-43ac-a1c8-26701fbcb01f" class="colab-df-container">
+  <div id="df-ea5c2b56-0369-4585-8d2f-c00adda2c38e" class="colab-df-container">
     <div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
@@ -14400,7 +14400,7 @@ Requirement already satisfied: wrapt in /usr/local/lib/python3.12/dist-packages 
     <div class="colab-df-buttons">
 
   <div class="colab-df-container">
-    <button class="colab-df-convert" onclick="convertToInteractive('df-713e3492-78ad-43ac-a1c8-26701fbcb01f')"
+    <button class="colab-df-convert" onclick="convertToInteractive('df-ea5c2b56-0369-4585-8d2f-c00adda2c38e')"
             title="Convert this dataframe to an interactive table."
             style="display:none;">
 
@@ -14452,12 +14452,12 @@ Requirement already satisfied: wrapt in /usr/local/lib/python3.12/dist-packages 
 
     <script>
       const buttonEl =
-        document.querySelector('#df-713e3492-78ad-43ac-a1c8-26701fbcb01f button.colab-df-convert');
+        document.querySelector('#df-ea5c2b56-0369-4585-8d2f-c00adda2c38e button.colab-df-convert');
       buttonEl.style.display =
         google.colab.kernel.accessAllowed ? 'block' : 'none';
 
       async function convertToInteractive(key) {
-        const element = document.querySelector('#df-713e3492-78ad-43ac-a1c8-26701fbcb01f');
+        const element = document.querySelector('#df-ea5c2b56-0369-4585-8d2f-c00adda2c38e');
         const dataTable =
           await google.colab.kernel.invokeFunction('convertToInteractive',
                                                     [key], {});
@@ -14477,8 +14477,8 @@ Requirement already satisfied: wrapt in /usr/local/lib/python3.12/dist-packages 
   </div>
 
 
-    <div id="df-efc62e9c-95c9-4820-926f-ebc3565e9fe5">
-      <button class="colab-df-quickchart" onclick="quickchart('df-efc62e9c-95c9-4820-926f-ebc3565e9fe5')"
+    <div id="df-b3219d52-f145-4477-aed4-8a48e11095ce">
+      <button class="colab-df-quickchart" onclick="quickchart('df-b3219d52-f145-4477-aed4-8a48e11095ce')"
                 title="Suggest charts"
                 style="display:none;">
 
@@ -14597,7 +14597,7 @@ Requirement already satisfied: wrapt in /usr/local/lib/python3.12/dist-packages 
         }
         (() => {
           let quickchartButtonEl =
-            document.querySelector('#df-efc62e9c-95c9-4820-926f-ebc3565e9fe5 button');
+            document.querySelector('#df-b3219d52-f145-4477-aed4-8a48e11095ce button');
           quickchartButtonEl.style.display =
             google.colab.kernel.accessAllowed ? 'block' : 'none';
         })();
@@ -14664,7 +14664,7 @@ Requirement already satisfied: wrapt in /usr/local/lib/python3.12/dist-packages 
 </pre></div>
 </div>
 <div class="output text_html">
-  <div id="df-af19095e-1b90-4d06-9440-a6e763e5ea7b" class="colab-df-container">
+  <div id="df-24ef7780-3972-4ef7-a152-18ef88a002bc" class="colab-df-container">
     <div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
@@ -14776,7 +14776,7 @@ Requirement already satisfied: wrapt in /usr/local/lib/python3.12/dist-packages 
     <tr>
       <th>17</th>
       <td>24</td>
-      <td>0.022*"tyson" + 0.019*"mike" + 0.013*"motogp" ...</td>
+      <td>0.022*"tyson" + 0.019*"mike" + 0.013*"open" + ...</td>
     </tr>
     <tr>
       <th>18</th>
@@ -14794,7 +14794,7 @@ Requirement already satisfied: wrapt in /usr/local/lib/python3.12/dist-packages 
     <div class="colab-df-buttons">
 
   <div class="colab-df-container">
-    <button class="colab-df-convert" onclick="convertToInteractive('df-af19095e-1b90-4d06-9440-a6e763e5ea7b')"
+    <button class="colab-df-convert" onclick="convertToInteractive('df-24ef7780-3972-4ef7-a152-18ef88a002bc')"
             title="Convert this dataframe to an interactive table."
             style="display:none;">
 
@@ -14846,12 +14846,12 @@ Requirement already satisfied: wrapt in /usr/local/lib/python3.12/dist-packages 
 
     <script>
       const buttonEl =
-        document.querySelector('#df-af19095e-1b90-4d06-9440-a6e763e5ea7b button.colab-df-convert');
+        document.querySelector('#df-24ef7780-3972-4ef7-a152-18ef88a002bc button.colab-df-convert');
       buttonEl.style.display =
         google.colab.kernel.accessAllowed ? 'block' : 'none';
 
       async function convertToInteractive(key) {
-        const element = document.querySelector('#df-af19095e-1b90-4d06-9440-a6e763e5ea7b');
+        const element = document.querySelector('#df-24ef7780-3972-4ef7-a152-18ef88a002bc');
         const dataTable =
           await google.colab.kernel.invokeFunction('convertToInteractive',
                                                     [key], {});
@@ -14871,8 +14871,8 @@ Requirement already satisfied: wrapt in /usr/local/lib/python3.12/dist-packages 
   </div>
 
 
-    <div id="df-cd6f07bd-10d9-4e74-93e3-13a98ee6d061">
-      <button class="colab-df-quickchart" onclick="quickchart('df-cd6f07bd-10d9-4e74-93e3-13a98ee6d061')"
+    <div id="df-531bffc7-0c78-4070-b417-fbb12fc6b511">
+      <button class="colab-df-quickchart" onclick="quickchart('df-531bffc7-0c78-4070-b417-fbb12fc6b511')"
                 title="Suggest charts"
                 style="display:none;">
 
@@ -14991,14 +14991,14 @@ Requirement already satisfied: wrapt in /usr/local/lib/python3.12/dist-packages 
         }
         (() => {
           let quickchartButtonEl =
-            document.querySelector('#df-cd6f07bd-10d9-4e74-93e3-13a98ee6d061 button');
+            document.querySelector('#df-531bffc7-0c78-4070-b417-fbb12fc6b511 button');
           quickchartButtonEl.style.display =
             google.colab.kernel.accessAllowed ? 'block' : 'none';
         })();
       </script>
     </div>
 
-  <div id="id_a4c2fda1-19c2-4491-9a01-208a353e1a32">
+  <div id="id_b34b9618-aec9-493a-829c-e978331de2ae">
     <style>
       .colab-df-generate {
         background-color: #E8F0FE;
@@ -15042,7 +15042,7 @@ Requirement already satisfied: wrapt in /usr/local/lib/python3.12/dist-packages 
     <script>
       (() => {
       const buttonEl =
-        document.querySelector('#id_a4c2fda1-19c2-4491-9a01-208a353e1a32 button.colab-df-generate');
+        document.querySelector('#id_b34b9618-aec9-493a-829c-e978331de2ae button.colab-df-generate');
       buttonEl.style.display =
         google.colab.kernel.accessAllowed ? 'block' : 'none';
 
@@ -15059,7 +15059,7 @@ Requirement already satisfied: wrapt in /usr/local/lib/python3.12/dist-packages 
 </pre></div>
 </div>
 <div class="output text_html">
-  <div id="df-5fd33ccc-f97e-4399-a727-6c971d29950c" class="colab-df-container">
+  <div id="df-d67dca90-07b6-4204-bf09-477301456574" class="colab-df-container">
     <div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
@@ -15106,11 +15106,11 @@ Requirement already satisfied: wrapt in /usr/local/lib/python3.12/dist-packages 
       <th>0</th>
       <td>menteri koordinator menko bidang perekonomian ...</td>
       <td>0.000000</td>
-      <td>0.347055</td>
+      <td>0.350336</td>
       <td>0.0</td>
       <td>0.0</td>
       <td>0.000000</td>
-      <td>0.148438</td>
+      <td>0.147576</td>
       <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
@@ -15154,7 +15154,7 @@ Requirement already satisfied: wrapt in /usr/local/lib/python3.12/dist-packages 
       <th>2</th>
       <td>wacana presiden prabowo subianto akan membentu...</td>
       <td>0.000000</td>
-      <td>0.365845</td>
+      <td>0.365478</td>
       <td>0.0</td>
       <td>0.0</td>
       <td>0.000000</td>
@@ -15163,7 +15163,7 @@ Requirement already satisfied: wrapt in /usr/local/lib/python3.12/dist-packages 
       <td>0.0</td>
       <td>0.0</td>
       <td>...</td>
-      <td>0.406495</td>
+      <td>0.406847</td>
       <td>0.000000</td>
       <td>0.0</td>
       <td>0.0</td>
@@ -15202,7 +15202,7 @@ Requirement already satisfied: wrapt in /usr/local/lib/python3.12/dist-packages 
       <th>4</th>
       <td>pemerintah akan segera membentuk satuan tugas ...</td>
       <td>0.000000</td>
-      <td>0.050997</td>
+      <td>0.051880</td>
       <td>0.0</td>
       <td>0.0</td>
       <td>0.000000</td>
@@ -15230,7 +15230,7 @@ Requirement already satisfied: wrapt in /usr/local/lib/python3.12/dist-packages 
       <td>0.0</td>
       <td>0.0</td>
       <td>0.000000</td>
-      <td>0.339904</td>
+      <td>0.339797</td>
       <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
@@ -15259,8 +15259,8 @@ Requirement already satisfied: wrapt in /usr/local/lib/python3.12/dist-packages 
       <td>0.0</td>
       <td>0.0</td>
       <td>...</td>
-      <td>0.096489</td>
-      <td>0.078862</td>
+      <td>0.096808</td>
+      <td>0.078607</td>
       <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
@@ -15297,12 +15297,12 @@ Requirement already satisfied: wrapt in /usr/local/lib/python3.12/dist-packages 
     <tr>
       <th>8</th>
       <td>uji coba alias commissioning pembangkit listri...</td>
-      <td>0.016076</td>
+      <td>0.016474</td>
       <td>0.000000</td>
       <td>0.0</td>
       <td>0.0</td>
-      <td>0.013828</td>
-      <td>0.718770</td>
+      <td>0.013842</td>
+      <td>0.718550</td>
       <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
@@ -15349,7 +15349,7 @@ Requirement already satisfied: wrapt in /usr/local/lib/python3.12/dist-packages 
     <div class="colab-df-buttons">
 
   <div class="colab-df-container">
-    <button class="colab-df-convert" onclick="convertToInteractive('df-5fd33ccc-f97e-4399-a727-6c971d29950c')"
+    <button class="colab-df-convert" onclick="convertToInteractive('df-d67dca90-07b6-4204-bf09-477301456574')"
             title="Convert this dataframe to an interactive table."
             style="display:none;">
 
@@ -15401,12 +15401,12 @@ Requirement already satisfied: wrapt in /usr/local/lib/python3.12/dist-packages 
 
     <script>
       const buttonEl =
-        document.querySelector('#df-5fd33ccc-f97e-4399-a727-6c971d29950c button.colab-df-convert');
+        document.querySelector('#df-d67dca90-07b6-4204-bf09-477301456574 button.colab-df-convert');
       buttonEl.style.display =
         google.colab.kernel.accessAllowed ? 'block' : 'none';
 
       async function convertToInteractive(key) {
-        const element = document.querySelector('#df-5fd33ccc-f97e-4399-a727-6c971d29950c');
+        const element = document.querySelector('#df-d67dca90-07b6-4204-bf09-477301456574');
         const dataTable =
           await google.colab.kernel.invokeFunction('convertToInteractive',
                                                     [key], {});
@@ -15426,8 +15426,8 @@ Requirement already satisfied: wrapt in /usr/local/lib/python3.12/dist-packages 
   </div>
 
 
-    <div id="df-8c3047f3-9da0-4c7a-950a-8f6558403e3f">
-      <button class="colab-df-quickchart" onclick="quickchart('df-8c3047f3-9da0-4c7a-950a-8f6558403e3f')"
+    <div id="df-36ef3df2-235b-4be5-b889-774df11d0d5c">
+      <button class="colab-df-quickchart" onclick="quickchart('df-36ef3df2-235b-4be5-b889-774df11d0d5c')"
                 title="Suggest charts"
                 style="display:none;">
 
@@ -15546,7 +15546,7 @@ Requirement already satisfied: wrapt in /usr/local/lib/python3.12/dist-packages 
         }
         (() => {
           let quickchartButtonEl =
-            document.querySelector('#df-8c3047f3-9da0-4c7a-950a-8f6558403e3f button');
+            document.querySelector('#df-36ef3df2-235b-4be5-b889-774df11d0d5c button');
           quickchartButtonEl.style.display =
             google.colab.kernel.accessAllowed ? 'block' : 'none';
         })();
@@ -15678,6 +15678,680 @@ Internasional       0.94      0.96      0.95        84
 <section id="soal-2">
 <h1>SOAL 2<a class="headerlink" href="#soal-2" title="Link to this heading">#</a></h1>
 <p>Membaca Dataset</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># --- 1. Import Library ---</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">re</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.feature_extraction.text</span><span class="w"> </span><span class="kn">import</span> <span class="n">TfidfVectorizer</span><span class="p">,</span> <span class="n">ENGLISH_STOP_WORDS</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.cluster</span><span class="w"> </span><span class="kn">import</span> <span class="n">KMeans</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.metrics</span><span class="w"> </span><span class="kn">import</span> <span class="n">silhouette_score</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.decomposition</span><span class="w"> </span><span class="kn">import</span> <span class="n">TruncatedSVD</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">Sastrawi.StopWordRemover.StopWordRemoverFactory</span><span class="w"> </span><span class="kn">import</span> <span class="n">StopWordRemoverFactory</span>
+
+<span class="c1"># --- 2. Load Dataset ---</span>
+<span class="n">file_path</span> <span class="o">=</span> <span class="s2">&quot;spam.csv&quot;</span>  <span class="c1"># pastikan file ada di folder kerja</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">file_path</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s1">&#39;ISO-8859-1&#39;</span><span class="p">)</span>
+
+<span class="c1"># Jika dataset dari Kaggle (kolom v1 dan v2)</span>
+<span class="k">if</span> <span class="s1">&#39;v2&#39;</span> <span class="ow">in</span> <span class="n">df</span><span class="o">.</span><span class="n">columns</span><span class="p">:</span>
+    <span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;v2&#39;</span><span class="p">:</span> <span class="s1">&#39;Text&#39;</span><span class="p">})</span>
+
+<span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="p">[[</span><span class="s1">&#39;Text&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">dropna</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Jumlah total data:&quot;</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">df</span><span class="p">))</span>
+<span class="n">display</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">())</span>
+
+<span class="c1"># --- 3. Inisialisasi Stopwords ---</span>
+<span class="n">stop_factory</span> <span class="o">=</span> <span class="n">StopWordRemoverFactory</span><span class="p">()</span>
+<span class="n">stopwords</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="n">stop_factory</span><span class="o">.</span><span class="n">get_stop_words</span><span class="p">())</span> <span class="o">|</span> <span class="n">ENGLISH_STOP_WORDS</span>
+
+<span class="c1"># --- 4. Fungsi Pembersihan Teks ---</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">clean_text</span><span class="p">(</span><span class="n">text</span><span class="p">):</span>
+    <span class="n">text</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">text</span><span class="p">)</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>                      <span class="c1"># ubah huruf ke kecil</span>
+    <span class="n">text</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;[^a-z\s]&#39;</span><span class="p">,</span> <span class="s1">&#39; &#39;</span><span class="p">,</span> <span class="n">text</span><span class="p">)</span>         <span class="c1"># hapus karakter non-huruf</span>
+    <span class="n">text</span> <span class="o">=</span> <span class="s1">&#39; &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="n">word</span> <span class="k">for</span> <span class="n">word</span> <span class="ow">in</span> <span class="n">text</span><span class="o">.</span><span class="n">split</span><span class="p">()</span> <span class="k">if</span> <span class="n">word</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">stopwords</span><span class="p">])</span>
+    <span class="k">return</span> <span class="n">text</span>
+
+<span class="c1"># --- 5. Terapkan Pembersihan ---</span>
+<span class="n">df</span><span class="p">[</span><span class="s1">&#39;cleaned_text&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;Text&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">str</span><span class="p">)</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">clean_text</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Contoh hasil pembersihan teks:&quot;</span><span class="p">)</span>
+<span class="n">display</span><span class="p">(</span><span class="n">df</span><span class="p">[[</span><span class="s1">&#39;Text&#39;</span><span class="p">,</span> <span class="s1">&#39;cleaned_text&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">head</span><span class="p">())</span>
+
+<span class="c1"># --- 6. TF-IDF Vectorization ---</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">vectorize_text</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">max_features</span><span class="o">=</span><span class="mi">3000</span><span class="p">):</span>
+    <span class="n">vectorizer</span> <span class="o">=</span> <span class="n">TfidfVectorizer</span><span class="p">(</span><span class="n">max_features</span><span class="o">=</span><span class="n">max_features</span><span class="p">)</span>
+    <span class="n">X_tfidf</span> <span class="o">=</span> <span class="n">vectorizer</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;cleaned_text&#39;</span><span class="p">])</span>
+    <span class="k">return</span> <span class="n">X_tfidf</span><span class="p">,</span> <span class="n">vectorizer</span>
+
+<span class="n">X_tfidf</span><span class="p">,</span> <span class="n">vectorizer</span> <span class="o">=</span> <span class="n">vectorize_text</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Dimensi TF-IDF matrix: </span><span class="si">{</span><span class="n">X_tfidf</span><span class="o">.</span><span class="n">shape</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="c1"># --- 7. Clustering dengan K-Means ---</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">kmeans_clustering</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">k</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">):</span>
+    <span class="n">kmeans</span> <span class="o">=</span> <span class="n">KMeans</span><span class="p">(</span><span class="n">n_clusters</span><span class="o">=</span><span class="n">k</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="n">random_state</span><span class="p">,</span> <span class="n">n_init</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+    <span class="n">clusters</span> <span class="o">=</span> <span class="n">kmeans</span><span class="o">.</span><span class="n">fit_predict</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">kmeans</span><span class="p">,</span> <span class="n">clusters</span>
+
+<span class="n">k</span> <span class="o">=</span> <span class="mi">5</span>
+<span class="n">kmeans_model</span><span class="p">,</span> <span class="n">clusters</span> <span class="o">=</span> <span class="n">kmeans_clustering</span><span class="p">(</span><span class="n">X_tfidf</span><span class="p">,</span> <span class="n">k</span><span class="p">)</span>
+<span class="n">df</span><span class="p">[</span><span class="s1">&#39;Cluster&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">clusters</span>
+
+<span class="c1"># --- 8. Evaluasi dengan Silhouette Score ---</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">evaluate_silhouette</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">clusters</span><span class="p">):</span>
+    <span class="n">score</span> <span class="o">=</span> <span class="n">silhouette_score</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">clusters</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Silhouette Score: </span><span class="si">{</span><span class="n">score</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">score</span>
+
+<span class="n">evaluate_silhouette</span><span class="p">(</span><span class="n">X_tfidf</span><span class="p">,</span> <span class="n">clusters</span><span class="p">)</span>
+
+<span class="c1"># --- 9. Top Terms per Cluster ---</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">top_terms_per_cluster</span><span class="p">(</span><span class="n">kmeans</span><span class="p">,</span> <span class="n">vectorizer</span><span class="p">,</span> <span class="n">n_terms</span><span class="o">=</span><span class="mi">10</span><span class="p">):</span>
+    <span class="n">terms</span> <span class="o">=</span> <span class="n">vectorizer</span><span class="o">.</span><span class="n">get_feature_names_out</span><span class="p">()</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">center</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">kmeans</span><span class="o">.</span><span class="n">cluster_centers_</span><span class="p">):</span>
+        <span class="n">top_idx</span> <span class="o">=</span> <span class="n">center</span><span class="o">.</span><span class="n">argsort</span><span class="p">()[</span><span class="o">-</span><span class="n">n_terms</span><span class="p">:][::</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+        <span class="n">result</span><span class="p">[</span><span class="sa">f</span><span class="s2">&quot;Cluster </span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">terms</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="n">top_idx</span><span class="p">]</span>
+    <span class="k">return</span> <span class="n">result</span>
+
+<span class="n">top_words</span> <span class="o">=</span> <span class="n">top_terms_per_cluster</span><span class="p">(</span><span class="n">kmeans_model</span><span class="p">,</span> <span class="n">vectorizer</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">=== Kata Dominan per Cluster ===&quot;</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">cluster</span><span class="p">,</span> <span class="n">words</span> <span class="ow">in</span> <span class="n">top_words</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">cluster</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="s1">&#39;, &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">words</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="c1"># --- 10. Visualisasi Cluster (TruncatedSVD) ---</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">plot_clusters_svd</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">clusters</span><span class="p">):</span>
+    <span class="n">svd</span> <span class="o">=</span> <span class="n">TruncatedSVD</span><span class="p">(</span><span class="n">n_components</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
+    <span class="n">X_svd</span> <span class="o">=</span> <span class="n">svd</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span><span class="mi">6</span><span class="p">))</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">X_svd</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span> <span class="n">X_svd</span><span class="p">[:,</span><span class="mi">1</span><span class="p">],</span> <span class="n">c</span><span class="o">=</span><span class="n">clusters</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;viridis&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.7</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Visualisasi Clustering Dokumen (TF-IDF + KMeans + SVD)&quot;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Komponen 1&quot;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Komponen 2&quot;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;Cluster&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+<span class="n">plot_clusters_svd</span><span class="p">(</span><span class="n">X_tfidf</span><span class="p">,</span> <span class="n">clusters</span><span class="p">)</span>
+
+<span class="c1"># --- 11. Contoh Teks Tiap Cluster ---</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">contoh_cluster</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">k</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">=== Contoh Email Tiap Cluster ===&quot;</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">k</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Cluster </span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s2">:&quot;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;Cluster&#39;</span><span class="p">]</span><span class="o">==</span><span class="n">i</span><span class="p">][</span><span class="s1">&#39;Text&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span><span class="o">.</span><span class="n">to_string</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">))</span>
+
+<span class="n">contoh_cluster</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">k</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Jumlah total data: 5572
+</pre></div>
+</div>
+<div class="output text_html">
+  <div id="df-ccac243f-8d35-4940-ab97-1105495338f1" class="colab-df-container">
+    <div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Text</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Go until jurong point, crazy.. Available only ...</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Ok lar... Joking wif u oni...</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Free entry in 2 a wkly comp to win FA Cup fina...</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>U dun say so early hor... U c already then say...</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>Nah I don't think he goes to usf, he lives aro...</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+    <div class="colab-df-buttons">
+
+  <div class="colab-df-container">
+    <button class="colab-df-convert" onclick="convertToInteractive('df-ccac243f-8d35-4940-ab97-1105495338f1')"
+            title="Convert this dataframe to an interactive table."
+            style="display:none;">
+
+  <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960">
+    <path d="M120-120v-720h720v720H120Zm60-500h600v-160H180v160Zm220 220h160v-160H400v160Zm0 220h160v-160H400v160ZM180-400h160v-160H180v160Zm440 0h160v-160H620v160ZM180-180h160v-160H180v160Zm440 0h160v-160H620v160Z"/>
+  </svg>
+    </button>
+
+  <style>
+    .colab-df-container {
+      display:flex;
+      gap: 12px;
+    }
+
+    .colab-df-convert {
+      background-color: #E8F0FE;
+      border: none;
+      border-radius: 50%;
+      cursor: pointer;
+      display: none;
+      fill: #1967D2;
+      height: 32px;
+      padding: 0 0 0 0;
+      width: 32px;
+    }
+
+    .colab-df-convert:hover {
+      background-color: #E2EBFA;
+      box-shadow: 0px 1px 2px rgba(60, 64, 67, 0.3), 0px 1px 3px 1px rgba(60, 64, 67, 0.15);
+      fill: #174EA6;
+    }
+
+    .colab-df-buttons div {
+      margin-bottom: 4px;
+    }
+
+    [theme=dark] .colab-df-convert {
+      background-color: #3B4455;
+      fill: #D2E3FC;
+    }
+
+    [theme=dark] .colab-df-convert:hover {
+      background-color: #434B5C;
+      box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.15);
+      filter: drop-shadow(0px 1px 2px rgba(0, 0, 0, 0.3));
+      fill: #FFFFFF;
+    }
+  </style>
+
+    <script>
+      const buttonEl =
+        document.querySelector('#df-ccac243f-8d35-4940-ab97-1105495338f1 button.colab-df-convert');
+      buttonEl.style.display =
+        google.colab.kernel.accessAllowed ? 'block' : 'none';
+
+      async function convertToInteractive(key) {
+        const element = document.querySelector('#df-ccac243f-8d35-4940-ab97-1105495338f1');
+        const dataTable =
+          await google.colab.kernel.invokeFunction('convertToInteractive',
+                                                    [key], {});
+        if (!dataTable) return;
+
+        const docLinkHtml = 'Like what you see? Visit the ' +
+          '<a target="_blank" href=https://colab.research.google.com/notebooks/data_table.ipynb>data table notebook</a>'
+          + ' to learn more about interactive tables.';
+        element.innerHTML = '';
+        dataTable['output_type'] = 'display_data';
+        await google.colab.output.renderOutput(dataTable, element);
+        const docLink = document.createElement('div');
+        docLink.innerHTML = docLinkHtml;
+        element.appendChild(docLink);
+      }
+    </script>
+  </div>
+
+
+    <div id="df-cabd2b6f-7188-496a-89ea-2798b4afd776">
+      <button class="colab-df-quickchart" onclick="quickchart('df-cabd2b6f-7188-496a-89ea-2798b4afd776')"
+                title="Suggest charts"
+                style="display:none;">
+
+<svg xmlns="http://www.w3.org/2000/svg" height="24px"viewBox="0 0 24 24"
+     width="24px">
+    <g>
+        <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zM9 17H7v-7h2v7zm4 0h-2V7h2v10zm4 0h-2v-4h2v4z"/>
+    </g>
+</svg>
+      </button>
+
+<style>
+  .colab-df-quickchart {
+      --bg-color: #E8F0FE;
+      --fill-color: #1967D2;
+      --hover-bg-color: #E2EBFA;
+      --hover-fill-color: #174EA6;
+      --disabled-fill-color: #AAA;
+      --disabled-bg-color: #DDD;
+  }
+
+  [theme=dark] .colab-df-quickchart {
+      --bg-color: #3B4455;
+      --fill-color: #D2E3FC;
+      --hover-bg-color: #434B5C;
+      --hover-fill-color: #FFFFFF;
+      --disabled-bg-color: #3B4455;
+      --disabled-fill-color: #666;
+  }
+
+  .colab-df-quickchart {
+    background-color: var(--bg-color);
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    display: none;
+    fill: var(--fill-color);
+    height: 32px;
+    padding: 0;
+    width: 32px;
+  }
+
+  .colab-df-quickchart:hover {
+    background-color: var(--hover-bg-color);
+    box-shadow: 0 1px 2px rgba(60, 64, 67, 0.3), 0 1px 3px 1px rgba(60, 64, 67, 0.15);
+    fill: var(--button-hover-fill-color);
+  }
+
+  .colab-df-quickchart-complete:disabled,
+  .colab-df-quickchart-complete:disabled:hover {
+    background-color: var(--disabled-bg-color);
+    fill: var(--disabled-fill-color);
+    box-shadow: none;
+  }
+
+  .colab-df-spinner {
+    border: 2px solid var(--fill-color);
+    border-color: transparent;
+    border-bottom-color: var(--fill-color);
+    animation:
+      spin 1s steps(1) infinite;
+  }
+
+  @keyframes spin {
+    0% {
+      border-color: transparent;
+      border-bottom-color: var(--fill-color);
+      border-left-color: var(--fill-color);
+    }
+    20% {
+      border-color: transparent;
+      border-left-color: var(--fill-color);
+      border-top-color: var(--fill-color);
+    }
+    30% {
+      border-color: transparent;
+      border-left-color: var(--fill-color);
+      border-top-color: var(--fill-color);
+      border-right-color: var(--fill-color);
+    }
+    40% {
+      border-color: transparent;
+      border-right-color: var(--fill-color);
+      border-top-color: var(--fill-color);
+    }
+    60% {
+      border-color: transparent;
+      border-right-color: var(--fill-color);
+    }
+    80% {
+      border-color: transparent;
+      border-right-color: var(--fill-color);
+      border-bottom-color: var(--fill-color);
+    }
+    90% {
+      border-color: transparent;
+      border-bottom-color: var(--fill-color);
+    }
+  }
+</style>
+
+      <script>
+        async function quickchart(key) {
+          const quickchartButtonEl =
+            document.querySelector('#' + key + ' button');
+          quickchartButtonEl.disabled = true;  // To prevent multiple clicks.
+          quickchartButtonEl.classList.add('colab-df-spinner');
+          try {
+            const charts = await google.colab.kernel.invokeFunction(
+                'suggestCharts', [key], {});
+          } catch (error) {
+            console.error('Error during call to suggestCharts:', error);
+          }
+          quickchartButtonEl.classList.remove('colab-df-spinner');
+          quickchartButtonEl.classList.add('colab-df-quickchart-complete');
+        }
+        (() => {
+          let quickchartButtonEl =
+            document.querySelector('#df-cabd2b6f-7188-496a-89ea-2798b4afd776 button');
+          quickchartButtonEl.style.display =
+            google.colab.kernel.accessAllowed ? 'block' : 'none';
+        })();
+      </script>
+    </div>
+
+    </div>
+  </div>
+</div><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Contoh hasil pembersihan teks:
+</pre></div>
+</div>
+<div class="output text_html">
+  <div id="df-666b2514-3f64-4add-8c82-662dea58ae60" class="colab-df-container">
+    <div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Text</th>
+      <th>cleaned_text</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Go until jurong point, crazy.. Available only ...</td>
+      <td>jurong point crazy available bugis n great wor...</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Ok lar... Joking wif u oni...</td>
+      <td>lar joking wif u oni</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Free entry in 2 a wkly comp to win FA Cup fina...</td>
+      <td>free entry wkly comp win fa cup final tkts st ...</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>U dun say so early hor... U c already then say...</td>
+      <td>u dun say early hor u c say</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>Nah I don't think he goes to usf, he lives aro...</td>
+      <td>nah don t think goes usf lives</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+    <div class="colab-df-buttons">
+
+  <div class="colab-df-container">
+    <button class="colab-df-convert" onclick="convertToInteractive('df-666b2514-3f64-4add-8c82-662dea58ae60')"
+            title="Convert this dataframe to an interactive table."
+            style="display:none;">
+
+  <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960">
+    <path d="M120-120v-720h720v720H120Zm60-500h600v-160H180v160Zm220 220h160v-160H400v160Zm0 220h160v-160H400v160ZM180-400h160v-160H180v160Zm440 0h160v-160H620v160ZM180-180h160v-160H180v160Zm440 0h160v-160H620v160Z"/>
+  </svg>
+    </button>
+
+  <style>
+    .colab-df-container {
+      display:flex;
+      gap: 12px;
+    }
+
+    .colab-df-convert {
+      background-color: #E8F0FE;
+      border: none;
+      border-radius: 50%;
+      cursor: pointer;
+      display: none;
+      fill: #1967D2;
+      height: 32px;
+      padding: 0 0 0 0;
+      width: 32px;
+    }
+
+    .colab-df-convert:hover {
+      background-color: #E2EBFA;
+      box-shadow: 0px 1px 2px rgba(60, 64, 67, 0.3), 0px 1px 3px 1px rgba(60, 64, 67, 0.15);
+      fill: #174EA6;
+    }
+
+    .colab-df-buttons div {
+      margin-bottom: 4px;
+    }
+
+    [theme=dark] .colab-df-convert {
+      background-color: #3B4455;
+      fill: #D2E3FC;
+    }
+
+    [theme=dark] .colab-df-convert:hover {
+      background-color: #434B5C;
+      box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.15);
+      filter: drop-shadow(0px 1px 2px rgba(0, 0, 0, 0.3));
+      fill: #FFFFFF;
+    }
+  </style>
+
+    <script>
+      const buttonEl =
+        document.querySelector('#df-666b2514-3f64-4add-8c82-662dea58ae60 button.colab-df-convert');
+      buttonEl.style.display =
+        google.colab.kernel.accessAllowed ? 'block' : 'none';
+
+      async function convertToInteractive(key) {
+        const element = document.querySelector('#df-666b2514-3f64-4add-8c82-662dea58ae60');
+        const dataTable =
+          await google.colab.kernel.invokeFunction('convertToInteractive',
+                                                    [key], {});
+        if (!dataTable) return;
+
+        const docLinkHtml = 'Like what you see? Visit the ' +
+          '<a target="_blank" href=https://colab.research.google.com/notebooks/data_table.ipynb>data table notebook</a>'
+          + ' to learn more about interactive tables.';
+        element.innerHTML = '';
+        dataTable['output_type'] = 'display_data';
+        await google.colab.output.renderOutput(dataTable, element);
+        const docLink = document.createElement('div');
+        docLink.innerHTML = docLinkHtml;
+        element.appendChild(docLink);
+      }
+    </script>
+  </div>
+
+
+    <div id="df-14936b0b-7f2e-4333-958e-09d2930c63e1">
+      <button class="colab-df-quickchart" onclick="quickchart('df-14936b0b-7f2e-4333-958e-09d2930c63e1')"
+                title="Suggest charts"
+                style="display:none;">
+
+<svg xmlns="http://www.w3.org/2000/svg" height="24px"viewBox="0 0 24 24"
+     width="24px">
+    <g>
+        <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zM9 17H7v-7h2v7zm4 0h-2V7h2v10zm4 0h-2v-4h2v4z"/>
+    </g>
+</svg>
+      </button>
+
+<style>
+  .colab-df-quickchart {
+      --bg-color: #E8F0FE;
+      --fill-color: #1967D2;
+      --hover-bg-color: #E2EBFA;
+      --hover-fill-color: #174EA6;
+      --disabled-fill-color: #AAA;
+      --disabled-bg-color: #DDD;
+  }
+
+  [theme=dark] .colab-df-quickchart {
+      --bg-color: #3B4455;
+      --fill-color: #D2E3FC;
+      --hover-bg-color: #434B5C;
+      --hover-fill-color: #FFFFFF;
+      --disabled-bg-color: #3B4455;
+      --disabled-fill-color: #666;
+  }
+
+  .colab-df-quickchart {
+    background-color: var(--bg-color);
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    display: none;
+    fill: var(--fill-color);
+    height: 32px;
+    padding: 0;
+    width: 32px;
+  }
+
+  .colab-df-quickchart:hover {
+    background-color: var(--hover-bg-color);
+    box-shadow: 0 1px 2px rgba(60, 64, 67, 0.3), 0 1px 3px 1px rgba(60, 64, 67, 0.15);
+    fill: var(--button-hover-fill-color);
+  }
+
+  .colab-df-quickchart-complete:disabled,
+  .colab-df-quickchart-complete:disabled:hover {
+    background-color: var(--disabled-bg-color);
+    fill: var(--disabled-fill-color);
+    box-shadow: none;
+  }
+
+  .colab-df-spinner {
+    border: 2px solid var(--fill-color);
+    border-color: transparent;
+    border-bottom-color: var(--fill-color);
+    animation:
+      spin 1s steps(1) infinite;
+  }
+
+  @keyframes spin {
+    0% {
+      border-color: transparent;
+      border-bottom-color: var(--fill-color);
+      border-left-color: var(--fill-color);
+    }
+    20% {
+      border-color: transparent;
+      border-left-color: var(--fill-color);
+      border-top-color: var(--fill-color);
+    }
+    30% {
+      border-color: transparent;
+      border-left-color: var(--fill-color);
+      border-top-color: var(--fill-color);
+      border-right-color: var(--fill-color);
+    }
+    40% {
+      border-color: transparent;
+      border-right-color: var(--fill-color);
+      border-top-color: var(--fill-color);
+    }
+    60% {
+      border-color: transparent;
+      border-right-color: var(--fill-color);
+    }
+    80% {
+      border-color: transparent;
+      border-right-color: var(--fill-color);
+      border-bottom-color: var(--fill-color);
+    }
+    90% {
+      border-color: transparent;
+      border-bottom-color: var(--fill-color);
+    }
+  }
+</style>
+
+      <script>
+        async function quickchart(key) {
+          const quickchartButtonEl =
+            document.querySelector('#' + key + ' button');
+          quickchartButtonEl.disabled = true;  // To prevent multiple clicks.
+          quickchartButtonEl.classList.add('colab-df-spinner');
+          try {
+            const charts = await google.colab.kernel.invokeFunction(
+                'suggestCharts', [key], {});
+          } catch (error) {
+            console.error('Error during call to suggestCharts:', error);
+          }
+          quickchartButtonEl.classList.remove('colab-df-spinner');
+          quickchartButtonEl.classList.add('colab-df-quickchart-complete');
+        }
+        (() => {
+          let quickchartButtonEl =
+            document.querySelector('#df-14936b0b-7f2e-4333-958e-09d2930c63e1 button');
+          quickchartButtonEl.style.display =
+            google.colab.kernel.accessAllowed ? 'block' : 'none';
+        })();
+      </script>
+    </div>
+
+    </div>
+  </div>
+</div><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Dimensi TF-IDF matrix: (5572, 3000)
+
+Silhouette Score: 0.0123
+
+=== Kata Dominan per Cluster ===
+Cluster 0: ll, ur, good, know, sorry, like, lor, free, later, got
+Cluster 1: gt, lt, decimal, min, like, ll, minutes, got, know, mins
+Cluster 2: come, time, home, tomorrow, wat, want, ur, got, tell, finish
+Cluster 3: just, free, week, tone, ur, got, text, dont, sent, know
+Cluster 4: going, home, sleep, da, night, good, got, soon, lor, dinner
+</pre></div>
+</div>
+<img alt="_images/097c2b2fc5801b440736758bb93f9ae1e28369185ed1fa6a4895e195a962a8ed.png" src="_images/097c2b2fc5801b440736758bb93f9ae1e28369185ed1fa6a4895e195a962a8ed.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>=== Contoh Email Tiap Cluster ===
+
+Cluster 0:
+Go until jurong point, crazy.. Available only i...
+                     Ok lar... Joking wif u oni...
+Free entry in 2 a wkly comp to win FA Cup final...
+
+Cluster 1:
+Great! I hope you like your man well endowed. I...
+A gram usually runs like  &amp;lt;#&amp;gt; , a half ei...
+Do you know what Mallika Sherawat did yesterday...
+
+Cluster 2:
+What you thinked about me. First time you saw m...
+Sorry my roommates took forever, it ok if I com...
+         Ela kano.,il download, come wen ur free..
+
+Cluster 3:
+Just forced myself to eat a slice. I&#39;m really n...
+For fear of fainting with the of all that house...
+Hello! How&#39;s you and how did saturday go? I was...
+
+Cluster 4:
+ IÛ÷m going to try for 2 months ha ha only joking
+Yup... Ok i go home look at the timings then i ...
+                   Fair enough, anything going on?
+</pre></div>
+</div>
+</div>
+</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;spam.csv&#39;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s1">&#39;ISO-8859-1&#39;</span><span class="p">)</span>
@@ -15974,101 +16648,36 @@ Internasional       0.94      0.96      0.95        84
   </div>
 </div></div>
 </div>
-<p>Inisialisasi stopwords</p>
+<p>Melakukan inisialisasi stopword dan pembersihan teks</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.feature_extraction.text</span><span class="w"> </span><span class="kn">import</span> <span class="n">ENGLISH_STOP_WORDS</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># --- Stopwords manual ---</span>
+<span class="n">stop_words</span> <span class="o">=</span> <span class="nb">set</span><span class="p">([</span>
+    <span class="s2">&quot;a&quot;</span><span class="p">,</span><span class="s2">&quot;an&quot;</span><span class="p">,</span><span class="s2">&quot;the&quot;</span><span class="p">,</span><span class="s2">&quot;and&quot;</span><span class="p">,</span><span class="s2">&quot;or&quot;</span><span class="p">,</span><span class="s2">&quot;is&quot;</span><span class="p">,</span><span class="s2">&quot;are&quot;</span><span class="p">,</span><span class="s2">&quot;was&quot;</span><span class="p">,</span><span class="s2">&quot;were&quot;</span><span class="p">,</span><span class="s2">&quot;be&quot;</span><span class="p">,</span><span class="s2">&quot;been&quot;</span><span class="p">,</span><span class="s2">&quot;in&quot;</span><span class="p">,</span><span class="s2">&quot;on&quot;</span><span class="p">,</span><span class="s2">&quot;at&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;to&quot;</span><span class="p">,</span><span class="s2">&quot;for&quot;</span><span class="p">,</span><span class="s2">&quot;of&quot;</span><span class="p">,</span><span class="s2">&quot;by&quot;</span><span class="p">,</span><span class="s2">&quot;with&quot;</span><span class="p">,</span><span class="s2">&quot;as&quot;</span><span class="p">,</span><span class="s2">&quot;that&quot;</span><span class="p">,</span><span class="s2">&quot;this&quot;</span><span class="p">,</span><span class="s2">&quot;it&quot;</span><span class="p">,</span><span class="s2">&quot;from&quot;</span><span class="p">,</span><span class="s2">&quot;but&quot;</span><span class="p">,</span><span class="s2">&quot;not&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;can&quot;</span><span class="p">,</span><span class="s2">&quot;will&quot;</span><span class="p">,</span><span class="s2">&quot;just&quot;</span><span class="p">,</span><span class="s2">&quot;you&quot;</span><span class="p">,</span><span class="s2">&quot;your&quot;</span><span class="p">,</span><span class="s2">&quot;i&quot;</span><span class="p">,</span><span class="s2">&quot;me&quot;</span><span class="p">,</span><span class="s2">&quot;my&quot;</span><span class="p">,</span><span class="s2">&quot;we&quot;</span><span class="p">,</span><span class="s2">&quot;our&quot;</span><span class="p">,</span><span class="s2">&quot;they&quot;</span><span class="p">,</span><span class="s2">&quot;their&quot;</span>
+<span class="p">])</span>
 
-<span class="n">stop_factory</span> <span class="o">=</span> <span class="n">StopWordRemoverFactory</span><span class="p">()</span>
-<span class="n">stopwords</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="n">stop_factory</span><span class="o">.</span><span class="n">get_stop_words</span><span class="p">())</span>
-</pre></div>
-</div>
-</div>
-</div>
-<p>Pembersihan Teks</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">clean_text</span><span class="p">(</span><span class="n">text</span><span class="p">):</span>
-    <span class="n">text</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">text</span><span class="p">)</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>                      <span class="c1"># huruf kecil semua</span>
-    <span class="n">text</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;[^a-z\s]&#39;</span><span class="p">,</span> <span class="s1">&#39; &#39;</span><span class="p">,</span> <span class="n">text</span><span class="p">)</span>         <span class="c1"># hapus tanda baca &amp; angka</span>
-    <span class="n">text</span> <span class="o">=</span> <span class="s1">&#39; &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="n">word</span> <span class="k">for</span> <span class="n">word</span> <span class="ow">in</span> <span class="n">text</span><span class="o">.</span><span class="n">split</span><span class="p">()</span> <span class="k">if</span> <span class="n">word</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">ENGLISH_STOP_WORDS</span><span class="p">])</span>
+<span class="c1"># --- Fungsi pembersihan teks ---</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">clean_text</span><span class="p">(</span><span class="n">text</span><span class="p">):</span>
+    <span class="n">text</span> <span class="o">=</span> <span class="n">text</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
+    <span class="n">text</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;[^a-z\s]&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">text</span><span class="p">)</span>
+    <span class="n">text</span> <span class="o">=</span> <span class="s1">&#39; &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="n">word</span> <span class="k">for</span> <span class="n">word</span> <span class="ow">in</span> <span class="n">text</span><span class="o">.</span><span class="n">split</span><span class="p">()</span> <span class="k">if</span> <span class="n">word</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">stop_words</span><span class="p">])</span>
     <span class="k">return</span> <span class="n">text</span>
-</pre></div>
-</div>
-</div>
-</div>
-<p>Membersihkan semua Teks</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;cleaned_text&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">text_column</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">clean_text</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-<p>Representasi teks dengan TF-IDF</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">vectorizer</span> <span class="o">=</span> <span class="n">TfidfVectorizer</span><span class="p">(</span><span class="n">max_features</span><span class="o">=</span><span class="mi">5000</span><span class="p">)</span>
-<span class="n">X</span> <span class="o">=</span> <span class="n">vectorizer</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;cleaned_text&#39;</span><span class="p">])</span>
-</pre></div>
-</div>
-</div>
-</div>
-<p>Clustering dengan K-Means</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">n_clusters</span> <span class="o">=</span> <span class="mi">5</span>
-<span class="n">kmeans</span> <span class="o">=</span> <span class="n">KMeans</span><span class="p">(</span><span class="n">n_clusters</span><span class="o">=</span><span class="n">n_clusters</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">,</span> <span class="n">n_init</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
-<span class="n">df</span><span class="p">[</span><span class="s1">&#39;cluster&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">kmeans</span><span class="o">.</span><span class="n">fit_predict</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-<p>Visualisasi cluster</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.decomposition</span><span class="w"> </span><span class="kn">import</span> <span class="n">TruncatedSVD</span>
 
-<span class="n">svd</span> <span class="o">=</span> <span class="n">TruncatedSVD</span><span class="p">(</span><span class="n">n_components</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
-<span class="n">reduced_data</span> <span class="o">=</span> <span class="n">svd</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
-
-<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span><span class="mi">6</span><span class="p">))</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">reduced_data</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span> <span class="n">reduced_data</span><span class="p">[:,</span><span class="mi">1</span><span class="p">],</span> <span class="n">c</span><span class="o">=</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;cluster&#39;</span><span class="p">],</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;viridis&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Visualisasi Clustering Email (TF-IDF + KMeans)&quot;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Komponen 1&quot;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Komponen 2&quot;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;Cluster&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+<span class="c1"># --- Terapkan pembersihan ---</span>
+<span class="n">df</span><span class="p">[</span><span class="s1">&#39;clean_text&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;Text&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">str</span><span class="p">)</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">clean_text</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Contoh teks setelah dibersihkan:&quot;</span><span class="p">)</span>
+<span class="n">display</span><span class="p">(</span><span class="n">df</span><span class="p">[[</span><span class="s1">&#39;Text&#39;</span><span class="p">,</span><span class="s1">&#39;clean_text&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">head</span><span class="p">())</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/523a7bb04ad831d9635b02027e22a3bec96fc0862ed7bb5b061a5b161b790fdb.png" src="_images/523a7bb04ad831d9635b02027e22a3bec96fc0862ed7bb5b061a5b161b790fdb.png" />
-</div>
-</div>
-<p>Menampilkan Kata Dominan per Cluster</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">terms</span> <span class="o">=</span> <span class="n">vectorizer</span><span class="o">.</span><span class="n">get_feature_names_out</span><span class="p">()</span>
-<span class="n">order_centroids</span> <span class="o">=</span> <span class="n">kmeans</span><span class="o">.</span><span class="n">cluster_centers_</span><span class="o">.</span><span class="n">argsort</span><span class="p">()[:,</span> <span class="p">::</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
-
-<span class="n">clusters_top_words</span> <span class="o">=</span> <span class="p">[]</span>  <span class="c1"># untuk menyimpan hasil</span>
-
-<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n_clusters</span><span class="p">):</span>
-    <span class="n">top_words</span> <span class="o">=</span> <span class="p">[</span><span class="n">terms</span><span class="p">[</span><span class="n">ind</span><span class="p">]</span> <span class="k">for</span> <span class="n">ind</span> <span class="ow">in</span> <span class="n">order_centroids</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="p">:</span><span class="mi">10</span><span class="p">]]</span>
-    <span class="n">clusters_top_words</span><span class="o">.</span><span class="n">append</span><span class="p">({</span>
-        <span class="s2">&quot;Cluster&quot;</span><span class="p">:</span> <span class="n">i</span><span class="p">,</span>
-        <span class="s2">&quot;Top Words&quot;</span><span class="p">:</span> <span class="s1">&#39;, &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">top_words</span><span class="p">)</span>
-    <span class="p">})</span>
-
-<span class="n">df_top_words</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">clusters_top_words</span><span class="p">)</span>
-<span class="n">display</span><span class="p">(</span><span class="n">df_top_words</span><span class="p">)</span>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Contoh teks setelah dibersihkan:
 </pre></div>
 </div>
-</div>
-<div class="cell_output docutils container">
 <div class="output text_html">
-  <div id="df-74ce0a30-6999-4f12-bc64-f70d95626bba" class="colab-df-container">
+  <div id="df-d2f4fbb7-f01a-4b57-bc75-85e8657d7a8c" class="colab-df-container">
     <div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
@@ -16087,35 +16696,35 @@ Internasional       0.94      0.96      0.95        84
   <thead>
     <tr style="text-align: right;">
       <th></th>
-      <th>Cluster</th>
-      <th>Top Words</th>
+      <th>Text</th>
+      <th>clean_text</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <th>0</th>
-      <td>0</td>
-      <td>then, lor, go, come, wat, but, wan, me, dun, not</td>
+      <td>Go until jurong point, crazy.. Available only ...</td>
+      <td>go until jurong point crazy available only bug...</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>1</td>
-      <td>to, the, is, in, it, my, and, me, of, that</td>
+      <td>Ok lar... Joking wif u oni...</td>
+      <td>ok lar joking wif u oni</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>2</td>
-      <td>lt, gt, you, the, to, in, decimal, is, for, min</td>
+      <td>Free entry in 2 a wkly comp to win FA Cup fina...</td>
+      <td>free entry wkly comp win fa cup final tkts st ...</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>3</td>
-      <td>you, are, to, and, the, me, do, how, in, that</td>
+      <td>U dun say so early hor... U c already then say...</td>
+      <td>u dun say so early hor u c already then say</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>4</td>
-      <td>call, later, you, sorry, your, to, ll, free, p...</td>
+      <td>Nah I don't think he goes to usf, he lives aro...</td>
+      <td>nah dont think he goes usf he lives around her...</td>
     </tr>
   </tbody>
 </table>
@@ -16123,7 +16732,7 @@ Internasional       0.94      0.96      0.95        84
     <div class="colab-df-buttons">
 
   <div class="colab-df-container">
-    <button class="colab-df-convert" onclick="convertToInteractive('df-74ce0a30-6999-4f12-bc64-f70d95626bba')"
+    <button class="colab-df-convert" onclick="convertToInteractive('df-d2f4fbb7-f01a-4b57-bc75-85e8657d7a8c')"
             title="Convert this dataframe to an interactive table."
             style="display:none;">
 
@@ -16175,12 +16784,12 @@ Internasional       0.94      0.96      0.95        84
 
     <script>
       const buttonEl =
-        document.querySelector('#df-74ce0a30-6999-4f12-bc64-f70d95626bba button.colab-df-convert');
+        document.querySelector('#df-d2f4fbb7-f01a-4b57-bc75-85e8657d7a8c button.colab-df-convert');
       buttonEl.style.display =
         google.colab.kernel.accessAllowed ? 'block' : 'none';
 
       async function convertToInteractive(key) {
-        const element = document.querySelector('#df-74ce0a30-6999-4f12-bc64-f70d95626bba');
+        const element = document.querySelector('#df-d2f4fbb7-f01a-4b57-bc75-85e8657d7a8c');
         const dataTable =
           await google.colab.kernel.invokeFunction('convertToInteractive',
                                                     [key], {});
@@ -16200,8 +16809,8 @@ Internasional       0.94      0.96      0.95        84
   </div>
 
 
-    <div id="df-744815fd-d369-4849-be69-bcf3ebfcd0ec">
-      <button class="colab-df-quickchart" onclick="quickchart('df-744815fd-d369-4849-be69-bcf3ebfcd0ec')"
+    <div id="df-6cc17262-142c-436a-b1d5-393a302f71eb">
+      <button class="colab-df-quickchart" onclick="quickchart('df-6cc17262-142c-436a-b1d5-393a302f71eb')"
                 title="Suggest charts"
                 style="display:none;">
 
@@ -16320,14 +16929,354 @@ Internasional       0.94      0.96      0.95        84
         }
         (() => {
           let quickchartButtonEl =
-            document.querySelector('#df-744815fd-d369-4849-be69-bcf3ebfcd0ec button');
+            document.querySelector('#df-6cc17262-142c-436a-b1d5-393a302f71eb button');
           quickchartButtonEl.style.display =
             google.colab.kernel.accessAllowed ? 'block' : 'none';
         })();
       </script>
     </div>
 
-  <div id="id_524a8da6-4482-4818-ac4c-379b3b16124d">
+    </div>
+  </div>
+</div></div>
+</div>
+<p>Representasi teks dengan TF-IDF</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">vectorize_text</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">max_features</span><span class="o">=</span><span class="mi">1000</span><span class="p">):</span>
+    <span class="n">vectorizer</span> <span class="o">=</span> <span class="n">TfidfVectorizer</span><span class="p">(</span><span class="n">max_features</span><span class="o">=</span><span class="n">max_features</span><span class="p">)</span>
+    <span class="n">X_tfidf</span> <span class="o">=</span> <span class="n">vectorizer</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;clean_text&#39;</span><span class="p">])</span>
+    <span class="k">return</span> <span class="n">X_tfidf</span><span class="p">,</span> <span class="n">vectorizer</span>
+
+<span class="n">X_tfidf</span><span class="p">,</span> <span class="n">vectorizer</span> <span class="o">=</span> <span class="n">vectorize_text</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Dimensi TF-IDF matrix: </span><span class="si">{</span><span class="n">X_tfidf</span><span class="o">.</span><span class="n">shape</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Dimensi TF-IDF matrix: (5572, 1000)
+</pre></div>
+</div>
+</div>
+</div>
+<p>Clustering dengan K-Means</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">kmeans_clustering</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">k</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">):</span>
+    <span class="n">kmeans</span> <span class="o">=</span> <span class="n">KMeans</span><span class="p">(</span><span class="n">n_clusters</span><span class="o">=</span><span class="n">k</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="n">random_state</span><span class="p">,</span> <span class="n">n_init</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+    <span class="n">clusters</span> <span class="o">=</span> <span class="n">kmeans</span><span class="o">.</span><span class="n">fit_predict</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">kmeans</span><span class="p">,</span> <span class="n">clusters</span>
+
+<span class="n">k</span> <span class="o">=</span> <span class="mi">5</span>
+<span class="n">kmeans_model</span><span class="p">,</span> <span class="n">clusters</span> <span class="o">=</span> <span class="n">kmeans_clustering</span><span class="p">(</span><span class="n">X_tfidf</span><span class="p">,</span> <span class="n">k</span><span class="p">)</span>
+<span class="n">df</span><span class="p">[</span><span class="s1">&#39;Cluster&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">clusters</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Evaluasi kualitas Clustering</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">evaluate_silhouette</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">clusters</span><span class="p">):</span>
+    <span class="n">score</span> <span class="o">=</span> <span class="n">silhouette_score</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">clusters</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Silhouette Score: </span><span class="si">{</span><span class="n">score</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">score</span>
+
+<span class="n">evaluate_silhouette</span><span class="p">(</span><span class="n">X_tfidf</span><span class="p">,</span> <span class="n">clusters</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Silhouette Score: 0.0086
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.008618194914247415
+</pre></div>
+</div>
+</div>
+</div>
+<p>Menampilkan Kata Dominan per Cluster</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">terms</span> <span class="o">=</span> <span class="n">vectorizer</span><span class="o">.</span><span class="n">get_feature_names_out</span><span class="p">()</span>
+<span class="n">order_centroids</span> <span class="o">=</span> <span class="n">kmeans_model</span><span class="o">.</span><span class="n">cluster_centers_</span><span class="o">.</span><span class="n">argsort</span><span class="p">()[:,</span> <span class="p">::</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+
+<span class="n">clusters_top_words</span> <span class="o">=</span> <span class="p">[]</span>  <span class="c1"># untuk menyimpan hasil</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">k</span><span class="p">):</span>
+    <span class="n">top_words</span> <span class="o">=</span> <span class="p">[</span><span class="n">terms</span><span class="p">[</span><span class="n">ind</span><span class="p">]</span> <span class="k">for</span> <span class="n">ind</span> <span class="ow">in</span> <span class="n">order_centroids</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="p">:</span><span class="mi">10</span><span class="p">]]</span>
+    <span class="n">clusters_top_words</span><span class="o">.</span><span class="n">append</span><span class="p">({</span>
+        <span class="s2">&quot;Cluster&quot;</span><span class="p">:</span> <span class="n">i</span><span class="p">,</span>
+        <span class="s2">&quot;Top Words&quot;</span><span class="p">:</span> <span class="s1">&#39;, &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">top_words</span><span class="p">)</span>
+    <span class="p">})</span>
+
+<span class="n">df_top_words</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">clusters_top_words</span><span class="p">)</span>
+<span class="n">display</span><span class="p">(</span><span class="n">df_top_words</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">
+  <div id="df-fb1d4ac0-e2ed-47c5-a9fc-470abf1e490c" class="colab-df-container">
+    <div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Cluster</th>
+      <th>Top Words</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>0</td>
+      <td>have, do, so, get, what, ur, how, up, now, its</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>1</td>
+      <td>no, need, nokia, txt, ur, ltgt, get, free, sto...</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>2</td>
+      <td>im, now, home, so, going, when, gonna, call, d...</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>3</td>
+      <td>ok, lor, then, its, thanx, if, ill, ur, come, go</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>4</td>
+      <td>call, later, sorry, free, now, claim, prize, i...</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+    <div class="colab-df-buttons">
+
+  <div class="colab-df-container">
+    <button class="colab-df-convert" onclick="convertToInteractive('df-fb1d4ac0-e2ed-47c5-a9fc-470abf1e490c')"
+            title="Convert this dataframe to an interactive table."
+            style="display:none;">
+
+  <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960">
+    <path d="M120-120v-720h720v720H120Zm60-500h600v-160H180v160Zm220 220h160v-160H400v160Zm0 220h160v-160H400v160ZM180-400h160v-160H180v160Zm440 0h160v-160H620v160ZM180-180h160v-160H180v160Zm440 0h160v-160H620v160Z"/>
+  </svg>
+    </button>
+
+  <style>
+    .colab-df-container {
+      display:flex;
+      gap: 12px;
+    }
+
+    .colab-df-convert {
+      background-color: #E8F0FE;
+      border: none;
+      border-radius: 50%;
+      cursor: pointer;
+      display: none;
+      fill: #1967D2;
+      height: 32px;
+      padding: 0 0 0 0;
+      width: 32px;
+    }
+
+    .colab-df-convert:hover {
+      background-color: #E2EBFA;
+      box-shadow: 0px 1px 2px rgba(60, 64, 67, 0.3), 0px 1px 3px 1px rgba(60, 64, 67, 0.15);
+      fill: #174EA6;
+    }
+
+    .colab-df-buttons div {
+      margin-bottom: 4px;
+    }
+
+    [theme=dark] .colab-df-convert {
+      background-color: #3B4455;
+      fill: #D2E3FC;
+    }
+
+    [theme=dark] .colab-df-convert:hover {
+      background-color: #434B5C;
+      box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.15);
+      filter: drop-shadow(0px 1px 2px rgba(0, 0, 0, 0.3));
+      fill: #FFFFFF;
+    }
+  </style>
+
+    <script>
+      const buttonEl =
+        document.querySelector('#df-fb1d4ac0-e2ed-47c5-a9fc-470abf1e490c button.colab-df-convert');
+      buttonEl.style.display =
+        google.colab.kernel.accessAllowed ? 'block' : 'none';
+
+      async function convertToInteractive(key) {
+        const element = document.querySelector('#df-fb1d4ac0-e2ed-47c5-a9fc-470abf1e490c');
+        const dataTable =
+          await google.colab.kernel.invokeFunction('convertToInteractive',
+                                                    [key], {});
+        if (!dataTable) return;
+
+        const docLinkHtml = 'Like what you see? Visit the ' +
+          '<a target="_blank" href=https://colab.research.google.com/notebooks/data_table.ipynb>data table notebook</a>'
+          + ' to learn more about interactive tables.';
+        element.innerHTML = '';
+        dataTable['output_type'] = 'display_data';
+        await google.colab.output.renderOutput(dataTable, element);
+        const docLink = document.createElement('div');
+        docLink.innerHTML = docLinkHtml;
+        element.appendChild(docLink);
+      }
+    </script>
+  </div>
+
+
+    <div id="df-8778dcb3-fcd5-4c4f-a19a-55a6ba43f64d">
+      <button class="colab-df-quickchart" onclick="quickchart('df-8778dcb3-fcd5-4c4f-a19a-55a6ba43f64d')"
+                title="Suggest charts"
+                style="display:none;">
+
+<svg xmlns="http://www.w3.org/2000/svg" height="24px"viewBox="0 0 24 24"
+     width="24px">
+    <g>
+        <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zM9 17H7v-7h2v7zm4 0h-2V7h2v10zm4 0h-2v-4h2v4z"/>
+    </g>
+</svg>
+      </button>
+
+<style>
+  .colab-df-quickchart {
+      --bg-color: #E8F0FE;
+      --fill-color: #1967D2;
+      --hover-bg-color: #E2EBFA;
+      --hover-fill-color: #174EA6;
+      --disabled-fill-color: #AAA;
+      --disabled-bg-color: #DDD;
+  }
+
+  [theme=dark] .colab-df-quickchart {
+      --bg-color: #3B4455;
+      --fill-color: #D2E3FC;
+      --hover-bg-color: #434B5C;
+      --hover-fill-color: #FFFFFF;
+      --disabled-bg-color: #3B4455;
+      --disabled-fill-color: #666;
+  }
+
+  .colab-df-quickchart {
+    background-color: var(--bg-color);
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    display: none;
+    fill: var(--fill-color);
+    height: 32px;
+    padding: 0;
+    width: 32px;
+  }
+
+  .colab-df-quickchart:hover {
+    background-color: var(--hover-bg-color);
+    box-shadow: 0 1px 2px rgba(60, 64, 67, 0.3), 0 1px 3px 1px rgba(60, 64, 67, 0.15);
+    fill: var(--button-hover-fill-color);
+  }
+
+  .colab-df-quickchart-complete:disabled,
+  .colab-df-quickchart-complete:disabled:hover {
+    background-color: var(--disabled-bg-color);
+    fill: var(--disabled-fill-color);
+    box-shadow: none;
+  }
+
+  .colab-df-spinner {
+    border: 2px solid var(--fill-color);
+    border-color: transparent;
+    border-bottom-color: var(--fill-color);
+    animation:
+      spin 1s steps(1) infinite;
+  }
+
+  @keyframes spin {
+    0% {
+      border-color: transparent;
+      border-bottom-color: var(--fill-color);
+      border-left-color: var(--fill-color);
+    }
+    20% {
+      border-color: transparent;
+      border-left-color: var(--fill-color);
+      border-top-color: var(--fill-color);
+    }
+    30% {
+      border-color: transparent;
+      border-left-color: var(--fill-color);
+      border-top-color: var(--fill-color);
+      border-right-color: var(--fill-color);
+    }
+    40% {
+      border-color: transparent;
+      border-right-color: var(--fill-color);
+      border-top-color: var(--fill-color);
+    }
+    60% {
+      border-color: transparent;
+      border-right-color: var(--fill-color);
+    }
+    80% {
+      border-color: transparent;
+      border-right-color: var(--fill-color);
+      border-bottom-color: var(--fill-color);
+    }
+    90% {
+      border-color: transparent;
+      border-bottom-color: var(--fill-color);
+    }
+  }
+</style>
+
+      <script>
+        async function quickchart(key) {
+          const quickchartButtonEl =
+            document.querySelector('#' + key + ' button');
+          quickchartButtonEl.disabled = true;  // To prevent multiple clicks.
+          quickchartButtonEl.classList.add('colab-df-spinner');
+          try {
+            const charts = await google.colab.kernel.invokeFunction(
+                'suggestCharts', [key], {});
+          } catch (error) {
+            console.error('Error during call to suggestCharts:', error);
+          }
+          quickchartButtonEl.classList.remove('colab-df-spinner');
+          quickchartButtonEl.classList.add('colab-df-quickchart-complete');
+        }
+        (() => {
+          let quickchartButtonEl =
+            document.querySelector('#df-8778dcb3-fcd5-4c4f-a19a-55a6ba43f64d button');
+          quickchartButtonEl.style.display =
+            google.colab.kernel.accessAllowed ? 'block' : 'none';
+        })();
+      </script>
+    </div>
+
+  <div id="id_db64193c-b081-4fae-a702-d82e635de8e1">
     <style>
       .colab-df-generate {
         background-color: #E8F0FE;
@@ -16371,7 +17320,7 @@ Internasional       0.94      0.96      0.95        84
     <script>
       (() => {
       const buttonEl =
-        document.querySelector('#id_524a8da6-4482-4818-ac4c-379b3b16124d button.colab-df-generate');
+        document.querySelector('#id_db64193c-b081-4fae-a702-d82e635de8e1 button.colab-df-generate');
       buttonEl.style.display =
         google.colab.kernel.accessAllowed ? 'block' : 'none';
 
@@ -16386,12 +17335,42 @@ Internasional       0.94      0.96      0.95        84
   </div>
 </div></div>
 </div>
+<p>Menampilkan visualisasi hasil clustering</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.decomposition</span><span class="w"> </span><span class="kn">import</span> <span class="n">TruncatedSVD</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">plot_clusters_svd</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">clusters</span><span class="p">):</span>
+    <span class="n">svd</span> <span class="o">=</span> <span class="n">TruncatedSVD</span><span class="p">(</span><span class="n">n_components</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
+    <span class="n">reduced_data</span> <span class="o">=</span> <span class="n">svd</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+
+    <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span><span class="mi">6</span><span class="p">))</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">reduced_data</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">reduced_data</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">],</span>
+                <span class="n">c</span><span class="o">=</span><span class="n">clusters</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;viridis&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.7</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Visualisasi Clustering Dokumen (TF-IDF + KMeans)&quot;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Komponen 1&quot;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Komponen 2&quot;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;Cluster&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+<span class="c1"># --- Panggil fungsi ---</span>
+<span class="n">plot_clusters_svd</span><span class="p">(</span><span class="n">X_tfidf</span><span class="p">,</span> <span class="n">clusters</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/847d978e4010f14a023f4fe4f45643229e85a6f2233ffdfd6215f9389cef604a.png" src="_images/847d978e4010f14a023f4fe4f45643229e85a6f2233ffdfd6215f9389cef604a.png" />
+</div>
+</div>
 <p>Menampilkan Contoh Email Tiap Cluster</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n_clusters</span><span class="p">):</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">text_column</span> <span class="o">=</span> <span class="s1">&#39;Text&#39;</span>  <span class="c1"># pastikan kolomnya benar</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">k</span><span class="p">):</span>
     <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">=== Contoh Email Cluster </span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s2"> ===&quot;</span><span class="p">)</span>
-    <span class="n">display</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;cluster&#39;</span><span class="p">]</span><span class="o">==</span><span class="n">i</span><span class="p">][[</span><span class="n">text_column</span><span class="p">]]</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">3</span><span class="p">))</span>
+    <span class="n">display</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;Cluster&#39;</span><span class="p">]</span><span class="o">==</span><span class="n">i</span><span class="p">][[</span><span class="n">text_column</span><span class="p">]]</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">3</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
@@ -16400,258 +17379,7 @@ Internasional       0.94      0.96      0.95        84
 </pre></div>
 </div>
 <div class="output text_html">
-  <div id="df-071e842e-cfe2-480b-a6ef-70ef7c41ccac" class="colab-df-container">
-    <div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>Text</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>3</th>
-      <td>U dun say so early hor... U c already then say...</td>
-    </tr>
-    <tr>
-      <th>22</th>
-      <td>So Ì_ pay first lar... Then when is da stock c...</td>
-    </tr>
-    <tr>
-      <th>23</th>
-      <td>Aft i finish my lunch then i go str down lor. ...</td>
-    </tr>
-  </tbody>
-</table>
-</div>
-    <div class="colab-df-buttons">
-
-  <div class="colab-df-container">
-    <button class="colab-df-convert" onclick="convertToInteractive('df-071e842e-cfe2-480b-a6ef-70ef7c41ccac')"
-            title="Convert this dataframe to an interactive table."
-            style="display:none;">
-
-  <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960">
-    <path d="M120-120v-720h720v720H120Zm60-500h600v-160H180v160Zm220 220h160v-160H400v160Zm0 220h160v-160H400v160ZM180-400h160v-160H180v160Zm440 0h160v-160H620v160ZM180-180h160v-160H180v160Zm440 0h160v-160H620v160Z"/>
-  </svg>
-    </button>
-
-  <style>
-    .colab-df-container {
-      display:flex;
-      gap: 12px;
-    }
-
-    .colab-df-convert {
-      background-color: #E8F0FE;
-      border: none;
-      border-radius: 50%;
-      cursor: pointer;
-      display: none;
-      fill: #1967D2;
-      height: 32px;
-      padding: 0 0 0 0;
-      width: 32px;
-    }
-
-    .colab-df-convert:hover {
-      background-color: #E2EBFA;
-      box-shadow: 0px 1px 2px rgba(60, 64, 67, 0.3), 0px 1px 3px 1px rgba(60, 64, 67, 0.15);
-      fill: #174EA6;
-    }
-
-    .colab-df-buttons div {
-      margin-bottom: 4px;
-    }
-
-    [theme=dark] .colab-df-convert {
-      background-color: #3B4455;
-      fill: #D2E3FC;
-    }
-
-    [theme=dark] .colab-df-convert:hover {
-      background-color: #434B5C;
-      box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.15);
-      filter: drop-shadow(0px 1px 2px rgba(0, 0, 0, 0.3));
-      fill: #FFFFFF;
-    }
-  </style>
-
-    <script>
-      const buttonEl =
-        document.querySelector('#df-071e842e-cfe2-480b-a6ef-70ef7c41ccac button.colab-df-convert');
-      buttonEl.style.display =
-        google.colab.kernel.accessAllowed ? 'block' : 'none';
-
-      async function convertToInteractive(key) {
-        const element = document.querySelector('#df-071e842e-cfe2-480b-a6ef-70ef7c41ccac');
-        const dataTable =
-          await google.colab.kernel.invokeFunction('convertToInteractive',
-                                                    [key], {});
-        if (!dataTable) return;
-
-        const docLinkHtml = 'Like what you see? Visit the ' +
-          '<a target="_blank" href=https://colab.research.google.com/notebooks/data_table.ipynb>data table notebook</a>'
-          + ' to learn more about interactive tables.';
-        element.innerHTML = '';
-        dataTable['output_type'] = 'display_data';
-        await google.colab.output.renderOutput(dataTable, element);
-        const docLink = document.createElement('div');
-        docLink.innerHTML = docLinkHtml;
-        element.appendChild(docLink);
-      }
-    </script>
-  </div>
-
-
-    <div id="df-1491f057-d92c-48d5-8cdf-e897cc029093">
-      <button class="colab-df-quickchart" onclick="quickchart('df-1491f057-d92c-48d5-8cdf-e897cc029093')"
-                title="Suggest charts"
-                style="display:none;">
-
-<svg xmlns="http://www.w3.org/2000/svg" height="24px"viewBox="0 0 24 24"
-     width="24px">
-    <g>
-        <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zM9 17H7v-7h2v7zm4 0h-2V7h2v10zm4 0h-2v-4h2v4z"/>
-    </g>
-</svg>
-      </button>
-
-<style>
-  .colab-df-quickchart {
-      --bg-color: #E8F0FE;
-      --fill-color: #1967D2;
-      --hover-bg-color: #E2EBFA;
-      --hover-fill-color: #174EA6;
-      --disabled-fill-color: #AAA;
-      --disabled-bg-color: #DDD;
-  }
-
-  [theme=dark] .colab-df-quickchart {
-      --bg-color: #3B4455;
-      --fill-color: #D2E3FC;
-      --hover-bg-color: #434B5C;
-      --hover-fill-color: #FFFFFF;
-      --disabled-bg-color: #3B4455;
-      --disabled-fill-color: #666;
-  }
-
-  .colab-df-quickchart {
-    background-color: var(--bg-color);
-    border: none;
-    border-radius: 50%;
-    cursor: pointer;
-    display: none;
-    fill: var(--fill-color);
-    height: 32px;
-    padding: 0;
-    width: 32px;
-  }
-
-  .colab-df-quickchart:hover {
-    background-color: var(--hover-bg-color);
-    box-shadow: 0 1px 2px rgba(60, 64, 67, 0.3), 0 1px 3px 1px rgba(60, 64, 67, 0.15);
-    fill: var(--button-hover-fill-color);
-  }
-
-  .colab-df-quickchart-complete:disabled,
-  .colab-df-quickchart-complete:disabled:hover {
-    background-color: var(--disabled-bg-color);
-    fill: var(--disabled-fill-color);
-    box-shadow: none;
-  }
-
-  .colab-df-spinner {
-    border: 2px solid var(--fill-color);
-    border-color: transparent;
-    border-bottom-color: var(--fill-color);
-    animation:
-      spin 1s steps(1) infinite;
-  }
-
-  @keyframes spin {
-    0% {
-      border-color: transparent;
-      border-bottom-color: var(--fill-color);
-      border-left-color: var(--fill-color);
-    }
-    20% {
-      border-color: transparent;
-      border-left-color: var(--fill-color);
-      border-top-color: var(--fill-color);
-    }
-    30% {
-      border-color: transparent;
-      border-left-color: var(--fill-color);
-      border-top-color: var(--fill-color);
-      border-right-color: var(--fill-color);
-    }
-    40% {
-      border-color: transparent;
-      border-right-color: var(--fill-color);
-      border-top-color: var(--fill-color);
-    }
-    60% {
-      border-color: transparent;
-      border-right-color: var(--fill-color);
-    }
-    80% {
-      border-color: transparent;
-      border-right-color: var(--fill-color);
-      border-bottom-color: var(--fill-color);
-    }
-    90% {
-      border-color: transparent;
-      border-bottom-color: var(--fill-color);
-    }
-  }
-</style>
-
-      <script>
-        async function quickchart(key) {
-          const quickchartButtonEl =
-            document.querySelector('#' + key + ' button');
-          quickchartButtonEl.disabled = true;  // To prevent multiple clicks.
-          quickchartButtonEl.classList.add('colab-df-spinner');
-          try {
-            const charts = await google.colab.kernel.invokeFunction(
-                'suggestCharts', [key], {});
-          } catch (error) {
-            console.error('Error during call to suggestCharts:', error);
-          }
-          quickchartButtonEl.classList.remove('colab-df-spinner');
-          quickchartButtonEl.classList.add('colab-df-quickchart-complete');
-        }
-        (() => {
-          let quickchartButtonEl =
-            document.querySelector('#df-1491f057-d92c-48d5-8cdf-e897cc029093 button');
-          quickchartButtonEl.style.display =
-            google.colab.kernel.accessAllowed ? 'block' : 'none';
-        })();
-      </script>
-    </div>
-
-    </div>
-  </div>
-</div><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>=== Contoh Email Cluster 1 ===
-</pre></div>
-</div>
-<div class="output text_html">
-  <div id="df-8ac4fbf7-20d7-4201-9fae-acb000774e1b" class="colab-df-container">
+  <div id="df-e944692b-f21b-4efe-bed6-5b9e330031f7" class="colab-df-container">
     <div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
@@ -16679,12 +17407,12 @@ Internasional       0.94      0.96      0.95        84
       <td>Go until jurong point, crazy.. Available only ...</td>
     </tr>
     <tr>
-      <th>1</th>
-      <td>Ok lar... Joking wif u oni...</td>
-    </tr>
-    <tr>
       <th>2</th>
       <td>Free entry in 2 a wkly comp to win FA Cup fina...</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>U dun say so early hor... U c already then say...</td>
     </tr>
   </tbody>
 </table>
@@ -16692,7 +17420,7 @@ Internasional       0.94      0.96      0.95        84
     <div class="colab-df-buttons">
 
   <div class="colab-df-container">
-    <button class="colab-df-convert" onclick="convertToInteractive('df-8ac4fbf7-20d7-4201-9fae-acb000774e1b')"
+    <button class="colab-df-convert" onclick="convertToInteractive('df-e944692b-f21b-4efe-bed6-5b9e330031f7')"
             title="Convert this dataframe to an interactive table."
             style="display:none;">
 
@@ -16744,12 +17472,12 @@ Internasional       0.94      0.96      0.95        84
 
     <script>
       const buttonEl =
-        document.querySelector('#df-8ac4fbf7-20d7-4201-9fae-acb000774e1b button.colab-df-convert');
+        document.querySelector('#df-e944692b-f21b-4efe-bed6-5b9e330031f7 button.colab-df-convert');
       buttonEl.style.display =
         google.colab.kernel.accessAllowed ? 'block' : 'none';
 
       async function convertToInteractive(key) {
-        const element = document.querySelector('#df-8ac4fbf7-20d7-4201-9fae-acb000774e1b');
+        const element = document.querySelector('#df-e944692b-f21b-4efe-bed6-5b9e330031f7');
         const dataTable =
           await google.colab.kernel.invokeFunction('convertToInteractive',
                                                     [key], {});
@@ -16769,8 +17497,8 @@ Internasional       0.94      0.96      0.95        84
   </div>
 
 
-    <div id="df-fe86e812-fe68-4860-93f8-636e7da9902b">
-      <button class="colab-df-quickchart" onclick="quickchart('df-fe86e812-fe68-4860-93f8-636e7da9902b')"
+    <div id="df-60e976b6-c96f-4960-b6e0-e29268ae6db6">
+      <button class="colab-df-quickchart" onclick="quickchart('df-60e976b6-c96f-4960-b6e0-e29268ae6db6')"
                 title="Suggest charts"
                 style="display:none;">
 
@@ -16889,7 +17617,258 @@ Internasional       0.94      0.96      0.95        84
         }
         (() => {
           let quickchartButtonEl =
-            document.querySelector('#df-fe86e812-fe68-4860-93f8-636e7da9902b button');
+            document.querySelector('#df-60e976b6-c96f-4960-b6e0-e29268ae6db6 button');
+          quickchartButtonEl.style.display =
+            google.colab.kernel.accessAllowed ? 'block' : 'none';
+        })();
+      </script>
+    </div>
+
+    </div>
+  </div>
+</div><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>=== Contoh Email Cluster 1 ===
+</pre></div>
+</div>
+<div class="output text_html">
+  <div id="df-ab8e00ed-e6c7-45e1-9af0-68eba0ff2124" class="colab-df-container">
+    <div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Text</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>5</th>
+      <td>FreeMsg Hey there darling it's been 3 week's n...</td>
+    </tr>
+    <tr>
+      <th>12</th>
+      <td>URGENT! You have won a 1 week FREE membership ...</td>
+    </tr>
+    <tr>
+      <th>24</th>
+      <td>Ffffffffff. Alright no way I can meet up with ...</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+    <div class="colab-df-buttons">
+
+  <div class="colab-df-container">
+    <button class="colab-df-convert" onclick="convertToInteractive('df-ab8e00ed-e6c7-45e1-9af0-68eba0ff2124')"
+            title="Convert this dataframe to an interactive table."
+            style="display:none;">
+
+  <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960">
+    <path d="M120-120v-720h720v720H120Zm60-500h600v-160H180v160Zm220 220h160v-160H400v160Zm0 220h160v-160H400v160ZM180-400h160v-160H180v160Zm440 0h160v-160H620v160ZM180-180h160v-160H180v160Zm440 0h160v-160H620v160Z"/>
+  </svg>
+    </button>
+
+  <style>
+    .colab-df-container {
+      display:flex;
+      gap: 12px;
+    }
+
+    .colab-df-convert {
+      background-color: #E8F0FE;
+      border: none;
+      border-radius: 50%;
+      cursor: pointer;
+      display: none;
+      fill: #1967D2;
+      height: 32px;
+      padding: 0 0 0 0;
+      width: 32px;
+    }
+
+    .colab-df-convert:hover {
+      background-color: #E2EBFA;
+      box-shadow: 0px 1px 2px rgba(60, 64, 67, 0.3), 0px 1px 3px 1px rgba(60, 64, 67, 0.15);
+      fill: #174EA6;
+    }
+
+    .colab-df-buttons div {
+      margin-bottom: 4px;
+    }
+
+    [theme=dark] .colab-df-convert {
+      background-color: #3B4455;
+      fill: #D2E3FC;
+    }
+
+    [theme=dark] .colab-df-convert:hover {
+      background-color: #434B5C;
+      box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.15);
+      filter: drop-shadow(0px 1px 2px rgba(0, 0, 0, 0.3));
+      fill: #FFFFFF;
+    }
+  </style>
+
+    <script>
+      const buttonEl =
+        document.querySelector('#df-ab8e00ed-e6c7-45e1-9af0-68eba0ff2124 button.colab-df-convert');
+      buttonEl.style.display =
+        google.colab.kernel.accessAllowed ? 'block' : 'none';
+
+      async function convertToInteractive(key) {
+        const element = document.querySelector('#df-ab8e00ed-e6c7-45e1-9af0-68eba0ff2124');
+        const dataTable =
+          await google.colab.kernel.invokeFunction('convertToInteractive',
+                                                    [key], {});
+        if (!dataTable) return;
+
+        const docLinkHtml = 'Like what you see? Visit the ' +
+          '<a target="_blank" href=https://colab.research.google.com/notebooks/data_table.ipynb>data table notebook</a>'
+          + ' to learn more about interactive tables.';
+        element.innerHTML = '';
+        dataTable['output_type'] = 'display_data';
+        await google.colab.output.renderOutput(dataTable, element);
+        const docLink = document.createElement('div');
+        docLink.innerHTML = docLinkHtml;
+        element.appendChild(docLink);
+      }
+    </script>
+  </div>
+
+
+    <div id="df-8e389b26-0a68-4097-8baa-1eb3f59c496a">
+      <button class="colab-df-quickchart" onclick="quickchart('df-8e389b26-0a68-4097-8baa-1eb3f59c496a')"
+                title="Suggest charts"
+                style="display:none;">
+
+<svg xmlns="http://www.w3.org/2000/svg" height="24px"viewBox="0 0 24 24"
+     width="24px">
+    <g>
+        <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zM9 17H7v-7h2v7zm4 0h-2V7h2v10zm4 0h-2v-4h2v4z"/>
+    </g>
+</svg>
+      </button>
+
+<style>
+  .colab-df-quickchart {
+      --bg-color: #E8F0FE;
+      --fill-color: #1967D2;
+      --hover-bg-color: #E2EBFA;
+      --hover-fill-color: #174EA6;
+      --disabled-fill-color: #AAA;
+      --disabled-bg-color: #DDD;
+  }
+
+  [theme=dark] .colab-df-quickchart {
+      --bg-color: #3B4455;
+      --fill-color: #D2E3FC;
+      --hover-bg-color: #434B5C;
+      --hover-fill-color: #FFFFFF;
+      --disabled-bg-color: #3B4455;
+      --disabled-fill-color: #666;
+  }
+
+  .colab-df-quickchart {
+    background-color: var(--bg-color);
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    display: none;
+    fill: var(--fill-color);
+    height: 32px;
+    padding: 0;
+    width: 32px;
+  }
+
+  .colab-df-quickchart:hover {
+    background-color: var(--hover-bg-color);
+    box-shadow: 0 1px 2px rgba(60, 64, 67, 0.3), 0 1px 3px 1px rgba(60, 64, 67, 0.15);
+    fill: var(--button-hover-fill-color);
+  }
+
+  .colab-df-quickchart-complete:disabled,
+  .colab-df-quickchart-complete:disabled:hover {
+    background-color: var(--disabled-bg-color);
+    fill: var(--disabled-fill-color);
+    box-shadow: none;
+  }
+
+  .colab-df-spinner {
+    border: 2px solid var(--fill-color);
+    border-color: transparent;
+    border-bottom-color: var(--fill-color);
+    animation:
+      spin 1s steps(1) infinite;
+  }
+
+  @keyframes spin {
+    0% {
+      border-color: transparent;
+      border-bottom-color: var(--fill-color);
+      border-left-color: var(--fill-color);
+    }
+    20% {
+      border-color: transparent;
+      border-left-color: var(--fill-color);
+      border-top-color: var(--fill-color);
+    }
+    30% {
+      border-color: transparent;
+      border-left-color: var(--fill-color);
+      border-top-color: var(--fill-color);
+      border-right-color: var(--fill-color);
+    }
+    40% {
+      border-color: transparent;
+      border-right-color: var(--fill-color);
+      border-top-color: var(--fill-color);
+    }
+    60% {
+      border-color: transparent;
+      border-right-color: var(--fill-color);
+    }
+    80% {
+      border-color: transparent;
+      border-right-color: var(--fill-color);
+      border-bottom-color: var(--fill-color);
+    }
+    90% {
+      border-color: transparent;
+      border-bottom-color: var(--fill-color);
+    }
+  }
+</style>
+
+      <script>
+        async function quickchart(key) {
+          const quickchartButtonEl =
+            document.querySelector('#' + key + ' button');
+          quickchartButtonEl.disabled = true;  // To prevent multiple clicks.
+          quickchartButtonEl.classList.add('colab-df-spinner');
+          try {
+            const charts = await google.colab.kernel.invokeFunction(
+                'suggestCharts', [key], {});
+          } catch (error) {
+            console.error('Error during call to suggestCharts:', error);
+          }
+          quickchartButtonEl.classList.remove('colab-df-spinner');
+          quickchartButtonEl.classList.add('colab-df-quickchart-complete');
+        }
+        (() => {
+          let quickchartButtonEl =
+            document.querySelector('#df-8e389b26-0a68-4097-8baa-1eb3f59c496a button');
           quickchartButtonEl.style.display =
             google.colab.kernel.accessAllowed ? 'block' : 'none';
         })();
@@ -16902,7 +17881,7 @@ Internasional       0.94      0.96      0.95        84
 </pre></div>
 </div>
 <div class="output text_html">
-  <div id="df-a7b467d7-4aa6-4b19-b413-0589a8eae89e" class="colab-df-container">
+  <div id="df-aa724f79-3a6a-45a7-927c-80367902d29c" class="colab-df-container">
     <div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
@@ -16926,16 +17905,16 @@ Internasional       0.94      0.96      0.95        84
   </thead>
   <tbody>
     <tr>
-      <th>44</th>
-      <td>Great! I hope you like your man well endowed. ...</td>
+      <th>10</th>
+      <td>I'm gonna be home soon and i don't want to tal...</td>
     </tr>
     <tr>
-      <th>51</th>
-      <td>A gram usually runs like  &amp;lt;#&amp;gt; , a half e...</td>
+      <th>21</th>
+      <td>IÛ÷m going to try for 2 months ha ha only joking</td>
     </tr>
     <tr>
-      <th>55</th>
-      <td>Do you know what Mallika Sherawat did yesterda...</td>
+      <th>25</th>
+      <td>Just forced myself to eat a slice. I'm really ...</td>
     </tr>
   </tbody>
 </table>
@@ -16943,7 +17922,7 @@ Internasional       0.94      0.96      0.95        84
     <div class="colab-df-buttons">
 
   <div class="colab-df-container">
-    <button class="colab-df-convert" onclick="convertToInteractive('df-a7b467d7-4aa6-4b19-b413-0589a8eae89e')"
+    <button class="colab-df-convert" onclick="convertToInteractive('df-aa724f79-3a6a-45a7-927c-80367902d29c')"
             title="Convert this dataframe to an interactive table."
             style="display:none;">
 
@@ -16995,12 +17974,12 @@ Internasional       0.94      0.96      0.95        84
 
     <script>
       const buttonEl =
-        document.querySelector('#df-a7b467d7-4aa6-4b19-b413-0589a8eae89e button.colab-df-convert');
+        document.querySelector('#df-aa724f79-3a6a-45a7-927c-80367902d29c button.colab-df-convert');
       buttonEl.style.display =
         google.colab.kernel.accessAllowed ? 'block' : 'none';
 
       async function convertToInteractive(key) {
-        const element = document.querySelector('#df-a7b467d7-4aa6-4b19-b413-0589a8eae89e');
+        const element = document.querySelector('#df-aa724f79-3a6a-45a7-927c-80367902d29c');
         const dataTable =
           await google.colab.kernel.invokeFunction('convertToInteractive',
                                                     [key], {});
@@ -17020,8 +17999,8 @@ Internasional       0.94      0.96      0.95        84
   </div>
 
 
-    <div id="df-533406fe-0709-4c89-92f3-a3ebb21e40c1">
-      <button class="colab-df-quickchart" onclick="quickchart('df-533406fe-0709-4c89-92f3-a3ebb21e40c1')"
+    <div id="df-f9424537-4d1d-4114-883a-3db9a80fa3f0">
+      <button class="colab-df-quickchart" onclick="quickchart('df-f9424537-4d1d-4114-883a-3db9a80fa3f0')"
                 title="Suggest charts"
                 style="display:none;">
 
@@ -17140,7 +18119,7 @@ Internasional       0.94      0.96      0.95        84
         }
         (() => {
           let quickchartButtonEl =
-            document.querySelector('#df-533406fe-0709-4c89-92f3-a3ebb21e40c1 button');
+            document.querySelector('#df-f9424537-4d1d-4114-883a-3db9a80fa3f0 button');
           quickchartButtonEl.style.display =
             google.colab.kernel.accessAllowed ? 'block' : 'none';
         })();
@@ -17153,7 +18132,7 @@ Internasional       0.94      0.96      0.95        84
 </pre></div>
 </div>
 <div class="output text_html">
-  <div id="df-9d79097b-5902-4d19-83d2-647e376c46ec" class="colab-df-container">
+  <div id="df-db576c02-c069-479a-b5e8-e53a59732c34" class="colab-df-container">
     <div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
@@ -17177,16 +18156,16 @@ Internasional       0.94      0.96      0.95        84
   </thead>
   <tbody>
     <tr>
-      <th>13</th>
-      <td>I've been searching for the right words to tha...</td>
+      <th>1</th>
+      <td>Ok lar... Joking wif u oni...</td>
     </tr>
     <tr>
-      <th>20</th>
-      <td>Is that seriously how you spell his name?</td>
+      <th>35</th>
+      <td>Yup... Ok i go home look at the timings then i...</td>
     </tr>
     <tr>
-      <th>24</th>
-      <td>Ffffffffff. Alright no way I can meet up with ...</td>
+      <th>63</th>
+      <td>Sorry my roommates took forever, it ok if I co...</td>
     </tr>
   </tbody>
 </table>
@@ -17194,7 +18173,7 @@ Internasional       0.94      0.96      0.95        84
     <div class="colab-df-buttons">
 
   <div class="colab-df-container">
-    <button class="colab-df-convert" onclick="convertToInteractive('df-9d79097b-5902-4d19-83d2-647e376c46ec')"
+    <button class="colab-df-convert" onclick="convertToInteractive('df-db576c02-c069-479a-b5e8-e53a59732c34')"
             title="Convert this dataframe to an interactive table."
             style="display:none;">
 
@@ -17246,12 +18225,12 @@ Internasional       0.94      0.96      0.95        84
 
     <script>
       const buttonEl =
-        document.querySelector('#df-9d79097b-5902-4d19-83d2-647e376c46ec button.colab-df-convert');
+        document.querySelector('#df-db576c02-c069-479a-b5e8-e53a59732c34 button.colab-df-convert');
       buttonEl.style.display =
         google.colab.kernel.accessAllowed ? 'block' : 'none';
 
       async function convertToInteractive(key) {
-        const element = document.querySelector('#df-9d79097b-5902-4d19-83d2-647e376c46ec');
+        const element = document.querySelector('#df-db576c02-c069-479a-b5e8-e53a59732c34');
         const dataTable =
           await google.colab.kernel.invokeFunction('convertToInteractive',
                                                     [key], {});
@@ -17271,8 +18250,8 @@ Internasional       0.94      0.96      0.95        84
   </div>
 
 
-    <div id="df-68ad4cd8-35b2-409a-9562-12d8142514e1">
-      <button class="colab-df-quickchart" onclick="quickchart('df-68ad4cd8-35b2-409a-9562-12d8142514e1')"
+    <div id="df-add6caa2-90d5-4300-8aad-714088c8948f">
+      <button class="colab-df-quickchart" onclick="quickchart('df-add6caa2-90d5-4300-8aad-714088c8948f')"
                 title="Suggest charts"
                 style="display:none;">
 
@@ -17391,7 +18370,7 @@ Internasional       0.94      0.96      0.95        84
         }
         (() => {
           let quickchartButtonEl =
-            document.querySelector('#df-68ad4cd8-35b2-409a-9562-12d8142514e1 button');
+            document.querySelector('#df-add6caa2-90d5-4300-8aad-714088c8948f button');
           quickchartButtonEl.style.display =
             google.colab.kernel.accessAllowed ? 'block' : 'none';
         })();
@@ -17404,7 +18383,7 @@ Internasional       0.94      0.96      0.95        84
 </pre></div>
 </div>
 <div class="output text_html">
-  <div id="df-b0aac442-1c35-4200-aee3-319830d6439e" class="colab-df-container">
+  <div id="df-fce3aa87-60e0-4a10-be06-b9617d02d0bb" class="colab-df-container">
     <div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
@@ -17445,7 +18424,7 @@ Internasional       0.94      0.96      0.95        84
     <div class="colab-df-buttons">
 
   <div class="colab-df-container">
-    <button class="colab-df-convert" onclick="convertToInteractive('df-b0aac442-1c35-4200-aee3-319830d6439e')"
+    <button class="colab-df-convert" onclick="convertToInteractive('df-fce3aa87-60e0-4a10-be06-b9617d02d0bb')"
             title="Convert this dataframe to an interactive table."
             style="display:none;">
 
@@ -17497,12 +18476,12 @@ Internasional       0.94      0.96      0.95        84
 
     <script>
       const buttonEl =
-        document.querySelector('#df-b0aac442-1c35-4200-aee3-319830d6439e button.colab-df-convert');
+        document.querySelector('#df-fce3aa87-60e0-4a10-be06-b9617d02d0bb button.colab-df-convert');
       buttonEl.style.display =
         google.colab.kernel.accessAllowed ? 'block' : 'none';
 
       async function convertToInteractive(key) {
-        const element = document.querySelector('#df-b0aac442-1c35-4200-aee3-319830d6439e');
+        const element = document.querySelector('#df-fce3aa87-60e0-4a10-be06-b9617d02d0bb');
         const dataTable =
           await google.colab.kernel.invokeFunction('convertToInteractive',
                                                     [key], {});
@@ -17522,8 +18501,8 @@ Internasional       0.94      0.96      0.95        84
   </div>
 
 
-    <div id="df-e2f72ec5-2b4d-4946-9e58-173a2354fd26">
-      <button class="colab-df-quickchart" onclick="quickchart('df-e2f72ec5-2b4d-4946-9e58-173a2354fd26')"
+    <div id="df-ad306696-0dca-47c2-a578-5c32ef0501e8">
+      <button class="colab-df-quickchart" onclick="quickchart('df-ad306696-0dca-47c2-a578-5c32ef0501e8')"
                 title="Suggest charts"
                 style="display:none;">
 
@@ -17642,7 +18621,7 @@ Internasional       0.94      0.96      0.95        84
         }
         (() => {
           let quickchartButtonEl =
-            document.querySelector('#df-e2f72ec5-2b4d-4946-9e58-173a2354fd26 button');
+            document.querySelector('#df-ad306696-0dca-47c2-a578-5c32ef0501e8 button');
           quickchartButtonEl.style.display =
             google.colab.kernel.accessAllowed ? 'block' : 'none';
         })();
