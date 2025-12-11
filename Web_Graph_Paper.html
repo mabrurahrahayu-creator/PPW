@@ -1,0 +1,2203 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>H.Word_Graph &#8212; My sample book</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css?v=6644e6bb" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'Web_Graph_Paper';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/Rahayu.jpeg" class="logo__image only-light" alt="My sample book - Home"/>
+    <script>document.write(`<img src="_static/Rahayu.jpeg" class="logo__image only-dark" alt="My sample book - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
+                    PROFILE
+                </a>
+            </li>
+        </ul>
+        <ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="TUGAS.html">Pengantar Web Mining</a></li>
+
+
+
+
+
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="crawlingdata.html">A. Crawling Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Crawling_Link.html">B. Crawling Link</a></li>
+<li class="toctree-l1"><a class="reference internal" href="T2berita.html">C. Crawling Berita</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Crawling_PTA.html">D. Crawling PTA</a></li>
+<li class="toctree-l1"><a class="reference internal" href="PemrosesanData.html">1. Pemrosesan Data PTA dan Berita</a></li>
+
+
+<li class="toctree-l1"><a class="reference internal" href="TFidf.html">2. Melakukan Tfidf &amp; Word Embedding</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="Klasifikasi_LDA.html">3. Melakukan Klasifikasi LDA</a></li>
+
+
+<li class="toctree-l1"><a class="reference internal" href="UTS_PPW.html">UTS</a></li>
+
+
+<li class="toctree-l1"><a class="reference internal" href="PageRank.html">E.PageRank</a></li>
+
+
+<li class="toctree-l1"><a class="reference internal" href="Webuage_%26_Tugas.html">F. Webuage&amp;NASA</a></li>
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="DataFB%26Crawling.html">G. Komunitas FB &amp; Twitter</a></li>
+
+
+
+
+
+
+
+
+
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2FWeb_Graph_Paper.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/Web_Graph_Paper.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>H.Word_Graph</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">H.Word_Graph</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#tugas-word-graph-paper">Tugas word_graph paper</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#melakukan-estrak-kalimat">2.Melakukan Estrak Kalimat</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pembersihan-teks-cleaning">3.Pembersihan Teks(Cleaning)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#melakukan-tahapan-matrix">4.Melakukan tahapan Matrix</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#melakukan-visualisasi-network-graph">5.Melakukan visualisasi Network Graph</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#menghitung-pagerank-setiap-node-dan-tertinggi">6.Menghitung pagerank setiap node dan tertinggi</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#visualisasi-network-graph-dengan-pagerank-coloring">7.Visualisasi Network Graph dengan PageRank Coloring</a></li>
+</ul>
+</li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="h-word-graph">
+<h1>H.Word_Graph<a class="headerlink" href="#h-word-graph" title="Link to this heading">#</a></h1>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="tugas-word-graph-paper">
+<h1>Tugas word_graph paper<a class="headerlink" href="#tugas-word-graph-paper" title="Link to this heading">#</a></h1>
+<p>##1.Estraksi Teks dari PDF</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="o">--</span><span class="n">upgrade</span> <span class="n">pymupdf</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting pymupdf
+  Downloading pymupdf-1.26.6-cp310-abi3-manylinux_2_28_x86_64.whl.metadata (3.4 kB)
+Downloading pymupdf-1.26.6-cp310-abi3-manylinux_2_28_x86_64.whl (24.1 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">24.1/24.1 MB</span> <span class=" -Color -Color-Red">48.6 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:00</span>
+?25hInstalling collected packages: pymupdf
+Successfully installed pymupdf-1.26.6
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pymupdf</span>
+
+<span class="n">doc</span> <span class="o">=</span> <span class="n">pymupdf</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="s2">&quot;Analisis_Sentiment.pdf&quot;</span><span class="p">)</span>
+<span class="n">out</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;output.txt&quot;</span><span class="p">,</span> <span class="s2">&quot;wb&quot;</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">page</span> <span class="ow">in</span> <span class="n">doc</span><span class="p">:</span>
+    <span class="n">text</span> <span class="o">=</span> <span class="n">page</span><span class="o">.</span><span class="n">get_text</span><span class="p">()</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s2">&quot;utf8&quot;</span><span class="p">)</span>
+    <span class="n">out</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
+    <span class="n">out</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="nb">bytes</span><span class="p">((</span><span class="mi">12</span><span class="p">,)))</span>   <span class="c1"># page delimiter</span>
+<span class="n">out</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section id="melakukan-estrak-kalimat">
+<h2>2.Melakukan Estrak Kalimat<a class="headerlink" href="#melakukan-estrak-kalimat" title="Link to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="n">capture</span>
+<span class="err">!</span><span class="n">pip</span> <span class="n">install</span> <span class="n">nltk</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">nltk</span>
+<span class="n">nltk</span><span class="o">.</span><span class="n">download</span><span class="p">(</span><span class="s1">&#39;punkt&#39;</span><span class="p">)</span>
+<span class="n">nltk</span><span class="o">.</span><span class="n">download</span><span class="p">(</span><span class="s1">&#39;punkt_tab&#39;</span><span class="p">)</span>  <span class="c1"># opsional</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;output.txt&#39;</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s1">&#39;utf-8&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
+    <span class="n">teks</span> <span class="o">=</span> <span class="n">file</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">teks</span><span class="p">[:</span><span class="mi">200</span><span class="p">])</span>  <span class="c1"># tampilkan 200 karakter pertama</span>
+
+<span class="n">sentences</span> <span class="o">=</span> <span class="n">nltk</span><span class="o">.</span><span class="n">sent_tokenize</span><span class="p">(</span><span class="n">teks</span><span class="p">)</span>
+<span class="n">df_kalimat</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">sentences</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;kalimat&#39;</span><span class="p">])</span>
+<span class="n">display</span><span class="p">(</span><span class="n">df_kalimat</span><span class="o">.</span><span class="n">head</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">sentences</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;kalimat&#39;</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>                                               kalimat
+0    3043 \nJurnal Indonesia : Manajemen Informatik...
+1                                                5 No.
+2    3 (2024) \n \n \n \n \n \n \n \n \n \n \n \n \...
+3    Email: afyraarbah@gmail.com 1, sri.lestari1203...
+4    Semua hak dilindungi oleh Lembaga Penelitian d...
+..                                                 ...
+275                Jurnal \nStudi Pemuda, 9(2), 77-89.
+276                              Widiyanto, H. (2020).
+277  Konsep pernikahan dalam Islam (Studi fenomenol...
+278       Jurnal \nIslam \nNusantara, 4(1), \n103-110.
+279  DOI: \nhttps://doi.org/10.33852/jurnalin.v4i1....
+
+[280 rows x 1 columns]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s1">&#39;kalimat.csv&#39;</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s1">&#39;utf-8&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="pembersihan-teks-cleaning">
+<h2>3.Pembersihan Teks(Cleaning)<a class="headerlink" href="#pembersihan-teks-cleaning" title="Link to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">re</span>
+
+<span class="c1"># 1. Gunakan DataFrame yang sudah ada (df_kalimat)</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">df_kalimat</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span> <span class="c1"># Menggunakan df_kalimat yang sudah tersedia</span>
+
+<span class="c1"># Ambil kolom pertama sebagai teks (ubah jika kolom Anda punya nama)</span>
+<span class="n">col</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">columns</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">is_valid_sentence</span><span class="p">(</span><span class="n">text</span><span class="p">):</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">text</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
+        <span class="k">return</span> <span class="kc">False</span>
+
+    <span class="c1"># Hilangkan spasi ganda</span>
+    <span class="n">cleaned</span> <span class="o">=</span> <span class="n">text</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+
+    <span class="c1"># Hitung jumlah kata</span>
+    <span class="n">words</span> <span class="o">=</span> <span class="n">cleaned</span><span class="o">.</span><span class="n">split</span><span class="p">()</span>
+
+    <span class="c1"># Syarat 1: minimal 5 kata</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">words</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">5</span><span class="p">:</span>
+        <span class="k">return</span> <span class="kc">False</span>
+
+    <span class="c1"># Syarat 2: jangan hanya angka</span>
+    <span class="c1"># Jika semua token adalah angka → invalid</span>
+    <span class="k">if</span> <span class="nb">all</span><span class="p">(</span><span class="n">re</span><span class="o">.</span><span class="n">fullmatch</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;[0-9]+&quot;</span><span class="p">,</span> <span class="n">w</span><span class="p">)</span> <span class="k">for</span> <span class="n">w</span> <span class="ow">in</span> <span class="n">words</span><span class="p">):</span>
+        <span class="k">return</span> <span class="kc">False</span>
+
+    <span class="k">return</span> <span class="kc">True</span>
+
+<span class="c1"># 2. Filter baris</span>
+<span class="n">filtered_df</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="n">col</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">is_valid_sentence</span><span class="p">)]</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Jumlah baris sebelum filter:&quot;</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">df</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Jumlah baris setelah filter :&quot;</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">filtered_df</span><span class="p">))</span>
+
+<span class="c1"># 3. Tampilkan 10 contoh baris valid</span>
+<span class="n">filtered_df</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Jumlah baris sebelum filter: 280
+Jumlah baris setelah filter : 230
+</pre></div>
+</div>
+<div class="output text_html">
+  <div id="df-f7eedfab-15bf-4b28-8ba6-aae6ea33a8e8" class="colab-df-container">
+    <div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>kalimat</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>3043 \nJurnal Indonesia : Manajemen Informatik...</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>3 (2024) \n \n \n \n \n \n \n \n \n \n \n \n \...</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Email: afyraarbah@gmail.com 1, sri.lestari1203...</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>Semua hak dilindungi oleh Lembaga Penelitian d...</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>Abstrak \nPernikahan di Indonesia adalah aspek...</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>Namun, dalam beberapa tahun \nterakhir, telah ...</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>Untuk memahami pandangan \nmasyarakat terhadap...</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>Penurunan jumlah pernikahan dapat menimbulkan ...</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>Adanya faktor-faktor tertentu yang berkontribu...</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>Mengetahui pandangan terhadap hal ini penting ...</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+    <div class="colab-df-buttons">
+
+  <div class="colab-df-container">
+    <button class="colab-df-convert" onclick="convertToInteractive('df-f7eedfab-15bf-4b28-8ba6-aae6ea33a8e8')"
+            title="Convert this dataframe to an interactive table."
+            style="display:none;">
+
+  <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960">
+    <path d="M120-120v-720h720v720H120Zm60-500h600v-160H180v160Zm220 220h160v-160H400v160Zm0 220h160v-160H400v160ZM180-400h160v-160H180v160Zm440 0h160v-160H620v160ZM180-180h160v-160H180v160Zm440 0h160v-160H620v160Z"/>
+  </svg>
+    </button>
+
+  <style>
+    .colab-df-container {
+      display:flex;
+      gap: 12px;
+    }
+
+    .colab-df-convert {
+      background-color: #E8F0FE;
+      border: none;
+      border-radius: 50%;
+      cursor: pointer;
+      display: none;
+      fill: #1967D2;
+      height: 32px;
+      padding: 0 0 0 0;
+      width: 32px;
+    }
+
+    .colab-df-convert:hover {
+      background-color: #E2EBFA;
+      box-shadow: 0px 1px 2px rgba(60, 64, 67, 0.3), 0px 1px 3px 1px rgba(60, 64, 67, 0.15);
+      fill: #174EA6;
+    }
+
+    .colab-df-buttons div {
+      margin-bottom: 4px;
+    }
+
+    [theme=dark] .colab-df-convert {
+      background-color: #3B4455;
+      fill: #D2E3FC;
+    }
+
+    [theme=dark] .colab-df-convert:hover {
+      background-color: #434B5C;
+      box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.15);
+      filter: drop-shadow(0px 1px 2px rgba(0, 0, 0, 0.3));
+      fill: #FFFFFF;
+    }
+  </style>
+
+    <script>
+      const buttonEl =
+        document.querySelector('#df-f7eedfab-15bf-4b28-8ba6-aae6ea33a8e8 button.colab-df-convert');
+      buttonEl.style.display =
+        google.colab.kernel.accessAllowed ? 'block' : 'none';
+
+      async function convertToInteractive(key) {
+        const element = document.querySelector('#df-f7eedfab-15bf-4b28-8ba6-aae6ea33a8e8');
+        const dataTable =
+          await google.colab.kernel.invokeFunction('convertToInteractive',
+                                                    [key], {});
+        if (!dataTable) return;
+
+        const docLinkHtml = 'Like what you see? Visit the ' +
+          '<a target="_blank" href=https://colab.research.google.com/notebooks/data_table.ipynb>data table notebook</a>'
+          + ' to learn more about interactive tables.';
+        element.innerHTML = '';
+        dataTable['output_type'] = 'display_data';
+        await google.colab.output.renderOutput(dataTable, element);
+        const docLink = document.createElement('div');
+        docLink.innerHTML = docLinkHtml;
+        element.appendChild(docLink);
+      }
+    </script>
+  </div>
+
+
+    <div id="df-155c41c0-bc3c-4a52-9934-48e1d9bac83e">
+      <button class="colab-df-quickchart" onclick="quickchart('df-155c41c0-bc3c-4a52-9934-48e1d9bac83e')"
+                title="Suggest charts"
+                style="display:none;">
+
+<svg xmlns="http://www.w3.org/2000/svg" height="24px"viewBox="0 0 24 24"
+     width="24px">
+    <g>
+        <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zM9 17H7v-7h2v7zm4 0h-2V7h2v10zm4 0h-2v-4h2v4z"/>
+    </g>
+</svg>
+      </button>
+
+<style>
+  .colab-df-quickchart {
+      --bg-color: #E8F0FE;
+      --fill-color: #1967D2;
+      --hover-bg-color: #E2EBFA;
+      --hover-fill-color: #174EA6;
+      --disabled-fill-color: #AAA;
+      --disabled-bg-color: #DDD;
+  }
+
+  [theme=dark] .colab-df-quickchart {
+      --bg-color: #3B4455;
+      --fill-color: #D2E3FC;
+      --hover-bg-color: #434B5C;
+      --hover-fill-color: #FFFFFF;
+      --disabled-bg-color: #3B4455;
+      --disabled-fill-color: #666;
+  }
+
+  .colab-df-quickchart {
+    background-color: var(--bg-color);
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    display: none;
+    fill: var(--fill-color);
+    height: 32px;
+    padding: 0;
+    width: 32px;
+  }
+
+  .colab-df-quickchart:hover {
+    background-color: var(--hover-bg-color);
+    box-shadow: 0 1px 2px rgba(60, 64, 67, 0.3), 0 1px 3px 1px rgba(60, 64, 67, 0.15);
+    fill: var(--button-hover-fill-color);
+  }
+
+  .colab-df-quickchart-complete:disabled,
+  .colab-df-quickchart-complete:disabled:hover {
+    background-color: var(--disabled-bg-color);
+    fill: var(--disabled-fill-color);
+    box-shadow: none;
+  }
+
+  .colab-df-spinner {
+    border: 2px solid var(--fill-color);
+    border-color: transparent;
+    border-bottom-color: var(--fill-color);
+    animation:
+      spin 1s steps(1) infinite;
+  }
+
+  @keyframes spin {
+    0% {
+      border-color: transparent;
+      border-bottom-color: var(--fill-color);
+      border-left-color: var(--fill-color);
+    }
+    20% {
+      border-color: transparent;
+      border-left-color: var(--fill-color);
+      border-top-color: var(--fill-color);
+    }
+    30% {
+      border-color: transparent;
+      border-left-color: var(--fill-color);
+      border-top-color: var(--fill-color);
+      border-right-color: var(--fill-color);
+    }
+    40% {
+      border-color: transparent;
+      border-right-color: var(--fill-color);
+      border-top-color: var(--fill-color);
+    }
+    60% {
+      border-color: transparent;
+      border-right-color: var(--fill-color);
+    }
+    80% {
+      border-color: transparent;
+      border-right-color: var(--fill-color);
+      border-bottom-color: var(--fill-color);
+    }
+    90% {
+      border-color: transparent;
+      border-bottom-color: var(--fill-color);
+    }
+  }
+</style>
+
+      <script>
+        async function quickchart(key) {
+          const quickchartButtonEl =
+            document.querySelector('#' + key + ' button');
+          quickchartButtonEl.disabled = true;  // To prevent multiple clicks.
+          quickchartButtonEl.classList.add('colab-df-spinner');
+          try {
+            const charts = await google.colab.kernel.invokeFunction(
+                'suggestCharts', [key], {});
+          } catch (error) {
+            console.error('Error during call to suggestCharts:', error);
+          }
+          quickchartButtonEl.classList.remove('colab-df-spinner');
+          quickchartButtonEl.classList.add('colab-df-quickchart-complete');
+        }
+        (() => {
+          let quickchartButtonEl =
+            document.querySelector('#df-155c41c0-bc3c-4a52-9934-48e1d9bac83e button');
+          quickchartButtonEl.style.display =
+            google.colab.kernel.accessAllowed ? 'block' : 'none';
+        })();
+      </script>
+    </div>
+
+    </div>
+  </div>
+</div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">filtered_df</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s2">&quot;kalimat_cleaned.csv&quot;</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;utf-8&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Data tersimpan di kalimat_cleaned.csv&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Data tersimpan di kalimat_cleaned.csv
+</pre></div>
+</div>
+</div>
+</div>
+<p>Untuk membuat word graph</p>
+<p>Lanjutkan dengan menggunakan <a class="reference external" href="https://www.geeksforgeeks.org/nlp/co-occurence-matrix-in-nlp/">https://www.geeksforgeeks.org/nlp/co-occurence-matrix-in-nlp/</a></p>
+</section>
+<section id="melakukan-tahapan-matrix">
+<h2>4.Melakukan tahapan Matrix<a class="headerlink" href="#melakukan-tahapan-matrix" title="Link to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">nltk</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">nltk.corpus</span><span class="w"> </span><span class="kn">import</span> <span class="n">stopwords</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">nltk.tokenize</span><span class="w"> </span><span class="kn">import</span> <span class="n">word_tokenize</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">collections</span><span class="w"> </span><span class="kn">import</span> <span class="n">defaultdict</span><span class="p">,</span> <span class="n">Counter</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">networkx</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">nx</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+
+<span class="c1"># Download NLTK resources</span>
+<span class="n">nltk</span><span class="o">.</span><span class="n">download</span><span class="p">(</span><span class="s1">&#39;punkt&#39;</span><span class="p">)</span>
+<span class="n">nltk</span><span class="o">.</span><span class="n">download</span><span class="p">(</span><span class="s1">&#39;stopwords&#39;</span><span class="p">)</span>
+
+<span class="c1"># ==========================================================</span>
+<span class="c1"># 1. BACA TEKS DARI DATAFRAME YANG SUDAH ADA</span>
+<span class="c1"># ==========================================================</span>
+<span class="c1"># Menggunakan filtered_df yang sudah tersedia dari langkah sebelumnya</span>
+<span class="n">text</span> <span class="o">=</span> <span class="s2">&quot; &quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">filtered_df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">str</span><span class="p">)</span><span class="o">.</span><span class="n">tolist</span><span class="p">())</span> <span class="c1"># Use filtered_df instead of trying to read a CSV</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Jumlah karakter teks:&quot;</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">text</span><span class="p">))</span>
+<span class="c1"># ==========================================================</span>
+
+<span class="c1"># Preprocess the text</span>
+<span class="c1"># Mengganti stop_words dari &#39;english&#39; ke &#39;indonesian&#39;</span>
+<span class="n">stop_words</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="n">stopwords</span><span class="o">.</span><span class="n">words</span><span class="p">(</span><span class="s1">&#39;indonesian&#39;</span><span class="p">))</span>
+<span class="n">words</span> <span class="o">=</span> <span class="n">word_tokenize</span><span class="p">(</span><span class="n">text</span><span class="o">.</span><span class="n">lower</span><span class="p">())</span>
+<span class="n">words</span> <span class="o">=</span> <span class="p">[</span><span class="n">word</span> <span class="k">for</span> <span class="n">word</span> <span class="ow">in</span> <span class="n">words</span> <span class="k">if</span> <span class="n">word</span><span class="o">.</span><span class="n">isalnum</span><span class="p">()</span> <span class="ow">and</span> <span class="n">word</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">stop_words</span><span class="p">]</span>
+
+<span class="c1"># Define the window size for co-occurrence</span>
+<span class="n">window_size</span> <span class="o">=</span> <span class="mi">2</span>
+
+<span class="c1"># Create a list of co-occurring word pairs</span>
+<span class="n">co_occurrences</span> <span class="o">=</span> <span class="n">defaultdict</span><span class="p">(</span><span class="n">Counter</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">word</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">words</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">max</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">i</span> <span class="o">-</span> <span class="n">window_size</span><span class="p">),</span> <span class="nb">min</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">words</span><span class="p">),</span> <span class="n">i</span> <span class="o">+</span> <span class="n">window_size</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)):</span>
+        <span class="k">if</span> <span class="n">i</span> <span class="o">!=</span> <span class="n">j</span><span class="p">:</span>
+            <span class="n">co_occurrences</span><span class="p">[</span><span class="n">word</span><span class="p">][</span><span class="n">words</span><span class="p">[</span><span class="n">j</span><span class="p">]]</span> <span class="o">+=</span> <span class="mi">1</span>
+
+<span class="c1"># Create a list of unique words</span>
+<span class="n">unique_words</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="n">words</span><span class="p">))</span>
+
+<span class="c1"># Initialize the co-occurrence matrix</span>
+<span class="n">co_matrix</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="nb">len</span><span class="p">(</span><span class="n">unique_words</span><span class="p">),</span> <span class="nb">len</span><span class="p">(</span><span class="n">unique_words</span><span class="p">)),</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">int</span><span class="p">)</span>
+
+<span class="c1"># Populate the co-occurrence matrix</span>
+<span class="n">word_index</span> <span class="o">=</span> <span class="p">{</span><span class="n">word</span><span class="p">:</span> <span class="n">idx</span> <span class="k">for</span> <span class="n">idx</span><span class="p">,</span> <span class="n">word</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">unique_words</span><span class="p">)}</span>
+<span class="k">for</span> <span class="n">word</span><span class="p">,</span> <span class="n">neighbors</span> <span class="ow">in</span> <span class="n">co_occurrences</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+    <span class="k">for</span> <span class="n">neighbor</span><span class="p">,</span> <span class="n">count</span> <span class="ow">in</span> <span class="n">neighbors</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+        <span class="k">if</span> <span class="n">neighbor</span> <span class="ow">in</span> <span class="n">word_index</span><span class="p">:</span>
+            <span class="n">co_matrix</span><span class="p">[</span><span class="n">word_index</span><span class="p">[</span><span class="n">word</span><span class="p">]][</span><span class="n">word_index</span><span class="p">[</span><span class="n">neighbor</span><span class="p">]]</span> <span class="o">=</span> <span class="n">count</span>
+
+<span class="c1"># Create DataFrame</span>
+<span class="n">co_matrix_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">co_matrix</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="n">unique_words</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="n">unique_words</span><span class="p">)</span>
+
+<span class="c1"># Show matrix</span>
+<span class="n">co_matrix_df</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Jumlah karakter teks: 29321
+</pre></div>
+</div>
+<div class="output text_html">
+  <div id="df-faa05ba6-fe3d-4800-944e-f3a7c39ba8e2" class="colab-df-container">
+    <div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>nusantara</th>
+      <th>melibatkan</th>
+      <th>as</th>
+      <th>tergantung</th>
+      <th>berharga</th>
+      <th>peran</th>
+      <th>negative</th>
+      <th>bercerai</th>
+      <th>username</th>
+      <th>alami</th>
+      <th>...</th>
+      <th>dilanjutkan</th>
+      <th>revisi</th>
+      <th>neutral</th>
+      <th>berdasarkan</th>
+      <th>budaya</th>
+      <th>perceraian</th>
+      <th>manual</th>
+      <th>pemahaman</th>
+      <th>bersaing</th>
+      <th>rentan</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>nusantara</th>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>...</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>melibatkan</th>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>...</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>as</th>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>...</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>tergantung</th>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>...</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>berharga</th>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>...</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>perceraian</th>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>...</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>manual</th>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>...</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>pemahaman</th>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>...</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>2</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>bersaing</th>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>...</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>rentan</th>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>...</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+<p>820 rows × 820 columns</p>
+</div>
+    <div class="colab-df-buttons">
+
+  <div class="colab-df-container">
+    <button class="colab-df-convert" onclick="convertToInteractive('df-faa05ba6-fe3d-4800-944e-f3a7c39ba8e2')"
+            title="Convert this dataframe to an interactive table."
+            style="display:none;">
+
+  <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960">
+    <path d="M120-120v-720h720v720H120Zm60-500h600v-160H180v160Zm220 220h160v-160H400v160Zm0 220h160v-160H400v160ZM180-400h160v-160H180v160Zm440 0h160v-160H620v160ZM180-180h160v-160H180v160Zm440 0h160v-160H620v160Z"/>
+  </svg>
+    </button>
+
+  <style>
+    .colab-df-container {
+      display:flex;
+      gap: 12px;
+    }
+
+    .colab-df-convert {
+      background-color: #E8F0FE;
+      border: none;
+      border-radius: 50%;
+      cursor: pointer;
+      display: none;
+      fill: #1967D2;
+      height: 32px;
+      padding: 0 0 0 0;
+      width: 32px;
+    }
+
+    .colab-df-convert:hover {
+      background-color: #E2EBFA;
+      box-shadow: 0px 1px 2px rgba(60, 64, 67, 0.3), 0px 1px 3px 1px rgba(60, 64, 67, 0.15);
+      fill: #174EA6;
+    }
+
+    .colab-df-buttons div {
+      margin-bottom: 4px;
+    }
+
+    [theme=dark] .colab-df-convert {
+      background-color: #3B4455;
+      fill: #D2E3FC;
+    }
+
+    [theme=dark] .colab-df-convert:hover {
+      background-color: #434B5C;
+      box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.15);
+      filter: drop-shadow(0px 1px 2px rgba(0, 0, 0, 0.3));
+      fill: #FFFFFF;
+    }
+  </style>
+
+    <script>
+      const buttonEl =
+        document.querySelector('#df-faa05ba6-fe3d-4800-944e-f3a7c39ba8e2 button.colab-df-convert');
+      buttonEl.style.display =
+        google.colab.kernel.accessAllowed ? 'block' : 'none';
+
+      async function convertToInteractive(key) {
+        const element = document.querySelector('#df-faa05ba6-fe3d-4800-944e-f3a7c39ba8e2');
+        const dataTable =
+          await google.colab.kernel.invokeFunction('convertToInteractive',
+                                                    [key], {});
+        if (!dataTable) return;
+
+        const docLinkHtml = 'Like what you see? Visit the ' +
+          '<a target="_blank" href=https://colab.research.google.com/notebooks/data_table.ipynb>data table notebook</a>'
+          + ' to learn more about interactive tables.';
+        element.innerHTML = '';
+        dataTable['output_type'] = 'display_data';
+        await google.colab.output.renderOutput(dataTable, element);
+        const docLink = document.createElement('div');
+        docLink.innerHTML = docLinkHtml;
+        element.appendChild(docLink);
+      }
+    </script>
+  </div>
+
+
+    <div id="df-5f734fef-47e2-415f-98be-e10ae4bebfc7">
+      <button class="colab-df-quickchart" onclick="quickchart('df-5f734fef-47e2-415f-98be-e10ae4bebfc7')"
+                title="Suggest charts"
+                style="display:none;">
+
+<svg xmlns="http://www.w3.org/2000/svg" height="24px"viewBox="0 0 24 24"
+     width="24px">
+    <g>
+        <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zM9 17H7v-7h2v7zm4 0h-2V7h2v10zm4 0h-2v-4h2v4z"/>
+    </g>
+</svg>
+      </button>
+
+<style>
+  .colab-df-quickchart {
+      --bg-color: #E8F0FE;
+      --fill-color: #1967D2;
+      --hover-bg-color: #E2EBFA;
+      --hover-fill-color: #174EA6;
+      --disabled-fill-color: #AAA;
+      --disabled-bg-color: #DDD;
+  }
+
+  [theme=dark] .colab-df-quickchart {
+      --bg-color: #3B4455;
+      --fill-color: #D2E3FC;
+      --hover-bg-color: #434B5C;
+      --hover-fill-color: #FFFFFF;
+      --disabled-bg-color: #3B4455;
+      --disabled-fill-color: #666;
+  }
+
+  .colab-df-quickchart {
+    background-color: var(--bg-color);
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    display: none;
+    fill: var(--fill-color);
+    height: 32px;
+    padding: 0;
+    width: 32px;
+  }
+
+  .colab-df-quickchart:hover {
+    background-color: var(--hover-bg-color);
+    box-shadow: 0 1px 2px rgba(60, 64, 67, 0.3), 0 1px 3px 1px rgba(60, 64, 67, 0.15);
+    fill: var(--button-hover-fill-color);
+  }
+
+  .colab-df-quickchart-complete:disabled,
+  .colab-df-quickchart-complete:disabled:hover {
+    background-color: var(--disabled-bg-color);
+    fill: var(--disabled-fill-color);
+    box-shadow: none;
+  }
+
+  .colab-df-spinner {
+    border: 2px solid var(--fill-color);
+    border-color: transparent;
+    border-bottom-color: var(--fill-color);
+    animation:
+      spin 1s steps(1) infinite;
+  }
+
+  @keyframes spin {
+    0% {
+      border-color: transparent;
+      border-bottom-color: var(--fill-color);
+      border-left-color: var(--fill-color);
+    }
+    20% {
+      border-color: transparent;
+      border-left-color: var(--fill-color);
+      border-top-color: var(--fill-color);
+    }
+    30% {
+      border-color: transparent;
+      border-left-color: var(--fill-color);
+      border-top-color: var(--fill-color);
+      border-right-color: var(--fill-color);
+    }
+    40% {
+      border-color: transparent;
+      border-right-color: var(--fill-color);
+      border-top-color: var(--fill-color);
+    }
+    60% {
+      border-color: transparent;
+      border-right-color: var(--fill-color);
+    }
+    80% {
+      border-color: transparent;
+      border-right-color: var(--fill-color);
+      border-bottom-color: var(--fill-color);
+    }
+    90% {
+      border-color: transparent;
+      border-bottom-color: var(--fill-color);
+    }
+  }
+</style>
+
+      <script>
+        async function quickchart(key) {
+          const quickchartButtonEl =
+            document.querySelector('#' + key + ' button');
+          quickchartButtonEl.disabled = true;  // To prevent multiple clicks.
+          quickchartButtonEl.classList.add('colab-df-spinner');
+          try {
+            const charts = await google.colab.kernel.invokeFunction(
+                'suggestCharts', [key], {});
+          } catch (error) {
+            console.error('Error during call to suggestCharts:', error);
+          }
+          quickchartButtonEl.classList.remove('colab-df-spinner');
+          quickchartButtonEl.classList.add('colab-df-quickchart-complete');
+        }
+        (() => {
+          let quickchartButtonEl =
+            document.querySelector('#df-5f734fef-47e2-415f-98be-e10ae4bebfc7 button');
+          quickchartButtonEl.style.display =
+            google.colab.kernel.accessAllowed ? 'block' : 'none';
+        })();
+      </script>
+    </div>
+
+  <div id="id_bf13b374-dfcf-42dc-a762-71dc100398d3">
+    <style>
+      .colab-df-generate {
+        background-color: #E8F0FE;
+        border: none;
+        border-radius: 50%;
+        cursor: pointer;
+        display: none;
+        fill: #1967D2;
+        height: 32px;
+        padding: 0 0 0 0;
+        width: 32px;
+      }
+
+      .colab-df-generate:hover {
+        background-color: #E2EBFA;
+        box-shadow: 0px 1px 2px rgba(60, 64, 67, 0.3), 0px 1px 3px 1px rgba(60, 64, 67, 0.15);
+        fill: #174EA6;
+      }
+
+      [theme=dark] .colab-df-generate {
+        background-color: #3B4455;
+        fill: #D2E3FC;
+      }
+
+      [theme=dark] .colab-df-generate:hover {
+        background-color: #434B5C;
+        box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.15);
+        filter: drop-shadow(0px 1px 2px rgba(0, 0, 0, 0.3));
+        fill: #FFFFFF;
+      }
+    </style>
+    <button class="colab-df-generate" onclick="generateWithVariable('co_matrix_df')"
+            title="Generate code using this dataframe."
+            style="display:none;">
+
+  <svg xmlns="http://www.w3.org/2000/svg" height="24px"viewBox="0 0 24 24"
+       width="24px">
+    <path d="M7,19H8.4L18.45,9,17,7.55,7,17.6ZM5,21V16.75L18.45,3.32a2,2,0,0,1,2.83,0l1.4,1.43a1.91,1.91,0,0,1,.58,1.4,1.91,1.91,0,0,1-.58,1.4L9.25,21ZM18.45,9,17,7.55Zm-12,3A5.31,5.31,0,0,0,4.9,8.1,5.31,5.31,0,0,0,1,6.5,5.31,5.31,0,0,0,4.9,4.9,5.31,5.31,0,0,0,6.5,1,5.31,5.31,0,0,0,8.1,4.9,5.31,5.31,0,0,0,12,6.5,5.46,5.46,0,0,0,6.5,12Z"/>
+  </svg>
+    </button>
+    <script>
+      (() => {
+      const buttonEl =
+        document.querySelector('#id_bf13b374-dfcf-42dc-a762-71dc100398d3 button.colab-df-generate');
+      buttonEl.style.display =
+        google.colab.kernel.accessAllowed ? 'block' : 'none';
+
+      buttonEl.onclick = () => {
+        google.colab.notebook.generateWithVariable('co_matrix_df');
+      }
+      })();
+    </script>
+  </div>
+
+    </div>
+  </div>
+</div></div>
+</div>
+</section>
+<section id="melakukan-visualisasi-network-graph">
+<h2>5.Melakukan visualisasi Network Graph<a class="headerlink" href="#melakukan-visualisasi-network-graph" title="Link to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">networkx</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">nx</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+
+<span class="n">G</span> <span class="o">=</span> <span class="n">nx</span><span class="o">.</span><span class="n">from_pandas_adjacency</span><span class="p">(</span><span class="n">co_matrix_df</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span> <span class="mi">15</span><span class="p">))</span>
+<span class="n">pos</span> <span class="o">=</span> <span class="n">nx</span><span class="o">.</span><span class="n">spring_layout</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">k</span><span class="o">=</span><span class="mf">0.15</span><span class="p">,</span> <span class="n">iterations</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
+<span class="n">nx</span><span class="o">.</span><span class="n">draw_networkx_nodes</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">pos</span><span class="p">,</span> <span class="n">node_size</span><span class="o">=</span><span class="mi">700</span><span class="p">,</span> <span class="n">node_color</span><span class="o">=</span><span class="s1">&#39;lightblue&#39;</span><span class="p">)</span>
+<span class="n">nx</span><span class="o">.</span><span class="n">draw_networkx_edges</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">pos</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">edge_color</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">)</span>
+<span class="n">nx</span><span class="o">.</span><span class="n">draw_networkx_labels</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">pos</span><span class="p">,</span> <span class="n">font_size</span><span class="o">=</span><span class="mi">8</span><span class="p">,</span> <span class="n">font_weight</span><span class="o">=</span><span class="s1">&#39;bold&#39;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Co-occurrence Network Graph&quot;</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;off&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/c18e5dc727651e09f62314b3463e615d831962fe507b45ba914ea64394d88c20.png" src="_images/c18e5dc727651e09f62314b3463e615d831962fe507b45ba914ea64394d88c20.png" />
+</div>
+</div>
+</section>
+<section id="menghitung-pagerank-setiap-node-dan-tertinggi">
+<h2>6.Menghitung pagerank setiap node dan tertinggi<a class="headerlink" href="#menghitung-pagerank-setiap-node-dan-tertinggi" title="Link to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">pagerank_scores</span> <span class="o">=</span> <span class="n">nx</span><span class="o">.</span><span class="n">pagerank</span><span class="p">(</span><span class="n">G</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Hasil perhitungan PageRank untuk tiap node:&quot;</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">node</span><span class="p">,</span> <span class="n">score</span> <span class="ow">in</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">pagerank_scores</span><span class="o">.</span><span class="n">items</span><span class="p">(),</span> <span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">item</span><span class="p">:</span> <span class="n">item</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">reverse</span><span class="o">=</span><span class="kc">True</span><span class="p">)[:</span><span class="mi">10</span><span class="p">]:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">node</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">score</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Hasil perhitungan PageRank untuk tiap node:
+data: 0.0297
+pernikahan: 0.0182
+indonesia: 0.0126
+sentimen: 0.0126
+penelitian: 0.0125
+penurunan: 0.0100
+jurnal: 0.0097
+proses: 0.0087
+knn: 0.0081
+algoritma: 0.0081
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span> <span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+
+<span class="c1"># 1. Membuat DataFrame pandas dari dictionary pagerank_scores</span>
+<span class="n">pagerank_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">pagerank_scores</span><span class="o">.</span><span class="n">items</span><span class="p">()),</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Kata&#39;</span><span class="p">,</span> <span class="s1">&#39;Skor PageRank&#39;</span><span class="p">])</span>
+
+<span class="c1"># 2. Mengurutkan DataFrame berdasarkan &#39;Skor PageRank&#39; secara menurun</span>
+<span class="n">pagerank_df</span> <span class="o">=</span> <span class="n">pagerank_df</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="s1">&#39;Skor PageRank&#39;</span><span class="p">,</span> <span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+
+<span class="c1"># 3. Menampilkan 20 kata teratas dari DataFrame yang sudah diurutkan</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;20 kata dengan Skor PageRank tertinggi:&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">pagerank_df</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">drop</span><span class="o">=</span><span class="kc">True</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>20 kata dengan Skor PageRank tertinggi:
+          Kata  Skor PageRank
+0         data       0.029692
+1   pernikahan       0.018170
+2    indonesia       0.012580
+3     sentimen       0.012563
+4   penelitian       0.012494
+5    penurunan       0.010034
+6       jurnal       0.009725
+7       proses       0.008735
+8          knn       0.008134
+9    algoritma       0.008056
+10  masyarakat       0.008011
+11      sosial       0.007987
+12       hasil       0.007395
+13    keluarga       0.007075
+14           3       0.006719
+15       tahap       0.006324
+16    analisis       0.005606
+17         the       0.005578
+18        2024       0.005464
+19          in       0.005212
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="visualisasi-network-graph-dengan-pagerank-coloring">
+<h2>7.Visualisasi Network Graph dengan PageRank Coloring<a class="headerlink" href="#visualisasi-network-graph-dengan-pagerank-coloring" title="Link to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+
+<span class="n">pagerank_values</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">pagerank_scores</span><span class="o">.</span><span class="n">values</span><span class="p">())</span>
+
+<span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="n">pagerank_values</span><span class="p">))</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
+    <span class="n">scores_norm</span> <span class="o">=</span> <span class="p">(</span><span class="n">pagerank_values</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="n">pagerank_values</span><span class="p">))</span> <span class="o">/</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">pagerank_values</span><span class="p">)</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="n">pagerank_values</span><span class="p">))</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="n">scores_norm</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros_like</span><span class="p">(</span><span class="n">pagerank_values</span><span class="p">)</span>
+
+<span class="n">node_colors</span> <span class="o">=</span> <span class="p">[</span><span class="n">scores_norm</span><span class="p">[</span><span class="nb">list</span><span class="p">(</span><span class="n">pagerank_scores</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="n">node</span><span class="p">)]</span> <span class="k">for</span> <span class="n">node</span> <span class="ow">in</span> <span class="n">G</span><span class="o">.</span><span class="n">nodes</span><span class="p">()]</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">18</span><span class="p">,</span> <span class="mi">18</span><span class="p">))</span>
+<span class="n">pos</span> <span class="o">=</span> <span class="n">nx</span><span class="o">.</span><span class="n">spring_layout</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">k</span><span class="o">=</span><span class="mf">0.15</span><span class="p">,</span> <span class="n">iterations</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
+
+<span class="n">nodes</span> <span class="o">=</span> <span class="n">nx</span><span class="o">.</span><span class="n">draw_networkx_nodes</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">pos</span><span class="p">,</span> <span class="n">node_size</span><span class="o">=</span><span class="mi">1000</span><span class="p">,</span> <span class="n">node_color</span><span class="o">=</span><span class="n">node_colors</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">cm</span><span class="o">.</span><span class="n">viridis</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.9</span><span class="p">)</span>
+<span class="n">nx</span><span class="o">.</span><span class="n">draw_networkx_edges</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">pos</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">edge_color</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">)</span>
+<span class="n">nx</span><span class="o">.</span><span class="n">draw_networkx_labels</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">pos</span><span class="p">,</span> <span class="n">font_size</span><span class="o">=</span><span class="mi">8</span><span class="p">,</span> <span class="n">font_weight</span><span class="o">=</span><span class="s1">&#39;bold&#39;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Co-occurrence Network Graph with PageRank Coloring&quot;</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;off&#39;</span><span class="p">)</span>
+
+<span class="n">cbar</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">nodes</span><span class="p">,</span> <span class="n">shrink</span><span class="o">=</span><span class="mf">0.7</span><span class="p">)</span>
+<span class="n">cbar</span><span class="o">.</span><span class="n">set_label</span><span class="p">(</span><span class="s1">&#39;Normalized PageRank Score&#39;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/d23d8960a01c059d223279b756df56b6e2be3094c697ebe6363719f88b0b6310.png" src="_images/d23d8960a01c059d223279b756df56b6e2be3094c697ebe6363719f88b0b6310.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">--- Unique Words (Nodes) ---&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Total unique words (nodes): </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">unique_words</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;First 10 unique words:&quot;</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">word</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">unique_words</span><span class="p">[:</span><span class="mi">10</span><span class="p">]):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;- </span><span class="si">{</span><span class="n">word</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">--- Graph Edges ---&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Total edges in the graph: </span><span class="si">{</span><span class="n">G</span><span class="o">.</span><span class="n">number_of_edges</span><span class="p">()</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;First 10 edges (word co-occurrences):&quot;</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">edge</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">G</span><span class="o">.</span><span class="n">edges</span><span class="p">()):</span>
+    <span class="k">if</span> <span class="n">i</span> <span class="o">&gt;=</span> <span class="mi">10</span><span class="p">:</span>
+        <span class="k">break</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;- </span><span class="si">{</span><span class="n">edge</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="si">}</span><span class="s2"> -- </span><span class="si">{</span><span class="n">edge</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>--- Unique Words (Nodes) ---
+Total unique words (nodes): 820
+First 10 unique words:
+- nusantara
+- melibatkan
+- as
+- tergantung
+- berharga
+- peran
+- negative
+- bercerai
+- username
+- alami
+
+--- Graph Edges ---
+Total edges in the graph: 3496
+First 10 edges (word co-occurrences):
+- nusantara -- islam
+- nusantara -- 4
+- nusantara -- algoritma
+- nusantara -- ibukota
+- nusantara -- naïve
+- nusantara -- jurnal
+- nusantara -- relokasi
+- nusantara -- 1
+- melibatkan -- akhiran
+- melibatkan -- tahapan
+</pre></div>
+</div>
+</div>
+</div>
+<p>[280 rows x 1 columns] → jumlah total baris awal = 280</p>
+<p>Jumlah baris sebelum filter: 280 → sama, 280 baris</p>
+<p>Jumlah baris setelah filter: 230 → setelah dibersihkan / filter kalimat kosong atau tidak relevan, tersisa 230 baris
+Teks awal: 29321 karakter</p>
+<p>Setelah preprocessing: ada 820 kata unik yang dipakai untuk membangun co-occurrence matrix (dan graph network).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Total kata setelah preprocessing:&quot;</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">words</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Jumlah kata unik:&quot;</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">unique_words</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Total kata setelah preprocessing: 2251
+Jumlah kata unik: 820
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+
+<span class="c1"># Misal filtered_df adalah DataFrame setelah filtering baris kosong</span>
+<span class="c1"># words adalah list kata hasil preprocessing</span>
+<span class="c1"># unique_words adalah daftar kata unik dari words</span>
+
+<span class="c1"># Statistik</span>
+<span class="n">jumlah_baris_awal</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">filtered_df</span><span class="p">)</span>  <span class="c1"># sebelum filter</span>
+<span class="n">jumlah_baris_setelah_filter</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">filtered_df</span><span class="p">[</span><span class="n">filtered_df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">str</span><span class="p">)</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="o">!=</span> <span class="s2">&quot;&quot;</span><span class="p">])</span>
+<span class="n">jumlah_karakter</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="n">filtered_df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">str</span><span class="p">)</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="nb">len</span><span class="p">))</span>
+<span class="n">total_kata</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">words</span><span class="p">)</span>
+<span class="n">kata_unik</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">unique_words</span><span class="p">)</span>
+
+<span class="c1"># Buat DataFrame ringkasan</span>
+<span class="n">summary_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span>
+    <span class="s2">&quot;Statistik&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="s2">&quot;Jumlah baris awal&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;Jumlah baris setelah filter&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;Jumlah karakter teks&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;Total kata setelah preprocessing&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;Jumlah kata unik&quot;</span>
+    <span class="p">],</span>
+    <span class="s2">&quot;Nilai&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="n">jumlah_baris_awal</span><span class="p">,</span>
+        <span class="n">jumlah_baris_setelah_filter</span><span class="p">,</span>
+        <span class="n">jumlah_karakter</span><span class="p">,</span>
+        <span class="n">total_kata</span><span class="p">,</span>
+        <span class="n">kata_unik</span>
+    <span class="p">]</span>
+<span class="p">})</span>
+
+<span class="c1"># Tampilkan tabel ringkasan</span>
+<span class="n">display</span><span class="p">(</span><span class="n">summary_df</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">
+  <div id="df-4d8bac41-d080-4fd8-8fe3-886bcd45be2b" class="colab-df-container">
+    <div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Statistik</th>
+      <th>Nilai</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Jumlah baris awal</td>
+      <td>230</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Jumlah baris setelah filter</td>
+      <td>230</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Jumlah karakter teks</td>
+      <td>29092</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Total kata setelah preprocessing</td>
+      <td>2251</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>Jumlah kata unik</td>
+      <td>820</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+    <div class="colab-df-buttons">
+
+  <div class="colab-df-container">
+    <button class="colab-df-convert" onclick="convertToInteractive('df-4d8bac41-d080-4fd8-8fe3-886bcd45be2b')"
+            title="Convert this dataframe to an interactive table."
+            style="display:none;">
+
+  <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960">
+    <path d="M120-120v-720h720v720H120Zm60-500h600v-160H180v160Zm220 220h160v-160H400v160Zm0 220h160v-160H400v160ZM180-400h160v-160H180v160Zm440 0h160v-160H620v160ZM180-180h160v-160H180v160Zm440 0h160v-160H620v160Z"/>
+  </svg>
+    </button>
+
+  <style>
+    .colab-df-container {
+      display:flex;
+      gap: 12px;
+    }
+
+    .colab-df-convert {
+      background-color: #E8F0FE;
+      border: none;
+      border-radius: 50%;
+      cursor: pointer;
+      display: none;
+      fill: #1967D2;
+      height: 32px;
+      padding: 0 0 0 0;
+      width: 32px;
+    }
+
+    .colab-df-convert:hover {
+      background-color: #E2EBFA;
+      box-shadow: 0px 1px 2px rgba(60, 64, 67, 0.3), 0px 1px 3px 1px rgba(60, 64, 67, 0.15);
+      fill: #174EA6;
+    }
+
+    .colab-df-buttons div {
+      margin-bottom: 4px;
+    }
+
+    [theme=dark] .colab-df-convert {
+      background-color: #3B4455;
+      fill: #D2E3FC;
+    }
+
+    [theme=dark] .colab-df-convert:hover {
+      background-color: #434B5C;
+      box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.15);
+      filter: drop-shadow(0px 1px 2px rgba(0, 0, 0, 0.3));
+      fill: #FFFFFF;
+    }
+  </style>
+
+    <script>
+      const buttonEl =
+        document.querySelector('#df-4d8bac41-d080-4fd8-8fe3-886bcd45be2b button.colab-df-convert');
+      buttonEl.style.display =
+        google.colab.kernel.accessAllowed ? 'block' : 'none';
+
+      async function convertToInteractive(key) {
+        const element = document.querySelector('#df-4d8bac41-d080-4fd8-8fe3-886bcd45be2b');
+        const dataTable =
+          await google.colab.kernel.invokeFunction('convertToInteractive',
+                                                    [key], {});
+        if (!dataTable) return;
+
+        const docLinkHtml = 'Like what you see? Visit the ' +
+          '<a target="_blank" href=https://colab.research.google.com/notebooks/data_table.ipynb>data table notebook</a>'
+          + ' to learn more about interactive tables.';
+        element.innerHTML = '';
+        dataTable['output_type'] = 'display_data';
+        await google.colab.output.renderOutput(dataTable, element);
+        const docLink = document.createElement('div');
+        docLink.innerHTML = docLinkHtml;
+        element.appendChild(docLink);
+      }
+    </script>
+  </div>
+
+
+    <div id="df-42063f6e-0c7f-4f7c-986d-fbe5c7d47faf">
+      <button class="colab-df-quickchart" onclick="quickchart('df-42063f6e-0c7f-4f7c-986d-fbe5c7d47faf')"
+                title="Suggest charts"
+                style="display:none;">
+
+<svg xmlns="http://www.w3.org/2000/svg" height="24px"viewBox="0 0 24 24"
+     width="24px">
+    <g>
+        <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zM9 17H7v-7h2v7zm4 0h-2V7h2v10zm4 0h-2v-4h2v4z"/>
+    </g>
+</svg>
+      </button>
+
+<style>
+  .colab-df-quickchart {
+      --bg-color: #E8F0FE;
+      --fill-color: #1967D2;
+      --hover-bg-color: #E2EBFA;
+      --hover-fill-color: #174EA6;
+      --disabled-fill-color: #AAA;
+      --disabled-bg-color: #DDD;
+  }
+
+  [theme=dark] .colab-df-quickchart {
+      --bg-color: #3B4455;
+      --fill-color: #D2E3FC;
+      --hover-bg-color: #434B5C;
+      --hover-fill-color: #FFFFFF;
+      --disabled-bg-color: #3B4455;
+      --disabled-fill-color: #666;
+  }
+
+  .colab-df-quickchart {
+    background-color: var(--bg-color);
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    display: none;
+    fill: var(--fill-color);
+    height: 32px;
+    padding: 0;
+    width: 32px;
+  }
+
+  .colab-df-quickchart:hover {
+    background-color: var(--hover-bg-color);
+    box-shadow: 0 1px 2px rgba(60, 64, 67, 0.3), 0 1px 3px 1px rgba(60, 64, 67, 0.15);
+    fill: var(--button-hover-fill-color);
+  }
+
+  .colab-df-quickchart-complete:disabled,
+  .colab-df-quickchart-complete:disabled:hover {
+    background-color: var(--disabled-bg-color);
+    fill: var(--disabled-fill-color);
+    box-shadow: none;
+  }
+
+  .colab-df-spinner {
+    border: 2px solid var(--fill-color);
+    border-color: transparent;
+    border-bottom-color: var(--fill-color);
+    animation:
+      spin 1s steps(1) infinite;
+  }
+
+  @keyframes spin {
+    0% {
+      border-color: transparent;
+      border-bottom-color: var(--fill-color);
+      border-left-color: var(--fill-color);
+    }
+    20% {
+      border-color: transparent;
+      border-left-color: var(--fill-color);
+      border-top-color: var(--fill-color);
+    }
+    30% {
+      border-color: transparent;
+      border-left-color: var(--fill-color);
+      border-top-color: var(--fill-color);
+      border-right-color: var(--fill-color);
+    }
+    40% {
+      border-color: transparent;
+      border-right-color: var(--fill-color);
+      border-top-color: var(--fill-color);
+    }
+    60% {
+      border-color: transparent;
+      border-right-color: var(--fill-color);
+    }
+    80% {
+      border-color: transparent;
+      border-right-color: var(--fill-color);
+      border-bottom-color: var(--fill-color);
+    }
+    90% {
+      border-color: transparent;
+      border-bottom-color: var(--fill-color);
+    }
+  }
+</style>
+
+      <script>
+        async function quickchart(key) {
+          const quickchartButtonEl =
+            document.querySelector('#' + key + ' button');
+          quickchartButtonEl.disabled = true;  // To prevent multiple clicks.
+          quickchartButtonEl.classList.add('colab-df-spinner');
+          try {
+            const charts = await google.colab.kernel.invokeFunction(
+                'suggestCharts', [key], {});
+          } catch (error) {
+            console.error('Error during call to suggestCharts:', error);
+          }
+          quickchartButtonEl.classList.remove('colab-df-spinner');
+          quickchartButtonEl.classList.add('colab-df-quickchart-complete');
+        }
+        (() => {
+          let quickchartButtonEl =
+            document.querySelector('#df-42063f6e-0c7f-4f7c-986d-fbe5c7d47faf button');
+          quickchartButtonEl.style.display =
+            google.colab.kernel.accessAllowed ? 'block' : 'none';
+        })();
+      </script>
+    </div>
+
+  <div id="id_affcd6e3-a6b5-4f5c-82ec-78906bee9f5d">
+    <style>
+      .colab-df-generate {
+        background-color: #E8F0FE;
+        border: none;
+        border-radius: 50%;
+        cursor: pointer;
+        display: none;
+        fill: #1967D2;
+        height: 32px;
+        padding: 0 0 0 0;
+        width: 32px;
+      }
+
+      .colab-df-generate:hover {
+        background-color: #E2EBFA;
+        box-shadow: 0px 1px 2px rgba(60, 64, 67, 0.3), 0px 1px 3px 1px rgba(60, 64, 67, 0.15);
+        fill: #174EA6;
+      }
+
+      [theme=dark] .colab-df-generate {
+        background-color: #3B4455;
+        fill: #D2E3FC;
+      }
+
+      [theme=dark] .colab-df-generate:hover {
+        background-color: #434B5C;
+        box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.15);
+        filter: drop-shadow(0px 1px 2px rgba(0, 0, 0, 0.3));
+        fill: #FFFFFF;
+      }
+    </style>
+    <button class="colab-df-generate" onclick="generateWithVariable('summary_df')"
+            title="Generate code using this dataframe."
+            style="display:none;">
+
+  <svg xmlns="http://www.w3.org/2000/svg" height="24px"viewBox="0 0 24 24"
+       width="24px">
+    <path d="M7,19H8.4L18.45,9,17,7.55,7,17.6ZM5,21V16.75L18.45,3.32a2,2,0,0,1,2.83,0l1.4,1.43a1.91,1.91,0,0,1,.58,1.4,1.91,1.91,0,0,1-.58,1.4L9.25,21ZM18.45,9,17,7.55Zm-12,3A5.31,5.31,0,0,0,4.9,8.1,5.31,5.31,0,0,0,1,6.5,5.31,5.31,0,0,0,4.9,4.9,5.31,5.31,0,0,0,6.5,1,5.31,5.31,0,0,0,8.1,4.9,5.31,5.31,0,0,0,12,6.5,5.46,5.46,0,0,0,6.5,12Z"/>
+  </svg>
+    </button>
+    <script>
+      (() => {
+      const buttonEl =
+        document.querySelector('#id_affcd6e3-a6b5-4f5c-82ec-78906bee9f5d button.colab-df-generate');
+      buttonEl.style.display =
+        google.colab.kernel.accessAllowed ? 'block' : 'none';
+
+      buttonEl.onclick = () => {
+        google.colab.notebook.generateWithVariable('summary_df');
+      }
+      })();
+    </script>
+  </div>
+
+    </div>
+  </div>
+</div></div>
+</div>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">H.Word_Graph</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#tugas-word-graph-paper">Tugas word_graph paper</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#melakukan-estrak-kalimat">2.Melakukan Estrak Kalimat</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pembersihan-teks-cleaning">3.Pembersihan Teks(Cleaning)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#melakukan-tahapan-matrix">4.Melakukan tahapan Matrix</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#melakukan-visualisasi-network-graph">5.Melakukan visualisasi Network Graph</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#menghitung-pagerank-setiap-node-dan-tertinggi">6.Menghitung pagerank setiap node dan tertinggi</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#visualisasi-network-graph-dengan-pagerank-coloring">7.Visualisasi Network Graph dengan PageRank Coloring</a></li>
+</ul>
+</li>
+</ul>
+
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By The Jupyter Book Community
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
